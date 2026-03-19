@@ -1,0 +1,36 @@
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
+import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
+import { AnimatePresence } from 'motion/react';
+import App from './App.tsx';
+import Business from './Business.tsx';
+import Corporate from './Corporate.tsx';
+import { Toggle } from './Toggle.tsx';
+import './index.css';
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <>
+      {/* Toggle lives here — outside AnimatePresence, always mounted, never destroyed.
+          This is what makes the pill animation fluid across page transitions. */}
+      <Toggle />
+      <AnimatePresence mode="wait">
+        {/* @ts-ignore - React Router v6 Routes accepts key, but TS defs sometimes complain */}
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<App />} />
+          <Route path="/business" element={<Business />} />
+          <Route path="/corporate" element={<Corporate />} />
+        </Routes>
+      </AnimatePresence>
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
+  </StrictMode>,
+);
