@@ -1,8 +1,8 @@
 /**
  * Sniffer Business Landing Page
  */
-import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Search, MessageCircle, BarChart3, MapPin, Star, Phone, ShoppingBag, Clock, Shield, ChevronDown, ChevronLeft, ChevronRight, Check as CheckIcon } from 'lucide-react';
+import { useState, useEffect, useRef, type CSSProperties } from 'react';
+import { Menu, X, Shield, ChevronDown, ChevronLeft, ChevronRight, Check as CheckIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 /* ───────────────────── Counter hook ───────────────────── */
 function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
@@ -35,83 +35,418 @@ function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
   return { display, ref };
 }
 
-/* ───────────────────── Comparison Table Data ───────────────────── */
-const tableCategories = [
-  {
-    name: 'ATENDIMENTO',
-    rows: [
-      { feature: 'Suporte Técnico N1', basic: true, plus: true, business: true, enterprise: true },
-      { feature: 'Suporte Técnico N2', basic: false, plus: true, business: true, enterprise: true },
-      { feature: 'Suporte Técnico N3', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Executivo de Conta', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    name: 'EXPOSIÇÃO',
-    rows: [
-      { feature: 'Rating (ranqueamento)', basic: true, plus: true, business: true, enterprise: true },
-      { feature: 'Reviews (avaliações)', basic: true, plus: true, business: true, enterprise: true },
-      { feature: 'Selo Verified Sniffer', basic: false, plus: true, business: true, enterprise: true },
-      { feature: 'Ranking Search & Mapping', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Moderação de Reviews', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    name: 'LOCALIZAÇÃO',
-    rows: [
-      { feature: '1 localização', basic: true, plus: true, business: true, enterprise: true },
-      { feature: '2 a 3 localizações', basic: false, plus: true, business: true, enterprise: true },
-      { feature: '4 a 6 localizações', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'A partir de 7 localizações', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    name: 'INTELIGÊNCIA',
-    rows: [
-      { feature: 'Volume de visualizações', basic: true, plus: true, business: true, enterprise: true },
-      { feature: 'Volume de interações e pesquisas', basic: false, plus: true, business: true, enterprise: true },
-      { feature: 'Análises comparativas de mercado', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'BI customizado e integrado', basic: false, plus: false, business: false, enterprise: true },
-      { feature: 'Demandas fora do nicho na região', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    name: 'ADVERTISING',
-    rows: [
-      { feature: 'Feed com cardápio/ação', basic: true, plus: true, business: true, enterprise: true },
-      { feature: 'Criação de comunidade', basic: true, plus: true, business: true, enterprise: true },
-      { feature: '1 promoção ativa por vez', basic: false, plus: true, business: true, enterprise: true },
-      { feature: 'Enviar arquivo/foto/vídeo', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Promoções ilimitadas', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Feed personalizado (fotos/vídeos)', basic: false, plus: false, business: false, enterprise: true },
-      { feature: 'Push notification (raio X km)', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
-  {
-    name: 'TECNOLOGIA',
-    rows: [
-      { feature: 'Sniffer Labs Store (SLS)', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Integrações automatizadas (Google, Meta, Apple)', basic: false, plus: false, business: true, enterprise: true },
-      { feature: 'Integrações customizadas (ERP/etc)', basic: false, plus: false, business: false, enterprise: true },
-    ],
-  },
+
+/* ───────────────────── Navbar Solutions items ───────────────────── */
+const solutionsItems = [
+  { icon: '📍', label: 'Meu Território', desc: 'Presença digital completa para PMEs', href: '#como-funciona' },
+  { icon: '💛', label: 'Meu Xodó', desc: 'Camada de confiança e programa de indicação', href: '#como-funciona' },
+  { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '#como-funciona' },
+  { icon: '💬', label: 'Uivo', desc: 'Mensageria: DM, grupos e live', href: '#como-funciona' },
+  { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '#como-funciona' },
+  { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '#como-funciona' },
+  { icon: '🔦', label: 'Spotlight', desc: 'Anúncio nativo no Place Card do negócio', href: '#planos' },
 ];
 
-const Check = () => <span className="text-verdeSniffer font-bold text-lg">✓</span>;
-const Dash = () => <span className="text-gray-500 text-lg">—</span>;
+/* ───────────────────── BusinessNavbar ───────────────────── */
+function BusinessNavbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-/* ───────────────────── Main Component ───────────────────── */
+  const openDropdown = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    setSolutionsOpen(true);
+  };
+  const closeDropdown = () => {
+    hoverTimer.current = setTimeout(() => setSolutionsOpen(false), 100);
+  };
+
+  // Close on Escape
+  useEffect(() => {
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') setSolutionsOpen(false);
+    }
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
+  const navLinkStyle: CSSProperties = {
+    fontFamily: "'Ferom', Inter, sans-serif",
+    fontWeight: 500,
+    fontSize: '15px',
+    color: '#332D59',
+    textDecoration: 'none',
+    transition: 'color 200ms ease',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    lineHeight: 1,
+  };
+
+  return (
+    <header
+      style={{
+        position: 'sticky',
+        top: '80px',
+        zIndex: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.92)',
+        backdropFilter: 'blur(28px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(28px) saturate(180%)',
+        boxShadow: '0 4px 32px rgba(0, 0, 0, 0.13)',
+        borderRadius: '16px',
+        margin: '0 24px',
+        height: '72px',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 24px',
+          height: '100%',
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr',
+          alignItems: 'center',
+        }}
+      >
+        {/* ── Logo (col 1) ── */}
+        <a href="/business" style={{ display: 'flex', alignItems: 'center', justifySelf: 'start' }}>
+          <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
+        </a>
+
+        {/* ── Desktop Nav Links ── */}
+        <nav aria-label="Menu principal" className="hidden lg:flex">
+          <ul
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '32px',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            <li>
+              <a
+                href="#quem-somos"
+                style={navLinkStyle}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#332D59';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'none';
+                }}
+              >
+                Quem Somos
+              </a>
+            </li>
+
+            {/* Solutions dropdown */}
+            <li
+              style={{ position: 'relative' }}
+              onMouseEnter={openDropdown}
+              onMouseLeave={closeDropdown}
+            >
+              <button
+                aria-expanded={solutionsOpen}
+                aria-haspopup="menu"
+                onClick={() => setSolutionsOpen(v => !v)}
+                style={{ ...navLinkStyle, display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+              >
+                Solutions
+                <ChevronDown
+                  size={14}
+                  style={{
+                    color: '#00A896',
+                    transition: 'transform 200ms ease',
+                    transform: solutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  }}
+                />
+              </button>
+
+              {/* Dropdown panel — 3 colunas, retangular */}
+              <div
+                onMouseEnter={openDropdown}
+                onMouseLeave={closeDropdown}
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: '50%',
+                  width: '1100px',
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  boxShadow: '0 8px 32px rgba(51, 45, 89, 0.10)',
+                  border: '1px solid #E8E8E8',
+                  padding: '40px',
+                  display: 'grid',
+                  gridTemplateColumns: '200px 1fr 1fr',
+                  gap: 0,
+                  zIndex: 100,
+                  opacity: solutionsOpen ? 1 : 0,
+                  transform: solutionsOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-6px)',
+                  pointerEvents: solutionsOpen ? 'auto' : 'none',
+                  transition: 'opacity 0.2s ease, transform 0.2s ease',
+                }}
+              >
+                {/* Col 1 — título + descrição */}
+                <div style={{ paddingRight: '32px', borderRight: '1px solid #D3D3D3' }}>
+                  <span style={{
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    fontWeight: 700,
+                    fontSize: '18px',
+                    color: '#332D59',
+                    display: 'block',
+                    marginBottom: '12px',
+                  }}>Solutions</span>
+                  <p style={{
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    fontSize: '13px',
+                    color: '#888',
+                    lineHeight: 1.6,
+                    maxWidth: '180px',
+                    margin: 0,
+                  }}>
+                    Descubra os produtos Sniffer para transformar a presença digital do seu negócio local.
+                  </p>
+                </div>
+
+                {/* Col 2 + 3 — grid de produtos */}
+                <div style={{
+                  gridColumn: 'span 2',
+                  paddingLeft: '32px',
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr 1fr 1fr',
+                  gap: '4px',
+                  alignContent: 'start',
+                }}>
+                  {solutionsItems.map(item => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setSolutionsOpen(false)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '10px',
+                        padding: '10px 12px',
+                        textDecoration: 'none',
+                        backgroundColor: 'transparent',
+                        transition: 'background-color 150ms ease',
+                        cursor: 'pointer',
+                      }}
+                      onMouseEnter={e => {
+                        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#F2F2F2';
+                      }}
+                      onMouseLeave={e => {
+                        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+                      }}
+                    >
+                      <span style={{ fontSize: '20px', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>{item.icon}</span>
+                      <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                        <span style={{
+                          fontFamily: "'Ferom', Inter, sans-serif",
+                          fontWeight: 600,
+                          fontSize: '14px',
+                          color: '#332D59',
+                          display: 'block',
+                        }}>{item.label}</span>
+                        <span style={{
+                          fontFamily: "'Ferom', Inter, sans-serif",
+                          fontSize: '12px',
+                          color: '#888',
+                          display: 'block',
+                        }}>{item.desc}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a
+                href="#como-funciona"
+                style={navLinkStyle}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#332D59';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'none';
+                }}
+              >
+                Como Funciona
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#planos"
+                style={navLinkStyle}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#332D59';
+                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'none';
+                }}
+              >
+                Planos
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* ── Right: CTAs + Hamburger (col 3) ── */}
+        <div style={{ justifySelf: 'end', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Ghost Login */}
+            <button
+              style={{
+                background: 'transparent',
+                border: '1px solid #D3D3D3',
+                borderRadius: '10px',
+                padding: '10px 20px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 500,
+                fontSize: '15px',
+                color: '#332D59',
+                cursor: 'pointer',
+                transition: 'border-color 200ms ease, color 200ms ease',
+                lineHeight: 1,
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLButtonElement;
+                el.style.borderColor = '#00A896';
+                el.style.color = '#00A896';
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLButtonElement;
+                el.style.borderColor = '#D3D3D3';
+                el.style.color = '#332D59';
+              }}
+            >
+              Login
+            </button>
+
+            {/* CTA Criar Conta */}
+            <button
+              style={{
+                background: '#00A896',
+                border: 'none',
+                borderRadius: '10px',
+                padding: '10px 24px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 700,
+                fontSize: '15px',
+                color: '#FFFFFF',
+                cursor: 'pointer',
+                transition: 'background-color 200ms ease',
+                lineHeight: 1,
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896';
+              }}
+            >
+              Criar Conta
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Mobile Menu Panel ── */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderBottom: '1px solid #D3D3D3',
+            padding: '20px 24px 24px',
+          }}
+        >
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, marginBottom: '20px' }}>
+            {[
+              { label: 'Quem Somos', href: '#quem-somos' },
+              { label: 'Solutions', href: '#como-funciona' },
+              { label: 'Como Funciona', href: '#como-funciona' },
+              { label: 'Planos', href: '#planos' },
+            ].map(item => (
+              <li key={item.href} style={{ borderBottom: '1px solid #F2F2F2' }}>
+                <a
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '14px 0',
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    fontWeight: 500,
+                    fontSize: '15px',
+                    color: '#332D59',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <button
+              style={{
+                background: 'transparent',
+                border: '1px solid #D3D3D3',
+                borderRadius: '10px',
+                padding: '12px 20px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 500,
+                fontSize: '15px',
+                color: '#332D59',
+                cursor: 'pointer',
+                width: '100%',
+              }}
+            >
+              Login
+            </button>
+            <button
+              style={{
+                background: '#00A896',
+                border: 'none',
+                borderRadius: '10px',
+                padding: '12px 24px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 700,
+                fontSize: '15px',
+                color: '#FFFFFF',
+                cursor: 'pointer',
+                width: '100%',
+              }}
+            >
+              Criar Conta
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
 export default function Business() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
-  const [currentPlanIndex, setCurrentPlanIndex] = useState(1); // Start with 'Plus'
+  const [currentPlanIndex, setCurrentPlanIndex] = useState(1);
 
-  const nextPlan = () => setCurrentPlanIndex((prev) => (prev + 1) % 4);
-  const prevPlan = () => setCurrentPlanIndex((prev) => (prev - 1 + 4) % 4);
+  const nextPlan = () => setCurrentPlanIndex((prev: number) => (prev + 1) % 4);
+  const prevPlan = () => setCurrentPlanIndex((prev: number) => (prev - 1 + 4) % 4);
 
   // Count-up metrics
   const m1 = useCountUp(40, 2000, 'R$ ', ' bi+');
-  const m2 = useCountUp(3, 1500, '', ' pilares');
   const m3 = useCountUp(4, 1500, '', ' planos');
   const m4 = useCountUp(1, 1000, '', ' objetivo');
 
@@ -121,133 +456,31 @@ export default function Business() {
       animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
       exit={{ opacity: 0, scale: 1.02, filter: 'blur(4px)' }}
       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-      className="bg-white text-navy antialiased min-h-screen" 
+      className="bg-white text-navy antialiased min-h-screen pt-20"
       style={{ fontFamily: 'var(--font-nunito)' }}
     >
 
       {/* ═══════════════════ NAVBAR ═══════════════════ */}
-      <header className="fixed top-[56px] inset-x-0 z-50">
-        <nav className="max-w-7xl mx-auto px-4">
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 px-6 lg:gap-0 lg:py-3 bg-white/40 backdrop-blur-xl border border-white/60 shadow-lg shadow-navy/5 rounded-full">
-            <div className="flex w-full justify-between lg:w-auto">
-              <a href="/business" className="flex items-center">
-                <img src="/logo-sniffer-wordmark.png" alt="Sniffer" className="h-8 w-auto" />
-              </a>
-              <button
-                className="relative z-20 -m-1 block cursor-pointer p-2 lg:hidden text-navy"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-                aria-expanded={isMobileMenuOpen}
-              >
-                {isMobileMenuOpen ? <X className="size-6 duration-200" /> : <Menu className="size-6 duration-200" />}
-              </button>
-            </div>
-
-            {/* Desktop Center Links */}
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-              <ul className="flex gap-8 text-sm font-semibold list-none">
-                <li><a href="#como-funciona" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Como funciona</a></li>
-                <li><a href="#planos" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Planos</a></li>
-                <li><a href="#parceiros" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Para parceiros</a></li>
-              </ul>
-            </div>
-
-            {/* Right CTA + Mobile Menu */}
-            <div className={`${isMobileMenuOpen ? 'flex' : 'hidden'} bg-white/95 lg:bg-transparent backdrop-blur-xl mt-4 lg:mt-0 w-full flex-wrap items-center justify-end space-y-6 rounded-3xl border border-navy/5 p-6 shadow-2xl shadow-navy/10 lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:p-0 lg:shadow-none`}>
-              <div className="lg:hidden w-full">
-                <ul className="space-y-6 text-base font-semibold list-none">
-                  <li><a href="#como-funciona" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Como funciona</a></li>
-                  <li><a href="#planos" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Planos</a></li>
-                  <li><a href="#parceiros" className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150">Para parceiros</a></li>
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 lg:w-fit">
-                <button className="bg-verdeSniffer text-navy px-6 py-2 rounded-full font-bold hover:opacity-90 transition-all text-sm w-full lg:w-auto shadow-sm">
-                  Começar grátis
-                </button>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <BusinessNavbar />
 
       {/* ═══════════════════ SEÇÃO 1 — HERO ═══════════════════ */}
-      <section className="pt-40 pb-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left — Copy */}
-          <div>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-verdeSniffer/20 bg-verdeSniffer/5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-verdeSniffer animate-pulse"></span>
-              <span className="text-xs font-bold text-navy/70 tracking-wide">Novo modelo SVA</span>
-            </div>
+      <section className="pt-28 pb-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-jakarta)' }}>
-              Seu negócio não precisa de mais visibilidade. Precisa de{' '}
-              <span className="text-verdeSniffer" style={{ textDecoration: 'underline', textDecorationColor: 'rgba(120,200,122,0.3)', textUnderlineOffset: '6px', textDecorationThickness: '3px' }}>resultado.</span>
-            </h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-jakarta)' }}>
+            As grandes plataformas te ignoraram.{' '}
+            <span className="text-verdeSniffer">A Sniffer foi feita pra você.</span>
+          </h1>
 
-            <p className="text-navy/80 text-lg leading-relaxed mb-8 max-w-[560px]" style={{ fontFamily: 'var(--font-nunito)' }}>
-              O Sniffer Business transforma presença digital em leads verificáveis, conversões reais e inteligência de mercado. Tudo o que o modelo antigo prometeu — e nunca entregou.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-8">
-              <button className="bg-verdeSniffer text-navy px-8 py-3.5 rounded-full font-extrabold text-base hover:scale-105 transition-transform shadow-lg shadow-verdeSniffer/20">
-                Começar grátis
-              </button>
-              <a href="#planos" className="border border-navy/15 text-navy/60 px-8 py-3.5 rounded-full font-bold text-base hover:border-navy/30 transition-all">
-                Ver planos ↓
-              </a>
-            </div>
-
-            <p className="text-sm text-navy/40 font-medium">
-              Presença · Interação · Inteligência — os três pilares que movem seu negócio.
-            </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <button className="bg-verdeSniffer text-navy px-8 py-3.5 rounded-full font-extrabold text-base hover:scale-105 transition-transform shadow-lg shadow-verdeSniffer/20">
+              Começar grátis
+            </button>
           </div>
 
-          {/* Right — Business Card Mockup */}
-          <div className="flex justify-center">
-            <div className="relative w-[320px] sm:w-[360px]" style={{ animation: 'float-card 6s ease-in-out infinite' }}>
-              <div className="bg-white rounded-3xl shadow-2xl shadow-navy/10 border border-gray-100 overflow-hidden" style={{ transform: 'perspective(1000px) rotateY(-3deg) rotateX(1deg)' }}>
-                {/* Card cover */}
-                <div className="bg-gradient-to-br from-verdeSniffer/30 to-verdeSniffer/10 h-36 flex items-end justify-between px-5 pb-4">
-                  <div className="bg-white rounded-2xl p-2 shadow-md -mb-8">
-                    <div className="w-14 h-14 bg-verdeSniffer/20 rounded-xl flex items-center justify-center text-2xl">🍕</div>
-                  </div>
-                  <div className="flex items-center gap-1 bg-white/80 backdrop-blur px-2.5 py-1 rounded-full text-xs font-bold text-navy">
-                    <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" /> 4.8
-                  </div>
-                </div>
-                {/* Card body */}
-                <div className="px-5 pt-10 pb-5">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-extrabold text-lg" style={{ fontFamily: 'var(--font-jakarta)' }}>Pizzaria Bella Massa</h3>
-                    <Shield className="w-4 h-4 text-verdeSniffer" />
-                  </div>
-                  <p className="text-navy/50 text-xs mb-4 flex items-center gap-1"><MapPin className="w-3 h-3" /> Próximo a você · 800m</p>
-
-                  <div className="grid grid-cols-4 gap-2 mb-4">
-                    {[
-                      { icon: <Phone className="w-4 h-4" />, label: 'Ligar' },
-                      { icon: <ShoppingBag className="w-4 h-4" />, label: 'Pedir' },
-                      { icon: <MessageCircle className="w-4 h-4" />, label: 'Chat' },
-                      { icon: <Clock className="w-4 h-4" />, label: 'Horários' },
-                    ].map((a) => (
-                      <div key={a.label} className="flex flex-col items-center gap-1 p-2 rounded-xl bg-navy/[0.03] text-navy/60 text-[10px] font-semibold">
-                        {a.icon}
-                        {a.label}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs text-navy/40">
-                    <span className="bg-verdeSniffer/10 text-verdeSniffer px-2 py-0.5 rounded-full font-bold">Aberto</span>
-                    <span>Fecha às 23h</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p className="text-sm text-navy/40 font-medium">
+            Presença · Interação · Inteligência — o que move seu negócio.
+          </p>
         </div>
       </section>
 
@@ -291,57 +524,6 @@ export default function Business() {
           <p className="text-center text-gray-500 text-[0.95rem] max-w-[600px] mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-nunito)' }}>
             PMEs brasileiras investem mais de R$ 40 bilhões por ano em marketing e tecnologia. A maioria vai pra ferramentas que entregam alcance — não resultado. A gente tá aqui pra mudar isso.
           </p>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-gray-200" /></div>
-
-      {/* ═══════════════════ SEÇÃO 3 — TRÊS PILARES ═══════════════════ */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-14" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            Três pilares. Um só objetivo:<br />seu negócio crescer.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                num: '01',
-                icon: <Search className="w-7 h-7 text-verdeSniffer" />,
-                title: 'Presença',
-                subtitle: 'Seja encontrado e escolhido.',
-                text: 'Business Card digital com links diretos pra compra, reserva, WhatsApp e delivery. Avaliações verificadas, selo Sniffer e posição no ranking de busca e mapa. Não é listagem — é vitrine que vende.',
-              },
-              {
-                num: '02',
-                icon: <MessageCircle className="w-7 h-7 text-verdeSniffer" />,
-                title: 'Interação',
-                subtitle: 'Engaje e converta clientes de verdade.',
-                text: 'Crie sua comunidade de clientes fiéis. Promoções diretas com controle de validade e limite. Push notification por raio geográfico. Feed com cardápio, fotos e vídeos. Seu público, no seu território.',
-              },
-              {
-                num: '03',
-                icon: <BarChart3 className="w-7 h-7 text-verdeSniffer" />,
-                title: 'Inteligência',
-                subtitle: 'Decida com dados, não com achismo.',
-                text: 'Dashboard com volume de visualizações, interações e pesquisas. Análise comparativa com concorrentes da região. Detecção de demandas não atendidas no seu bairro. A padaria do bairro com a mesma inteligência de uma grande rede.',
-              },
-            ].map((card) => (
-              <div
-                key={card.num}
-                className="relative border border-gray-200 border-b-[3px] border-b-transparent rounded-[20px] p-9 overflow-hidden group hover:shadow-lg hover:border-b-verdeSniffer transition-all duration-300"
-              >
-                {/* Decorative number */}
-                <span className="absolute top-4 right-4 text-[5rem] font-extrabold leading-none text-verdeSniffer/[0.08] select-none" style={{ fontFamily: 'var(--font-jakarta)' }}>
-                  {card.num}
-                </span>
-                <div className="mb-5">{card.icon}</div>
-                <h3 className="font-extrabold text-xl mb-1" style={{ fontFamily: 'var(--font-jakarta)' }}>{card.title}</h3>
-                <p className="text-verdeSniffer font-semibold text-sm mb-3">{card.subtitle}</p>
-                <p className="text-navy/60 text-[0.9rem] leading-relaxed">{card.text}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -565,116 +747,12 @@ export default function Business() {
               ))}
             </div>
             
-            <div className="text-center">
-              <a href="#tabela-comparativa" className="inline-flex items-center gap-1.5 text-sm font-bold text-navy/60 hover:text-verdeSniffer transition-colors">
-                Comparar todas as funcionalidades
-                <ChevronDown className="w-4 h-4" />
-              </a>
-            </div>
 
           </div>
 
           <p className="text-center text-navy/40 text-sm mt-8 hidden">
             Todos com período de teste. Sem contrato. Cancele quando quiser.
           </p>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-gray-200" /></div>
-
-      {/* ═══════════════════ SEÇÃO 6 — TABELA COMPARATIVA ═══════════════════ */}
-      <section id="tabela-comparativa" className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-14" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            Compare os planos em detalhe.
-          </h2>
-
-          {/* Desktop table */}
-          <div className="hidden lg:block overflow-hidden border border-gray-200 rounded-2xl">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th scope="col" className="text-left py-4 px-6 font-bold text-navy/40 w-[280px]">Recurso</th>
-                  <th scope="col" className="text-center py-4 px-4">
-                    <div className="font-extrabold text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Basic</div>
-                    <div className="text-navy/50 text-xs font-bold">Grátis</div>
-                  </th>
-                  <th scope="col" className="text-center py-4 px-4 bg-verdeSniffer/[0.03]">
-                    <div className="font-extrabold text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Plus</div>
-                    <div className="text-navy/50 text-xs font-bold">R$ 60/mês</div>
-                  </th>
-                  <th scope="col" className="text-center py-4 px-4">
-                    <div className="font-extrabold text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Business</div>
-                    <div className="text-navy/50 text-xs font-bold">R$ 140/mês</div>
-                  </th>
-                  <th scope="col" className="text-center py-4 px-4">
-                    <div className="font-extrabold text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Enterprise</div>
-                    <div className="text-navy/50 text-xs font-bold">R$ 230/mês</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableCategories.map((cat) => (
-                  <>
-                    <tr key={cat.name}>
-                      <td colSpan={5} className="bg-offWhiteBg px-6 py-2.5 uppercase text-[0.7rem] font-bold text-navy tracking-[1px]" style={{ fontFamily: 'var(--font-jakarta)' }}>
-                        {cat.name}
-                      </td>
-                    </tr>
-                    {cat.rows.map((row, i) => (
-                      <tr key={row.feature} className={i % 2 === 0 ? '' : 'bg-navy/[0.01]'}>
-                        <td className="py-3 px-6 text-navy/70 font-medium">{row.feature}</td>
-                        <td className="text-center py-3">{row.basic ? <Check /> : <Dash />}</td>
-                        <td className="text-center py-3 bg-verdeSniffer/[0.03]">{row.plus ? <Check /> : <Dash />}</td>
-                        <td className="text-center py-3">{row.business ? <Check /> : <Dash />}</td>
-                        <td className="text-center py-3">{row.enterprise ? <Check /> : <Dash />}</td>
-                      </tr>
-                    ))}
-                  </>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile accordion */}
-          <div className="lg:hidden space-y-3">
-            {['Basic', 'Plus', 'Business', 'Enterprise'].map((plan) => {
-              const priceMap: Record<string, string> = { Basic: 'Grátis', Plus: 'R$ 60/mês', Business: 'R$ 140/mês', Enterprise: 'R$ 230/mês' };
-              const keyMap: Record<string, 'basic' | 'plus' | 'business' | 'enterprise'> = { Basic: 'basic', Plus: 'plus', Business: 'business', Enterprise: 'enterprise' };
-              const isOpen = expandedPlan === plan;
-              return (
-                <div key={plan} className={`border rounded-2xl overflow-hidden ${plan === 'Plus' ? 'border-verdeSniffer' : 'border-gray-200'}`}>
-                  <button
-                    className="w-full flex items-center justify-between p-5 text-left"
-                    onClick={() => setExpandedPlan(isOpen ? null : plan)}
-                  >
-                    <div>
-                      <span className="font-extrabold text-lg" style={{ fontFamily: 'var(--font-jakarta)' }}>{plan}</span>
-                      <span className="ml-3 text-navy/50 text-sm font-bold">{priceMap[plan]}</span>
-                    </div>
-                    <ChevronDown className={`w-5 h-5 text-navy/40 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5 space-y-4">
-                      {tableCategories.map((cat) => (
-                        <div key={cat.name}>
-                          <p className="text-[0.65rem] font-bold text-navy/40 uppercase tracking-[1px] mb-2" style={{ fontFamily: 'var(--font-jakarta)' }}>{cat.name}</p>
-                          <ul className="space-y-1.5">
-                            {cat.rows.map((row) => (
-                              <li key={row.feature} className="flex items-center gap-2 text-sm">
-                                {row[keyMap[plan]] ? <Check /> : <Dash />}
-                                <span className={row[keyMap[plan]] ? 'text-navy/70' : 'text-gray-400'}>{row.feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -755,14 +833,13 @@ export default function Business() {
             Não é promessa. É número.
           </h2>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
               { ...m1, desc: 'investidos por PMEs em marketing/tech por ano' },
-              { ...m2, desc: 'Presença, Interação e Inteligência integrados' },
               { ...m3, desc: 'do grátis ao Enterprise, sem contrato' },
               { ...m4, desc: 'ROI comprovado pro seu negócio' },
             ].map((metric, i) => (
-              <div key={i} ref={metric.ref} className={`text-center ${i < 3 ? 'lg:border-r lg:border-gray-200' : ''}`}>
+              <div key={i} ref={metric.ref} className={`text-center ${i < 2 ? 'sm:border-r sm:border-gray-200' : ''}`}>
                 <p className="text-verdeSniffer text-[2.5rem] sm:text-[3rem] font-extrabold leading-none mb-2" style={{ fontFamily: 'var(--font-jakarta)' }}>
                   {metric.display}
                 </p>
