@@ -663,7 +663,7 @@ export default function Business() {
           </div>
 
           <p className="text-sm text-white/40 font-medium">
-            Presença · Interação · Inteligência — o que move seu negócio.
+            Presença · Interação · Inteligência
           </p>
         </div>
       </section>
