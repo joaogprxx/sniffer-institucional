@@ -101,7 +101,7 @@ function BusinessNavbar() {
       }}
     >
       {/* ── Mobile header row ── */}
-      <div className="lg:hidden" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: '72px' }}>
+      <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '72px' }}>
         {/* Left — Criar Conta */}
         <button
           style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
@@ -200,7 +200,7 @@ function BusinessNavbar() {
                 onMouseLeave={closeDropdown}
                 style={{
                   position: 'absolute',
-                  top: '100%',
+                  top: 'calc(100% + 24px)',
                   left: '50%',
                   width: '1100px',
                   backgroundColor: '#FFFFFF',
