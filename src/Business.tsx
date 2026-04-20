@@ -658,7 +658,7 @@ export default function Business() {
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896'; }}
             >
-              Começar grátis
+              Fazer parte
             </button>
           </div>
 
@@ -805,7 +805,7 @@ export default function Business() {
                   name: 'Basic', 
                   price: 'Grátis', 
                   tagline: 'Pra quem tá chegando.', 
-                  cta: 'Começar grátis', 
+                  cta: 'Fazer parte', 
                   style: 'border border-white/10 bg-white/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]',
                   btnStyle: 'border border-white/20 text-white hover:bg-white/5',
                   titleStyle: 'text-xl font-bold text-white',
@@ -1052,7 +1052,7 @@ export default function Business() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <button className="bg-tealBusiness text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-tealBusiness/20">
-              Começar grátis agora
+              Fazer parte
             </button>
           </div>
           <p className="text-white/40 text-sm mt-6 relative z-10">
