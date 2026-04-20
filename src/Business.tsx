@@ -296,23 +296,6 @@ function BusinessNavbar() {
 
             <li>
               <a
-                href="#como-funciona"
-                style={navLinkStyle}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
-                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#FFFFFF';
-                  (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'none';
-                }}
-              >
-                Como Funciona
-              </a>
-            </li>
-
-            <li>
-              <a
                 href="#planos"
                 style={navLinkStyle}
                 onMouseEnter={e => {
@@ -446,7 +429,6 @@ function BusinessNavbar() {
                 <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                   {[
                     { label: 'Quem Somos', href: '#quem-somos' },
-                    { label: 'Como Funciona', href: '#como-funciona' },
                     { label: 'Planos', href: '#planos' },
                   ].map(item => (
                     <li key={item.label}>
