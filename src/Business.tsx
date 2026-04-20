@@ -38,8 +38,8 @@ function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
 
 /* ───────────────────── Navbar Solutions items ───────────────────── */
 const solutionsItems = [
-  { icon: '📍', label: 'Meu Território', desc: 'Presença digital completa para PMEs', href: '#como-funciona' },
-  { icon: '💛', label: 'Meu Xodó', desc: 'Camada de confiança e programa de indicação', href: '#como-funciona' },
+  { icon: '📍', label: 'Território', desc: 'Presença digital completa para PMEs', href: '#como-funciona' },
+  { icon: '💛', label: 'Xodó', desc: 'Camada de confiança e programa de indicação', href: '#como-funciona' },
   { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '#como-funciona' },
   { icon: '💬', label: 'Uivo', desc: 'Mensageria: DM, grupos e live', href: '#como-funciona' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '#como-funciona' },
