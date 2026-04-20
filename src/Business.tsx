@@ -106,7 +106,7 @@ function BusinessNavbar() {
         <button
           style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
         >
-          Criar Conta
+          Junte-se a essa revolução
         </button>
 
         {/* Center — logo */}
@@ -332,35 +332,6 @@ function BusinessNavbar() {
         {/* ── Right: CTAs + Hamburger (col 3) ── */}
         <div style={{ justifySelf: 'end', display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div className="hidden lg:flex items-center gap-3">
-            {/* Ghost Login */}
-            <button
-              style={{
-                background: 'transparent',
-                border: '1px solid rgba(255,255,255,0.25)',
-                borderRadius: '10px',
-                padding: '10px 20px',
-                fontFamily: "'Ferom', Inter, sans-serif",
-                fontWeight: 500,
-                fontSize: '15px',
-                color: '#FFFFFF',
-                cursor: 'pointer',
-                transition: 'border-color 200ms ease, color 200ms ease',
-                lineHeight: 1,
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLButtonElement;
-                el.style.borderColor = '#00A896';
-                el.style.color = '#00A896';
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLButtonElement;
-                el.style.borderColor = 'rgba(255,255,255,0.25)';
-                el.style.color = '#FFFFFF';
-              }}
-            >
-              Login
-            </button>
-
             {/* CTA Criar Conta */}
             <button
               style={{
@@ -383,7 +354,7 @@ function BusinessNavbar() {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896';
               }}
             >
-              Criar Conta
+              Junte-se a essa revolução
             </button>
           </div>
 
@@ -606,33 +577,6 @@ function BusinessNavbar() {
               >
                 <button
                   style={{
-                    background: 'transparent',
-                    border: '1px solid rgba(255,255,255,0.20)',
-                    borderRadius: '12px',
-                    padding: '14px 20px',
-                    fontFamily: "'Ferom', Inter, sans-serif",
-                    fontWeight: 500,
-                    fontSize: '15px',
-                    color: '#FFFFFF',
-                    cursor: 'pointer',
-                    width: '100%',
-                    transition: 'border-color 200ms ease, color 200ms ease',
-                  }}
-                  onMouseEnter={e => {
-                    const el = e.currentTarget as HTMLButtonElement;
-                    el.style.borderColor = '#00A896';
-                    el.style.color = '#00A896';
-                  }}
-                  onMouseLeave={e => {
-                    const el = e.currentTarget as HTMLButtonElement;
-                    el.style.borderColor = 'rgba(255,255,255,0.20)';
-                    el.style.color = '#FFFFFF';
-                  }}
-                >
-                  Login
-                </button>
-                <button
-                  style={{
                     background: '#00A896',
                     border: 'none',
                     borderRadius: '12px',
@@ -652,7 +596,7 @@ function BusinessNavbar() {
                     (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896';
                   }}
                 >
-                  Criar Conta
+                  Junte-se a essa revolução
                 </button>
               </div>
             </motion.div>
