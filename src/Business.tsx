@@ -811,6 +811,7 @@ export default function Business() {
                   titleStyle: 'text-xl font-bold text-white',
                   popular: false,
                   light: false,
+                  textBright: false,
                   features: ['1 Localização', 'Feed com cardápio/ação', 'Comunidade básica', 'Rating e Reviews', 'Suporte N1']
                 },
                 {
@@ -823,6 +824,7 @@ export default function Business() {
                   titleStyle: 'text-xl sm:text-2xl font-extrabold text-white',
                   popular: true,
                   light: false,
+                  textBright: false,
                   features: ['Selo Verified Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
                 },
                 {
@@ -835,6 +837,7 @@ export default function Business() {
                   titleStyle: 'text-2xl sm:text-3xl font-black text-navy tracking-tight',
                   popular: false,
                   light: true,
+                  textBright: false,
                   features: ['Ranking Automático Premium', 'Até 6 Localizações', 'Promoções Ilimitadas', 'Análises de Mercado Local', 'Suporte N3']
                 },
                 {
@@ -847,6 +850,7 @@ export default function Business() {
                   titleStyle: 'text-3xl sm:text-[2rem] font-black text-white tracking-tighter leading-none pb-1',
                   popular: false,
                   light: false,
+                  textBright: true,
                   features: ['Moderação Avançada', 'A partir de 7 Localizações', 'Insights Fora do Nicho', 'Integrações Customizadas', 'Executivo de Conta']
                 },
               ].map((plan, index) => {
@@ -902,12 +906,12 @@ export default function Business() {
                     </div>
 
                     <div className="flex-grow transition-opacity duration-500 delay-150" style={{ opacity: isActive ? 1 : 0 }}>
-                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : 'text-white/40'}`}>Principais Entregas</p>
+                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : plan.textBright ? 'text-white/70' : 'text-white/40'}`}>Principais Entregas</p>
                       <ul className="space-y-3 px-2">
                         {plan.features.map(f => (
                           <li key={f} className="flex items-start text-sm">
                             <CheckIcon className={`w-5 h-5 mr-2 shrink-0 ${plan.popular ? 'text-white' : 'text-tealBusiness'}`} />
-                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : plan.light ? 'text-navy/80' : 'text-white/70'}`}>{f}</span>
+                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : plan.light ? 'text-navy/80' : plan.textBright ? 'text-white' : 'text-white/70'}`}>{f}</span>
                           </li>
                         ))}
                       </ul>
