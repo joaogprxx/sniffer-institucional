@@ -1020,32 +1020,6 @@ export default function Business() {
 
       <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
 
-      {/* ═══════════════════ SEÇÃO 8 — NÚMEROS ═══════════════════ */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-14 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            Não é promessa. É número.
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {[
-              { ...m1, desc: 'investidos por PMEs em marketing/tech por ano' },
-              { ...m3, desc: 'do grátis ao Enterprise, sem contrato' },
-              { ...m4, desc: 'ROI comprovado pro seu negócio' },
-            ].map((metric, i) => (
-              <div key={i} ref={metric.ref} className={`text-center ${i < 2 ? 'sm:border-r sm:border-white/10' : ''}`}>
-                <p className="text-tealBusiness text-[2.5rem] sm:text-[3rem] font-extrabold leading-none mb-2" style={{ fontFamily: 'var(--font-jakarta)' }}>
-                  {metric.display}
-                </p>
-                <p className="text-white/50 text-[0.85rem]">{metric.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
-
       {/* ═══════════════════ SEÇÃO 9 — CTA FINAL ═══════════════════ */}
       <section className="py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-[800px] mx-auto relative overflow-hidden rounded-3xl bg-navy px-8 sm:px-16 py-16 sm:py-20 text-center shadow-2xl shadow-navy/30">
