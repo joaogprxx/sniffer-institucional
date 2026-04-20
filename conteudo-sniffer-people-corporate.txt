@@ -1,0 +1,399 @@
+================================================================================
+                        SNIFFER — CONTEÚDO COMPLETO
+                        People + Corporate
+================================================================================
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           PÁGINA PEOPLE                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+────────────────────────────────────────────────────────────────────────────────
+NAVBAR (Bottom Navigation)
+────────────────────────────────────────────────────────────────────────────────
+
+Links:
+  • Funcionalidades
+  • Comunidades
+  • Sobre
+  • Business
+
+Botão CTA: Entrar
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: HERO
+────────────────────────────────────────────────────────────────────────────────
+
+Logo: Sniffer (wordmark)
+
+Título (H1):
+  Tudo que acontece perto de você, no seu bolso.
+
+Subtítulo:
+  O aplicativo que conecta você ao pulso real da sua cidade. Descubra e viva eventos, tribos e conexões locais em tempo real.
+
+CTA Primário: Começar a farejar
+CTA Secundário: Como funciona →
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: COMO FUNCIONA (Step by Step)
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: COMO FUNCIONA
+
+Título (H2):
+  Três passos para farejar sua cidade.
+
+--- PASSO 01 — FAREJAR ---
+
+Tag: Passo 1 de 3
+
+Título (H3): Farejar.
+
+Subtítulo:
+  Detecta o pulso real ao seu redor
+
+Descrição:
+  Geolocalização inteligente que sabe exatamente onde o movimento está acontecendo agora — mapa em tempo real com o pulso vivo da cidade.
+
+Checklist:
+  ✓ Mapa de calor em tempo real
+  ✓ Pins de atividade pulsantes
+  ✓ Atualização ao vivo, sem espera
+
+Badge visual: 🐾 Farejar aqui
+
+
+--- PASSO 02 — CONECTAR ---
+
+Tag: Passo 2 de 3
+
+Título (H3): Conectar.
+
+Subtítulo:
+  Encontra sua gente no bairro
+
+Descrição:
+  Tribos reais que compartilham seus interesses. Pessoas com o mesmo vibe a poucos metros de você, prontas para conectar agora.
+
+Checklist:
+  ✓ Redes sociais por interesse
+  ✓ Chat com membros da tribo
+  ✓ Conexão instantânea no bairro
+
+Badge visual: 🤝 242 na sua área
+
+
+--- PASSO 03 — DESCOBRIR ---
+
+Tag: Passo 3 de 3
+
+Título (H3): Descobrir.
+
+Subtítulo:
+  Abre portas que ninguém mais vê
+
+Descrição:
+  Benefícios exclusivos, eventos VIP e acesso antecipado para quem está por dentro. Descobertas que ninguém mais tem.
+
+Checklist:
+  ✓ Eventos exclusivos para insiders
+  ✓ Descontos em locais parceiros
+  ✓ Primeiros a saber de tudo
+
+Cards Flutuantes:
+  • Happy Hour −30% | Expira em 2h
+  • Show ao vivo 🎸 | 500m de você
+  • VIP Access ✨ | Só para insiders
+
+Badge visual: Exclusivo 🔓
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: FUNCIONALIDADES (Features Split)
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: O mapa que respira com a cidade
+
+Título (H2):
+  A cidade inteira na palma da mão.
+
+Descrição:
+  O mapa em tempo real mostra tudo: onde está o movimento agora (Farejar), quem está perto de você (Conectar), e quais eventos exclusivos só você pode acessar (Descobrir).
+
+Checklist:
+  ✓ Mapa de calor em tempo real
+  ✓ Alertas de proximidade
+  ✓ Filtros por interesses específicos
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: COMUNIDADES (Tribes Grid)
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: COMUNIDADES
+
+Título (H2): Tribos locais.
+
+Subtítulo:
+  Sua turma já está aqui. Eles estão farejando agora.
+
+Botão: Ver todas as tribos
+
+--- Card 1 ---
+Status: Ativa agora
+Nome: Café & Tech
+Descrição: Networking e debates sobre o futuro da web nos cafés da cidade.
+Membros: 242 membros
+
+--- Card 2 ---
+Status: Hoje à noite
+Nome: Corrida Noturna
+Descrição: Grupos que exploram a cidade toda terça-feira depois das 21h.
+Membros: 1.2k membros
+
+--- Card 3 ---
+Status: Hoje
+Nome: Circuito das Artes
+Descrição: Visitas e debates sobre as exposições abertas na sua região.
+Membros: 156 membros
+
+--- Card 4 ---
+Status: Sábado
+Nome: Rota Gastronômica
+Descrição: Explorando os melhores botecos e restaurantes da vizinhança.
+Membros: 890 membros
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: CTA FINAL (Bottom CTA)
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: DISPONÍVEL AGORA
+
+Título (H2):
+  Baixe o Sniffer e comece a farejar.
+
+Subtítulo:
+  Disponível para iOS e Android. Gratuito para começar — sem cartão de crédito.
+
+Botão App Store:
+  Disponível na
+  App Store
+
+Botão Google Play:
+  Disponível no
+  Google Play
+
+Nota de rodapé:
+  iOS 15+ · Android 9+ · Gratuito
+
+
+────────────────────────────────────────────────────────────────────────────────
+FOOTER
+────────────────────────────────────────────────────────────────────────────────
+
+© 2026 Sniffer App. Belo Horizonte, MG.
+
+Links:
+  • Termos
+  • Privacidade
+  • Contato
+
+
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          PÁGINA CORPORATE                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+────────────────────────────────────────────────────────────────────────────────
+NAV (Top Navigation — Glassmorphism pill)
+────────────────────────────────────────────────────────────────────────────────
+
+Logo: Sniffer (muda entre versão branca e colorida conforme scroll)
+
+Links Desktop:
+  • Solução
+  • Pilares
+  • Diferencial
+
+Links Mobile (menu hambúrguer):
+  • Solução
+  • Pilares
+  • Diferencial
+
+CTA: Falar com Executivo
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: HERO
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: Sniffer Corporate · Enterprise Intelligence
+
+Título (H1):
+  Inteligência local em escala corporativa.
+
+Subtítulo:
+  A plataforma que conecta grandes empresas ao pulso real das cidades. Dados comportamentais, presença multi-location e decisões que impactam milhões de consumidores.
+
+CTA Primário: Agendar demonstração →
+CTA Secundário: Conhecer a solução →
+
+--- Métricas Strip (bottom) ---
+  • 7+  → Localizações por conta
+  • 360°  → Visão do consumidor
+  • BI  → Customizado e integrado
+  • ERP  → Integrações sob medida
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: A SOLUÇÃO (Value Proposition)
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: A SOLUÇÃO
+
+Título (H2):
+  Construído para quem opera em escala.
+
+Subtítulo:
+  Grandes redes, franquias e corporações precisam de mais do que presença digital. Precisam de inteligência que acompanha a complexidade do negócio.
+
+--- Card 1 ---
+Ícone: MapPin
+Título: Gestão Multi-Location
+Descrição: Controle centralizado de 7 ou mais unidades. Cada ponto com seu perfil, dados e performance — tudo visível em um painel único.
+
+--- Card 2 ---
+Ícone: BarChart3
+Título: BI Customizado
+Descrição: Dashboards sob medida com métricas que importam para o seu setor. Análises comparativas entre unidades, regiões e concorrentes.
+
+--- Card 3 ---
+Ícone: Settings
+Título: Integração ERP
+Descrição: Conecta direto com seus sistemas de gestão. Dados fluem entre Sniffer e seu stack — sem retrabalho, sem silos.
+
+--- Card 4 ---
+Ícone: Users
+Título: Executivo de Conta
+Descrição: Suporte dedicado com um executivo que conhece sua operação. Onboarding personalizado, acompanhamento contínuo e SLA prioritário.
+
+--- Card 5 ---
+Ícone: Shield
+Título: Moderação de Reviews
+Descrição: Controle total sobre a reputação da marca. Moderação ativa de avaliações com sistema anti-fraude verificado pela Sniffer.
+
+--- Card 6 ---
+Ícone: Download
+Título: Feed Personalizado
+Descrição: Conteúdo rico com fotos, vídeos e campanhas. Push notifications por raio geográfico que alcançam consumidores no momento certo.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: OS PILARES
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: OS PILARES
+
+Título (H2):
+  Quatro dimensões de inteligência corporativa.
+
+Subtítulo:
+  Cada pilar foi desenhado para resolver uma camada diferente da complexidade Enterprise.
+
+--- Pilar 01 ---
+Tag: Multi-location
+Título: Presença Unificada
+Descrição: Todas as suas localizações sob uma identidade consistente. Perfis padronizados, informações sempre atualizadas, e uma experiência de marca única para o consumidor.
+
+--- Pilar 02 ---
+Tag: Analytics
+Título: Inteligência Competitiva
+Descrição: Entenda como cada unidade performa em relação à concorrência local. Benchmarks por região, gaps de mercado e demandas não atendidas no seu setor.
+
+--- Pilar 03 ---
+Tag: Engagement
+Título: Comunidade Proprietária
+Descrição: Crie e gerencie comunidades de clientes fiéis em torno de cada unidade ou da marca como um todo. Relacionamento direto, sem intermediários.
+
+--- Pilar 04 ---
+Tag: Enterprise-grade
+Título: Infraestrutura Integrada
+Descrição: Integrações customizadas com ERP, CRM e sistemas de gestão. A Sniffer se encaixa na infraestrutura que já existe — sem forçar migração.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: O DIFERENCIAL
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: O DIFERENCIAL
+
+Título (H2):
+  Dados que grandes empresas nunca tiveram.
+
+Subtítulo:
+  A Sniffer vai além do que Google Business e Apple Business Connect oferecem. Inteligência comportamental profunda, benchmarks localizados e analytics preditivo.
+
+--- Dashboard visual (mock) ---
+Título do painel: Performance por Unidade
+Badge: Tempo Real
+
+Métricas:
+  • 12.4k → Visualizações
+  • 3.2k  → Interações
+  • 847   → Conversões
+
+Card flutuante: +34% ROI comprovado
+
+--- Features ---
+
+✓ Análises comportamentais profundas
+  Padrões de visitação, segmentação de visitantes recorrentes e previsões de pico — por unidade.
+
+✓ Benchmarking hiperlocal
+  Compare cada unidade contra concorrentes da mesma região e segmento.
+
+✓ Inteligência preditiva
+  Alertas automáticos sobre anomalias de performance e recomendações de otimização baseadas em IA.
+
+✓ Demandas fora do nicho
+  Descubra o que consumidores procuram na sua região e que ninguém está oferecendo.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SEÇÃO: CTA FINAL
+────────────────────────────────────────────────────────────────────────────────
+
+Tag: PRÓXIMO PASSO
+
+Título (H2):
+  Sua operação merece inteligência à altura.
+
+Subtítulo:
+  Estamos construindo o Corporate para empresas que pensam grande. Agende uma conversa com nosso time e entenda como a Sniffer pode transformar sua presença local.
+
+CTA Primário: Agendar demonstração →
+CTA Secundário: Baixar one-pager ↓
+
+
+────────────────────────────────────────────────────────────────────────────────
+FOOTER
+────────────────────────────────────────────────────────────────────────────────
+
+Logo: Sniffer (wordmark)
+© 2026 Sniffer
+
+Links:
+  • Privacidade
+  • Termos
+
+
+================================================================================
+                    FIM DO DOCUMENTO
+================================================================================

@@ -40,7 +40,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo — entre o toggle e o título */}
           <div className="flex justify-center mb-10 sm:mb-12">
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" className="h-10 sm:h-12 w-auto" />
+            <img src="./logo-sniffer-wordmark.png" alt="Sniffer" className="h-10 sm:h-12 w-auto" />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold text-navy leading-tight mb-8">
             Tudo que acontece perto de você, <span className="text-verdeSniffer">no seu bolso.</span>
@@ -67,7 +67,7 @@ export default function App() {
                 muted
                 playsInline
               >
-                <source src="/mascote-sniffer.webm" type="video/webm" />
+                <source src="./mascote-sniffer.webm" type="video/webm" />
               </motion.video>
             </div>
           </div>
@@ -362,7 +362,7 @@ export default function App() {
               <div className="w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.22) 0%, transparent 70%)', filter: 'blur(32px)' }} />
             </div>
             <img
-              src="/mockup-app.png"
+              src="./mockup-app.png"
               alt="Sniffer App — mapa em tempo real"
               className="animate-float relative z-10 w-auto max-h-[480px] sm:max-h-[640px] md:max-h-[680px] object-contain select-none"
               style={{ filter: 'drop-shadow(0 20px 48px rgba(45,47,94,0.22)) drop-shadow(0 4px 12px rgba(45,47,94,0.10))' }}

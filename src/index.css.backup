@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Nunito+Sans:wght@400&display=swap');
+
+@theme {
+  --color-navy: #2D2F5E;
+  --color-verdeSniffer: #78C87A;
+  --color-offWhite: #F5F7FA;
+  --color-offWhiteBg: #F5F5F0;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-nunito: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+}
+
+/* Light glassmorphism step cards */
+.step-card-light {
+  position: relative;
+  background: white;
+  box-shadow: 0 2px 12px rgba(45, 47, 94, 0.04);
+  border-bottom: 3px solid transparent;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.step-card-light:hover {
+  transform: translateY(-4px);
+  border-bottom-color: var(--color-verdeSniffer);
+  box-shadow: 0 8px 30px rgba(45, 47, 94, 0.08);
+}
+
+.step-card-light:hover .icon-glow {
+  filter: drop-shadow(0 0 12px rgba(120, 200, 122, 0.4));
+}
+
+.step-card-light .icon-glow {
+  transition: filter 0.4s ease;
+}
+
+/* Spotlight overlay inside cards */
+.card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.step-card-light:hover .card-spotlight {
+  opacity: 1;
+}
+
+/* Particle drift animations */
+@keyframes particle-drift {
+  0% { transform: translateX(-20px) translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 20px)) translateY(-30px); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+  pointer-events: none;
+}
+
+.particle-1 { width: 4px; height: 4px; top: 20%; left: -10px; opacity: 0.5; animation: particle-drift 8s linear infinite; }
+.particle-2 { width: 3px; height: 3px; top: 45%; left: -10px; opacity: 0.3; animation: particle-drift 11s linear infinite 1.5s; }
+.particle-3 { width: 5px; height: 5px; top: 70%; left: -10px; opacity: 0.4; animation: particle-drift 9s linear infinite 3s; }
+.particle-4 { width: 2px; height: 2px; top: 30%; left: -10px; opacity: 0.6; animation: particle-drift 13s linear infinite 0.5s; }
+.particle-5 { width: 3px; height: 3px; top: 55%; left: -10px; opacity: 0.35; animation: particle-drift 10s linear infinite 4s; }
+.particle-6 { width: 4px; height: 4px; top: 80%; left: -10px; opacity: 0.25; animation: particle-drift 14s linear infinite 2s; }
+.particle-7 { width: 2px; height: 2px; top: 15%; left: -10px; opacity: 0.45; animation: particle-drift 7s linear infinite 5s; }
+.particle-8 { width: 3px; height: 3px; top: 60%; left: -10px; opacity: 0.3; animation: particle-drift 12s linear infinite 6s; }
+.particle-9 { width: 4px; height: 4px; top: 35%; left: -10px; opacity: 0.5; animation: particle-drift 9.5s linear infinite 3.5s; }
+.particle-10 { width: 2px; height: 2px; top: 85%; left: -10px; opacity: 0.4; animation: particle-drift 11.5s linear infinite 7s; }
+
+/* Extra particles (11-30) */
+.particle-11 { width: 3px; height: 3px; top: 10%; left: -10px; opacity: 0.3; animation: particle-drift 8.5s linear infinite 1s; }
+.particle-12 { width: 4px; height: 4px; top: 25%; left: -10px; opacity: 0.5; animation: particle-drift 10s linear infinite 2.5s; }
+.particle-13 { width: 2px; height: 2px; top: 40%; left: -10px; opacity: 0.4; animation: particle-drift 12s linear infinite 0.8s; }
+.particle-14 { width: 5px; height: 5px; top: 65%; left: -10px; opacity: 0.2; animation: particle-drift 14s linear infinite 4.5s; }
+.particle-15 { width: 3px; height: 3px; top: 90%; left: -10px; opacity: 0.35; animation: particle-drift 9s linear infinite 1.2s; }
+.particle-16 { width: 2px; height: 2px; top: 5%; left: -10px; opacity: 0.6; animation: particle-drift 11s linear infinite 3.2s; }
+.particle-17 { width: 4px; height: 4px; top: 50%; left: -10px; opacity: 0.45; animation: particle-drift 13s linear infinite 5.5s; }
+.particle-18 { width: 3px; height: 3px; top: 75%; left: -10px; opacity: 0.5; animation: particle-drift 7.5s linear infinite 2.1s; }
+.particle-19 { width: 2px; height: 2px; top: 18%; left: -10px; opacity: 0.3; animation: particle-drift 10.5s linear infinite 6.5s; }
+.particle-20 { width: 5px; height: 5px; top: 38%; left: -10px; opacity: 0.25; animation: particle-drift 15s linear infinite 0.3s; }
+.particle-21 { width: 3px; height: 3px; top: 58%; left: -10px; opacity: 0.4; animation: particle-drift 8.2s linear infinite 4.8s; }
+.particle-22 { width: 4px; height: 4px; top: 82%; left: -10px; opacity: 0.35; animation: particle-drift 11.2s linear infinite 1.7s; }
+.particle-23 { width: 2px; height: 2px; top: 12%; left: -10px; opacity: 0.5; animation: particle-drift 9.8s linear infinite 7.2s; }
+.particle-24 { width: 3px; height: 3px; top: 48%; left: -10px; opacity: 0.45; animation: particle-drift 12.5s linear infinite 2.9s; }
+.particle-25 { width: 5px; height: 5px; top: 68%; left: -10px; opacity: 0.3; animation: particle-drift 14.5s linear infinite 5.1s; }
+.particle-26 { width: 2px; height: 2px; top: 22%; left: -10px; opacity: 0.6; animation: particle-drift 7.8s linear infinite 0.7s; }
+.particle-27 { width: 4px; height: 4px; top: 32%; left: -10px; opacity: 0.4; animation: particle-drift 10.8s linear infinite 3.9s; }
+.particle-28 { width: 3px; height: 3px; top: 52%; left: -10px; opacity: 0.55; animation: particle-drift 13.5s linear infinite 6.2s; }
+.particle-29 { width: 2px; height: 2px; top: 72%; left: -10px; opacity: 0.35; animation: particle-drift 9.2s linear infinite 1.4s; }
+.particle-30 { width: 5px; height: 5px; top: 88%; left: -10px; opacity: 0.2; animation: particle-drift 11.8s linear infinite 4.3s; }
+
+/* Even more particles (31-80) */
+.particle-31 { width: 3px; height: 3px; top: 19%; left: -10px; opacity: 0.16; animation: particle-drift 9.5s linear infinite 1.9s; }
+.particle-32 { width: 3px; height: 3px; top: 18%; left: -10px; opacity: 0.45; animation: particle-drift 15.0s linear infinite 0.8s; }
+.particle-33 { width: 5px; height: 5px; top: 9%; left: -10px; opacity: 0.16; animation: particle-drift 9.0s linear infinite 4.1s; }
+.particle-34 { width: 2px; height: 2px; top: 76%; left: -10px; opacity: 0.24; animation: particle-drift 12.8s linear infinite 4.4s; }
+.particle-35 { width: 3px; height: 3px; top: 62%; left: -10px; opacity: 0.42; animation: particle-drift 14.3s linear infinite 0.2s; }
+.particle-36 { width: 3px; height: 3px; top: 94%; left: -10px; opacity: 0.34; animation: particle-drift 9.5s linear infinite 1.8s; }
+.particle-37 { width: 4px; height: 4px; top: 18%; left: -10px; opacity: 0.19; animation: particle-drift 7.9s linear infinite 6.8s; }
+.particle-38 { width: 2px; height: 2px; top: 38%; left: -10px; opacity: 0.51; animation: particle-drift 13.6s linear infinite 4.3s; }
+.particle-39 { width: 5px; height: 5px; top: 15%; left: -10px; opacity: 0.40; animation: particle-drift 14.5s linear infinite 5.0s; }
+.particle-40 { width: 4px; height: 4px; top: 78%; left: -10px; opacity: 0.24; animation: particle-drift 7.6s linear infinite 5.3s; }
+.particle-41 { width: 4px; height: 4px; top: 15%; left: -10px; opacity: 0.53; animation: particle-drift 14.8s linear infinite 3.1s; }
+.particle-42 { width: 5px; height: 5px; top: 86%; left: -10px; opacity: 0.53; animation: particle-drift 8.5s linear infinite 2.9s; }
+.particle-43 { width: 3px; height: 3px; top: 39%; left: -10px; opacity: 0.47; animation: particle-drift 13.2s linear infinite 0.7s; }
+.particle-44 { width: 3px; height: 3px; top: 26%; left: -10px; opacity: 0.39; animation: particle-drift 9.2s linear infinite 3.8s; }
+.particle-45 { width: 4px; height: 4px; top: 86%; left: -10px; opacity: 0.46; animation: particle-drift 9.0s linear infinite 2.7s; }
+.particle-46 { width: 2px; height: 2px; top: 34%; left: -10px; opacity: 0.52; animation: particle-drift 14.2s linear infinite 3.3s; }
+.particle-47 { width: 2px; height: 2px; top: 32%; left: -10px; opacity: 0.56; animation: particle-drift 12.1s linear infinite 5.8s; }
+.particle-48 { width: 3px; height: 3px; top: 88%; left: -10px; opacity: 0.37; animation: particle-drift 15.0s linear infinite 5.2s; }
+.particle-49 { width: 3px; height: 3px; top: 38%; left: -10px; opacity: 0.21; animation: particle-drift 13.7s linear infinite 4.4s; }
+.particle-50 { width: 3px; height: 3px; top: 79%; left: -10px; opacity: 0.34; animation: particle-drift 12.3s linear infinite 3.0s; }
+.particle-51 { width: 3px; height: 3px; top: 70%; left: -10px; opacity: 0.37; animation: particle-drift 13.8s linear infinite 6.9s; }
+.particle-52 { width: 3px; height: 3px; top: 85%; left: -10px; opacity: 0.22; animation: particle-drift 13.1s linear infinite 4.8s; }
+.particle-53 { width: 5px; height: 5px; top: 53%; left: -10px; opacity: 0.42; animation: particle-drift 11.2s linear infinite 2.1s; }
+.particle-54 { width: 2px; height: 2px; top: 6%; left: -10px; opacity: 0.46; animation: particle-drift 8.0s linear infinite 7.1s; }
+.particle-55 { width: 4px; height: 4px; top: 87%; left: -10px; opacity: 0.30; animation: particle-drift 9.6s linear infinite 1.3s; }
+.particle-56 { width: 2px; height: 2px; top: 38%; left: -10px; opacity: 0.59; animation: particle-drift 13.9s linear infinite 4.1s; }
+.particle-57 { width: 2px; height: 2px; top: 85%; left: -10px; opacity: 0.28; animation: particle-drift 12.8s linear infinite 4.9s; }
+.particle-58 { width: 3px; height: 3px; top: 52%; left: -10px; opacity: 0.49; animation: particle-drift 11.9s linear infinite 6.3s; }
+.particle-59 { width: 2px; height: 2px; top: 5%; left: -10px; opacity: 0.42; animation: particle-drift 11.4s linear infinite 1.0s; }
+.particle-60 { width: 4px; height: 4px; top: 44%; left: -10px; opacity: 0.26; animation: particle-drift 9.2s linear infinite 4.6s; }
+.particle-61 { width: 2px; height: 2px; top: 15%; left: -10px; opacity: 0.48; animation: particle-drift 14.3s linear infinite 7.8s; }
+.particle-62 { width: 2px; height: 2px; top: 21%; left: -10px; opacity: 0.21; animation: particle-drift 11.3s linear infinite 4.4s; }
+.particle-63 { width: 4px; height: 4px; top: 72%; left: -10px; opacity: 0.54; animation: particle-drift 10.8s linear infinite 1.8s; }
+.particle-64 { width: 2px; height: 2px; top: 93%; left: -10px; opacity: 0.24; animation: particle-drift 9.8s linear infinite 8.0s; }
+.particle-65 { width: 3px; height: 3px; top: 52%; left: -10px; opacity: 0.35; animation: particle-drift 11.7s linear infinite 1.1s; }
+.particle-66 { width: 3px; height: 3px; top: 13%; left: -10px; opacity: 0.30; animation: particle-drift 12.3s linear infinite 1.9s; }
+.particle-67 { width: 3px; height: 3px; top: 5%; left: -10px; opacity: 0.18; animation: particle-drift 12.7s linear infinite 1.9s; }
+.particle-68 { width: 2px; height: 2px; top: 47%; left: -10px; opacity: 0.18; animation: particle-drift 9.1s linear infinite 5.4s; }
+.particle-69 { width: 3px; height: 3px; top: 74%; left: -10px; opacity: 0.21; animation: particle-drift 15.4s linear infinite 4.6s; }
+.particle-70 { width: 5px; height: 5px; top: 36%; left: -10px; opacity: 0.50; animation: particle-drift 14.3s linear infinite 1.6s; }
+.particle-71 { width: 2px; height: 2px; top: 89%; left: -10px; opacity: 0.34; animation: particle-drift 10.8s linear infinite 3.8s; }
+.particle-72 { width: 3px; height: 3px; top: 11%; left: -10px; opacity: 0.45; animation: particle-drift 15.9s linear infinite 0.9s; }
+.particle-73 { width: 5px; height: 5px; top: 48%; left: -10px; opacity: 0.51; animation: particle-drift 8.0s linear infinite 1.6s; }
+.particle-74 { width: 2px; height: 2px; top: 62%; left: -10px; opacity: 0.21; animation: particle-drift 8.7s linear infinite 3.8s; }
+.particle-75 { width: 2px; height: 2px; top: 61%; left: -10px; opacity: 0.51; animation: particle-drift 14.7s linear infinite 0.9s; }
+.particle-76 { width: 3px; height: 3px; top: 74%; left: -10px; opacity: 0.53; animation: particle-drift 15.7s linear infinite 7.4s; }
+.particle-77 { width: 3px; height: 3px; top: 26%; left: -10px; opacity: 0.33; animation: particle-drift 11.3s linear infinite 6.9s; }
+.particle-78 { width: 2px; height: 2px; top: 26%; left: -10px; opacity: 0.32; animation: particle-drift 15.9s linear infinite 2.2s; }
+.particle-79 { width: 5px; height: 5px; top: 41%; left: -10px; opacity: 0.34; animation: particle-drift 15.6s linear infinite 8.0s; }
+.particle-80 { width: 2px; height: 2px; top: 89%; left: -10px; opacity: 0.47; animation: particle-drift 8.4s linear infinite 2.4s; }
+
+/* SVG connecting path animated dot */
+@keyframes travel-dot {
+  0% { offset-distance: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+.traveling-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-verdeSniffer);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(120, 200, 122, 0.6);
+  position: absolute;
+  offset-rotate: 0deg;
+  animation: travel-dot 6s ease-in-out infinite;
+}
+
+/* Card fade-in on scroll (mobile + desktop) */
+@keyframes card-fade-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Business page — floating card animation */
+@keyframes float-card {
+  0%, 100% { transform: perspective(1000px) rotateY(-3deg) rotateX(1deg) translateY(0); }
+  50% { transform: perspective(1000px) rotateY(-3deg) rotateX(1deg) translateY(-12px); }
+}
+
+.card-visible {
+  animation: card-fade-in 0.6s ease-out forwards;
+}
+
+.card-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.33); opacity: 0.8; }
+  80%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  width: 56px;
+  height: 56px;
+  background-color: var(--color-verdeSniffer);
+  border-radius: 50%;
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Corporate page — fadeUp animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}

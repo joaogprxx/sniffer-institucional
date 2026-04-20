@@ -1,0 +1,526 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'motion/react';
+
+export default function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeToggle, setActiveToggle] = useState<'people' | 'business' | 'corporate'>('people');
+  
+  const toggleColors: Record<string, string> = {
+    people: '#3DDC84',
+    business: '#00A896',
+    corporate: '#3D3C6E',
+  };
+
+  const toggleLinks: Record<string, string> = {
+    people: '/',
+    business: '/business',
+    corporate: '/corporate',
+  };
+
+  const { scrollY } = useScroll();
+  // Move dog to the right as user scrolls down
+  // At scroll 0, x is 0. By pixel 1500, it moves far right completely off-screen (slower speed)
+  const dogX = useTransform(scrollY, [0, 1500], [0, 1500]);
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.98, filter: 'blur(4px)' }}
+      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      exit={{ opacity: 0, scale: 1.02, filter: 'blur(4px)' }}
+      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      className="bg-white text-navy antialiased min-h-screen"
+    >
+      {/* ═══════════════════ TOGGLE SWITCHER ═══════════════════ */}
+      <div className="fixed top-0 inset-x-0 z-[60] flex justify-center py-2" style={{ background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+        <div
+          className="relative flex items-center rounded-full px-1 py-1"
+          style={{
+            background: '#f5f4f0',
+            boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)',
+          }}
+        >
+          {/* Sliding Pill */}
+          <div
+            className="absolute top-1 bottom-1 rounded-full transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+            style={{
+              backgroundColor: toggleColors[activeToggle],
+              width: 'calc(33.333% - 2px)',
+              left: activeToggle === 'people' ? '4px' : activeToggle === 'business' ? 'calc(33.333% + 1px)' : 'calc(66.666% - 2px)',
+              boxShadow: `0 4px 14px -3px ${toggleColors[activeToggle]}66`,
+            }}
+          />
+          {(['people', 'business', 'corporate'] as const).map((option) => (
+            <a
+              key={option}
+              href={toggleLinks[option]}
+              onClick={(e) => {
+                if (option === 'people') { e.preventDefault(); }
+                setActiveToggle(option);
+              }}
+              className="relative z-10 px-5 sm:px-7 py-2 text-[13px] sm:text-sm font-bold rounded-full transition-colors duration-300 cursor-pointer select-none text-center min-w-[90px] sm:min-w-[110px]"
+              style={{
+                color: activeToggle === option ? '#FFFFFF' : '#9e9e96',
+                fontFamily: 'var(--font-nunito)',
+              }}
+            >
+              {option.charAt(0).toUpperCase() + option.slice(1)}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* BEGIN: MainHeader */}
+      <header className="fixed top-[56px] inset-x-0 z-50">
+        <nav className="max-w-7xl mx-auto px-4">
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 px-6 lg:gap-0 lg:py-3 bg-white/40 backdrop-blur-xl border border-white/60 shadow-lg shadow-navy/5 rounded-full">
+            <div className="flex w-full justify-between lg:w-auto">
+              <a aria-label="home" className="flex items-center space-x-2" href="/">
+                <img src="/logo-sniffer-wordmark.png" alt="Sniffer" className="h-8 w-auto" />
+              </a>
+              <button 
+                aria-label="Open Menu" 
+                className="relative z-20 -m-1 block cursor-pointer p-2 lg:hidden text-navy"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X className="size-6 duration-200" /> : <Menu className="size-6 duration-200" />}
+              </button>
+            </div>
+            
+            {/* Desktop Center Links */}
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm font-semibold">
+                <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Funcionalidades</span></a></li>
+                <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Comunidades</span></a></li>
+                <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Sobre</span></a></li>
+                <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="/business"><span>Business</span></a></li>
+              </ul>
+            </div>
+            
+            {/* Right Buttons / Mobile Menu */}
+            <div className={`
+              ${isMobileMenuOpen ? 'flex' : 'hidden'}
+              bg-white/95 lg:bg-transparent backdrop-blur-xl mt-4 lg:mt-0 w-full flex-wrap items-center justify-end space-y-6 rounded-3xl border border-navy/5 p-6 shadow-2xl shadow-navy/10 lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:p-0 lg:shadow-none
+            `}>
+              <div className="lg:hidden w-full">
+                <ul className="space-y-6 text-base font-semibold">
+                  <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Funcionalidades</span></a></li>
+                  <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Comunidades</span></a></li>
+                  <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="#"><span>Sobre</span></a></li>
+                  <li><a className="text-navy/70 hover:text-verdeSniffer block transition-colors duration-150" href="/business"><span>Business</span></a></li>
+                </ul>
+              </div>
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 lg:w-fit">
+                <button className="bg-verdeSniffer text-navy px-6 py-2 rounded-full font-bold hover:opacity-90 transition-all text-sm w-full lg:w-auto shadow-sm">
+                  Entrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      {/* END: MainHeader */}
+
+      {/* BEGIN: HeroSection */}
+      <section className="bg-white pt-48 pb-32 px-4 overflow-hidden" id="hero">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-navy leading-tight mb-8">
+            Tudo que acontece perto de você, <span className="text-verdeSniffer">no seu bolso.</span>
+          </h1>
+          <p className="text-navy/70 text-lg md:text-xl max-w-2xl mx-auto mb-16">
+            O aplicativo que conecta você ao pulso real da sua cidade. Descubra e viva eventos, tribos e conexões locais em tempo real.
+          </p>
+          {/* Mascot Image */}
+          <div className="relative flex justify-center mt-12 -mb-40">
+            <div className="w-full max-w-5xl">
+              <motion.video 
+                style={{ x: dogX }}
+                className="w-full h-auto" 
+                src="/Cachorro_andando_no_centro.mp4" 
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* END: HeroSection */}
+
+      {/* BEGIN: StepByStep */}
+      <section className="py-24 px-4 relative overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+        {/* Grain texture overlay */}
+        <div className="grain-overlay"></div>
+        
+        {/* Particle trail (Navy) */}
+        {/* Origin 10 */}
+        <div className="particle particle-1"></div>
+        <div className="particle particle-2"></div>
+        <div className="particle particle-3"></div>
+        <div className="particle particle-4"></div>
+        <div className="particle particle-5"></div>
+        <div className="particle particle-6"></div>
+        <div className="particle particle-7"></div>
+        <div className="particle particle-8"></div>
+        <div className="particle particle-9"></div>
+        <div className="particle particle-10"></div>
+        
+        {/* Extra 20 */}
+        <div className="particle particle-11"></div>
+        <div className="particle particle-12"></div>
+        <div className="particle particle-13"></div>
+        <div className="particle particle-14"></div>
+        <div className="particle particle-15"></div>
+        <div className="particle particle-16"></div>
+        <div className="particle particle-17"></div>
+        <div className="particle particle-18"></div>
+        <div className="particle particle-19"></div>
+        <div className="particle particle-20"></div>
+        <div className="particle particle-21"></div>
+        <div className="particle particle-22"></div>
+        <div className="particle particle-23"></div>
+        <div className="particle particle-24"></div>
+        <div className="particle particle-25"></div>
+        <div className="particle particle-26"></div>
+        <div className="particle particle-27"></div>
+        <div className="particle particle-28"></div>
+        <div className="particle particle-29"></div>
+        <div className="particle particle-30"></div>
+        
+        {/* Maximum particles (31-80) */}
+        <div className="particle particle-31"></div>
+        <div className="particle particle-32"></div>
+        <div className="particle particle-33"></div>
+        <div className="particle particle-34"></div>
+        <div className="particle particle-35"></div>
+        <div className="particle particle-36"></div>
+        <div className="particle particle-37"></div>
+        <div className="particle particle-38"></div>
+        <div className="particle particle-39"></div>
+        <div className="particle particle-40"></div>
+        <div className="particle particle-41"></div>
+        <div className="particle particle-42"></div>
+        <div className="particle particle-43"></div>
+        <div className="particle particle-44"></div>
+        <div className="particle particle-45"></div>
+        <div className="particle particle-46"></div>
+        <div className="particle particle-47"></div>
+        <div className="particle particle-48"></div>
+        <div className="particle particle-49"></div>
+        <div className="particle particle-50"></div>
+        <div className="particle particle-51"></div>
+        <div className="particle particle-52"></div>
+        <div className="particle particle-53"></div>
+        <div className="particle particle-54"></div>
+        <div className="particle particle-55"></div>
+        <div className="particle particle-56"></div>
+        <div className="particle particle-57"></div>
+        <div className="particle particle-58"></div>
+        <div className="particle particle-59"></div>
+        <div className="particle particle-60"></div>
+        <div className="particle particle-61"></div>
+        <div className="particle particle-62"></div>
+        <div className="particle particle-63"></div>
+        <div className="particle particle-64"></div>
+        <div className="particle particle-65"></div>
+        <div className="particle particle-66"></div>
+        <div className="particle particle-67"></div>
+        <div className="particle particle-68"></div>
+        <div className="particle particle-69"></div>
+        <div className="particle particle-70"></div>
+        <div className="particle particle-71"></div>
+        <div className="particle particle-72"></div>
+        <div className="particle particle-73"></div>
+        <div className="particle particle-74"></div>
+        <div className="particle particle-75"></div>
+        <div className="particle particle-76"></div>
+        <div className="particle particle-77"></div>
+        <div className="particle particle-78"></div>
+        <div className="particle particle-79"></div>
+        <div className="particle particle-80"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20 flex flex-col items-center">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>O que somos?</h2>
+            {/* Same logo as navbar */}
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" className="mt-6 h-8 md:h-12 w-auto" />
+          </div>
+
+          {/* Cards grid with connecting SVG path (desktop) */}
+          <div className="relative">
+            {/* SVG connecting path — desktop only */}
+            <svg className="hidden md:block absolute top-1/2 left-0 w-full h-4 -translate-y-1/2 z-0 pointer-events-none" viewBox="0 0 1200 20" preserveAspectRatio="none">
+              <path
+                id="connect-path"
+                d="M 200 10 L 600 10 L 1000 10"
+                stroke="rgba(120,200,122,0.3)"
+                strokeWidth="2"
+                strokeDasharray="6 6"
+                fill="none"
+              />
+            </svg>
+            {/* Traveling dot — desktop only */}
+            <div className="hidden md:block traveling-dot" style={{ offsetPath: "path('M 200 10 L 600 10 L 1000 10')" }}></div>
+
+            <div className="grid md:grid-cols-3 gap-10 relative z-10">
+              {/* Step 1 — Farejar */}
+              <div
+                className="step-card-light rounded-2xl p-8 md:p-10 cursor-pointer"
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) {
+                    spotlight.style.background = `radial-gradient(circle 200px at ${x}px ${y}px, rgba(120,200,122,0.07), transparent)`;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) spotlight.style.background = 'none';
+                }}
+              >
+                <div className="card-spotlight"></div>
+                <span className="text-[4rem] font-extrabold absolute -top-2 right-6 select-none" style={{ fontFamily: 'var(--font-jakarta)', color: 'rgba(120, 200, 122, 0.15)' }}>01</span>
+                <div className="pt-2 relative z-10">
+                  {/* Focinho icon */}
+                  <div className="mb-6 icon-glow">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="24" cy="30" rx="12" ry="9" stroke="#78C87A" strokeWidth="2.5" fill="none"/>
+                      <ellipse cx="24" cy="28" rx="4" ry="3" fill="#78C87A" opacity="0.3"/>
+                      <circle cx="20" cy="26" r="1.5" fill="#78C87A"/>
+                      <circle cx="28" cy="26" r="1.5" fill="#78C87A"/>
+                      <path d="M22 32 C23 34, 25 34, 26 32" stroke="#78C87A" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="15" cy="16" r="4" stroke="#78C87A" strokeWidth="2" fill="none"/>
+                      <circle cx="33" cy="16" r="4" stroke="#78C87A" strokeWidth="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-[1.1rem] font-bold text-navy mb-3" style={{ fontFamily: 'var(--font-jakarta)' }}>Farejar</h3>
+                  <p className="text-gray-600 leading-relaxed text-[0.95rem]" style={{ fontFamily: 'var(--font-nunito)' }}>
+                    O Sniffer rastreia as atividades mais relevantes ao seu redor usando geolocalização inteligente.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 — Conectar */}
+              <div
+                className="step-card-light rounded-2xl p-8 md:p-10 cursor-pointer"
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) {
+                    spotlight.style.background = `radial-gradient(circle 200px at ${x}px ${y}px, rgba(120,200,122,0.07), transparent)`;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) spotlight.style.background = 'none';
+                }}
+              >
+                <div className="card-spotlight"></div>
+                <span className="text-[4rem] font-extrabold absolute -top-2 right-6 select-none" style={{ fontFamily: 'var(--font-jakarta)', color: 'rgba(120, 200, 122, 0.15)' }}>02</span>
+                <div className="pt-2 relative z-10">
+                  {/* Patinhas icon */}
+                  <div className="mb-6 icon-glow">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Left paw */}
+                      <ellipse cx="16" cy="30" rx="5" ry="7" stroke="#78C87A" strokeWidth="2" fill="none"/>
+                      <circle cx="10" cy="22" r="2.5" fill="#78C87A" opacity="0.4"/>
+                      <circle cx="15" cy="19" r="2.5" fill="#78C87A" opacity="0.4"/>
+                      <circle cx="20" cy="22" r="2.5" fill="#78C87A" opacity="0.4"/>
+                      {/* Right paw */}
+                      <ellipse cx="32" cy="30" rx="5" ry="7" stroke="#78C87A" strokeWidth="2" fill="none"/>
+                      <circle cx="28" cy="22" r="2.5" fill="#78C87A" opacity="0.4"/>
+                      <circle cx="33" cy="19" r="2.5" fill="#78C87A" opacity="0.4"/>
+                      <circle cx="38" cy="22" r="2.5" fill="#78C87A" opacity="0.4"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-[1.1rem] font-bold text-navy mb-3" style={{ fontFamily: 'var(--font-jakarta)' }}>Conectar</h3>
+                  <p className="text-gray-600 leading-relaxed text-[0.95rem]" style={{ fontFamily: 'var(--font-nunito)' }}>
+                    Entre em tribos que compartilham seus interesses e interaja com pessoas reais no seu bairro.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 — Descobrir */}
+              <div
+                className="step-card-light rounded-2xl p-8 md:p-10 cursor-pointer"
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) {
+                    spotlight.style.background = `radial-gradient(circle 200px at ${x}px ${y}px, rgba(120,200,122,0.07), transparent)`;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const spotlight = e.currentTarget.querySelector('.card-spotlight') as HTMLElement;
+                  if (spotlight) spotlight.style.background = 'none';
+                }}
+              >
+                <div className="card-spotlight"></div>
+                <span className="text-[4rem] font-extrabold absolute -top-2 right-6 select-none" style={{ fontFamily: 'var(--font-jakarta)', color: 'rgba(120, 200, 122, 0.15)' }}>03</span>
+                <div className="pt-2 relative z-10">
+                  {/* Estrela/brilho icon */}
+                  <div className="mb-6 icon-glow">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24 6 L27 18 L39 18 L29 26 L32 38 L24 30 L16 38 L19 26 L9 18 L21 18 Z" stroke="#78C87A" strokeWidth="2.5" fill="none" strokeLinejoin="round"/>
+                      <path d="M24 14 L25.5 19.5 L31 19.5 L26.5 23 L28 28.5 L24 25 L20 28.5 L21.5 23 L17 19.5 L22.5 19.5 Z" fill="#78C87A" opacity="0.2"/>
+                      <circle cx="38" cy="10" r="1.5" fill="#78C87A" opacity="0.5"/>
+                      <circle cx="10" cy="12" r="1" fill="#78C87A" opacity="0.4"/>
+                      <circle cx="40" cy="34" r="1" fill="#78C87A" opacity="0.3"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-[1.1rem] font-bold text-navy mb-3" style={{ fontFamily: 'var(--font-jakarta)' }}>Descobrir</h3>
+                  <p className="text-gray-600 leading-relaxed text-[0.95rem]" style={{ fontFamily: 'var(--font-nunito)' }}>
+                    Acesse benefícios exclusivos e eventos que só quem está "por dentro" consegue encontrar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* END: StepByStep */}
+
+      {/* BEGIN: FeaturesSplit */}
+      <section className="py-24 bg-white px-4 overflow-hidden border-t border-navy/5">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {/* Left: Visual Pulse */}
+          <div className="relative h-[400px] flex items-center justify-center bg-white rounded-[40px] border border-navy/5 shadow-sm">
+            <div className="absolute w-64 h-64 border-2 border-verdeSniffer/20 rounded-full flex items-center justify-center">
+              <div className="w-40 h-40 border-2 border-verdeSniffer/40 rounded-full flex items-center justify-center">
+                <div className="relative w-4 h-4 bg-verdeSniffer rounded-full pulse-dot"></div>
+              </div>
+            </div>
+            {/* Abstract Map Elements */}
+            <div className="absolute top-20 right-20 w-12 h-12 bg-navy/10 rounded-xl rotate-12"></div>
+            <div className="absolute bottom-20 left-20 w-16 h-16 bg-navy/10 rounded-xl -rotate-12"></div>
+          </div>
+          {/* Right: Content */}
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">A cidade inteira na palma da mão.</h2>
+            <p className="text-xl text-navy/70 leading-relaxed">
+              Nossa interface foi desenhada para que você nunca mais se sinta um estranho no seu próprio território. Veja onde o movimento está acontecendo agora.
+            </p>
+            <ul className="space-y-4 pt-4">
+              <li className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-sm font-bold">✓</div>
+                <span className="font-medium">Mapa de calor em tempo real</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-sm font-bold">✓</div>
+                <span className="font-medium">Alertas de proximidade</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-6 h-6 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-sm font-bold">✓</div>
+                <span className="font-medium">Filtros por interesses específicos</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      {/* END: FeaturesSplit */}
+
+      {/* BEGIN: TribesGrid */}
+      <section className="py-24 bg-white px-4 border-t border-navy/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Tribos locais</h2>
+              <p className="text-navy/60 text-lg">Encontre sua turma e pessoas com os mesmos interesses perto de você.</p>
+            </div>
+            <button className="text-navy font-bold border-b-2 border-verdeSniffer pb-1 hover:text-verdeSniffer transition-colors">Ver todas as tribos</button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1: Savassi */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+              <div className="mb-4 flex justify-between items-start">
+                <div className="w-12 h-12 bg-navy/5 rounded-2xl flex items-center justify-center text-2xl">☕</div>
+              </div>
+              <h4 className="text-xl font-bold mb-2 group-hover:text-verdeSniffer transition-colors">Café &amp; Tech</h4>
+              <p className="text-navy/60 text-sm mb-4">Networking e discussões sobre o futuro da web nos cafés da sua cidade.</p>
+              <div className="flex items-center gap-2 text-xs font-bold text-navy/40 uppercase tracking-wider">
+                <span>242 Membros</span>
+                <span>•</span>
+                <span>Ativa Agora</span>
+              </div>
+            </div>
+            {/* Card 2: BH Geral */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+              <div className="mb-4 flex justify-between items-start">
+                <div className="w-12 h-12 bg-navy/5 rounded-2xl flex items-center justify-center text-2xl">🏃</div>
+              </div>
+              <h4 className="text-xl font-bold mb-2 group-hover:text-verdeSniffer transition-colors">Corrida Noturna</h4>
+              <p className="text-navy/60 text-sm mb-4">Grupos de corrida que exploram a sua cidade toda terça-feira.</p>
+              <div className="flex items-center gap-2 text-xs font-bold text-navy/40 uppercase tracking-wider">
+                <span>1.2k Membros</span>
+                <span>•</span>
+                <span>Semanal</span>
+              </div>
+            </div>
+            {/* Card 3: Savassi Cultural */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+              <div className="mb-4 flex justify-between items-start">
+                <div className="w-12 h-12 bg-navy/5 rounded-2xl flex items-center justify-center text-2xl">🎨</div>
+              </div>
+              <h4 className="text-xl font-bold mb-2 group-hover:text-verdeSniffer transition-colors">Circuito das Artes</h4>
+              <p className="text-navy/60 text-sm mb-4">Visitas guiadas e debates sobre as novas exposições na sua região.</p>
+              <div className="flex items-center gap-2 text-xs font-bold text-navy/40 uppercase tracking-wider">
+                <span>156 Membros</span>
+                <span>•</span>
+                <span>Hoje</span>
+              </div>
+            </div>
+            {/* Card 4: BH Foodies */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+              <div className="mb-4 flex justify-between items-start">
+                <div className="w-12 h-12 bg-navy/5 rounded-2xl flex items-center justify-center text-2xl">🧀</div>
+              </div>
+              <h4 className="text-xl font-bold mb-2 group-hover:text-verdeSniffer transition-colors">Rota Gastronômica</h4>
+              <p className="text-navy/60 text-sm mb-4">Explorando os melhores restaurantes, queijos e botecos tradicionais próximos a você.</p>
+              <div className="flex items-center gap-2 text-xs font-bold text-navy/40 uppercase tracking-wider">
+                <span>890 Membros</span>
+                <span>•</span>
+                <span>Sábado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* END: TribesGrid */}
+
+      {/* BEGIN: BottomCTA */}
+      <footer className="bg-white py-12 px-4 border-t border-navy/5">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div>
+            <h3 className="text-2xl font-bold text-navy mb-2">Pronto para explorar sua região?</h3>
+            <p className="text-navy/60">Junte-se à maior rede de conexões locais e não perca nenhum evento.</p>
+          </div>
+          <button className="bg-verdeSniffer text-navy px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-verdeSniffer/20">
+            Comece a farejar
+          </button>
+        </div>
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-navy/5 flex flex-col md:flex-row justify-between items-center gap-4 text-navy/50 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-verdeSniffer rounded-md flex items-center justify-center font-bold text-[10px] text-navy">S</div>
+            <span>© 2023 Sniffer App. Belo Horizonte, MG.</span>
+          </div>
+          <div className="flex gap-6">
+            <a className="hover:text-navy transition-colors" href="#">Termos</a>
+            <a className="hover:text-navy transition-colors" href="#">Privacidade</a>
+            <a className="hover:text-navy transition-colors" href="#">Contato</a>
+          </div>
+        </div>
+      </footer>
+      {/* END: BottomCTA */}
+    </motion.div>
+  );
+}
