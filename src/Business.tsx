@@ -45,6 +45,7 @@ const solutionsItems = [
   { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '#como-funciona' },
   { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '#como-funciona' },
   { icon: '🔦', label: 'Spotlight', desc: 'Anúncio nativo no Place Card do negócio', href: '#planos' },
+  { icon: '🤝', label: 'SVA', desc: 'Parceria para operadoras e distribuidores', href: '#parceiros' },
 ];
 
 /* ───────────────────── BusinessNavbar ───────────────────── */
@@ -957,74 +958,6 @@ export default function Business() {
             >
               Quero fazer parte
             </button>
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
-
-      {/* ═══════════════════ SEÇÃO 7 — PARCEIROS SVA ═══════════════════ */}
-      <section id="parceiros" className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-3 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            Parceiro SVA? A gente cresce junto.
-          </h2>
-          <p className="text-center text-white/50 text-lg mb-14 max-w-2xl mx-auto">
-            O Sniffer Business foi feito pra ser a próxima geração de SVA. Se você já tem base de PMEs, infraestrutura de cobrança e canais de venda — a gente entra com a tecnologia e a proposta de valor.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10 relative">
-            {/* Plus sign between */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 border-2 border-tealBusiness rounded-full items-center justify-center text-tealBusiness text-2xl font-extrabold shadow-md">+</div>
-
-            {/* Partner */}
-            <div className="border border-white/10 rounded-2xl p-8">
-              <div className="text-3xl mb-4">🤝</div>
-              <h3 className="font-extrabold text-lg mb-4 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>O que o parceiro traz</h3>
-              <ul className="space-y-3">
-                {[
-                  'Base de clientes PME com relacionamento consolidado',
-                  'Infraestrutura de billing e suporte escalável',
-                  'Presença e alcance no mercado-alvo',
-                  'Credibilidade de marca que acelera adoção',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-white/60 text-[0.9rem]">
-                    <span className="text-white/30 mt-1">●</span>{t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Sniffer */}
-            <div className="border border-tealBusiness/30 bg-tealBusiness/10 rounded-2xl p-8">
-              <div className="text-3xl mb-4">🚀</div>
-              <h3 className="font-extrabold text-lg mb-4 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>O que a Sniffer traz</h3>
-              <ul className="space-y-3">
-                {[
-                  'Produto completo de inteligência e performance',
-                  'Proposta de valor diferenciada do mercado',
-                  'Modelo de preço competitivo pra qualquer portfólio',
-                  'Roadmap de evolução contínua com Sniffer Labs',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-white/70 text-[0.9rem] font-medium">
-                    <span className="text-tealBusiness mt-1">●</span>{t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Distribution models */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['Oferta bundled nos planos do parceiro', 'Upsell digital via canais do parceiro', 'Landing page co-branded', 'Força de vendas Enterprise dedicada'].map((m) => (
-              <span key={m} className="bg-white/5 text-white/60 text-sm font-medium px-4 py-2 rounded-full">{m}</span>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a href="#" className="text-tealBusiness font-bold hover:underline inline-flex items-center gap-1 group">
-              Quero ser parceiro SVA <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
           </div>
         </div>
       </section>
