@@ -3,7 +3,7 @@
  */
 import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import { Menu, X, Shield, ChevronDown, ChevronLeft, ChevronRight, Check as CheckIcon } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 /* ───────────────────── Counter hook ───────────────────── */
 function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
   const [display, setDisplay] = useState(prefix + '0' + suffix);
@@ -51,6 +51,7 @@ const solutionsItems = [
 function BusinessNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const openDropdown = () => {
@@ -99,13 +100,39 @@ function BusinessNavbar() {
         height: '72px',
       }}
     >
+      {/* ── Mobile header row ── */}
+      <div className="lg:hidden" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: '72px' }}>
+        {/* Left — Criar Conta */}
+        <button
+          style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
+        >
+          Criar Conta
+        </button>
+
+        {/* Center — logo */}
+        <a href="/business" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+          <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+        </a>
+
+        {/* Right — hamburger */}
+        <button
+          aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen(v => !v)}
+          style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#332D59' }}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* ── Desktop header row ── */}
       <div
+        className="hidden lg:grid"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 24px',
-          height: '100%',
-          display: 'grid',
+          height: '72px',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
         }}
@@ -359,82 +386,279 @@ function BusinessNavbar() {
               Criar Conta
             </button>
           </div>
-        </div>
+
+          </div>
       </div>
 
-      {/* ── Mobile Menu Panel ── */}
-      {mobileOpen && (
-        <div
-          className="lg:hidden"
-          style={{
-            backgroundColor: '#FFFFFF',
-            borderBottom: '1px solid #D3D3D3',
-            padding: '20px 24px 24px',
-          }}
-        >
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0, marginBottom: '20px' }}>
-            {[
-              { label: 'Quem Somos', href: '#quem-somos' },
-              { label: 'Solutions', href: '#como-funciona' },
-              { label: 'Como Funciona', href: '#como-funciona' },
-              { label: 'Planos', href: '#planos' },
-            ].map(item => (
-              <li key={item.href} style={{ borderBottom: '1px solid #F2F2F2' }}>
-                <a
-                  href={item.href}
+      {/* ── Mobile Menu: Backdrop + Sheet ── */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              key="mobile-backdrop"
+              className="lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 48,
+                backgroundColor: 'rgba(0,0,0,0.4)',
+                backdropFilter: 'blur(4px)',
+                WebkitBackdropFilter: 'blur(4px)',
+              }}
+            />
+
+            {/* Sheet panel — slides in from right */}
+            <motion.div
+              key="mobile-sheet"
+              className="lg:hidden"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                width: 'min(360px, 90vw)',
+                height: '100vh',
+                zIndex: 70,
+                backgroundColor: '#FFFFFF',
+                overflowY: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: '-8px 0 40px rgba(51, 45, 89, 0.18)',
+              }}
+            >
+              {/* Sheet header */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '20px 24px',
+                  borderBottom: '1px solid #F2F2F2',
+                  flexShrink: 0,
+                }}
+              >
+                <a href="/business" onClick={() => setMobileOpen(false)}>
+                  <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+                </a>
+                <button
+                  aria-label="Fechar menu"
                   onClick={() => setMobileOpen(false)}
                   style={{
-                    display: 'block',
-                    padding: '14px 0',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: '6px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#332D59',
+                    borderRadius: '8px',
+                  }}
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* Nav content — scrollable body */}
+              <div style={{ flex: 1, overflowY: 'auto', padding: '8px 24px 24px' }}>
+                {/* Main nav links */}
+                <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                  {[
+                    { label: 'Quem Somos', href: '#quem-somos' },
+                    { label: 'Como Funciona', href: '#como-funciona' },
+                    { label: 'Planos', href: '#planos' },
+                  ].map(item => (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          padding: '16px 0',
+                          fontFamily: "'Ferom', Inter, sans-serif",
+                          fontWeight: 600,
+                          fontSize: '17px',
+                          color: '#332D59',
+                          textDecoration: 'none',
+                          borderBottom: '1px solid #F5F5F5',
+                          minHeight: '52px',
+                        }}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+
+                  {/* Solutions accordion */}
+                  <li>
+                    <button
+                      aria-expanded={mobileSolutionsOpen}
+                      onClick={() => setMobileSolutionsOpen(v => !v)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: '100%',
+                        padding: '16px 0',
+                        fontFamily: "'Ferom', Inter, sans-serif",
+                        fontWeight: 600,
+                        fontSize: '17px',
+                        color: '#332D59',
+                        background: 'none',
+                        border: 'none',
+                        borderBottom: '1px solid #F5F5F5',
+                        cursor: 'pointer',
+                        minHeight: '52px',
+                      }}
+                    >
+                      Solutions
+                      <ChevronDown
+                        size={18}
+                        style={{
+                          color: '#00A896',
+                          flexShrink: 0,
+                          transition: 'transform 250ms ease',
+                          transform: mobileSolutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        }}
+                      />
+                    </button>
+
+                    {/* Accordion body */}
+                    <AnimatePresence initial={false}>
+                      {mobileSolutionsOpen && (
+                        <motion.div
+                          key="solutions-accordion"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}
+                          style={{ overflow: 'hidden' }}
+                        >
+                          <ul style={{ listStyle: 'none', margin: 0, padding: '4px 0 8px' }}>
+                            {solutionsItems.map(item => (
+                              <li key={item.label}>
+                                <a
+                                  href={item.href}
+                                  onClick={() => { setMobileOpen(false); setMobileSolutionsOpen(false); }}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'flex-start',
+                                    gap: '12px',
+                                    padding: '12px 0 12px 8px',
+                                    textDecoration: 'none',
+                                    borderBottom: '1px solid #F9F9F9',
+                                  }}
+                                >
+                                  <span style={{ fontSize: '20px', lineHeight: 1, flexShrink: 0, marginTop: '1px' }}>{item.icon}</span>
+                                  <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                                    <span style={{
+                                      fontFamily: "'Ferom', Inter, sans-serif",
+                                      fontWeight: 700,
+                                      fontSize: '14px',
+                                      color: '#332D59',
+                                      display: 'block',
+                                    }}>
+                                      {item.label}
+                                    </span>
+                                    <span style={{
+                                      fontFamily: "'Ferom', Inter, sans-serif",
+                                      fontSize: '12px',
+                                      color: '#888',
+                                      display: 'block',
+                                    }}>
+                                      {item.desc}
+                                    </span>
+                                  </span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                </ul>
+              </div>
+
+              {/* CTAs — sticky footer */}
+              <div
+                style={{
+                  position: 'sticky',
+                  bottom: 0,
+                  backgroundColor: '#FFFFFF',
+                  padding: '20px 24px',
+                  borderTop: '1px solid #F2F2F2',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  flexShrink: 0,
+                }}
+              >
+                <button
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid #D3D3D3',
+                    borderRadius: '12px',
+                    padding: '14px 20px',
                     fontFamily: "'Ferom', Inter, sans-serif",
                     fontWeight: 500,
                     fontSize: '15px',
                     color: '#332D59',
-                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    width: '100%',
+                    transition: 'border-color 200ms ease, color 200ms ease',
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLButtonElement;
+                    el.style.borderColor = '#00A896';
+                    el.style.color = '#00A896';
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLButtonElement;
+                    el.style.borderColor = '#D3D3D3';
+                    el.style.color = '#332D59';
                   }}
                 >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <button
-              style={{
-                background: 'transparent',
-                border: '1px solid #D3D3D3',
-                borderRadius: '10px',
-                padding: '12px 20px',
-                fontFamily: "'Ferom', Inter, sans-serif",
-                fontWeight: 500,
-                fontSize: '15px',
-                color: '#332D59',
-                cursor: 'pointer',
-                width: '100%',
-              }}
-            >
-              Login
-            </button>
-            <button
-              style={{
-                background: '#00A896',
-                border: 'none',
-                borderRadius: '10px',
-                padding: '12px 24px',
-                fontFamily: "'Ferom', Inter, sans-serif",
-                fontWeight: 700,
-                fontSize: '15px',
-                color: '#FFFFFF',
-                cursor: 'pointer',
-                width: '100%',
-              }}
-            >
-              Criar Conta
-            </button>
-          </div>
-        </div>
-      )}
+                  Login
+                </button>
+                <button
+                  style={{
+                    background: '#00A896',
+                    border: 'none',
+                    borderRadius: '12px',
+                    padding: '14px 24px',
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    fontWeight: 700,
+                    fontSize: '15px',
+                    color: '#FFFFFF',
+                    cursor: 'pointer',
+                    width: '100%',
+                    transition: 'background-color 200ms ease',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89';
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896';
+                  }}
+                >
+                  Criar Conta
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
@@ -469,11 +693,27 @@ export default function Business() {
 
           <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-jakarta)' }}>
             As grandes plataformas te ignoraram.{' '}
-            <span className="text-verdeSniffer">A Sniffer foi feita pra você.</span>
+            <span style={{ color: '#00A896' }}>A Sniffer foi feita pra você.</span>
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <button className="bg-verdeSniffer text-navy px-8 py-3.5 rounded-full font-extrabold text-base hover:scale-105 transition-transform shadow-lg shadow-verdeSniffer/20">
+            <button
+              style={{
+                background: '#00A896',
+                border: 'none',
+                borderRadius: '10px',
+                padding: '14px 32px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 700,
+                fontSize: '16px',
+                color: '#FFFFFF',
+                cursor: 'pointer',
+                transition: 'background-color 200ms ease',
+                lineHeight: 1,
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896'; }}
+            >
               Começar grátis
             </button>
           </div>
