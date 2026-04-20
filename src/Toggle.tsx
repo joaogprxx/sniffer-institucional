@@ -47,7 +47,7 @@ const PILL_BG: Record<Option, string> = {
 
 const PILL_SHADOW: Record<Option, string> = {
   people: '0 4px 16px -4px #3DDC8499',
-  business: '0 0 0 1.5px #00A896, 0 4px 16px -4px rgba(0,168,150,0.3)',
+  business: 'none',
   corporate: '0 4px 16px -4px #7C7AB899',
 };
 
