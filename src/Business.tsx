@@ -1047,9 +1047,7 @@ export default function Business() {
       <footer className="border-t border-white/10 py-8 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-white/40 text-sm">
-            <span className="font-extrabold" style={{ fontFamily: 'var(--font-jakarta)' }}>
-              sni<span className="text-verdeSniffer/60">ff</span>er
-            </span>
+            <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
             <span className="text-white/30">business</span>
             <span className="ml-2">© 2026 Sniffer Business. Belo Horizonte, MG.</span>
           </div>
