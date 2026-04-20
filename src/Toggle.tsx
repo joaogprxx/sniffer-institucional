@@ -18,7 +18,7 @@ const ROUTES: Record<Option, string> = {
 const COLORS: Record<Option, string> = {
   people: '#3DDC84',
   business: '#00A896',
-  corporate: '#3D3C6E',
+  corporate: '#7C7AB8',
 };
 
 const LABEL: Record<Option, string> = {
@@ -66,17 +66,16 @@ export function Toggle() {
     <div
       className="fixed top-0 inset-x-0 z-[60] flex justify-center py-2"
       style={{
-        background: 'rgba(255,255,255,0.96)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: '#2D2F5E',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       <div
         ref={trackRef}
         className="relative flex items-center rounded-full px-1 py-1"
         style={{
-          background: '#f5f4f0',
-          boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)',
+          background: 'rgba(0,0,0,0.25)',
+          boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)',
         }}
       >
         {/* Single always-mounted pill — slides & morphs color */}
@@ -105,7 +104,7 @@ export function Toggle() {
             style={{ background: 'none', border: 'none' }}
           >
             <motion.span
-              animate={{ color: active === option ? '#ffffff' : '#9e9e96' }}
+              animate={{ color: active === option ? '#ffffff' : 'rgba(255,255,255,0.45)' }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               style={{ fontFamily: 'var(--font-nunito)', display: 'block' }}
             >
