@@ -97,11 +97,11 @@ function BusinessNavbar() {
         boxShadow: '0 4px 32px rgba(0, 0, 0, 0.13)',
         borderRadius: '16px',
         margin: '0 24px',
-        height: '72px',
+        height: '96px',
       }}
     >
       {/* ── Mobile header row ── */}
-      <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '72px' }}>
+      <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '96px' }}>
         {/* Left — Criar Conta */}
         <button
           style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
@@ -132,7 +132,7 @@ function BusinessNavbar() {
           maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 24px',
-          height: '72px',
+          height: '96px',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
         }}
