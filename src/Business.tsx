@@ -111,7 +111,7 @@ function BusinessNavbar() {
 
         {/* Center — logo */}
         <a href="/business" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+          <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '64px', width: 'auto' }} />
         </a>
 
         {/* Right — hamburger */}
@@ -139,7 +139,7 @@ function BusinessNavbar() {
       >
         {/* ── Logo (col 1) ── */}
         <a href="/business" style={{ display: 'flex', alignItems: 'center', justifySelf: 'start' }}>
-          <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
+          <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '88px', width: 'auto' }} />
         </a>
 
         {/* ── Desktop Nav Links ── */}
@@ -447,7 +447,7 @@ function BusinessNavbar() {
                 }}
               >
                 <a href="/business" onClick={() => setMobileOpen(false)}>
-                  <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+                  <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '64px', width: 'auto' }} />
                 </a>
                 <button
                   aria-label="Fechar menu"
@@ -731,9 +731,9 @@ export default function Business() {
       <section id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-semibold text-center mb-14" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            O que é a{' '}
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />
-            ?
+            <span style={{ letterSpacing: '-0.02em' }}>O que é a{' '}
+            <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em', marginLeft: '-0.2em', marginRight: '-0.25em' }} />
+            ?</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
