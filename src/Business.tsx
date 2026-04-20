@@ -801,18 +801,19 @@ export default function Business() {
             {/* Carousel Cards Container */}
             <div className="relative w-full h-[580px] perspective-[1000px] mt-4">
               {[
-                { 
-                  name: 'Basic', 
-                  price: 'Grátis', 
-                  tagline: 'Pra quem tá chegando.', 
-                  cta: 'Fazer parte', 
-                  style: 'border border-white/10 bg-white/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]',
+                {
+                  name: 'Basic',
+                  price: 'Grátis',
+                  tagline: 'Pra quem tá chegando.',
+                  cta: 'Fazer parte',
+                  style: 'border border-white/10 bg-white/[0.06] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]',
                   btnStyle: 'border border-white/20 text-white hover:bg-white/5',
                   titleStyle: 'text-xl font-bold text-white',
                   popular: false,
+                  light: false,
                   features: ['1 Localização', 'Feed com cardápio/ação', 'Comunidade básica', 'Rating e Reviews', 'Suporte N1']
                 },
-                { 
+                {
                   name: 'Plus',
                   price: 'R$ 60',
                   tagline: 'Pra quem quer se destacar.',
@@ -821,28 +822,31 @@ export default function Business() {
                   btnStyle: 'bg-white text-tealBusiness hover:bg-white/90',
                   titleStyle: 'text-xl sm:text-2xl font-extrabold text-white',
                   popular: true,
+                  light: false,
                   features: ['Selo Verified Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
                 },
-                { 
-                  name: 'Business', 
-                  price: 'R$ 140', 
-                  tagline: 'Pra quem tá crescendo de verdade.', 
-                  cta: 'Quero o Business', 
-                  style: 'border border-white/10 bg-white/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]',
-                  btnStyle: 'border border-white/20 text-white hover:bg-white/5',
-                  titleStyle: 'text-2xl sm:text-3xl font-black text-white tracking-tight',
+                {
+                  name: 'Business',
+                  price: 'R$ 140',
+                  tagline: 'Pra quem tá crescendo de verdade.',
+                  cta: 'Quero o Business',
+                  style: 'bg-white border-transparent shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)]',
+                  btnStyle: 'bg-navy text-white hover:bg-navy/90',
+                  titleStyle: 'text-2xl sm:text-3xl font-black text-navy tracking-tight',
                   popular: false,
+                  light: true,
                   features: ['Ranking Automático Premium', 'Até 6 Localizações', 'Promoções Ilimitadas', 'Análises de Mercado Local', 'Suporte N3']
                 },
-                { 
-                  name: 'Enterprise', 
-                  price: 'R$ 230', 
-                  tagline: 'Pra quem manda no bairro.', 
-                  cta: 'Falar com especialista', 
-                  style: 'border border-white/10 bg-white/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]',
+                {
+                  name: 'Enterprise',
+                  price: 'R$ 230',
+                  tagline: 'Pra quem manda no bairro.',
+                  cta: 'Falar com especialista',
+                  style: 'bg-[#1A1C42] border border-white/10 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.4)]',
                   btnStyle: 'border border-white/20 text-white hover:bg-white/5',
                   titleStyle: 'text-3xl sm:text-[2rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-tealBusiness tracking-tighter leading-none pb-1',
                   popular: false,
+                  light: false,
                   features: ['Moderação Avançada', 'A partir de 7 Localizações', 'Insights Fora do Nicho', 'Integrações Customizadas', 'Executivo de Conta']
                 },
               ].map((plan, index) => {
@@ -891,25 +895,25 @@ export default function Business() {
                     <div className="text-center mb-6">
                       <h3 className={`${plan.titleStyle} mb-1 transition-all duration-300`} style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.name}</h3>
                       <div className="flex items-baseline justify-center gap-1 mb-2">
-                        <span className={`text-3xl sm:text-[2.6rem] font-black leading-none ${plan.popular ? 'text-white' : 'text-white'}`} style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.price}</span>
-                        {plan.price !== 'Grátis' && <span className={`font-bold text-sm ${plan.popular ? 'text-white/60' : 'text-white/40'}`}>/mês</span>}
+                        <span className={`text-3xl sm:text-[2.6rem] font-black leading-none ${plan.light ? 'text-navy' : 'text-white'}`} style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.price}</span>
+                        {plan.price !== 'Grátis' && <span className={`font-bold text-sm ${plan.popular ? 'text-white/60' : plan.light ? 'text-navy/60' : 'text-white/40'}`}>/mês</span>}
                       </div>
-                      <p className={`text-sm italic ${plan.popular ? 'text-white/70' : 'text-white/50'}`}>{plan.tagline}</p>
+                      <p className={`text-sm italic ${plan.popular ? 'text-white/70' : plan.light ? 'text-navy/70' : 'text-white/50'}`}>{plan.tagline}</p>
                     </div>
 
                     <div className="flex-grow transition-opacity duration-500 delay-150" style={{ opacity: isActive ? 1 : 0 }}>
-                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : 'text-white/40'}`}>Principais Entregas</p>
+                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : 'text-white/40'}`}>Principais Entregas</p>
                       <ul className="space-y-3 px-2">
                         {plan.features.map(f => (
                           <li key={f} className="flex items-start text-sm">
                             <CheckIcon className={`w-5 h-5 mr-2 shrink-0 ${plan.popular ? 'text-white' : 'text-tealBusiness'}`} />
-                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : 'text-white/70'}`}>{f}</span>
+                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : plan.light ? 'text-navy/80' : 'text-white/70'}`}>{f}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className={`pt-6 mt-auto border-t ${plan.popular ? 'border-white/20' : 'border-white/10'}`}>
+                    <div className={`pt-6 mt-auto border-t ${plan.popular ? 'border-white/20' : plan.light ? 'border-navy/10' : 'border-white/10'}`}>
                       <button className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm transition-all ${plan.btnStyle}`}>
                         {plan.cta}
                       </button>
