@@ -844,7 +844,7 @@ export default function Business() {
                   cta: 'Falar com especialista',
                   style: 'bg-[#1A1C42] border border-white/10 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.4)]',
                   btnStyle: 'border border-white/20 text-white hover:bg-white/5',
-                  titleStyle: 'text-3xl sm:text-[2rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-tealBusiness tracking-tighter leading-none pb-1',
+                  titleStyle: 'text-3xl sm:text-[2rem] font-black text-white tracking-tighter leading-none pb-1',
                   popular: false,
                   light: false,
                   features: ['Moderação Avançada', 'A partir de 7 Localizações', 'Insights Fora do Nicho', 'Integrações Customizadas', 'Executivo de Conta']
