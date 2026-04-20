@@ -947,6 +947,17 @@ export default function Business() {
           <p className="text-center text-white/40 text-sm mt-8 hidden">
             Todos com período de teste. Sem contrato. Cancele quando quiser.
           </p>
+
+          <div className="flex justify-center mt-10">
+            <button
+              className="px-10 py-4 rounded-2xl font-black text-base text-white transition-all"
+              style={{ background: '#00A896' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#009A89'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#00A896'; }}
+            >
+              Quero fazer parte
+            </button>
+          </div>
         </div>
       </section>
 
