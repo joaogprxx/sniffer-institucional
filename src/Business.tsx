@@ -748,12 +748,12 @@ export default function Business() {
               </ul>
             </div>
             {/* After */}
-            <div className="border border-verdeSniffer/20 bg-verdeSniffer/[0.03] rounded-2xl p-8">
+            <div className="border border-tealBusiness/20 bg-tealBusiness/[0.03] rounded-2xl p-8">
               <h3 className="font-extrabold text-lg mb-5 text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Com o Sniffer</h3>
               <ul className="space-y-4">
                 {['Leads verificáveis e conversões', 'Business Card com ações diretas', 'Integração com seu dia a dia', 'ROI em tempo real'].map((t) => (
                   <li key={t} className="flex items-start gap-3">
-                    <span className="text-verdeSniffer font-bold mt-0.5">✓</span>
+                    <span className="text-tealBusiness font-bold mt-0.5">✓</span>
                     <span className="text-navy font-semibold">{t}</span>
                   </li>
                 ))}
@@ -789,7 +789,7 @@ export default function Business() {
                 'Selo Verified Sniffer (a partir do Plus)',
               ].map((f) => (
                 <li key={f} className="flex items-start gap-3">
-                  <span className="text-verdeSniffer text-lg mt-0.5">🐾</span>
+                  <span className="text-tealBusiness text-lg mt-0.5">🐾</span>
                   <span className="text-navy/70 font-medium">{f}</span>
                 </li>
               ))}
@@ -801,22 +801,22 @@ export default function Business() {
             <div className="w-[300px] sm:w-[340px] bg-white rounded-3xl shadow-xl shadow-navy/8 border border-gray-100 overflow-hidden" style={{ animation: 'float-card 6s ease-in-out infinite' }}>
               <div className="bg-gradient-to-br from-navy/80 to-navy h-32 relative flex items-end px-5 pb-3">
                 <div className="bg-white rounded-xl p-1.5 shadow-md -mb-6">
-                  <div className="w-12 h-12 bg-verdeSniffer/20 rounded-lg flex items-center justify-center text-xl">🍔</div>
+                  <div className="w-12 h-12 bg-tealBusiness/20 rounded-lg flex items-center justify-center text-xl">🍔</div>
                 </div>
               </div>
               <div className="px-5 pt-8 pb-5">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <h4 className="font-extrabold" style={{ fontFamily: 'var(--font-jakarta)' }}>Burger Station</h4>
-                  <Shield className="w-4 h-4 text-verdeSniffer" />
+                  <Shield className="w-4 h-4 text-tealBusiness" />
                 </div>
                 <p className="text-xs text-navy/40 mb-3">Hambúrgueria artesanal · ⭐ 4.9 · 2.1k avaliações</p>
                 <div className="flex gap-2 mb-3">
-                  <span className="bg-verdeSniffer/10 text-verdeSniffer text-[10px] font-bold px-2 py-1 rounded-full">Aberto</span>
+                  <span className="bg-tealBusiness/10 text-tealBusiness text-[10px] font-bold px-2 py-1 rounded-full">Aberto</span>
                   <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">Delivery</span>
                   <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">WhatsApp</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <button className="bg-verdeSniffer text-navy text-xs font-bold py-2 rounded-xl">Pedir agora</button>
+                  <button className="bg-tealBusiness text-navy text-xs font-bold py-2 rounded-xl">Pedir agora</button>
                   <button className="border border-navy/10 text-navy/60 text-xs font-bold py-2 rounded-xl">Ver cardápio</button>
                 </div>
               </div>
@@ -867,13 +867,13 @@ export default function Business() {
                   features: ['1 Localização', 'Feed com cardápio/ação', 'Comunidade básica', 'Rating e Reviews', 'Suporte N1']
                 },
                 { 
-                  name: 'Plus', 
-                  price: 'R$ 60', 
-                  tagline: 'Pra quem quer se destacar.', 
-                  cta: 'Quero o Plus', 
-                  style: 'border border-verdeSniffer/40 bg-white shadow-[0_8px_30px_-6px_rgba(120,200,122,0.15)] ring-1 ring-verdeSniffer/10', 
-                  btnStyle: 'bg-verdeSniffer text-navy hover:bg-verdeSniffer/90',
-                  titleStyle: 'text-xl sm:text-2xl font-extrabold text-navy',
+                  name: 'Plus',
+                  price: 'R$ 60',
+                  tagline: 'Pra quem quer se destacar.',
+                  cta: 'Quero o Plus',
+                  style: 'bg-tealBusiness border-transparent shadow-[0_8px_30px_-6px_rgba(0,168,150,0.35)]',
+                  btnStyle: 'bg-white text-tealBusiness hover:bg-white/90',
+                  titleStyle: 'text-xl sm:text-2xl font-extrabold text-white',
                   popular: true,
                   features: ['Selo Verified Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
                 },
@@ -895,7 +895,7 @@ export default function Business() {
                   cta: 'Falar com especialista', 
                   style: 'border border-gray-200 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]', 
                   btnStyle: 'bg-offWhiteBg border border-navy text-navy hover:bg-navy/5', 
-                  titleStyle: 'text-3xl sm:text-[2rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-navy to-verdeSniffer tracking-tighter leading-none pb-1',
+                  titleStyle: 'text-3xl sm:text-[2rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-navy to-tealBusiness tracking-tighter leading-none pb-1',
                   popular: false,
                   features: ['Moderação Avançada', 'A partir de 7 Localizações', 'Insights Fora do Nicho', 'Integrações Customizadas', 'Executivo de Conta']
                 },
@@ -937,7 +937,7 @@ export default function Business() {
                     style={{ transform, opacity, zIndex, pointerEvents: isActive ? 'auto' : 'none' }}
                   >
                     {plan.popular && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-verdeSniffer text-navy text-[10px] sm:text-xs font-extrabold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm tracking-wide transition-transform duration-500 delay-100" style={{ transform: isActive ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)', opacity: isActive ? 1 : 0 }}>
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] sm:text-xs font-extrabold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm tracking-wide transition-transform duration-500 delay-100" style={{ backgroundColor: '#00877A', transform: isActive ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)', opacity: isActive ? 1 : 0 }}>
                         MAIS POPULAR
                       </span>
                     )}
@@ -945,25 +945,25 @@ export default function Business() {
                     <div className="text-center mb-6">
                       <h3 className={`${plan.titleStyle} mb-1 transition-all duration-300`} style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.name}</h3>
                       <div className="flex items-baseline justify-center gap-1 mb-2">
-                        <span className="text-3xl sm:text-[2.6rem] font-black text-navy leading-none" style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.price}</span>
-                        {plan.price !== 'Grátis' && <span className="text-navy/40 font-bold text-sm">/mês</span>}
+                        <span className={`text-3xl sm:text-[2.6rem] font-black leading-none ${plan.popular ? 'text-white' : 'text-navy'}`} style={{ fontFamily: 'var(--font-jakarta)' }}>{plan.price}</span>
+                        {plan.price !== 'Grátis' && <span className={`font-bold text-sm ${plan.popular ? 'text-white/60' : 'text-navy/40'}`}>/mês</span>}
                       </div>
-                      <p className="text-navy/50 text-sm italic">{plan.tagline}</p>
+                      <p className={`text-sm italic ${plan.popular ? 'text-white/70' : 'text-navy/50'}`}>{plan.tagline}</p>
                     </div>
 
                     <div className="flex-grow transition-opacity duration-500 delay-150" style={{ opacity: isActive ? 1 : 0 }}>
-                      <p className="text-[0.7rem] uppercase tracking-wider font-bold text-navy/40 mb-4 px-2">Principais Entregas</p>
+                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : 'text-navy/40'}`}>Principais Entregas</p>
                       <ul className="space-y-3 px-2">
                         {plan.features.map(f => (
                           <li key={f} className="flex items-start text-sm">
-                            <CheckIcon className="w-5 h-5 text-verdeSniffer mr-2 shrink-0" />
-                            <span className="text-navy/70 leading-tight">{f}</span>
+                            <CheckIcon className={`w-5 h-5 mr-2 shrink-0 ${plan.popular ? 'text-white' : 'text-tealBusiness'}`} />
+                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : 'text-navy/70'}`}>{f}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="pt-6 mt-auto border-t border-gray-100/50">
+                    <div className={`pt-6 mt-auto border-t ${plan.popular ? 'border-white/20' : 'border-gray-100/50'}`}>
                       <button className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm transition-all ${plan.btnStyle}`}>
                         {plan.cta}
                       </button>
@@ -982,7 +982,7 @@ export default function Business() {
                   className="p-2.5 flex items-center justify-center"
                   aria-label={`Ir para plano ${idx + 1}`}
                 >
-                  <span className={`block rounded-full transition-all duration-300 ${currentPlanIndex === idx ? 'bg-verdeSniffer w-6 h-2.5' : 'w-2.5 h-2.5 bg-navy/10 hover:bg-navy/20'}`} />
+                  <span className={`block rounded-full transition-all duration-300 ${currentPlanIndex === idx ? 'bg-tealBusiness w-6 h-2.5' : 'w-2.5 h-2.5 bg-navy/10 hover:bg-navy/20'}`} />
                 </button>
               ))}
             </div>
@@ -1010,7 +1010,7 @@ export default function Business() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10 relative">
             {/* Plus sign between */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white border-2 border-verdeSniffer rounded-full items-center justify-center text-verdeSniffer text-2xl font-extrabold shadow-md">+</div>
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white border-2 border-tealBusiness rounded-full items-center justify-center text-tealBusiness text-2xl font-extrabold shadow-md">+</div>
 
             {/* Partner */}
             <div className="border border-gray-200 rounded-2xl p-8">
@@ -1031,7 +1031,7 @@ export default function Business() {
             </div>
 
             {/* Sniffer */}
-            <div className="border border-verdeSniffer/20 bg-verdeSniffer/[0.03] rounded-2xl p-8">
+            <div className="border border-tealBusiness/20 bg-tealBusiness/[0.03] rounded-2xl p-8">
               <div className="text-3xl mb-4">🚀</div>
               <h3 className="font-extrabold text-lg mb-4" style={{ fontFamily: 'var(--font-jakarta)' }}>O que a Sniffer traz</h3>
               <ul className="space-y-3">
@@ -1042,7 +1042,7 @@ export default function Business() {
                   'Roadmap de evolução contínua com Sniffer Labs',
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-2 text-navy/70 text-[0.9rem] font-medium">
-                    <span className="text-verdeSniffer mt-1">●</span>{t}
+                    <span className="text-tealBusiness mt-1">●</span>{t}
                   </li>
                 ))}
               </ul>
@@ -1057,7 +1057,7 @@ export default function Business() {
           </div>
 
           <div className="text-center">
-            <a href="#" className="text-verdeSniffer font-bold hover:underline inline-flex items-center gap-1 group">
+            <a href="#" className="text-tealBusiness font-bold hover:underline inline-flex items-center gap-1 group">
               Quero ser parceiro SVA <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
@@ -1080,7 +1080,7 @@ export default function Business() {
               { ...m4, desc: 'ROI comprovado pro seu negócio' },
             ].map((metric, i) => (
               <div key={i} ref={metric.ref} className={`text-center ${i < 2 ? 'sm:border-r sm:border-gray-200' : ''}`}>
-                <p className="text-verdeSniffer text-[2.5rem] sm:text-[3rem] font-extrabold leading-none mb-2" style={{ fontFamily: 'var(--font-jakarta)' }}>
+                <p className="text-tealBusiness text-[2.5rem] sm:text-[3rem] font-extrabold leading-none mb-2" style={{ fontFamily: 'var(--font-jakarta)' }}>
                   {metric.display}
                 </p>
                 <p className="text-gray-500 text-[0.85rem]">{metric.desc}</p>
@@ -1105,12 +1105,12 @@ export default function Business() {
             Comece grátis. Sem contrato. Sem cartão de crédito. Resultado de verdade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <button className="bg-verdeSniffer text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-verdeSniffer/20">
+            <button className="bg-tealBusiness text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-tealBusiness/20">
               Começar grátis agora
             </button>
           </div>
           <p className="text-white/40 text-sm mt-6 relative z-10">
-            Ou, se preferir, <a href="#" className="text-verdeSniffer hover:underline">fale com a gente →</a>
+            Ou, se preferir, <a href="#" className="text-tealBusiness hover:underline">fale com a gente →</a>
           </p>
         </div>
       </section>
@@ -1129,7 +1129,7 @@ export default function Business() {
             <a href="#" className="hover:text-navy transition-colors">Termos</a>
             <a href="#" className="hover:text-navy transition-colors">Privacidade</a>
             <a href="#" className="hover:text-navy transition-colors">Contato</a>
-            <a href="/" className="hover:text-verdeSniffer transition-colors font-medium">← Voltar para sniffer.app</a>
+            <a href="/" className="hover:text-tealBusiness transition-colors font-medium">← Voltar para sniffer.app</a>
           </div>
         </div>
       </footer>
