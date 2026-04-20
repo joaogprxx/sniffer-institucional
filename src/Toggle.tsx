@@ -15,17 +15,55 @@ const ROUTES: Record<Option, string> = {
   corporate: '/corporate',
 };
 
-const COLORS: Record<Option, string> = {
-  people: '#3DDC84',
-  business: '#00A896',
-  corporate: '#7C7AB8',
-};
-
 const LABEL: Record<Option, string> = {
   people: 'People',
   business: 'Business',
   corporate: 'Corporate',
 };
+
+const BAR_BG: Record<Option, string> = {
+  people: 'rgba(255,255,255,0.96)',
+  business: '#2D2F5E',
+  corporate: '#2D2F5E',
+};
+
+const BAR_BORDER: Record<Option, string> = {
+  people: 'rgba(45,47,94,0.08)',
+  business: 'rgba(255,255,255,0.08)',
+  corporate: 'rgba(255,255,255,0.08)',
+};
+
+const TRACK_BG: Record<Option, string> = {
+  people: '#eeeee8',
+  business: 'rgba(0,0,0,0.25)',
+  corporate: 'rgba(0,0,0,0.25)',
+};
+
+const PILL_BG: Record<Option, string> = {
+  people: '#3DDC84',
+  business: '#2D2F5E',
+  corporate: '#7C7AB8',
+};
+
+const PILL_SHADOW: Record<Option, string> = {
+  people: '0 4px 16px -4px #3DDC8499',
+  business: '0 0 0 1.5px #00A896, 0 4px 16px -4px rgba(0,168,150,0.3)',
+  corporate: '0 4px 16px -4px #7C7AB899',
+};
+
+const ACTIVE_TEXT: Record<Option, string> = {
+  people: '#ffffff',
+  business: '#00A896',
+  corporate: '#ffffff',
+};
+
+const INACTIVE_TEXT: Record<Option, string> = {
+  people: 'rgba(45,47,94,0.5)',
+  business: 'rgba(255,255,255,0.45)',
+  corporate: 'rgba(255,255,255,0.45)',
+};
+
+const TRANSITION_BG = { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const };
 
 function routeToOption(pathname: string): Option {
   if (pathname.startsWith('/business')) return 'business';
@@ -42,7 +80,6 @@ export function Toggle() {
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [pillRect, setPillRect] = useState({ left: 4, width: 100 });
 
-  // Measure pill position after every active change and after first paint
   const measure = () => {
     const idx = OPTIONS.indexOf(active);
     const btn = btnRefs.current[idx];
@@ -53,30 +90,29 @@ export function Toggle() {
     setPillRect({ left: btnBox.left - trackBox.left, width: btnBox.width });
   };
 
-  // useLayoutEffect for synchronous measurement before paint (avoids jump)
   useLayoutEffect(() => { measure(); }, [active]);
 
-  // Also measure on resize
   useEffect(() => {
     window.addEventListener('resize', measure);
     return () => window.removeEventListener('resize', measure);
   }, [active]);
 
   return (
-    <div
+    <motion.div
       className="fixed top-0 inset-x-0 z-[60] flex justify-center py-2"
-      style={{
-        background: '#2D2F5E',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
+      animate={{
+        backgroundColor: BAR_BG[active],
+        borderBottomColor: BAR_BORDER[active],
       }}
+      transition={TRANSITION_BG}
+      style={{ borderBottomWidth: '1px', borderBottomStyle: 'solid' }}
     >
-      <div
+      <motion.div
         ref={trackRef}
         className="relative flex items-center rounded-full px-1 py-1"
-        style={{
-          background: 'rgba(0,0,0,0.25)',
-          boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)',
-        }}
+        animate={{ backgroundColor: TRACK_BG[active] }}
+        transition={TRANSITION_BG}
+        style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.15)' }}
       >
         {/* Single always-mounted pill — slides & morphs color */}
         <motion.div
@@ -84,14 +120,14 @@ export function Toggle() {
           animate={{
             left: pillRect.left,
             width: pillRect.width,
-            backgroundColor: COLORS[active],
-            boxShadow: `0 4px 16px -4px ${COLORS[active]}99`,
+            backgroundColor: PILL_BG[active],
+            boxShadow: PILL_SHADOW[active],
           }}
           transition={{
             left: { type: 'spring', stiffness: 420, damping: 36, mass: 0.7 },
             width: { type: 'spring', stiffness: 420, damping: 36, mass: 0.7 },
-            backgroundColor: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
-            boxShadow: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+            backgroundColor: TRANSITION_BG,
+            boxShadow: TRANSITION_BG,
           }}
         />
 
@@ -104,7 +140,9 @@ export function Toggle() {
             style={{ background: 'none', border: 'none' }}
           >
             <motion.span
-              animate={{ color: active === option ? '#ffffff' : 'rgba(255,255,255,0.45)' }}
+              animate={{
+                color: active === option ? ACTIVE_TEXT[active] : INACTIVE_TEXT[active],
+              }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               style={{ fontFamily: 'var(--font-nunito)', display: 'block' }}
             >
@@ -112,7 +150,7 @@ export function Toggle() {
             </motion.span>
           </button>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
