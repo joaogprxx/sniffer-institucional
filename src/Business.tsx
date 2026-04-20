@@ -111,7 +111,7 @@ function BusinessNavbar() {
 
         {/* Center — logo */}
         <a href="/business" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '64px', width: 'auto' }} />
+          <span className="font-extrabold text-white text-2xl" style={{ fontFamily: 'var(--font-jakarta)' }}>sni<span className="text-verdeSniffer/60">ff</span>er</span>
         </a>
 
         {/* Right — hamburger */}
@@ -139,7 +139,7 @@ function BusinessNavbar() {
       >
         {/* ── Logo (col 1) ── */}
         <a href="/business" style={{ display: 'flex', alignItems: 'center', justifySelf: 'start' }}>
-          <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '88px', width: 'auto' }} />
+          <span className="font-extrabold text-white text-3xl" style={{ fontFamily: 'var(--font-jakarta)' }}>sni<span className="text-verdeSniffer/60">ff</span>er</span>
         </a>
 
         {/* ── Desktop Nav Links ── */}
