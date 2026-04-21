@@ -5,6 +5,7 @@ import { AnimatePresence } from 'motion/react';
 import App from './App.tsx';
 import Business from './Business.tsx';
 import Corporate from './Corporate.tsx';
+import JoinPage from './JoinPage.tsx';
 import { Toggle } from './Toggle.tsx';
 import './index.css';
 
@@ -21,6 +22,7 @@ function AnimatedRoutes() {
           <Route path="/" element={<App />} />
           <Route path="/business" element={<Business />} />
           <Route path="/corporate" element={<Corporate />} />
+          <Route path="/cadastro" element={<JoinPage />} />
         </Routes>
       </AnimatePresence>
     </>
