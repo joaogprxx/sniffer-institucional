@@ -623,6 +623,7 @@ export default function Business() {
 
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <button
+              onClick={() => navigate('/cadastro?mode=business')}
               style={{
                 background: '#00A896',
                 border: 'none',
@@ -899,7 +900,7 @@ export default function Business() {
                     </div>
 
                     <div className={`pt-6 mt-auto border-t ${plan.popular ? 'border-white/20' : plan.light ? 'border-navy/10' : 'border-white/10'}`}>
-                      <button className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm transition-all ${plan.btnStyle}`}>
+                      <button onClick={() => navigate('/cadastro?mode=business')} className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm transition-all ${plan.btnStyle}`}>
                         {plan.cta}
                       </button>
                     </div>
@@ -958,7 +959,7 @@ export default function Business() {
             Comece grátis. Sem contrato. Sem cartão de crédito. Resultado de verdade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <button className="bg-tealBusiness text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-tealBusiness/20">
+            <button onClick={() => navigate('/cadastro?mode=business')} className="bg-tealBusiness text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-tealBusiness/20">
               Fazer parte
             </button>
           </div>
