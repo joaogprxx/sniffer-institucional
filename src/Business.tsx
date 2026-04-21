@@ -105,14 +105,6 @@ function BusinessNavbar() {
     >
       {/* ── Mobile header row ── */}
       <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '96px' }}>
-        {/* Left — Criar Conta */}
-        <button
-          onClick={() => navigate('/cadastro?mode=business')}
-          style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
-        >
-          Junte-se a essa revolução
-        </button>
-
         {/* Center — logo */}
         <a href="/business" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
           <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '64px', width: 'auto' }} />
