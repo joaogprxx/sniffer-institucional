@@ -1,10 +1,11 @@
 /**
  * Sniffer Business Landing Page
  */
-import { useState, useEffect, useRef, type CSSProperties } from 'react';
+import { useState, useEffect, useRef, type CSSProperties, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, X, Shield, ChevronDown, ChevronLeft, ChevronRight, Check as CheckIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { pageVariants, pageTransition } from './pageTransition';
 /* ───────────────────── Counter hook ───────────────────── */
 function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
   const [display, setDisplay] = useState(prefix + '0' + suffix);
@@ -36,6 +37,38 @@ function useCountUp(end: number, duration = 2000, prefix = '', suffix = '') {
   return { display, ref };
 }
 
+
+/* ───────────────────── Scroll-reveal hook ───────────────────── */
+function useReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(entry.target); } },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return { ref, visible };
+}
+
+function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  const { ref, visible } = useReveal();
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(32px)',
+        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
 
 /* ───────────────────── Navbar Solutions items ───────────────────── */
 const solutionsItems = [
@@ -602,10 +635,11 @@ export default function Business() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, scale: 0.98, filter: 'blur(4px)' }}
-      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-      exit={{ opacity: 0, scale: 1.02, filter: 'blur(4px)' }}
-      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={pageTransition}
       className="bg-navy text-white antialiased min-h-screen pt-20"
       style={{ fontFamily: 'var(--font-nunito)' }}
     >
@@ -616,13 +650,12 @@ export default function Business() {
       {/* ═══════════════════ SEÇÃO 1 — HERO ═══════════════════ */}
       <section className="pt-28 pb-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-jakarta)' }}>
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
             As grandes plataformas te ignoraram.{' '}
             <span style={{ color: '#00A896' }}>A Sniffer foi feita pra você.</span>
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
             <button
               onClick={() => navigate('/cadastro?mode=business')}
               style={{
@@ -645,7 +678,7 @@ export default function Business() {
             </button>
           </div>
 
-          <p className="text-sm text-white/40 font-medium">
+          <p className="text-sm text-white/40 font-medium animate-[fadeUp_0.8s_0.6s_forwards] opacity-0">
             Presença · Interação · Inteligência
           </p>
         </div>
@@ -657,12 +690,15 @@ export default function Business() {
       {/* ═══════════════════ SEÇÃO 2 — O PROBLEMA ═══════════════════ */}
       <section id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
+          <Reveal>
           <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-semibold text-center mb-14" style={{ fontFamily: 'var(--font-jakarta)' }}>
             <span style={{ letterSpacing: '-0.02em' }}>O que é a{' '}
             <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em', marginLeft: '-0.2em', marginRight: '-0.25em' }} />
             ?</span>
           </h2>
 
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
             {/* Before */}
             <div className="border border-white/10 rounded-2xl p-8">
@@ -689,10 +725,12 @@ export default function Business() {
               </ul>
             </div>
           </div>
-
+          </Reveal>
+          <Reveal delay={200}>
           <p className="text-center text-white/50 text-[0.95rem] max-w-[600px] mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-nunito)' }}>
             PMEs brasileiras investem mais de R$ 40 bilhões por ano em marketing e tecnologia. A maioria vai pra ferramentas que entregam alcance — não resultado. A gente tá aqui pra mudar isso.
           </p>
+          </Reveal>
         </div>
       </section>
 
@@ -702,6 +740,7 @@ export default function Business() {
       <section className="py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Text */}
+          <Reveal>
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
               Seu negócio com tudo num só lugar.
@@ -724,8 +763,10 @@ export default function Business() {
               ))}
             </ul>
           </div>
+          </Reveal>
 
           {/* Right - Mockup */}
+          <Reveal delay={150}>
           <div className="flex justify-center">
             <div className="w-[300px] sm:w-[340px] bg-white rounded-3xl shadow-xl shadow-navy/8 border border-gray-100 overflow-hidden" style={{ animation: 'float-card 6s ease-in-out infinite' }}>
               <div className="bg-gradient-to-br from-navy/80 to-navy h-32 relative flex items-end px-5 pb-3">
@@ -751,18 +792,21 @@ export default function Business() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ═══════════════════ SEÇÃO 5 — PLANOS E PREÇOS (CARROSSEL) ═══════════════════ */}
       <section id="planos" className="py-20 sm:py-24 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
+          <Reveal>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-3 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
             Planos que crescem com você.
           </h2>
           <p className="text-center text-white/50 text-lg mb-10 max-w-xl mx-auto">
             Comece grátis. Evolua quando fizer sentido. Cada plano inclui tudo do anterior.
           </p>
+          </Reveal>
 
           <div className="relative max-w-lg mx-auto group/carousel">
             {/* Carousel Navigation Arrows */}
@@ -1021,6 +1065,7 @@ export default function Business() {
 
       {/* ═══════════════════ SEÇÃO 9 — CTA FINAL ═══════════════════ */}
       <section className="py-20 sm:py-24 px-4 sm:px-6">
+        <Reveal>
         <div className="max-w-[800px] mx-auto relative overflow-hidden rounded-3xl bg-navy px-8 sm:px-16 py-16 sm:py-20 text-center shadow-2xl shadow-navy/30">
           {/* Grain */}
           <div className="grain-overlay"></div>
@@ -1040,6 +1085,7 @@ export default function Business() {
             Ou, se preferir, <a href="#" className="text-tealBusiness hover:underline">fale com a gente →</a>
           </p>
         </div>
+        </Reveal>
       </section>
 
       {/* ═══════════════════ FOOTER ═══════════════════ */}

@@ -2,7 +2,218 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import { motion, useScroll, useTransform } from 'motion/react';
+import { useState, type CSSProperties } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { Menu, X } from 'lucide-react';
+import { pageVariants, pageTransition } from './pageTransition';
+
+function PeopleNavbar() {
+  const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const NAV_LINKS = [
+    { label: 'Funcionalidades', href: '#como-funciona' },
+    { label: 'Comunidades', href: '#tribos' },
+    { label: 'Sobre', href: '#' },
+  ];
+
+  const navLinkStyle: CSSProperties = {
+    fontFamily: "'Ferom', Inter, sans-serif",
+    fontWeight: 500,
+    fontSize: '15px',
+    color: 'rgba(45,47,94,0.65)',
+    textDecoration: 'none',
+    transition: 'color 200ms ease',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    lineHeight: 1,
+  };
+
+  return (
+    <>
+      {/* Floating bottom bar */}
+      <div
+        style={{
+          position: 'fixed',
+          bottom: '16px',
+          left: '24px',
+          right: '24px',
+          zIndex: 50,
+          backgroundColor: 'rgba(255,255,255,0.97)',
+          backdropFilter: 'blur(28px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(28px) saturate(180%)',
+          boxShadow: '0 -2px 32px rgba(45,47,94,0.10), 0 2px 16px rgba(45,47,94,0.06)',
+          borderRadius: '16px',
+          border: '1px solid rgba(45,47,94,0.08)',
+          height: '64px',
+        }}
+      >
+        {/* Mobile row */}
+        <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '64px' }}>
+          <a href="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
+          </a>
+          <button
+            aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(v => !v)}
+            style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', color: '#2D2F5E', marginLeft: 'auto' }}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Desktop row */}
+        <div
+          className="hidden lg:grid"
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            padding: '0 24px',
+            height: '64px',
+            gridTemplateColumns: '1fr auto 1fr',
+            alignItems: 'center',
+          }}
+        >
+          {/* Logo */}
+          <a href="/" style={{ display: 'flex', alignItems: 'center', justifySelf: 'start' }}>
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '36px', width: 'auto' }} />
+          </a>
+
+          {/* Nav links */}
+          <nav aria-label="Menu principal">
+            <ul style={{ display: 'flex', alignItems: 'center', gap: '32px', listStyle: 'none', margin: 0, padding: 0 }}>
+              {NAV_LINKS.map(item => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    style={navLinkStyle}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#3DDC84'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(45,47,94,0.65)'; }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* CTA */}
+          <div style={{ justifySelf: 'end' }}>
+            <button
+              onClick={() => navigate('/cadastro?mode=people')}
+              style={{
+                background: '#3DDC84',
+                border: 'none',
+                borderRadius: '10px',
+                padding: '10px 24px',
+                fontFamily: "'Ferom', Inter, sans-serif",
+                fontWeight: 700,
+                fontSize: '15px',
+                color: '#2D2F5E',
+                cursor: 'pointer',
+                transition: 'background-color 200ms ease',
+                lineHeight: 1,
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#2FC476'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#3DDC84'; }}
+            >
+              Entrar na lista
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              key="people-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 48,
+                backgroundColor: 'rgba(0,0,0,0.3)',
+                backdropFilter: 'blur(4px)',
+                WebkitBackdropFilter: 'blur(4px)',
+              }}
+            />
+            <motion.div
+              key="people-sheet"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              style={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                width: 'min(360px, 90vw)',
+                height: '100vh',
+                zIndex: 70,
+                backgroundColor: '#FFFFFF',
+                overflowY: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: '-8px 0 40px rgba(45,47,94,0.12)',
+              }}
+            >
+              {/* Sheet header */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', borderBottom: '1px solid rgba(45,47,94,0.08)', flexShrink: 0 }}>
+                <a href="/" onClick={() => setMobileOpen(false)}>
+                  <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '36px', width: 'auto' }} />
+                </a>
+                <button
+                  aria-label="Fechar menu"
+                  onClick={() => setMobileOpen(false)}
+                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2D2F5E', borderRadius: '8px' }}
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <div style={{ flex: 1, overflowY: 'auto', padding: '8px 24px 24px' }}>
+                <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                  {NAV_LINKS.map(item => (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        style={{ display: 'flex', alignItems: 'center', padding: '16px 0', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 600, fontSize: '17px', color: '#2D2F5E', textDecoration: 'none', borderBottom: '1px solid rgba(45,47,94,0.07)', minHeight: '52px' }}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CTA footer */}
+              <div style={{ position: 'sticky', bottom: 0, backgroundColor: '#FFFFFF', padding: '20px 24px', borderTop: '1px solid rgba(45,47,94,0.08)', flexShrink: 0 }}>
+                <button
+                  onClick={() => { navigate('/cadastro?mode=people'); setMobileOpen(false); }}
+                  style={{ background: '#3DDC84', border: 'none', borderRadius: '12px', padding: '14px 24px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '15px', color: '#2D2F5E', cursor: 'pointer', width: '100%', lineHeight: 1 }}
+                >
+                  Entrar na lista
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
 
 export default function App() {
   const { scrollY } = useScroll();
@@ -10,34 +221,18 @@ export default function App() {
   const dogX = useTransform(scrollY, [0, 1500], [0, 1500]);
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98, filter: 'blur(4px)' }}
-      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-      exit={{ opacity: 0, scale: 1.02, filter: 'blur(4px)' }}
-      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={pageTransition}
       className="text-navy antialiased min-h-screen"
-      style={{ background: 'radial-gradient(circle at top left, rgba(80,242,150,0.16), transparent 28%), radial-gradient(circle at top right, rgba(51,45,89,0.10), transparent 24%), linear-gradient(180deg, #f9fbfe 0%, #f3f6fb 38%, #eef2f8 100%)' }}
+      style={{ background: 'radial-gradient(ellipse 80% 50% at top left, rgba(61,220,132,0.22), transparent 60%), radial-gradient(ellipse 60% 40% at top right, rgba(51,45,89,0.14), transparent 55%), linear-gradient(180deg, #f4fbf7 0%, #eff4fb 40%, #e9eff8 100%)' }}
     >
-      {/* BEGIN: BottomNav */}
-      <nav className="fixed bottom-0 inset-x-0 z-50" style={{ background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderTop: '1px solid rgba(45,47,94,0.07)', boxShadow: '0 -4px 24px rgba(45,47,94,0.06)' }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-3 flex items-center justify-between">
-          {/* Center links — desktop only */}
-          <ul className="hidden lg:flex gap-8 text-sm font-semibold absolute left-1/2 -translate-x-1/2">
-            <li><a className="text-navy/65 hover:text-verdeSniffer transition-colors duration-150" href="#">Funcionalidades</a></li>
-            <li><a className="text-navy/65 hover:text-verdeSniffer transition-colors duration-150" href="#">Comunidades</a></li>
-            <li><a className="text-navy/65 hover:text-verdeSniffer transition-colors duration-150" href="#">Sobre</a></li>
-            <li><a className="text-navy/65 hover:text-verdeSniffer transition-colors duration-150" href="/business">Business</a></li>
-          </ul>
-
-          {/* CTA */}
-          <button className="bg-verdeSniffer text-navy px-5 sm:px-6 py-2 rounded-full font-bold text-sm hover:opacity-90 active:scale-95 transition-all shadow-sm">
-            Entrar
-          </button>
-        </div>
-      </nav>
-      {/* END: BottomNav */}
+      <PeopleNavbar />
 
       {/* BEGIN: HeroSection */}
-      <section className="bg-white pt-20 sm:pt-24 overflow-hidden" id="hero">
+      <section className="pt-20 sm:pt-24 overflow-hidden" id="hero">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo — entre o toggle e o título */}
           <div className="flex justify-center mb-10 sm:mb-12">
@@ -77,7 +272,7 @@ export default function App() {
       {/* END: HeroSection */}
 
       {/* BEGIN: StepByStep */}
-      <section id="como-funciona" className="relative overflow-hidden bg-white">
+      <section id="como-funciona" className="relative overflow-hidden">
 
         {/* ── Section Header ── */}
         <motion.div
@@ -94,7 +289,7 @@ export default function App() {
         </motion.div>
 
         {/* ══════════ STEP 01 — FAREJAR ══════════ */}
-        <div className="relative mt-16 border-t border-navy/6 bg-white">
+        <div className="relative mt-16 border-t border-navy/6">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
 
             {/* Text */}
@@ -160,7 +355,7 @@ export default function App() {
         </div>
 
         {/* ══════════ STEP 02 — CONECTAR ══════════ */}
-        <div className="relative border-t border-navy/6 bg-white">
+        <div className="relative border-t border-navy/6">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
 
             {/* Visual — network graph */}
@@ -239,7 +434,7 @@ export default function App() {
         </div>
 
         {/* ══════════ STEP 03 — DESCOBRIR ══════════ */}
-        <div className="relative border-t border-navy/6 bg-white">
+        <div className="relative border-t border-navy/6">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-16 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
 
             {/* Text */}
@@ -354,7 +549,7 @@ export default function App() {
       {/* END: StepByStep */}
 
       {/* BEGIN: FeaturesSplit */}
-      <section className="pt-14 pb-2 md:pb-2 px-4 overflow-hidden border-t border-navy/5 bg-white">
+      <section className="pt-14 pb-2 md:pb-2 px-4 overflow-hidden border-t border-navy/5">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           {/* Left: Phone Mockup — order-2 on mobile so text comes first */}
           <div className="relative flex items-center justify-center h-[480px] sm:h-[640px] md:h-[680px] order-2 md:order-1">
@@ -397,7 +592,7 @@ export default function App() {
       {/* END: FeaturesSplit */}
 
       {/* BEGIN: TribesGrid */}
-      <section className="pt-2 md:pt-2 pb-14 bg-white px-4 border-t border-navy/5">
+      <section className="pt-2 md:pt-2 pb-14 px-4 border-t border-navy/5">
         <div className="max-w-7xl mx-auto">
 
           {/* ── Header ── */}
@@ -470,7 +665,7 @@ export default function App() {
       {/* END: TribesGrid */}
 
       {/* BEGIN: BottomCTA */}
-      <section className="bg-white py-16 px-4 border-t border-navy/6">
+      <section className="py-16 px-4 border-t border-navy/6">
         <div className="max-w-4xl mx-auto text-center">
 
           <motion.div
@@ -540,7 +735,7 @@ export default function App() {
       </section>
 
       {/* BEGIN: Footer */}
-      <footer className="bg-white pt-10 pb-24 px-4 border-t border-navy/6">
+      <footer className="pt-10 pb-24 px-4 border-t border-navy/6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-navy/50 text-xs md:text-sm">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-md flex items-center justify-center font-bold text-[10px] text-navy" style={{ background: 'linear-gradient(135deg, #3DDC84 0%, #2cc870 100%)' }}>S</div>

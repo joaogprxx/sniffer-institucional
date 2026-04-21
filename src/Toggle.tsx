@@ -18,52 +18,52 @@ const ROUTES: Record<Option, string> = {
 const LABEL: Record<Option, string> = {
   people: 'People',
   business: 'Business',
-  corporate: 'Corporate',
+  corporate: 'Comunidade',
 };
 
 const BAR_BG: Record<Option, string> = {
   people: 'rgba(255,255,255,0.96)',
   business: '#2D2F5E',
-  corporate: '#2D2F5E',
+  corporate: '#00A896',
 };
 
 const BAR_BORDER: Record<Option, string> = {
   people: 'rgba(45,47,94,0.08)',
   business: 'rgba(255,255,255,0.08)',
-  corporate: 'rgba(255,255,255,0.08)',
+  corporate: 'rgba(45,47,94,0.12)',
 };
 
 const TRACK_BG: Record<Option, string> = {
   people: '#eeeee8',
   business: 'rgba(0,0,0,0.25)',
-  corporate: 'rgba(0,0,0,0.25)',
+  corporate: 'rgba(45,47,94,0.20)',
 };
 
 const PILL_BG: Record<Option, string> = {
   people: '#3DDC84',
   business: '#2D2F5E',
-  corporate: '#7C7AB8',
+  corporate: '#00A896',
 };
 
 const PILL_SHADOW: Record<Option, string> = {
   people: '0 4px 16px -4px #3DDC8499',
   business: 'none',
-  corporate: '0 4px 16px -4px #7C7AB899',
+  corporate: 'none',
 };
 
 const ACTIVE_TEXT: Record<Option, string> = {
   people: '#ffffff',
   business: '#00A896',
-  corporate: '#ffffff',
+  corporate: '#2D2F5E',
 };
 
 const INACTIVE_TEXT: Record<Option, string> = {
   people: 'rgba(45,47,94,0.5)',
   business: 'rgba(255,255,255,0.45)',
-  corporate: 'rgba(255,255,255,0.45)',
+  corporate: 'rgba(45,47,94,0.55)',
 };
 
-const TRANSITION_BG = { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const };
+const TRANSITION_BG = { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] as const };
 
 function routeToOption(pathname: string): Option {
   if (pathname.startsWith('/business')) return 'business';

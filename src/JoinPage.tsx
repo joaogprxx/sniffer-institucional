@@ -11,10 +11,100 @@ const ACCENT: Record<Mode, string> = {
   comunidade: '#3DDC84',
 };
 
-const ACCENT_HOVER: Record<Mode, string> = {
+const PAGE_BG: Record<Mode, string> = {
+  people: 'radial-gradient(ellipse 80% 50% at top left, rgba(61,220,132,0.22), transparent 60%), radial-gradient(ellipse 60% 40% at top right, rgba(51,45,89,0.14), transparent 55%), linear-gradient(180deg, #f4fbf7 0%, #eff4fb 40%, #e9eff8 100%)',
+  business: '#3D3C6E',
+  comunidade: '#00A896',
+};
+
+const CARD_BG: Record<Mode, string> = {
+  people: '#FFFFFF',
+  business: '#2E2B55',
+  comunidade: '#FFFFFF',
+};
+
+const TEXT_PRIMARY: Record<Mode, string> = {
+  people: '#2D2F5E',
+  business: '#FFFFFF',
+  comunidade: '#2D2F5E',
+};
+
+const TEXT_MUTED: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.55)',
+  business: 'rgba(255,255,255,0.50)',
+  comunidade: 'rgba(45,47,94,0.55)',
+};
+
+const INPUT_BG: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.05)',
+  business: 'rgba(255,255,255,0.05)',
+  comunidade: 'rgba(45,47,94,0.06)',
+};
+
+const INPUT_BORDER: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.15)',
+  business: 'rgba(255,255,255,0.15)',
+  comunidade: 'rgba(45,47,94,0.15)',
+};
+
+const INPUT_COLOR: Record<Mode, string> = {
+  people: '#2D2F5E',
+  business: '#FFFFFF',
+  comunidade: '#2D2F5E',
+};
+
+const BTN_BG: Record<Mode, string> = {
+  people: '#3DDC84',
+  business: '#00A896',
+  comunidade: '#2D2F5E',
+};
+
+const BTN_BG_HOVER: Record<Mode, string> = {
   people: '#2FC476',
   business: '#009A89',
-  comunidade: '#2FC476',
+  comunidade: '#1E2046',
+};
+
+const BTN_TEXT: Record<Mode, string> = {
+  people: '#2D2F5E',
+  business: '#FFFFFF',
+  comunidade: '#FFFFFF',
+};
+
+const TOGGLE_TRACK: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.08)',
+  business: 'rgba(255,255,255,0.10)',
+  comunidade: 'rgba(45,47,94,0.12)',
+};
+
+const TOGGLE_BORDER: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.08)',
+  business: 'rgba(255,255,255,0.05)',
+  comunidade: 'rgba(45,47,94,0.10)',
+};
+
+const TOGGLE_ACTIVE_TEXT: Record<Mode, string> = {
+  people: '#2D2F5E',
+  business: '#FFFFFF',
+  comunidade: '#2D2F5E',
+};
+
+const TOGGLE_INACTIVE_TEXT: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.50)',
+  business: 'rgba(255,255,255,0.55)',
+  comunidade: 'rgba(45,47,94,0.55)',
+};
+
+const BACK_COLOR: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.60)',
+  business: 'rgba(255,255,255,0.60)',
+  comunidade: 'rgba(45,47,94,0.60)',
+};
+
+const LOCK_COLOR: Record<Mode, string> = {
+  people: 'rgba(45,47,94,0.40)',
+  business: 'rgba(255,255,255,0.40)',
+  comunidade: 'rgba(45,47,94,0.40)',
 };
 
 const PERSONAS: { label: string; mode: Mode; route: string }[] = [
@@ -34,7 +124,6 @@ export default function JoinPage() {
   const [searchParams] = useSearchParams();
   const mode = toMode(searchParams.get('mode'));
   const accent = ACCENT[mode];
-  const accentHover = ACCENT_HOVER[mode];
 
   const [nome, setNome] = useState('');
   const [negocio, setNegocio] = useState('');
@@ -57,11 +146,11 @@ export default function JoinPage() {
 
   const inputStyle = {
     width: '100%',
-    background: 'rgba(255,255,255,0.05)',
-    border: '1px solid rgba(255,255,255,0.15)',
+    background: INPUT_BG[mode],
+    border: `1px solid ${INPUT_BORDER[mode]}`,
     borderRadius: '12px',
     padding: '12px 16px',
-    color: '#FFFFFF',
+    color: INPUT_COLOR[mode],
     fontSize: '15px',
     fontFamily: 'var(--font-ferom)',
     outline: 'none',
@@ -72,15 +161,17 @@ export default function JoinPage() {
     display: 'block',
     fontSize: '13px',
     fontWeight: 500,
-    color: '#FFFFFF',
+    color: TEXT_PRIMARY[mode],
     marginBottom: '8px',
     fontFamily: 'var(--font-ferom)',
   };
 
+  const isLight = mode === 'people' || mode === 'comunidade';
+
   return (
     <motion.div
       className="min-h-screen flex items-center justify-center px-4 py-8 pt-10"
-      style={{ background: '#3D3C6E' }}
+      style={{ background: PAGE_BG[mode] }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -92,7 +183,7 @@ export default function JoinPage() {
         <button
           onClick={() => navigate(-1)}
           className="self-start flex items-center gap-2 mb-6 transition-opacity hover:opacity-70"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.60)', fontFamily: 'var(--font-ferom)', fontSize: '14px', fontWeight: 500, padding: 0 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: BACK_COLOR[mode], fontFamily: 'var(--font-ferom)', fontSize: '14px', fontWeight: 500, padding: 0 }}
         >
           <ArrowLeft size={18} />
           voltar
@@ -100,13 +191,16 @@ export default function JoinPage() {
 
         {/* Logo */}
         <img
-          src="/logo-sniffer-white.png"
+          src={isLight ? '/logo-sniffer-wordmark.png' : '/logo-sniffer-white.png'}
           alt="Sniffer"
           style={{ height: '48px', width: 'auto', marginBottom: '32px' }}
         />
 
         {/* Toggle Pill */}
-        <div className="flex items-center bg-white/10 rounded-full p-1 mb-8 border border-white/5">
+        <div
+          className="flex items-center rounded-full p-1 mb-8"
+          style={{ background: TOGGLE_TRACK[mode], border: `1px solid ${TOGGLE_BORDER[mode]}` }}
+        >
           {PERSONAS.map((p) => {
             const isActive = p.mode === mode;
             return (
@@ -117,7 +211,7 @@ export default function JoinPage() {
                 style={{
                   fontFamily: 'var(--font-ferom)',
                   background: isActive ? accent : 'transparent',
-                  color: isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)',
+                  color: isActive ? TOGGLE_ACTIVE_TEXT[mode] : TOGGLE_INACTIVE_TEXT[mode],
                   boxShadow: isActive ? `0 2px 8px ${accent}44` : 'none',
                   border: 'none',
                   cursor: 'pointer',
@@ -132,7 +226,11 @@ export default function JoinPage() {
         {/* Main Card */}
         <div
           className="w-full rounded-[16px] shadow-2xl relative overflow-hidden"
-          style={{ background: '#2E2B55', padding: '40px' }}
+          style={{
+            background: CARD_BG[mode],
+            padding: '40px',
+            boxShadow: isLight ? '0 8px 40px rgba(45,47,94,0.10)' : undefined,
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-[16px]" />
 
@@ -142,20 +240,20 @@ export default function JoinPage() {
               <div className="flex flex-col items-center text-center gap-4 py-6">
                 <span className="text-5xl">🐾</span>
                 <h2
-                  className="text-white font-extrabold text-2xl"
-                  style={{ fontFamily: 'var(--font-ferom)' }}
+                  className="font-extrabold text-2xl"
+                  style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)' }}
                 >
                   você está dentro!
                 </h2>
-                <p className="text-white/50 text-sm">
+                <p style={{ color: TEXT_MUTED[mode], fontSize: '14px' }}>
                   em breve o Sniffer chega no seu bairro. fique de olho no seu e-mail.
                 </p>
                 <button
-                  onClick={() => navigate('/business')}
+                  onClick={() => navigate(-1)}
                   className="mt-4 text-sm font-bold hover:underline"
                   style={{ color: accent }}
                 >
-                  ← voltar para Business
+                  ← voltar
                 </button>
               </div>
             ) : (
@@ -165,11 +263,11 @@ export default function JoinPage() {
                 <div>
                   <h2
                     className="font-semibold text-2xl mb-2"
-                    style={{ color: '#FFFFFF', fontFamily: 'var(--font-ferom)' }}
+                    style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)' }}
                   >
                     faça o seu bairro acontecer
                   </h2>
-                  <p className="text-white/50 text-sm">
+                  <p style={{ color: TEXT_MUTED[mode], fontSize: '14px' }}>
                     conecte pessoas, crie movimento local.
                   </p>
                 </div>
@@ -191,7 +289,7 @@ export default function JoinPage() {
                         e.currentTarget.style.boxShadow = `0 0 0 1px ${accent}`;
                       }}
                       onBlur={e => {
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                        e.currentTarget.style.borderColor = INPUT_BORDER[mode];
                         e.currentTarget.style.boxShadow = 'none';
                       }}
                     />
@@ -212,7 +310,7 @@ export default function JoinPage() {
                           e.currentTarget.style.boxShadow = `0 0 0 1px ${accent}`;
                         }}
                         onBlur={e => {
-                          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                          e.currentTarget.style.borderColor = INPUT_BORDER[mode];
                           e.currentTarget.style.boxShadow = 'none';
                         }}
                       />
@@ -233,7 +331,7 @@ export default function JoinPage() {
                         e.currentTarget.style.boxShadow = `0 0 0 1px ${accent}`;
                       }}
                       onBlur={e => {
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                        e.currentTarget.style.borderColor = INPUT_BORDER[mode];
                         e.currentTarget.style.boxShadow = 'none';
                       }}
                     />
@@ -253,7 +351,7 @@ export default function JoinPage() {
                         e.currentTarget.style.boxShadow = `0 0 0 1px ${accent}`;
                       }}
                       onBlur={e => {
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                        e.currentTarget.style.borderColor = INPUT_BORDER[mode];
                         e.currentTarget.style.boxShadow = 'none';
                       }}
                     />
@@ -265,11 +363,12 @@ export default function JoinPage() {
                 <div className="flex flex-col gap-4">
                   <button
                     type="submit"
-                    className="w-full font-bold text-[16px] text-white transition-colors active:scale-[0.98]"
+                    className="w-full font-bold text-[16px] transition-colors active:scale-[0.98]"
                     style={{
                       height: '52px',
                       borderRadius: '16px',
-                      background: hovering ? accentHover : accent,
+                      background: hovering ? BTN_BG_HOVER[mode] : BTN_BG[mode],
+                      color: BTN_TEXT[mode],
                       border: 'none',
                       cursor: 'pointer',
                       fontFamily: 'var(--font-ferom)',
@@ -280,7 +379,7 @@ export default function JoinPage() {
                   >
                     quero fazer parte
                   </button>
-                  <div className="flex items-center justify-center gap-2" style={{ color: 'rgba(255,255,255,0.40)' }}>
+                  <div className="flex items-center justify-center gap-2" style={{ color: LOCK_COLOR[mode] }}>
                     <Lock size={14} />
                     <span className="text-[12px]" style={{ fontFamily: 'var(--font-ferom)' }}>
                       seus dados estão seguros. sem spam.
