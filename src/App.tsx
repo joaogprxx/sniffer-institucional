@@ -14,7 +14,8 @@ export default function App() {
       animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
       exit={{ opacity: 0, scale: 1.02, filter: 'blur(4px)' }}
       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-      className="bg-white text-navy antialiased min-h-screen"
+      className="text-navy antialiased min-h-screen"
+      style={{ background: 'radial-gradient(circle at top left, rgba(80,242,150,0.16), transparent 28%), radial-gradient(circle at top right, rgba(51,45,89,0.10), transparent 24%), linear-gradient(180deg, #f9fbfe 0%, #f3f6fb 38%, #eef2f8 100%)' }}
     >
       {/* BEGIN: BottomNav */}
       <nav className="fixed bottom-0 inset-x-0 z-50" style={{ background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderTop: '1px solid rgba(45,47,94,0.07)', boxShadow: '0 -4px 24px rgba(45,47,94,0.06)' }}>
