@@ -15,7 +15,7 @@ function AnimatedRoutes() {
     <>
       {/* Toggle lives here — outside AnimatePresence, always mounted, never destroyed.
           This is what makes the pill animation fluid across page transitions. */}
-      <Toggle />
+      {location.pathname !== '/cadastro' && <Toggle />}
       <AnimatePresence mode="wait">
         {/* @ts-ignore - React Router v6 Routes accepts key, but TS defs sometimes complain */}
         <Routes location={location} key={location.pathname}>

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { Lock, ArrowLeft } from 'lucide-react';
 import { motion } from 'motion/react';
 
 type Mode = 'people' | 'business' | 'comunidade';
@@ -79,7 +79,7 @@ export default function JoinPage() {
 
   return (
     <motion.div
-      className="min-h-screen flex items-center justify-center px-4 py-8 pt-28"
+      className="min-h-screen flex items-center justify-center px-4 py-8 pt-10"
       style={{ background: '#3D3C6E' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -87,6 +87,16 @@ export default function JoinPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="w-full max-w-[480px] flex flex-col items-center">
+
+        {/* Back arrow */}
+        <button
+          onClick={() => navigate(-1)}
+          className="self-start flex items-center gap-2 mb-6 transition-opacity hover:opacity-70"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.60)', fontFamily: 'var(--font-ferom)', fontSize: '14px', fontWeight: 500, padding: 0 }}
+        >
+          <ArrowLeft size={18} />
+          voltar
+        </button>
 
         {/* Wordmark */}
         <h1
