@@ -107,7 +107,7 @@ function BusinessNavbar() {
       <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '96px' }}>
         {/* Left — Criar Conta */}
         <button
-          onClick={() => navigate('/cadastro')}
+          onClick={() => navigate('/cadastro?mode=business')}
           style={{ background: '#00A896', border: 'none', borderRadius: '10px', padding: '9px 16px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '13px', color: '#FFFFFF', cursor: 'pointer', whiteSpace: 'nowrap' }}
         >
           Junte-se a essa revolução
@@ -321,7 +321,7 @@ function BusinessNavbar() {
           <div className="hidden lg:flex items-center gap-3">
             {/* CTA Criar Conta */}
             <button
-              onClick={() => navigate('/cadastro')}
+              onClick={() => navigate('/cadastro?mode=business')}
               style={{
                 background: '#00A896',
                 border: 'none',
@@ -563,7 +563,7 @@ function BusinessNavbar() {
                 }}
               >
                 <button
-                  onClick={() => navigate('/cadastro')}
+                  onClick={() => navigate('/cadastro?mode=business')}
                   style={{
                     background: '#00A896',
                     border: 'none',
@@ -939,7 +939,7 @@ export default function Business() {
 
           <div className="flex justify-center mt-10">
             <button
-              onClick={() => navigate('/cadastro')}
+              onClick={() => navigate('/cadastro?mode=business')}
               className="px-10 py-4 rounded-2xl font-black text-base text-white transition-all"
               style={{ background: '#00A896' }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#009A89'; }}
