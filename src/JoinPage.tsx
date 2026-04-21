@@ -98,13 +98,12 @@ export default function JoinPage() {
           voltar
         </button>
 
-        {/* Wordmark */}
-        <h1
-          className="font-extrabold text-[40px] tracking-tight mb-8"
-          style={{ color: accent, fontFamily: 'var(--font-ferom)', letterSpacing: '-0.02em' }}
-        >
-          Sniffer
-        </h1>
+        {/* Logo */}
+        <img
+          src="/logo-sniffer-white.png"
+          alt="Sniffer"
+          style={{ height: '48px', width: 'auto', marginBottom: '32px' }}
+        />
 
         {/* Toggle Pill */}
         <div className="flex items-center bg-white/10 rounded-full p-1 mb-8 border border-white/5">
