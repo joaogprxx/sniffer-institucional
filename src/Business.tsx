@@ -590,6 +590,7 @@ function BusinessNavbar() {
 export default function Business() {
   const navigate = useNavigate();
   const [currentPlanIndex, setCurrentPlanIndex] = useState(1);
+  const [compareOpen, setCompareOpen] = useState(false);
 
   const nextPlan = () => setCurrentPlanIndex((prev: number) => (prev + 1) % 4);
   const prevPlan = () => setCurrentPlanIndex((prev: number) => (prev - 1 + 4) % 4);
@@ -930,7 +931,7 @@ export default function Business() {
             Todos com período de teste. Sem contrato. Cancele quando quiser.
           </p>
 
-          <div className="flex justify-center mt-10">
+          <div className="flex flex-col items-center gap-4 mt-10">
             <button
               onClick={() => navigate('/cadastro?mode=business')}
               className="px-10 py-4 rounded-2xl font-black text-base text-white transition-all"
@@ -940,7 +941,79 @@ export default function Business() {
             >
               Quero fazer parte
             </button>
+
+            <button
+              onClick={() => setCompareOpen(v => !v)}
+              className="flex items-center gap-2 text-sm font-medium transition-colors"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.50)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#00A896'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.50)'; }}
+            >
+              {compareOpen ? '▲' : '▼'} Comparar todos os planos
+            </button>
           </div>
+
+          {/* ── Tabela comparativa ── */}
+          <AnimatePresence>
+            {compareOpen && (
+              <motion.div
+                key="compare-table"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="mt-10 overflow-x-auto">
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
+                    <thead>
+                      <tr>
+                        <th style={{ textAlign: 'left', padding: '12px 16px', color: 'rgba(255,255,255,0.40)', fontWeight: 600, width: '35%', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>Recurso</th>
+                        {[
+                          { name: 'Basic', price: 'Grátis', highlight: false },
+                          { name: 'Plus', price: 'R$ 60/mês', highlight: true },
+                          { name: 'Business', price: 'R$ 140/mês', highlight: false },
+                          { name: 'Enterprise', price: 'R$ 230/mês', highlight: false },
+                        ].map(p => (
+                          <th key={p.name} style={{ textAlign: 'center', padding: '12px 8px', borderBottom: '1px solid rgba(255,255,255,0.08)', background: p.highlight ? 'rgba(0,168,150,0.12)' : 'transparent', borderRadius: p.highlight ? '8px 8px 0 0' : 0 }}>
+                            <div style={{ color: p.highlight ? '#00A896' : '#FFFFFF', fontWeight: 700 }}>{p.name}</div>
+                            <div style={{ color: 'rgba(255,255,255,0.40)', fontWeight: 400, fontSize: '12px', marginTop: '2px' }}>{p.price}</div>
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { label: 'Localizações', values: ['1', 'Até 3', 'Até 6', '7+'] },
+                        { label: 'Feed cardápio/ação', values: ['✓', '✓', '✓', '✓'] },
+                        { label: 'Comunidade', values: ['Básica', 'Básica', 'Avançada', 'Moderada'] },
+                        { label: 'Rating e Reviews', values: ['✓', '✓', '✓', '✓'] },
+                        { label: 'Selo Verified', values: ['—', '✓', '✓', '✓'] },
+                        { label: 'Promoções ativas', values: ['—', '1', 'Ilimitadas', 'Ilimitadas'] },
+                        { label: 'Push Notification', values: ['—', 'Restrito', '✓', '✓'] },
+                        { label: 'Ranking Premium', values: ['—', '—', '✓', '✓'] },
+                        { label: 'Análises de Mercado', values: ['—', '—', '✓', '✓'] },
+                        { label: 'Insights Fora do Nicho', values: ['—', '—', '—', '✓'] },
+                        { label: 'Integrações Custom', values: ['—', '—', '—', '✓'] },
+                        { label: 'Executivo de Conta', values: ['—', '—', '—', '✓'] },
+                        { label: 'Suporte', values: ['N1', 'N2', 'N3', 'Executivo'] },
+                      ].map((row, ri) => (
+                        <tr key={row.label} style={{ background: ri % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
+                          <td style={{ padding: '11px 16px', color: 'rgba(255,255,255,0.65)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{row.label}</td>
+                          {row.values.map((val, ci) => (
+                            <td key={ci} style={{ textAlign: 'center', padding: '11px 8px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: ci === 1 ? 'rgba(0,168,150,0.06)' : 'transparent', color: val === '✓' ? '#00A896' : val === '—' ? 'rgba(255,255,255,0.20)' : '#FFFFFF', fontWeight: val === '✓' ? 700 : 400 }}>
+                              {val}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
         </div>
       </section>
 
