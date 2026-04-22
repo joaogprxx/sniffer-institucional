@@ -325,45 +325,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Features grid 2 cols ── */}
-        <section style={{ padding: '42px 0' }}>
-          <div className={shell}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                {
-                  title: 'O que você já pode sentir na proposta da Sniffer',
-                  items: [
-                    'Exploração local com mais contexto e menos poluição visual.',
-                    'Comunidades que nascem ao redor de interesses, bairros e experiências reais.',
-                    'Eventos como porta de entrada para descobrir o que está vivo na cidade.',
-                    'Interação entre pessoas e negócios como parte do ecossistema, não como canal isolado.',
-                  ],
-                },
-                {
-                  title: 'Um gostinho do que vem por aí',
-                  items: [
-                    'Experiências locais mais inteligentes e relevantes.',
-                    'Mais camadas de participação dentro de comunidades e eventos.',
-                    'Descoberta ainda mais fluida entre mapa, conversa e presença local.',
-                    'Novas formas de explorar sua cidade com intenção — não só por acaso.',
-                  ],
-                },
-              ].map((col, i) => (
-                <div key={i} style={card}>
-                  <h2 style={{ margin: '0 0 4px', fontSize: 'clamp(22px, 2.5vw, 36px)', lineHeight: 1.1, letterSpacing: '-0.04em', fontWeight: 800 }}>{col.title}</h2>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '16px 0 0', display: 'grid', gap: '12px' }}>
-                    {col.items.map((item, j) => (
-                      <li key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: muted, fontSize: '15px' }}>
-                        <span style={{ color: green, marginTop: '1px', flexShrink: 0 }}>✦</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── Audience cards ── */}
         <section style={{ padding: '42px 0' }}>
