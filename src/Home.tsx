@@ -461,16 +461,15 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #111026 0%, #332d59 50%, #111026 100%)', boxShadow: '0 40px 100px rgba(17,16,38,0.4)' }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.35)' }}
             >
-              {/* Glow orbs */}
-              <div style={{ position: 'absolute', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(80,242,150,0.12), transparent 65%)', top: '-150px', right: '-100px', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(80,242,150,0.07), transparent 65%)', bottom: '-80px', left: '-60px', pointerEvents: 'none' }} />
-
-              {/* Sonar rings decorativos */}
-              {[1, 2, 3].map(i => (
-                <div key={i} style={{ position: 'absolute', left: '50%', top: '50%', width: `${i * 180}px`, height: `${i * 180}px`, borderRadius: '50%', border: '1px solid rgba(80,242,150,0.06)', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
-              ))}
+              {/* Elemento visual — coleira Sniffer (BrandBook) */}
+              <img
+                src="/sniffer_brandbook_bg.svg"
+                alt=""
+                aria-hidden="true"
+                style={{ position: 'absolute', right: '-60px', top: '-30px', width: '68%', height: '130%', objectFit: 'cover', objectPosition: 'left center', opacity: 0.28, mixBlendMode: 'screen', pointerEvents: 'none', userSelect: 'none' }}
+              />
 
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-0">
                 {/* Conteúdo principal */}
@@ -525,7 +524,7 @@ export default function Home() {
                 </div>
 
                 {/* Counter lateral */}
-                <div className="hidden lg:flex" style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 40px', borderLeft: '1px solid rgba(255,255,255,0.06)', minWidth: '200px', gap: '8px' }}>
+                <div className="hidden lg:flex" style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 40px', borderLeft: '1px solid rgba(255,255,255,0.12)', minWidth: '200px', gap: '8px' }}>
                   <span style={{ fontSize: '64px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
                   <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.45)', textAlign: 'center', lineHeight: 1.5 }}>vagas<br />disponíveis</span>
                   <div style={{ width: '48px', height: '2px', background: 'rgba(80,242,150,0.3)', borderRadius: '999px', margin: '8px 0' }} />
