@@ -298,37 +298,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Trust band ── */}
+        {/* ── Quem faz a Sniffer ── */}
         <section style={{ padding: '0 0 42px' }}>
-          <div id="confianca" className={shell} style={{ padding: '34px', borderRadius: '32px', background: 'linear-gradient(135deg, rgba(19,21,26,0.98) 0%, #2d2750 100%)', color: '#f5f7ff', boxShadow: '0 30px 80px rgba(20,25,45,0.18)', overflow: 'hidden', position: 'relative' }}>
-            <div style={{ position: 'absolute', width: '280px', height: '280px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.28), transparent 70%)', right: '-80px', top: '-80px', pointerEvents: 'none' }} />
+          <div id="confianca" className={shell} style={{ padding: '48px', borderRadius: '32px', background: 'linear-gradient(135deg, rgba(19,21,26,0.98) 0%, #2d2750 100%)', color: '#f5f7ff', boxShadow: '0 30px 80px rgba(20,25,45,0.18)', overflow: 'hidden', position: 'relative' }}>
+            <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.22), transparent 70%)', right: '-80px', top: '-80px', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', width: '200px', height: '200px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.10), transparent 70%)', left: '-40px', bottom: '-40px', pointerEvents: 'none' }} />
 
-            <div style={{ ...sectionHead }}>
-              <h2 style={{ ...h2Style, color: '#f5f7ff' }}>Construída para confiança, não para engajamento vazio.</h2>
-              <p style={{ ...subStyle, color: 'rgba(245,247,255,0.74)' }}>
-                A Sniffer foi pensada para crescer com mais autenticidade e menos conteúdo irrelevante.
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: 'relative', maxWidth: '64ch' }}
+            >
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.22)', color: green, fontSize: '13px', fontWeight: 700, marginBottom: '20px' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
+                A matilha
+              </div>
+
+              <h2 style={{ ...h2Style, color: '#f5f7ff', marginBottom: '24px' }}>Quem faz a Sniffer</h2>
+
+              <p style={{ margin: 0, fontSize: '18px', color: 'rgba(245,247,255,0.80)', lineHeight: 1.75 }}>
+                Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { title: 'Perfis e negócios com validação', desc: 'Existem camadas reais de verificação e validação para fortalecer autenticidade e reduzir fricção ruim na plataforma.' },
-                { title: 'Moderação estruturada', desc: 'Reporting, revisão manual e ações proporcionais fazem parte da base operacional, não de um improviso futuro.' },
-                { title: 'Foco em interações reais', desc: 'A proposta é favorecer descoberta útil, contexto local e participação de verdade — não sinais artificiais.' },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ padding: '28px', borderRadius: '28px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-                >
-                  <h3 style={{ margin: '0 0 10px', fontSize: '22px', letterSpacing: '-0.03em', fontWeight: 700, color: '#f5f7ff' }}>{item.title}</h3>
-                  <p style={{ color: 'rgba(245,247,255,0.74)', fontSize: '15px', margin: 0 }}>{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
