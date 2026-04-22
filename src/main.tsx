@@ -1,7 +1,8 @@
-import {StrictMode} from 'react';
+import {StrictMode, useEffect} from 'react';
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
+import Home from './Home.tsx';
 import App from './App.tsx';
 import Business from './Business.tsx';
 import Corporate from './Corporate.tsx';
@@ -9,17 +10,25 @@ import JoinPage from './JoinPage.tsx';
 import { Toggle } from './Toggle.tsx';
 import './index.css';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <>
+      <ScrollToTop />
       {/* Toggle lives here — outside AnimatePresence, always mounted, never destroyed.
           This is what makes the pill animation fluid across page transitions. */}
       {location.pathname !== '/cadastro' && <Toggle />}
       <AnimatePresence mode="wait" initial={false}>
         {/* @ts-ignore */}
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/people" element={<App />} />
           <Route path="/business" element={<Business />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cadastro" element={<JoinPage />} />

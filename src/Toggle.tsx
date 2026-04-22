@@ -6,58 +6,53 @@ import { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 
-const OPTIONS = ['people', 'business', 'corporate'] as const;
+const OPTIONS = ['home', 'people', 'business', 'corporate'] as const;
 type Option = (typeof OPTIONS)[number];
 
 const ROUTES: Record<Option, string> = {
-  people: '/',
+  home: '/',
+  people: '/people',
   business: '/business',
   corporate: '/corporate',
 };
 
 const LABEL: Record<Option, string> = {
+  home: 'Home',
   people: 'People',
   business: 'Business',
   corporate: 'Comunidade',
 };
 
-const BAR_BG: Record<Option, string> = {
-  people: 'rgba(255,255,255,0.96)',
-  business: '#2D2F5E',
-  corporate: '#00A896',
-};
-
-const BAR_BORDER: Record<Option, string> = {
-  people: 'rgba(45,47,94,0.08)',
-  business: 'rgba(255,255,255,0.08)',
-  corporate: 'rgba(45,47,94,0.12)',
-};
-
 const TRACK_BG: Record<Option, string> = {
+  home: '#eeeee8',
   people: '#eeeee8',
   business: 'rgba(0,0,0,0.25)',
   corporate: 'rgba(45,47,94,0.20)',
 };
 
 const PILL_BG: Record<Option, string> = {
+  home: '#2D2F5E',
   people: '#3DDC84',
   business: '#2D2F5E',
   corporate: '#00A896',
 };
 
 const PILL_SHADOW: Record<Option, string> = {
+  home: 'none',
   people: '0 4px 16px -4px #3DDC8499',
   business: 'none',
   corporate: 'none',
 };
 
 const ACTIVE_TEXT: Record<Option, string> = {
+  home: '#ffffff',
   people: '#ffffff',
   business: '#00A896',
   corporate: '#2D2F5E',
 };
 
 const INACTIVE_TEXT: Record<Option, string> = {
+  home: 'rgba(45,47,94,0.5)',
   people: 'rgba(45,47,94,0.5)',
   business: 'rgba(255,255,255,0.45)',
   corporate: 'rgba(45,47,94,0.55)',
@@ -66,6 +61,7 @@ const INACTIVE_TEXT: Record<Option, string> = {
 const TRANSITION_BG = { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] as const };
 
 function routeToOption(pathname: string): Option {
+  if (pathname === '/') return 'home';
   if (pathname.startsWith('/business')) return 'business';
   if (pathname.startsWith('/corporate')) return 'corporate';
   return 'people';
@@ -98,15 +94,8 @@ export function Toggle() {
   }, [active]);
 
   return (
-    <motion.div
-      className="fixed top-0 inset-x-0 z-[60] flex justify-center py-2"
-      animate={{
-        backgroundColor: BAR_BG[active],
-        borderBottomColor: BAR_BORDER[active],
-      }}
-      transition={TRANSITION_BG}
-      style={{ borderBottomWidth: '1px', borderBottomStyle: 'solid' }}
-    >
+    <div className="fixed top-0 inset-x-0 z-[60] flex justify-center pointer-events-none pt-2">
+      <div className="pointer-events-auto">
       <motion.div
         ref={trackRef}
         className="relative flex items-center rounded-full px-1 py-1"
@@ -136,7 +125,7 @@ export function Toggle() {
             key={option}
             ref={(el) => { btnRefs.current[i] = el; }}
             onClick={() => { if (option !== active) navigate(ROUTES[option]); }}
-            className="relative z-10 px-5 sm:px-7 py-2 text-[13px] sm:text-sm font-bold rounded-full cursor-pointer select-none text-center min-w-[90px] sm:min-w-[110px]"
+            className="relative z-10 px-4 sm:px-6 py-2 text-[13px] sm:text-sm font-bold rounded-full cursor-pointer select-none text-center min-w-[72px] sm:min-w-[90px]"
             style={{ background: 'none', border: 'none' }}
           >
             <motion.span
@@ -151,6 +140,7 @@ export function Toggle() {
           </button>
         ))}
       </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
