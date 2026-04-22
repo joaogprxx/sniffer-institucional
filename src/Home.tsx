@@ -463,12 +463,12 @@ export default function Home() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.35)' }}
             >
-              {/* Elemento visual — coleira Sniffer (BrandBook) */}
+              {/* Elemento visual — coleira Sniffer corta o card de ponta a ponta */}
               <img
                 src="/sniffer_brandbook_bg.svg"
                 alt=""
                 aria-hidden="true"
-                style={{ position: 'absolute', right: '-60px', top: '-30px', width: '68%', height: '130%', objectFit: 'cover', objectPosition: 'left center', opacity: 0.28, mixBlendMode: 'screen', pointerEvents: 'none', userSelect: 'none' }}
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', opacity: 0.42, mixBlendMode: 'screen', pointerEvents: 'none', userSelect: 'none' }}
               />
 
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-0">
