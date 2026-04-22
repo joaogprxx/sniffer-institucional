@@ -356,7 +356,21 @@ export default function Home() {
 
 
         {/* ── Produtos — bento mural ── */}
-        <section style={{ padding: '42px 0 56px' }}>
+        <section style={{ padding: '42px 0 56px', position: 'relative', overflow: 'hidden' }}>
+          <style>{`
+            @keyframes sonar {
+              0%   { transform: translate(-50%,-50%) scale(0.2); opacity: 0.55; }
+              100% { transform: translate(-50%,-50%) scale(4);   opacity: 0; }
+            }
+            @keyframes emoji-drift {
+              0%,100% { transform: translateY(0px) rotate(0deg); }
+              50%      { transform: translateY(-7px) rotate(4deg); }
+            }
+          `}</style>
+          {/* Sonar ping — 3 ondas defasadas */}
+          {[0, 1.3, 2.6].map((delay, i) => (
+            <div key={i} style={{ position: 'absolute', left: '50%', top: '45%', width: '180px', height: '180px', borderRadius: '50%', border: '1.5px solid rgba(80,242,150,0.28)', pointerEvents: 'none', animation: `sonar 4s ease-out infinite ${delay}s` }} />
+          ))}
           <div className={shell}>
             <div style={sectionHead}>
               <h2 style={h2Style}>O que estamos preparando para você</h2>
@@ -366,25 +380,25 @@ export default function Home() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: 'auto', gap: '14px' }}>
 
               {/* UIVO — largo, leve tilt negativo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.8 }} whileInView={{ opacity: 1, y: 0, rotate: -0.8 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.8, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -0.8, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>💬</span>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1, animation: 'emoji-drift 5s ease-in-out infinite' }}>💬</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>UIVO</span>
                 <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Canal direto com o cliente</h3>
                 <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '46ch' }}>É o canal de comunicação direto e humano que traz o cliente para dentro da sua loja. Esqueça o caos dos grupos genéricos; o Uivo oferece um chat profissional onde o contexto do negócio e o perfil do cliente caminham juntos, acelerando reservas e vendas.</p>
               </motion.div>
 
               {/* XODÓ — menor, tilt positivo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.2 }} whileInView={{ opacity: 1, y: 0, rotate: 1.2 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.08, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.2, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 1.2, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.08, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.08)', border: '1px solid rgba(80,242,150,0.22)', boxShadow: '0 8px 28px rgba(80,242,150,0.08)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.22, lineHeight: 1 }}>⭐</span>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.22, lineHeight: 1, animation: 'emoji-drift 6s ease-in-out infinite 1s' }}>⭐</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>XODÓ</span>
                 <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Selo de alta confiança</h3>
                 <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65 }}>Em um mundo de "seguidores" vazios, o Xodó é uma recomendação especial e limitada: cada usuário tem apenas <strong style={{ color: deepGreen }}>7 slots</strong> para indicar quem realmente ama. Estar na galeria de Xodós é o maior prestígio que sua marca pode alcançar.</p>
               </motion.div>
 
               {/* MATILHA — médio, tilt negativo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -1.3 }} whileInView={{ opacity: 1, y: 0, rotate: -1.3 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.12, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -1.3, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -1.3, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.12, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🐾</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MATILHA</span>
@@ -393,7 +407,7 @@ export default function Home() {
               </motion.div>
 
               {/* FARO — largo, tilt leve */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.7 }} whileInView={{ opacity: 1, y: 0, rotate: 0.7 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.06, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.7, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 0.7, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.06, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: 'rgba(51,45,89,0.04)', border: '1px solid rgba(51,45,89,0.10)', boxShadow: '0 8px 28px rgba(51,45,89,0.06)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🔍</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: navy, background: 'rgba(51,45,89,0.08)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(51,45,89,0.15)' }}>FARO</span>
@@ -402,7 +416,7 @@ export default function Home() {
               </motion.div>
 
               {/* MEU TERRITÓRIO — full width mobile, 1/3 desktop */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.4 }} whileInView={{ opacity: 1, y: 0, rotate: 1.4 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.1, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.4, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 1.4, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.1, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.18, lineHeight: 1 }}>📍</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MEU TERRITÓRIO</span>
@@ -411,7 +425,7 @@ export default function Home() {
               </motion.div>
 
               {/* SPOTLIGHT — médio */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.9 }} whileInView={{ opacity: 1, y: 0, rotate: -0.9 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.14, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.9, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -0.9, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.14, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.06)', border: '1px solid rgba(80,242,150,0.18)', boxShadow: '0 8px 28px rgba(80,242,150,0.06)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.22, lineHeight: 1 }}>🔦</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>SPOTLIGHT</span>
@@ -420,9 +434,9 @@ export default function Home() {
               </motion.div>
 
               {/* RASTRO — dark, destaque */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.6 }} whileInView={{ opacity: 1, y: 0, rotate: 0.6 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.18, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.6, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 0.6, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.18, ease: [0.16,1,0.3,1] }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'linear-gradient(135deg, #1a1c2e 0%, #2d2750 100%)', border: '1px solid rgba(80,242,150,0.2)', boxShadow: '0 12px 36px rgba(20,25,45,0.2)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.25, lineHeight: 1 }}>🏅</span>
+                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.25, lineHeight: 1, animation: 'emoji-drift 7s ease-in-out infinite 0.5s' }}>🏅</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: green, background: 'rgba(80,242,150,0.15)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.28)' }}>RASTRO</span>
                 <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#f5f7ff' }}>Onde o legado começa</h3>
                 <p style={{ margin: 0, fontSize: '14px', color: 'rgba(245,247,255,0.72)', lineHeight: 1.65 }}>Benefícios vitalícios para os primeiros 10.000 negócios. Um distintivo de honra que ninguém mais poderá comprar — para quem acreditou desde sempre.</p>
