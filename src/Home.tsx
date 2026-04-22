@@ -606,7 +606,7 @@ export default function Home() {
                 </div>
 
                 {/* Pull quote */}
-                <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(26px, 3.5vw, 46px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', color: '#ffffff', maxWidth: '18ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
                   "Seu bairro sempre teve voz. Com a Sniffer, ele recupera o alcance."
                 </blockquote>
 
@@ -621,7 +621,7 @@ export default function Home() {
                     Esse saber não desapareceu, ele só ficou sem caminho para circular. Ele está no cliente fiel que conhece cada esquina, na vizinha que sabe quem faz o melhor café e no amigo que sempre descobre as novidades antes de todo mundo. As grandes redes sociais tentaram substituir isso por{' '}
                     <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
                   </p>
-                  <p style={{ margin: 0, color: green, fontWeight: 700, fontSize: '18px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
                     A Sniffer nasceu para ser esse caminho.
                   </p>
                   <p style={{ margin: 0 }}>
@@ -662,7 +662,7 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
                     style={{ padding: '20px 22px', borderRadius: '20px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}
                   >
-                    <p style={{ margin: '0 0 12px', color: 'rgba(255,255,255,0.7)', fontSize: '15px', lineHeight: 1.65, fontStyle: 'italic' }}>"{texto}"</p>
+                    <p style={{ margin: '0 0 12px', color: 'rgba(255,255,255,0.75)', fontSize: '18px', lineHeight: 1.6, fontFamily: "'Buasley', cursive" }}>"{texto}"</p>
                     <span style={{ fontSize: '13px', color: green, fontWeight: 700, fontFamily: "'Ferom', Inter, sans-serif" }}>{emoji} {nome}</span>
                   </motion.div>
                 ))}

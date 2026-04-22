@@ -51,6 +51,16 @@
   font-display: swap;
 }
 
+/* ─── Buasley — Fonte complementar humanizada Sniffer ─── */
+@font-face {
+  font-family: 'Buasley';
+  src: url('/fontes/buasley.woff2') format('woff2'),
+       url('/fontes/buasley.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-navy: #2D2F5E;
   --color-verdeSniffer: #78C87A;
