@@ -590,9 +590,17 @@ export default function Home() {
 
         {/* ── De Vizinho para Vizinho ── */}
         <section id="vizinho" style={{ padding: '100px 0', background: 'linear-gradient(155deg, #111026 0%, #332d59 60%, #111026 100%)', position: 'relative', overflow: 'hidden' }}>
-          {/* Orbs decorativos */}
-          <div style={{ position: 'absolute', top: '-120px', right: '-100px', width: '480px', height: '480px', borderRadius: '50%', background: `radial-gradient(circle, ${green}0d 0%, transparent 70%)`, pointerEvents: 'none' }} />
-          <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(51,45,89,0.5) 0%, transparent 70%)', pointerEvents: 'none' }} />
+          {/* Coleira — espelhada: topo-direita → inferior-esquerda */}
+          <svg
+            viewBox="0 0 690 430"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.2, pointerEvents: 'none', transform: 'scaleX(-1)' }}
+          >
+            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+          </svg>
 
           <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
             <motion.div
