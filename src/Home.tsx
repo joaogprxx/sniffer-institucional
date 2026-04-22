@@ -453,19 +453,86 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── FAQ ── */}
+        {/* ── RASTRO Early Adopter ── */}
         <section id="faq" style={{ padding: '42px 0' }}>
           <div className={shell}>
-            <div style={sectionHead}>
-              <h2 style={h2Style}>Perguntas frequentes</h2>
-              <p style={subStyle}>O suficiente para dar clareza, sem matar a curiosidade.</p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #0f1020 0%, #1e1a38 50%, #0f1020 100%)', boxShadow: '0 40px 100px rgba(10,12,30,0.4)' }}
+            >
+              {/* Glow orbs */}
+              <div style={{ position: 'absolute', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(80,242,150,0.12), transparent 65%)', top: '-150px', right: '-100px', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(80,242,150,0.07), transparent 65%)', bottom: '-80px', left: '-60px', pointerEvents: 'none' }} />
 
-            <div style={{ display: 'grid', gap: '14px' }}>
-              {faqs.map((item, i) => (
-                <FaqItem key={i} question={item.q} answer={item.a} />
+              {/* Sonar rings decorativos */}
+              {[1, 2, 3].map(i => (
+                <div key={i} style={{ position: 'absolute', left: '50%', top: '50%', width: `${i * 180}px`, height: `${i * 180}px`, borderRadius: '50%', border: '1px solid rgba(80,242,150,0.06)', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
               ))}
-            </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-0">
+                {/* Conteúdo principal */}
+                <div style={{ padding: '52px 48px' }}>
+                  {/* Badge */}
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.28)', marginBottom: '24px' }}>
+                    <span style={{ fontSize: '16px' }}>🏅</span>
+                    <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em', color: green }}>RASTRO — SELO EARLY ADOPTER</span>
+                  </div>
+
+                  <h2 style={{ margin: '0 0 8px', fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1, letterSpacing: '-0.05em', fontWeight: 800, color: '#f5f7ff' }}>
+                    Você marca presença.<br />
+                    <span style={{ color: green }}>A gente garante o seu lugar.</span>
+                  </h2>
+
+                  <p style={{ margin: '18px 0 32px', fontSize: '17px', color: 'rgba(245,247,255,0.7)', lineHeight: 1.7, maxWidth: '52ch' }}>
+                    O rastro começa com você. Estamos reservando apenas <strong style={{ color: '#f5f7ff' }}>10.000 vagas</strong> para os negócios fundadores que vão deixar sua marca no mapa.
+                  </p>
+
+                  {/* Benefícios */}
+                  <div style={{ display: 'grid', gap: '14px', marginBottom: '36px' }}>
+                    {[
+                      { icon: '🎁', text: '3 anos de acesso gratuito a todas as ferramentas e novos produtos da plataforma.' },
+                      { icon: '🔖', text: 'Selo permanente de Fundador no seu perfil, visível para toda a rede.' },
+                      { icon: '💰', text: 'Taxas reduzidas vitalícias após o período inicial de 3 anos.' },
+                      { icon: '🧪', text: 'Acesso garantido ao ambiente de testes — experimente e influencie nossas inovações antes de todo o ecossistema.' },
+                    ].map((b, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.45, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}
+                      >
+                        <span style={{ fontSize: '18px', flexShrink: 0, marginTop: '2px' }}>{b.icon}</span>
+                        <span style={{ fontSize: '15px', color: 'rgba(245,247,255,0.75)', lineHeight: 1.6 }}>{b.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <p style={{ margin: '0 0 28px', fontSize: '14px', color: 'rgba(245,247,255,0.45)', lineHeight: 1.6, maxWidth: '52ch', fontStyle: 'italic' }}>
+                    Uma vez preenchidas as 10.000 vagas, o programa será selado. O status de fundador se tornará um ativo exclusivo de quem marcou a primeira trilha.
+                  </p>
+
+                  <button
+                    onClick={() => navigate('/cadastro')}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 32px', borderRadius: '999px', fontWeight: 800, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0a0f1a', border: 'none', cursor: 'pointer', boxShadow: '0 16px 48px rgba(80,242,150,0.35)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
+                  >
+                    Garantir minha vaga Rastro →
+                  </button>
+                </div>
+
+                {/* Counter lateral */}
+                <div className="hidden lg:flex" style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 40px', borderLeft: '1px solid rgba(255,255,255,0.06)', minWidth: '200px', gap: '8px' }}>
+                  <span style={{ fontSize: '64px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
+                  <span style={{ fontSize: '13px', color: 'rgba(245,247,255,0.45)', textAlign: 'center', lineHeight: 1.5 }}>vagas<br />disponíveis</span>
+                  <div style={{ width: '48px', height: '2px', background: 'rgba(80,242,150,0.3)', borderRadius: '999px', margin: '8px 0' }} />
+                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(80,242,150,0.6)', textAlign: 'center' }}>ACESSO<br />VITALÍCIO</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
