@@ -380,7 +380,7 @@ export default function Home() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: 'auto', gap: '14px' }}>
 
               {/* UIVO — largo, leve tilt negativo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.8, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -0.8, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: -80, y: -100, rotate: -14, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -0.8, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 90, damping: 14, mass: 1.1, delay: 0 }}
                 style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1, animation: 'emoji-drift 5s ease-in-out infinite' }}>💬</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>UIVO</span>
@@ -389,7 +389,7 @@ export default function Home() {
               </motion.div>
 
               {/* XODÓ — menor, tilt positivo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.2, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 1.2, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.08, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: 90, y: -80, rotate: 16, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 1.2, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 85, damping: 13, mass: 1.2, delay: 0.1 }}
                 style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.08)', border: '1px solid rgba(80,242,150,0.22)', boxShadow: '0 8px 28px rgba(80,242,150,0.08)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.22, lineHeight: 1, animation: 'emoji-drift 6s ease-in-out infinite 1s' }}>⭐</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>XODÓ</span>
@@ -398,7 +398,7 @@ export default function Home() {
               </motion.div>
 
               {/* MATILHA — médio, tilt negativo */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -1.3, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -1.3, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.12, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: -100, y: -60, rotate: -18, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -1.3, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 80, damping: 13, mass: 1.3, delay: 0.18 }}
                 style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🐾</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MATILHA</span>
@@ -407,7 +407,7 @@ export default function Home() {
               </motion.div>
 
               {/* FARO — largo, tilt leve */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.7, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 0.7, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.06, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: 60, y: -120, rotate: 12, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0.7, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 75, damping: 12, mass: 1.4, delay: 0.08 }}
                 style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: 'rgba(51,45,89,0.04)', border: '1px solid rgba(51,45,89,0.10)', boxShadow: '0 8px 28px rgba(51,45,89,0.06)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🔍</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: navy, background: 'rgba(51,45,89,0.08)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(51,45,89,0.15)' }}>FARO</span>
@@ -416,7 +416,7 @@ export default function Home() {
               </motion.div>
 
               {/* MEU TERRITÓRIO — full width mobile, 1/3 desktop */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.4, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 1.4, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.1, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: -70, y: -90, rotate: -20, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 1.4, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 95, damping: 14, mass: 1.0, delay: 0.22 }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.18, lineHeight: 1 }}>📍</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MEU TERRITÓRIO</span>
@@ -425,7 +425,7 @@ export default function Home() {
               </motion.div>
 
               {/* SPOTLIGHT — médio */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.9, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: -0.9, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.14, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: 50, y: -70, rotate: 15, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -0.9, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 88, damping: 13, mass: 1.1, delay: 0.28 }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.06)', border: '1px solid rgba(80,242,150,0.18)', boxShadow: '0 8px 28px rgba(80,242,150,0.06)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.22, lineHeight: 1 }}>🔦</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>SPOTLIGHT</span>
@@ -434,7 +434,7 @@ export default function Home() {
               </motion.div>
 
               {/* RASTRO — dark, destaque */}
-              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.6, filter: 'blur(8px)' }} whileInView={{ opacity: 1, y: 0, rotate: 0.6, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.18, ease: [0.16,1,0.3,1] }}
+              <motion.div initial={{ opacity: 0, x: 80, y: -60, rotate: 18, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0.6, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 82, damping: 12, mass: 1.3, delay: 0.32 }}
                 style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'linear-gradient(135deg, #1a1c2e 0%, #2d2750 100%)', border: '1px solid rgba(80,242,150,0.2)', boxShadow: '0 12px 36px rgba(20,25,45,0.2)', position: 'relative', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.25, lineHeight: 1, animation: 'emoji-drift 7s ease-in-out infinite 0.5s' }}>🏅</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: green, background: 'rgba(80,242,150,0.15)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.28)' }}>RASTRO</span>
