@@ -679,9 +679,7 @@ export default function Home() {
 
           {/* Brand */}
           <div style={{ gridColumn: 'span 5' }}>
-            <div style={{ fontSize: '28px', fontWeight: 800, color: '#fff', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.04em', marginBottom: '12px', lineHeight: 1 }}>
-              Sniffer<span style={{ color: green }}>.</span>
-            </div>
+            <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '36px', width: 'auto', marginBottom: '12px', display: 'block' }} />
             <p style={{ margin: '0 0 24px', fontSize: '15px', lineHeight: 1.65, maxWidth: '26ch', color: 'rgba(255,255,255,0.5)' }}>
               O faro que faltava no seu bairro. Descoberta local, confiança real.
             </p>
