@@ -355,41 +355,84 @@ export default function Home() {
         </section>
 
 
-        {/* ── Produtos ── */}
-        <section style={{ padding: '42px 0' }}>
+        {/* ── Produtos — bento mural ── */}
+        <section style={{ padding: '42px 0 56px' }}>
           <div className={shell}>
             <div style={sectionHead}>
               <h2 style={h2Style}>O que estamos preparando para você</h2>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              style={{ ...card, padding: '8px 32px 8px' }}
-            >
-              <ProductItem defaultOpen emoji="💬" tag="UIVO" title="Canal direto com o cliente"
-                desc="É o canal de comunicação direto e humano que traz o cliente para dentro da sua loja. Esqueça o caos dos grupos genéricos; o Uivo oferece um chat profissional onde o contexto do negócio e o perfil do cliente caminham juntos, acelerando reservas e vendas." />
-              <ProductItem emoji="🐾" tag="MATILHA" title="Comunidades ao redor do seu negócio"
-                desc="Transforme vizinhos em comunidades fiéis. Crie grupos exclusivos ao redor do seu negócio para gerar conversas reais e encontros presenciais. É uma ferramenta essencial para quem quer ser mais que uma loja — quer ser o ponto de encontro oficial do bairro." />
-              <ProductItem emoji="⭐" tag="XODÓ" title="Selo de alta confiança"
-                desc='É um selo de alta confiança. Em um mundo de "seguidores" vazios, o Xodó é uma recomendação especial, limitada e valiosa: cada usuário tem apenas 7 slots para indicar quem realmente ama. Estar na galeria de Xodós da vizinhança é o maior sinal de prestígio que sua marca pode alcançar.' />
-              <ProductItem emoji="🔍" tag="FARO" title="Inteligência da rua em tempo real"
-                desc="O Faro detecta o que as pessoas estão buscando na sua rua agora, permitindo que você adapte seu estoque ou promoções exatamente ao desejo da comunidade. Pare de adivinhar e comece a atender a demanda real. É como ter um consultor que conhece o bairro todo, entregando as respostas que você precisa em um painel inteligente e fácil de acompanhar." />
-              <ProductItem emoji="📍" tag="MEU TERRITÓRIO" title="Sua placa digital na esquina"
-                desc="Sua placa digital na esquina, só que muito mais inteligente. É o seu perfil profissional completo, onde a visibilidade é ligada à proximidade, garantindo que seu próximo cliente — que está a apenas 200 metros — finalmente te ache." />
-              <ProductItem emoji="🏅" tag="RASTRO" title="Onde o legado começa"
-                desc="Um programa de benefícios vitalícios para os primeiros 10.000 negócios que deixarem sua marca no mapa. Ser um parceiro Rastro é garantir seu lugar na história da plataforma e eternizar seu pioneirismo com um distintivo de honra que nenhuma outra empresa poderá comprar depois, contando com privilégios de quem acreditou no bairro e no seu negócio desde sempre." />
-              <ProductItem emoji="🔦" tag="SPOTLIGHT" title="Visibilidade no momento certo"
-                desc="Coloque o seu negócio no radar de quem já está na rua. Seja um evento novo ou uma promoção relâmpago, o Spotlight impulsiona sua visibilidade no momento exato em que a vizinhança está decidindo para onde ir." />
-            </motion.div>
+            {/* Bento grid — 12 cols */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: 'auto', gap: '14px' }}>
 
-            <div style={{ marginTop: '24px', textAlign: 'center' }}>
-              <button
-                onClick={() => navigate('/cadastro')}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}
-              >
+              {/* UIVO — largo, leve tilt negativo */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.8 }} whileInView={{ opacity: 1, y: 0, rotate: -0.8 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>💬</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>UIVO</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Canal direto com o cliente</h3>
+                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '46ch' }}>É o canal de comunicação direto e humano que traz o cliente para dentro da sua loja. Esqueça o caos dos grupos genéricos; o Uivo oferece um chat profissional onde o contexto do negócio e o perfil do cliente caminham juntos, acelerando reservas e vendas.</p>
+              </motion.div>
+
+              {/* XODÓ — menor, tilt positivo */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.2 }} whileInView={{ opacity: 1, y: 0, rotate: 1.2 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.08, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.08)', border: '1px solid rgba(80,242,150,0.22)', boxShadow: '0 8px 28px rgba(80,242,150,0.08)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.22, lineHeight: 1 }}>⭐</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>XODÓ</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Selo de alta confiança</h3>
+                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65 }}>Em um mundo de "seguidores" vazios, o Xodó é uma recomendação especial e limitada: cada usuário tem apenas <strong style={{ color: deepGreen }}>7 slots</strong> para indicar quem realmente ama. Estar na galeria de Xodós é o maior prestígio que sua marca pode alcançar.</p>
+              </motion.div>
+
+              {/* MATILHA — médio, tilt negativo */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -1.3 }} whileInView={{ opacity: 1, y: 0, rotate: -1.3 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.12, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🐾</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MATILHA</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Comunidade ao redor do negócio</h3>
+                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65 }}>Transforme vizinhos em comunidades fiéis. Crie grupos exclusivos para gerar conversas reais e encontros presenciais. Para quem quer ser mais que uma loja — quer ser o ponto de encontro oficial do bairro.</p>
+              </motion.div>
+
+              {/* FARO — largo, tilt leve */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.7 }} whileInView={{ opacity: 1, y: 0, rotate: 0.7 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.06, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: 'rgba(51,45,89,0.04)', border: '1px solid rgba(51,45,89,0.10)', boxShadow: '0 8px 28px rgba(51,45,89,0.06)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🔍</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: navy, background: 'rgba(51,45,89,0.08)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(51,45,89,0.15)' }}>FARO</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Inteligência da rua em tempo real</h3>
+                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '50ch' }}>O Faro detecta o que as pessoas estão buscando na sua rua agora, permitindo que você adapte estoque ou promoções ao desejo da comunidade. Pare de adivinhar. É como ter um consultor que conhece o bairro todo — entregando as respostas que você precisa num painel inteligente.</p>
+              </motion.div>
+
+              {/* MEU TERRITÓRIO — full width mobile, 1/3 desktop */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 1.4 }} whileInView={{ opacity: 1, y: 0, rotate: 1.4 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.1, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,24,39,0.07)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.18, lineHeight: 1 }}>📍</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MEU TERRITÓRIO</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Sua placa digital na esquina</h3>
+                <p style={{ margin: 0, fontSize: '14px', color: muted, lineHeight: 1.65 }}>Perfil profissional completo onde a visibilidade é ligada à proximidade. Quem está a apenas 200 metros finalmente te acha.</p>
+              </motion.div>
+
+              {/* SPOTLIGHT — médio */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: -0.9 }} whileInView={{ opacity: 1, y: 0, rotate: -0.9 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.14, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.06)', border: '1px solid rgba(80,242,150,0.18)', boxShadow: '0 8px 28px rgba(80,242,150,0.06)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.22, lineHeight: 1 }}>🔦</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>SPOTLIGHT</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#13151a' }}>Visibilidade no momento certo</h3>
+                <p style={{ margin: 0, fontSize: '14px', color: muted, lineHeight: 1.65 }}>Impulsione eventos ou promoções relâmpago no exato momento em que a vizinhança está decidindo para onde ir.</p>
+              </motion.div>
+
+              {/* RASTRO — dark, destaque */}
+              <motion.div initial={{ opacity: 0, y: 28, rotate: 0.6 }} whileInView={{ opacity: 1, y: 0, rotate: 0.6 }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.18, ease: [0.16,1,0.3,1] }}
+                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'linear-gradient(135deg, #1a1c2e 0%, #2d2750 100%)', border: '1px solid rgba(80,242,150,0.2)', boxShadow: '0 12px 36px rgba(20,25,45,0.2)', position: 'relative', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.25, lineHeight: 1 }}>🏅</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: green, background: 'rgba(80,242,150,0.15)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.28)' }}>RASTRO</span>
+                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#f5f7ff' }}>Onde o legado começa</h3>
+                <p style={{ margin: 0, fontSize: '14px', color: 'rgba(245,247,255,0.72)', lineHeight: 1.65 }}>Benefícios vitalícios para os primeiros 10.000 negócios. Um distintivo de honra que ninguém mais poderá comprar — para quem acreditou desde sempre.</p>
+              </motion.div>
+
+            </div>
+
+            <div style={{ marginTop: '28px', textAlign: 'center' }}>
+              <button onClick={() => navigate('/cadastro')}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Junte-se a essa revolução! →
               </button>
             </div>
