@@ -595,15 +595,12 @@ export default function Home() {
           <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(51,45,89,0.5) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
           <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-16 items-start">
-
-              {/* Coluna principal */}
-              <motion.div
-                initial={{ opacity: 0, y: 48 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 48 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
                 {/* Badge */}
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.1)', border: '1px solid rgba(80,242,150,0.2)', marginBottom: '36px' }}>
                   <span>🏘️</span>
@@ -644,35 +641,7 @@ export default function Home() {
                 >
                   Junte-se a essa revolução →
                 </motion.button>
-              </motion.div>
-
-              {/* Coluna lateral — cartão com citação humana */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '16px', paddingTop: '8px' }}
-              >
-                {[
-                  { emoji: '👴', nome: 'Seu Artur', texto: 'Abri meu bar tem 22 anos. A Sniffer colocou meu nome na boca de gente que nunca passou por aqui.' },
-                  { emoji: '👩‍🍳', nome: 'Dona Marta', texto: 'Não entendo muito de tecnologia, mas entendo de comida boa. A Sniffer deixou a vizinhança saber disso.' },
-                  { emoji: '🧑', nome: 'Cauã, 28 anos', texto: 'Descobri um café incrível a duas quadras de casa. Estava lá faz anos. A Sniffer me apresentou.' },
-                ].map(({ emoji, nome, texto }, i) => (
-                  <motion.div
-                    key={nome}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ padding: '20px 22px', borderRadius: '20px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}
-                  >
-                    <p style={{ margin: '0 0 12px', color: 'rgba(255,255,255,0.75)', fontSize: '18px', lineHeight: 1.6, fontFamily: "'Buasley', cursive" }}>"{texto}"</p>
-                    <span style={{ fontSize: '13px', color: green, fontWeight: 700, fontFamily: "'Ferom', Inter, sans-serif" }}>{emoji} {nome}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
