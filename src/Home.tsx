@@ -673,7 +673,7 @@ export default function Home() {
       </main>
 
       {/* ── Footer ── */}
-      <footer style={{ background: '#0c0d1a', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
+      <footer style={{ background: 'linear-gradient(180deg, #2a2554 0%, #1e1a42 100%)', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
         {/* Grid principal */}
         <div className={shell} style={{ padding: '64px 0 44px', display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '32px' }}>
 
@@ -687,9 +687,9 @@ export default function Home() {
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               {['Instagram', 'LinkedIn', 'TikTok'].map(s => (
-                <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none', fontSize: '13px', fontWeight: 600, transition: 'color 0.2s' }}
+                <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', fontWeight: 600, transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = green)}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
                 >{s}</a>
               ))}
             </div>
@@ -700,40 +700,40 @@ export default function Home() {
 
           {/* Produto */}
           <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>PRODUTO</strong>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>PRODUTO</strong>
             {['People', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
               >{l}</a>
             ))}
           </div>
 
           {/* Empresa */}
           <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>EMPRESA</strong>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>EMPRESA</strong>
             {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
               >{l}</a>
             ))}
           </div>
 
           {/* Legal */}
           <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.25)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>LEGAL</strong>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>LEGAL</strong>
             {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
               >{l}</a>
             ))}
           </div>
         </div>
 
         {/* Barra inferior */}
-        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '20px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '20px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
           <span>© 2026 Sniffer · Todos os direitos reservados.</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             Feito com <span style={{ color: green, margin: '0 2px' }}>♥</span> no Brasil
