@@ -13,6 +13,35 @@ const surface = 'rgba(255,255,255,0.82)';
 const line = 'rgba(19,21,26,0.08)';
 const shadowSoft = '0 12px 36px rgba(17,24,39,0.05)';
 
+function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: string; tag: string; title: string; desc: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div style={{ borderBottom: `1px solid ${line}` }}>
+      <button
+        onClick={() => setOpen(v => !v)}
+        style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '22px 0', display: 'flex', alignItems: 'center', gap: '14px', textAlign: 'left' }}
+      >
+        <span style={{ fontSize: '24px', flexShrink: 0 }}>{emoji}</span>
+        <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', flexShrink: 0 }}>{tag}</span>
+        <span style={{ fontSize: '18px', fontWeight: 700, color: '#13151a', flex: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>{title}</span>
+        <motion.span
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ fontSize: '24px', color: muted, fontWeight: 300, flexShrink: 0, lineHeight: 1 }}
+        >+</motion.span>
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{ overflow: 'hidden' }}
+      >
+        <p style={{ margin: '0 0 22px', color: muted, fontSize: '16px', lineHeight: 1.7, maxWidth: '72ch', paddingLeft: '38px' }}>{desc}</p>
+      </motion.div>
+    </div>
+  );
+}
+
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -333,48 +362,36 @@ export default function Home() {
               <h2 style={h2Style}>O que estamos preparando para você</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                { tag: 'UIVO', emoji: '💬', desc: 'Chat profissional que traz o cliente para dentro da sua loja — sem caos de grupos genéricos, com contexto do negócio e perfil do cliente juntos.' },
-                { tag: 'MATILHA', emoji: '🐾', desc: 'Crie comunidades exclusivas ao redor do seu negócio. Transforme vizinhos em clientes fiéis e se torne o ponto de encontro oficial do bairro.' },
-                { tag: 'XODÓ', emoji: '⭐', desc: 'Selo de alta confiança. Cada usuário tem apenas 7 slots para indicar quem realmente ama. Estar na galeria de Xodós é o maior prestígio da vizinhança.' },
-                { tag: 'FARO', emoji: '🔍', desc: 'Detecta o que a vizinhança está buscando agora. Adapte estoque e promoções à demanda real — como ter um consultor que conhece o bairro todo.' },
-                { tag: 'MEU TERRITÓRIO', emoji: '📍', desc: 'Seu perfil profissional completo, com visibilidade ligada à proximidade. Garante que quem está a 200m de você finalmente te ache.' },
-                { tag: 'RASTRO', emoji: '🏅', desc: 'Programa vitalício para os primeiros 10.000 negócios. Um distintivo de honra que eterniza seu pioneirismo — e que ninguém mais poderá comprar depois.' },
-                { tag: 'SPOTLIGHT', emoji: '🔦', desc: 'Coloque seu negócio no radar de quem já está na rua. Impulsione eventos ou promoções no momento exato em que a vizinhança está decidindo para onde ir.' },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ ...card, display: 'flex', flexDirection: 'column', gap: '10px' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ fontSize: '22px' }}>{item.emoji}</span>
-                    <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)' }}>{item.tag}</span>
-                  </div>
-                  <p style={{ color: muted, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
-                </motion.div>
-              ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              style={{ ...card, padding: '8px 32px 8px' }}
+            >
+              <ProductItem defaultOpen emoji="💬" tag="UIVO" title="Canal direto com o cliente"
+                desc="É o canal de comunicação direto e humano que traz o cliente para dentro da sua loja. Esqueça o caos dos grupos genéricos; o Uivo oferece um chat profissional onde o contexto do negócio e o perfil do cliente caminham juntos, acelerando reservas e vendas." />
+              <ProductItem emoji="🐾" tag="MATILHA" title="Comunidades ao redor do seu negócio"
+                desc="Transforme vizinhos em comunidades fiéis. Crie grupos exclusivos ao redor do seu negócio para gerar conversas reais e encontros presenciais. É uma ferramenta essencial para quem quer ser mais que uma loja — quer ser o ponto de encontro oficial do bairro." />
+              <ProductItem emoji="⭐" tag="XODÓ" title="Selo de alta confiança"
+                desc='É um selo de alta confiança. Em um mundo de "seguidores" vazios, o Xodó é uma recomendação especial, limitada e valiosa: cada usuário tem apenas 7 slots para indicar quem realmente ama. Estar na galeria de Xodós da vizinhança é o maior sinal de prestígio que sua marca pode alcançar.' />
+              <ProductItem emoji="🔍" tag="FARO" title="Inteligência da rua em tempo real"
+                desc="O Faro detecta o que as pessoas estão buscando na sua rua agora, permitindo que você adapte seu estoque ou promoções exatamente ao desejo da comunidade. Pare de adivinhar e comece a atender a demanda real. É como ter um consultor que conhece o bairro todo, entregando as respostas que você precisa em um painel inteligente e fácil de acompanhar." />
+              <ProductItem emoji="📍" tag="MEU TERRITÓRIO" title="Sua placa digital na esquina"
+                desc="Sua placa digital na esquina, só que muito mais inteligente. É o seu perfil profissional completo, onde a visibilidade é ligada à proximidade, garantindo que seu próximo cliente — que está a apenas 200 metros — finalmente te ache." />
+              <ProductItem emoji="🏅" tag="RASTRO" title="Onde o legado começa"
+                desc="Um programa de benefícios vitalícios para os primeiros 10.000 negócios que deixarem sua marca no mapa. Ser um parceiro Rastro é garantir seu lugar na história da plataforma e eternizar seu pioneirismo com um distintivo de honra que nenhuma outra empresa poderá comprar depois, contando com privilégios de quem acreditou no bairro e no seu negócio desde sempre." />
+              <ProductItem emoji="🔦" tag="SPOTLIGHT" title="Visibilidade no momento certo"
+                desc="Coloque o seu negócio no radar de quem já está na rua. Seja um evento novo ou uma promoção relâmpago, o Spotlight impulsiona sua visibilidade no momento exato em que a vizinhança está decidindo para onde ir." />
+            </motion.div>
 
-              {/* CTA card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                style={{ ...card, background: 'linear-gradient(135deg, #1a1c2e 0%, #2d2750 100%)', border: '1px solid rgba(80,242,150,0.18)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px' }}
+            <div style={{ marginTop: '24px', textAlign: 'center' }}>
+              <button
+                onClick={() => navigate('/cadastro')}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}
               >
-                <p style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#f5f7ff', lineHeight: 1.4 }}>Junte-se a essa revolução!</p>
-                <button
-                  onClick={() => navigate('/cadastro')}
-                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '12px 22px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', fontSize: '14px', fontFamily: "'Ferom', Inter, sans-serif" }}
-                >
-                  Quero entrar →
-                </button>
-              </motion.div>
+                Junte-se a essa revolução! →
+              </button>
             </div>
           </div>
         </section>
