@@ -196,36 +196,63 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Já tem coisa acontecendo ── */}
+        {/* ── Quem Somos ── */}
         <section id="ao-vivo" style={{ padding: '42px 0' }}>
           <div className={shell}>
-            <div style={sectionHead}>
-              <h2 style={h2Style}>Já tem coisa acontecendo por aqui.</h2>
-              <p style={subStyle}>
-                A Sniffer já nasce com base em descoberta local, comunidades, eventos e interação entre usuários e negócios. O objetivo não é só mostrar lugares — é criar contexto real ao redor deles.
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              style={{ padding: '48px', borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
+            >
+              {/* Glow decorativo */}
+              <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.14), transparent 70%)', right: '-60px', bottom: '-60px', pointerEvents: 'none' }} />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { value: '🌱', label: 'Primeiras comunidades já estão surgindo com pessoas, interesses e conversas reais' },
-                { value: '📱', label: 'O app já ajuda a visualizar o clima da experiência com eventos, comunidades e descoberta local' },
-                { value: '4', label: 'Camadas principais da experiência: lugares, pessoas, comunidades e eventos' },
-                { value: '1', label: 'Ecossistema conectado, em vez de vários apps soltos' },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: `1px solid rgba(80,242,150,0.28)`, color: deepGreen, fontSize: '13px', fontWeight: 700, marginBottom: '20px' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
+                Nossa história
+              </div>
+
+              <h2 style={{ ...h2Style, marginBottom: '32px' }}>Quem Somos</h2>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '72ch' }}>
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ padding: '26px', borderRadius: '28px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}
                 >
-                  <strong style={{ display: 'block', fontSize: 'clamp(28px, 3.5vw, 40px)', lineHeight: 1, letterSpacing: '-0.04em', marginBottom: '8px' }}>{stat.value}</strong>
-                  <span style={{ color: muted, fontSize: '14px' }}>{stat.label}</span>
-                </motion.div>
-              ))}
-            </div>
+                  Você já passou por uma rua mil vezes e nunca reparou naquele lugar incrível escondido ali? A Sniffer nasceu dessa mesma curiosidade. Mais que uma rede social, somos o faro que faltava no seu bairro: o elo de confiança que ajuda as pessoas a descobrirem o que realmente está vivo e pulsante ao redor delas.
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}
+                >
+                  Nossa missão é simples: transformar a curiosidade em um motivo novo para sair de casa. Queremos que a vizinhança sinta o cheiro do que é autêntico e descubra lugares, sabores e experiências que estão logo ali, esperando para serem encontrados. Na Sniffer, a tecnologia não serve para te prender online, mas para te levar de volta para a calçada.
+                </motion.p>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                style={{ marginTop: '36px' }}
+              >
+                <button
+                  onClick={() => navigate('/cadastro')}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}
+                >
+                  Junte-se a essa revolução! →
+                </button>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
