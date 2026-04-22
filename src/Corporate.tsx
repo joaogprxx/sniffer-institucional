@@ -61,8 +61,8 @@ export default function Corporate() {
     >
 
       {/* ═══════════════════ NAV ═══════════════════ */}
-      <header className="fixed top-[68px] inset-x-0 z-50">
-        <nav className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <header className="fixed top-[68px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[960px] z-50">
+        <nav className="px-4 sm:px-6">
           <div
             className="relative flex flex-wrap items-center justify-between gap-6 py-3 px-6 lg:gap-0 lg:py-3 rounded-full transition-all duration-500"
             style={{

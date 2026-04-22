@@ -132,7 +132,8 @@ function BusinessNavbar() {
         WebkitBackdropFilter: 'blur(28px) saturate(180%)',
         boxShadow: '0 4px 32px rgba(0, 0, 0, 0.13)',
         borderRadius: '16px',
-        margin: '0 24px',
+        maxWidth: 'min(960px, calc(100% - 48px))',
+        margin: '0 auto',
         height: '96px',
       }}
     >

@@ -39,8 +39,10 @@ function PeopleNavbar() {
         style={{
           position: 'fixed',
           bottom: '16px',
-          left: '24px',
-          right: '24px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 'calc(100% - 48px)',
+          maxWidth: '960px',
           zIndex: 50,
           backgroundColor: 'rgba(255,255,255,0.97)',
           backdropFilter: 'blur(28px) saturate(180%)',
