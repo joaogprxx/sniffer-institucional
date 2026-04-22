@@ -256,21 +256,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Como funciona ── */}
+        {/* ── No que a gente acredita ── */}
         <section id="como-funciona" style={{ padding: '42px 0' }}>
           <div className={shell}>
             <div style={sectionHead}>
-              <h2 style={h2Style}>Uma experiência feita para explorar, se conectar e voltar.</h2>
-              <p style={subStyle}>
-                Em vez de navegar por ruído, a ideia é ajudar o usuário a descobrir o que vale a pena perto dele e participar disso com mais contexto.
-              </p>
+              <h2 style={h2Style}>No que a gente acredita</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { icon: '⌘', title: 'Descubra', desc: 'Encontre lugares, comunidades e eventos com mais contexto — não só uma lista fria no mapa.' },
-                { icon: '✦', title: 'Conecte-se', desc: 'Interaja com pessoas e negócios locais de forma mais direta, útil e humana.' },
-                { icon: '◎', title: 'Participe', desc: 'Entre em comunidades, acompanhe conversas reais e descubra experiências acontecendo perto de você.' },
+                {
+                  icon: '🤝',
+                  title: 'Indicações reais',
+                  desc: 'Quem indica seu negócio são seus vizinhos e clientes reais. Sem truques digitais — só a confiança de quem vive o bairro.',
+                },
+                {
+                  icon: '📍',
+                  title: 'Perto primeiro',
+                  desc: 'Você aparece primeiro para quem já está na sua rua ou a poucos minutos, antes mesmo de pensarem em atravessar a cidade.',
+                },
+                {
+                  icon: '✨',
+                  title: 'O pequeno brilha aqui',
+                  desc: 'A pizzaria do bairro, o ateliê da esquina e o novo café da rua têm a mesma prioridade que as gigantes. Seu talento local dita sua visibilidade.',
+                },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -280,11 +289,9 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   style={{ ...card, position: 'relative', overflow: 'hidden' }}
                 >
-                  <div style={{ width: '46px', height: '46px', borderRadius: '16px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(180deg, rgba(80,242,150,0.2) 0%, rgba(80,242,150,0.08) 100%)', color: deepGreen, fontSize: '20px', marginBottom: '18px' }}>
-                    {item.icon}
-                  </div>
-                  <h3 style={{ margin: '0 0 10px', fontSize: '24px', letterSpacing: '-0.03em', fontWeight: 700 }}>{item.title}</h3>
-                  <p style={{ color: muted, fontSize: '16px', margin: 0 }}>{item.desc}</p>
+                  <div style={{ fontSize: '28px', marginBottom: '16px' }}>{item.icon}</div>
+                  <h3 style={{ margin: '0 0 8px', fontSize: '20px', letterSpacing: '-0.02em', fontWeight: 700 }}>{item.title}</h3>
+                  <p style={{ color: muted, fontSize: '15px', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
                 </motion.div>
               ))}
             </div>
