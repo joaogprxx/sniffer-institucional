@@ -326,34 +326,55 @@ export default function Home() {
         </section>
 
 
-        {/* ── Audience cards ── */}
+        {/* ── Produtos ── */}
         <section style={{ padding: '42px 0' }}>
           <div className={shell}>
             <div style={sectionHead}>
-              <h2 style={h2Style}>Feita para pessoas que gostam de descobrir antes de todo mundo.</h2>
-              <p style={subStyle}>
-                De cafés e rolês a pessoas, bairros, comunidades e encontros locais: a Sniffer quer virar aquele lugar onde você encontra o que está valendo a pena agora.
-              </p>
+              <h2 style={h2Style}>O que estamos preparando para você</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { title: 'Para quem explora a cidade', desc: 'Descubra novos lugares e experiências por recomendação, contexto e participação real.' },
-                { title: 'Para quem busca sua galera', desc: 'Entre em comunidades com mais identidade e menos sensação de vazio social.' },
-                { title: 'Para quem quer estar por dentro', desc: 'Acompanhe eventos, movimentos locais e sinais culturais com mais proximidade.' },
+                { tag: 'UIVO', emoji: '💬', desc: 'Chat profissional que traz o cliente para dentro da sua loja — sem caos de grupos genéricos, com contexto do negócio e perfil do cliente juntos.' },
+                { tag: 'MATILHA', emoji: '🐾', desc: 'Crie comunidades exclusivas ao redor do seu negócio. Transforme vizinhos em clientes fiéis e se torne o ponto de encontro oficial do bairro.' },
+                { tag: 'XODÓ', emoji: '⭐', desc: 'Selo de alta confiança. Cada usuário tem apenas 7 slots para indicar quem realmente ama. Estar na galeria de Xodós é o maior prestígio da vizinhança.' },
+                { tag: 'FARO', emoji: '🔍', desc: 'Detecta o que a vizinhança está buscando agora. Adapte estoque e promoções à demanda real — como ter um consultor que conhece o bairro todo.' },
+                { tag: 'MEU TERRITÓRIO', emoji: '📍', desc: 'Seu perfil profissional completo, com visibilidade ligada à proximidade. Garante que quem está a 200m de você finalmente te ache.' },
+                { tag: 'RASTRO', emoji: '🏅', desc: 'Programa vitalício para os primeiros 10.000 negócios. Um distintivo de honra que eterniza seu pioneirismo — e que ninguém mais poderá comprar depois.' },
+                { tag: 'SPOTLIGHT', emoji: '🔦', desc: 'Coloque seu negócio no radar de quem já está na rua. Impulsione eventos ou promoções no momento exato em que a vizinhança está decidindo para onde ir.' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={card}
+                  transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ ...card, display: 'flex', flexDirection: 'column', gap: '10px' }}
                 >
-                  <h3 style={{ margin: '0 0 10px', fontSize: '22px', letterSpacing: '-0.03em', fontWeight: 700 }}>{item.title}</h3>
-                  <p style={{ color: muted, fontSize: '15px', margin: 0 }}>{item.desc}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontSize: '22px' }}>{item.emoji}</span>
+                    <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.08em', color: deepGreen, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)' }}>{item.tag}</span>
+                  </div>
+                  <p style={{ color: muted, fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
                 </motion.div>
               ))}
+
+              {/* CTA card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                style={{ ...card, background: 'linear-gradient(135deg, #1a1c2e 0%, #2d2750 100%)', border: '1px solid rgba(80,242,150,0.18)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px' }}
+              >
+                <p style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#f5f7ff', lineHeight: 1.4 }}>Junte-se a essa revolução!</p>
+                <button
+                  onClick={() => navigate('/cadastro')}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '12px 22px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#0f1320', border: 'none', cursor: 'pointer', fontSize: '14px', fontFamily: "'Ferom', Inter, sans-serif" }}
+                >
+                  Quero entrar →
+                </button>
+              </motion.div>
             </div>
           </div>
         </section>
