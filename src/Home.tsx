@@ -461,36 +461,42 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.35)' }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.4)' }}
             >
-              {/* Elemento visual — coleira Sniffer corta o card de ponta a ponta */}
-              <img
-                src="/sniffer_brandbook_bg.svg"
-                alt=""
+              {/* Coleira inline — só os traços, fundo transparente, sem rect */}
+              <svg
+                viewBox="0 0 690 430"
                 aria-hidden="true"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill', opacity: 0.42, mixBlendMode: 'screen', pointerEvents: 'none', userSelect: 'none' }}
-              />
+                preserveAspectRatio="xMidYMid slice"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.22, pointerEvents: 'none' }}
+              >
+                <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+                <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+              </svg>
 
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-0">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
                 {/* Conteúdo principal */}
-                <div style={{ padding: '52px 48px' }}>
+                <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
                   {/* Badge */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.28)', marginBottom: '24px' }}>
-                    <span style={{ fontSize: '16px' }}>🏅</span>
-                    <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.1em', color: green }}>RASTRO — SELO EARLY ADOPTER</span>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.3)', marginBottom: '28px' }}>
+                    <span style={{ fontSize: '14px' }}>🏅</span>
+                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO — SELO EARLY ADOPTER</span>
                   </div>
 
-                  <h2 style={{ margin: '0 0 8px', fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1, letterSpacing: '-0.05em', fontWeight: 800, color: '#F2F2F2' }}>
+                  <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Você marca presença.<br />
                     <span style={{ color: green }}>A gente garante o seu lugar.</span>
                   </h2>
 
-                  <p style={{ margin: '18px 0 32px', fontSize: '17px', color: 'rgba(242,242,242,0.7)', lineHeight: 1.7, maxWidth: '52ch' }}>
-                    O rastro começa com você. Estamos reservando apenas <strong style={{ color: '#F2F2F2' }}>10.000 vagas</strong> para os negócios fundadores que vão deixar sua marca no mapa.
+                  <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(242,242,242,0.65)', lineHeight: 1.75, maxWidth: '50ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                    O rastro começa com você. Estamos reservando apenas{' '}
+                    <strong style={{ color: '#F2F2F2', fontWeight: 700 }}>10.000 vagas</strong>{' '}
+                    para os negócios fundadores que vão deixar sua marca no mapa.
                   </p>
 
                   {/* Benefícios */}
-                  <div style={{ display: 'grid', gap: '14px', marginBottom: '36px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
                     {[
                       { icon: '🎁', text: '3 anos de acesso gratuito a todas as ferramentas e novos produtos da plataforma.' },
                       { icon: '🔖', text: 'Selo permanente de Fundador no seu perfil, visível para toda a rede.' },
@@ -499,36 +505,36 @@ export default function Home() {
                     ].map((b, i) => (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -16 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.45, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}
+                        transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}
                       >
-                        <span style={{ fontSize: '18px', flexShrink: 0, marginTop: '2px' }}>{b.icon}</span>
-                        <span style={{ fontSize: '15px', color: 'rgba(242,242,242,0.75)', lineHeight: 1.6 }}>{b.text}</span>
+                        <span style={{ fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>{b.icon}</span>
+                        <span style={{ fontSize: '15px', color: 'rgba(242,242,242,0.78)', lineHeight: 1.6, fontFamily: "'Ferom', Inter, sans-serif" }}>{b.text}</span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <p style={{ margin: '0 0 28px', fontSize: '14px', color: 'rgba(242,242,242,0.45)', lineHeight: 1.6, maxWidth: '52ch', fontStyle: 'italic' }}>
-                    Uma vez preenchidas as 10.000 vagas, o programa será selado. O status de fundador se tornará um ativo exclusivo de quem marcou a primeira trilha.
-                  </p>
-
                   <button
                     onClick={() => navigate('/cadastro')}
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 32px', borderRadius: '999px', fontWeight: 800, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 48px rgba(80,242,150,0.35)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
                   >
                     Garantir minha vaga Rastro →
                   </button>
+
+                  <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
+                    Uma vez preenchidas as 10.000 vagas, o programa será selado para sempre.
+                  </p>
                 </div>
 
                 {/* Counter lateral */}
-                <div className="hidden lg:flex" style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 40px', borderLeft: '1px solid rgba(255,255,255,0.12)', minWidth: '200px', gap: '8px' }}>
-                  <span style={{ fontSize: '64px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
-                  <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.45)', textAlign: 'center', lineHeight: 1.5 }}>vagas<br />disponíveis</span>
-                  <div style={{ width: '48px', height: '2px', background: 'rgba(80,242,150,0.3)', borderRadius: '999px', margin: '8px 0' }} />
-                  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(80,242,150,0.6)', textAlign: 'center' }}>ACESSO<br />VITALÍCIO</span>
+                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 32px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '10px', background: 'rgba(0,0,0,0.14)' }}>
+                  <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
+                  <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
+                  <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
+                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', color: 'rgba(80,242,150,0.55)', textAlign: 'center', fontFamily: "'Ferom', Inter, sans-serif" }}>ACESSO<br />VITALÍCIO</span>
                 </div>
               </div>
             </motion.div>
