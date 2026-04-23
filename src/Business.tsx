@@ -685,7 +685,8 @@ export default function Business() {
 
 
       {/* ═══════════════════ QUEM É A SNIFFER ═══════════════════ */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6">
+      <section className="py-20 sm:py-24 px-4 sm:px-6" style={{ position: 'relative', overflow: 'hidden' }}>
+        <img src="/sniffer_brandbook_bg.svg" alt="" aria-hidden="true" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '120%', height: '120%', objectFit: 'cover', opacity: 0.06, pointerEvents: 'none' }} />
         <div className="max-w-7xl mx-auto">
           <Reveal>
             {/* Header */}
