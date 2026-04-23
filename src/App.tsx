@@ -594,13 +594,10 @@ export default function App() {
                   </p>
                 </div>
                 <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '12px' }}>
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    src="/selo-eap.mp4"
-                    style={{ width: '220px', height: '220px', objectFit: 'contain', mixBlendMode: 'multiply' }}
+                  <img
+                    src="/selo-eap-estatico.png"
+                    alt="Selo Early Adopter"
+                    style={{ width: '220px', height: '220px', objectFit: 'contain' }}
                   />
                   {/* <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
                   <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
