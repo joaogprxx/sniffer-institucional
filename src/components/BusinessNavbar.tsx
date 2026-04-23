@@ -7,6 +7,7 @@ export const solutionsItems = [
   { icon: '💛', label: 'Xodós', desc: 'Camada de confiança e programa de indicação', href: '/business/xodos' },
   { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '/business/matilha' },
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
+  { icon: '📣', label: 'Uivo', desc: 'Canal de atendimento direto dentro da Sniffer', href: '/business/uivo' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '/business#como-funciona' },
   { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '/business#como-funciona' },
   { icon: '🔍', label: 'Faro', desc: 'Inteligência local — dados que viram decisão', href: '/business/faro' },

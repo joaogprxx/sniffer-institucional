@@ -10,6 +10,7 @@ import Xodos from './Xodos.tsx';
 import Matilha from './Matilha.tsx';
 import Spotlight from './Spotlight.tsx';
 import Faro from './Faro.tsx';
+import Uivo from './Uivo.tsx';
 import { Toggle } from './Toggle.tsx';
 import './index.css';
 
@@ -37,6 +38,7 @@ function AnimatedRoutes() {
           <Route path="/business/matilha" element={<Matilha />} />
           <Route path="/business/spotlight" element={<Spotlight />} />
           <Route path="/business/faro" element={<Faro />} />
+          <Route path="/business/uivo" element={<Uivo />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cadastro" element={<JoinPage />} />
         </Routes>
