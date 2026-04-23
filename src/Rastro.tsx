@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type CSSProperties } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
@@ -39,9 +39,61 @@ export default function Rastro() {
           </h1>
 
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Rastro é o programa de fundadores da Sniffer, e ele tem limite. São apenas 10.000 vagas para negócios em todo o Brasil. Quem entra agora garante 3 anos de acesso gratuito a todos os produtos da plataforma, incluindo tudo que for lançado nesse período. Sem mensalidade, sem cartão de crédito, sem surpresa. Quando as 10.000 vagas acabarem, o programa fecha permanentemente, sem exceção, sem reabertura, sem lista de espera com promessa. Para participar, seu negócio precisa estar 100% ativo na Sniffer: perfil completo no Meu Território, Xodós escolhidos, primeira Matilha criada, Spotlight publicado, Uivo ativo, eventos cadastrados, Faro e Insights configurados. Não é preencher um formulário, é usar a plataforma de verdade. No momento em que tudo estiver completo, o relógio dos 3 anos começa a contar e o selo Rastro aparece no seu perfil pra sempre.
-            </p>
+
+            {/* Two-column: paragraphs + mockup */}
+            <div className="flex flex-col lg:flex-row gap-16 items-start mb-12">
+              {/* Paragraphs */}
+              <div className="flex-1">
+                <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  O Rastro é o programa de fundadores da Sniffer, e ele tem limite. São apenas 10.000 vagas para negócios em todo o Brasil. Quem entra agora garante 3 anos de acesso gratuito a todos os produtos da plataforma, incluindo tudo que for lançado nesse período. Sem mensalidade, sem cartão de crédito, sem surpresa.
+                </p>
+                <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  Quando as 10.000 vagas acabarem, o programa fecha permanentemente, sem exceção, sem reabertura, sem lista de espera com promessa. Para participar, seu negócio precisa estar 100% ativo na Sniffer: perfil completo no Meu Território, Xodós escolhidos, primeira Matilha criada, Spotlight publicado, Uivo ativo, eventos cadastrados, Faro e Insights configurados. No momento em que tudo estiver completo, o relógio dos 3 anos começa a contar e o selo Rastro aparece no seu perfil pra sempre.
+                </p>
+              </div>
+
+              {/* Mockup column — iPhone frame with internal scroll */}
+              <div className="lg:w-[320px] shrink-0 flex justify-center lg:justify-end">
+                <div style={{
+                  position: 'relative',
+                  width: 280,
+                  background: '#1a1a1a',
+                  borderRadius: 44,
+                  padding: 12,
+                  boxShadow: 'inset 0 0 0 2px #3a3a3a, 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px #111',
+                  flexShrink: 0,
+                }}>
+                  {/* Dynamic island / notch */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 12,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: 80,
+                    height: 6,
+                    background: '#2a2a2a',
+                    borderRadius: 3,
+                    zIndex: 2,
+                  }} />
+                  {/* Screen — fixed height with internal scroll, no visible scrollbar */}
+                  <div style={{
+                    borderRadius: 34,
+                    overflowY: 'scroll',
+                    overflowX: 'hidden',
+                    background: '#000',
+                    height: 580,
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                  } as CSSProperties}>
+                    <img
+                      src="/mockups/mockup-rastro.png"
+                      alt="Mockup do Rastro — badge de fundador no perfil"
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
