@@ -19,11 +19,11 @@ function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: 
     <div style={{ borderBottom: `1px solid ${line}` }}>
       <button
         onClick={() => setOpen(v => !v)}
-        style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '22px 0', display: 'flex', alignItems: 'center', gap: '14px', textAlign: 'left' }}
+        style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '22px 0', display: 'flex', alignItems: 'center', gap: '10px', textAlign: 'left', minHeight: '44px' }}
       >
-        <span style={{ fontSize: '24px', flexShrink: 0 }}>{emoji}</span>
-        <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', flexShrink: 0 }}>{tag}</span>
-        <span style={{ fontSize: '18px', fontWeight: 700, color: '#111026', flex: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>{title}</span>
+        <span style={{ fontSize: '20px', flexShrink: 0 }}>{emoji}</span>
+        <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.12)', padding: '4px 8px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', flexShrink: 0, whiteSpace: 'nowrap' }}>{tag}</span>
+        <span style={{ fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 700, color: '#111026', flex: 1, fontFamily: "'Ferom', Inter, sans-serif", minWidth: 0 }}>{title}</span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.2 }}
@@ -36,7 +36,7 @@ function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: 
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         style={{ overflow: 'hidden' }}
       >
-        <p style={{ margin: '0 0 22px', color: muted, fontSize: '16px', lineHeight: 1.7, maxWidth: '72ch', paddingLeft: '38px' }}>{desc}</p>
+        <p style={{ margin: '0 0 22px', color: muted, fontSize: '15px', lineHeight: 1.7, maxWidth: '72ch', paddingLeft: '30px' }}>{desc}</p>
       </motion.div>
     </div>
   );
@@ -45,6 +45,7 @@ function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: 
 
 function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof useNavigate> }) {
   const [activeRow, setActiveRow] = useState<number | null>(null);
+  const toggleRow = (i: number) => setActiveRow(prev => prev === i ? null : i);
 
   const items = [
     { num: '01', tag: 'Descoberta', title: 'Encontre o que pulsa', desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece, organizados por contexto e confiança.' },
@@ -55,7 +56,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
   ];
 
   return (
-    <section id="produtos" style={{ padding: '100px 0 120px' }}>
+    <section id="produtos" className="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-[100px] lg:pb-[120px]">
       <div className={shell}>
 
         {/* Header */}
@@ -64,13 +65,13 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          style={{ marginBottom: 'clamp(40px, 6vw, 80px)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <div style={{ maxWidth: '700px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ margin: '0 0 16px', fontSize: '14px', fontWeight: 700, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const, padding: '0 16px' }}>
               Produtos
             </p>
-            <h2 style={{ margin: 0, fontSize: 'clamp(36px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
+            <h2 style={{ margin: 0, fontSize: 'clamp(30px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
               Tudo que você precisa.<br />
               <span style={{ color: green }}>No seu bairro.</span>
             </h2>
@@ -98,9 +99,10 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => toggleRow(i)}
               onMouseEnter={() => setActiveRow(i)}
               onMouseLeave={() => setActiveRow(null)}
-              style={{ position: 'relative', borderBottom: '1px solid rgba(17,16,38,0.08)', cursor: 'default' }}
+              style={{ position: 'relative', borderBottom: '1px solid rgba(17,16,38,0.08)', cursor: 'pointer' }}
             >
               {/* Left accent bar */}
               <motion.div
@@ -121,7 +123,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                 {/* Main row — num | tag | title */}
                 <div
                   className="grid"
-                  style={{ gridTemplateColumns: '48px 140px 1fr', alignItems: 'baseline', gap: '0', padding: '30px 0 0' }}
+                  style={{ gridTemplateColumns: '32px minmax(0, 110px) 1fr', alignItems: 'baseline', gap: '0', padding: '30px 0 0' }}
                 >
                   <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em', color: 'rgba(17,16,38,0.22)', fontFamily: "'Ferom', Inter, sans-serif", userSelect: 'none' as const }}>
                     {item.num}
@@ -129,14 +131,14 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                   <motion.span
                     animate={{ color: isActive ? teal : 'rgba(17,16,38,0.38)' }}
                     transition={{ duration: 0.2 }}
-                    style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}
+                    style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}
                   >
                     {item.tag}
                   </motion.span>
                   <motion.h3
                     animate={{ color: isActive ? '#111026' : 'rgba(17,16,38,0.72)' }}
                     transition={{ duration: 0.2 }}
-                    style={{ margin: 0, fontSize: 'clamp(26px, 3vw, 46px)', fontWeight: 800, letterSpacing: '-0.04em', fontFamily: "'Ferom', Inter, sans-serif", lineHeight: 1.05 }}
+                    style={{ margin: 0, fontSize: 'clamp(20px, 3vw, 46px)', fontWeight: 800, letterSpacing: '-0.04em', fontFamily: "'Ferom', Inter, sans-serif", lineHeight: 1.05 }}
                   >
                     {item.title}
                   </motion.h3>
@@ -155,7 +157,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                     opacity: isActive ? 1 : 0,
                   }}
                   transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ overflow: 'hidden', paddingLeft: 'calc(48px + 140px)' }}
+                  style={{ overflow: 'hidden', paddingLeft: '32px' }}
                 >
                   <p style={{ margin: '12px 0 0', fontSize: '15px', color: muted, lineHeight: 1.7, maxWidth: '52ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     {item.desc}
@@ -223,8 +225,8 @@ export default function App() {
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '48px', zIndex: 75, background: 'transparent', pointerEvents: 'none' }}>
         <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', pointerEvents: 'none' }}>
           <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit', pointerEvents: 'auto' }}>
-            <img src="/mascote-navbar.png" alt="Sniffer" style={{ height: '44px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
+            <img src="/mascote-navbar.png" alt="Sniffer" style={{ height: '36px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '24px', width: 'auto', maxWidth: 'min(28vw, 140px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
             Junte-se
@@ -237,14 +239,14 @@ export default function App() {
         <section style={{ padding: 'clamp(64px, 10vw, 96px) 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
             <div>
-              <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy, textAlign: 'justify' }}>
+              <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.05, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy, textAlign: 'left' }}>
                 Descubra o que realmente vale a pena na <span style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400, whiteSpace: 'nowrap' }}>sua cidade</span>.
               </h1>
               <p style={{ margin: '16px 0 0', fontSize: 'clamp(15px, 1.8vw, 20px)', color: muted, maxWidth: '33ch', lineHeight: 1.6 }}>
                 Lugares, pessoas, comunidades e eventos conectados por contexto real — com uma experiência pensada para ser bonita, útil e muito mais confiável.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
-                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px' }}>
+                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px', minHeight: '48px' }}>
                   Quero ser convidado
                 </button>
               </div>
@@ -287,7 +289,8 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ padding: '48px', borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
+              className="p-6 sm:p-10 md:p-12"
+              style={{ borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
             >
               <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.14), transparent 70%)', right: '-60px', bottom: '-60px', pointerEvents: 'none' }} />
               <h2 style={{ ...h2Style, marginBottom: '32px' }}>Quem Somos</h2>
@@ -300,7 +303,7 @@ export default function App() {
                 </motion.p>
               </div>
               <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
-                <button onClick={() => navigate('/cadastro')} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", minHeight: '48px' }}>
                   Junte-se a essa revolução! →
                 </button>
               </motion.div>
@@ -311,7 +314,7 @@ export default function App() {
 
         {/* ── Quem faz a Sniffer ── */}
         <section style={{ padding: '0 0 42px' }}>
-          <div id="confianca" className={shell} style={{ padding: '48px 56px', borderRadius: '32px', background: '#F5F5F3', color: navy, boxShadow: '0 8px 32px rgba(17,16,38,0.06)', overflow: 'hidden', position: 'relative' }}>
+          <div id="confianca" className={`${shell} p-6 sm:p-10 md:p-12`} style={{ borderRadius: '32px', background: '#F5F5F3', color: navy, boxShadow: '0 8px 32px rgba(17,16,38,0.06)', overflow: 'hidden', position: 'relative' }}>
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
               <h2 style={{ ...h2Style, color: navy, marginBottom: '24px' }}>Quem faz a Sniffer</h2>
               <p style={{ margin: 0, fontSize: '18px', color: navy, lineHeight: 1.75 }}>
@@ -340,7 +343,7 @@ export default function App() {
                 <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
               </svg>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
-                <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
+                <div className="p-6 sm:p-10 lg:px-[52px] lg:py-[56px]" style={{ position: 'relative', zIndex: 1 }}>
 
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Antes de todos.<br />
@@ -364,7 +367,17 @@ export default function App() {
                       </motion.div>
                     ))}
                   </div>
-                  <button onClick={() => navigate('/cadastro')} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}>
+                  {/* Seal visible on mobile — compact, centered above the CTA */}
+                  <div className="flex lg:hidden justify-center mb-4">
+                    <motion.img
+                      src="/selo-eap-estatico.png"
+                      alt="Selo Early Adopter"
+                      animate={{ y: [0, -10, 0], rotate: [0, 2, -2, 0], scale: [1, 1.03, 1] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                      style={{ width: '140px', height: '140px', objectFit: 'contain' }}
+                    />
+                  </div>
+                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
                     Garantir minha vaga Rastro →
                   </button>
                   <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
@@ -379,10 +392,6 @@ export default function App() {
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                     style={{ width: '280px', height: '280px', objectFit: 'contain' }}
                   />
-                  {/* <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
-                  <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
-                  <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
-                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', color: 'rgba(80,242,150,0.55)', textAlign: 'center', fontFamily: "'Ferom', Inter, sans-serif" }}>ACESSO<br />VITALÍCIO</span> */}
                 </div>
               </div>
             </motion.div>
@@ -400,7 +409,7 @@ export default function App() {
               className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-0"
               style={{ borderRadius: '32px', overflow: 'hidden', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft }}
             >
-              <div style={{ padding: '44px 48px' }}>
+              <div className="p-6 sm:p-8 md:px-12 md:py-11">
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.10)', border: '1px solid rgba(80,242,150,0.24)', marginBottom: '20px' }}>
                   <span style={{ fontSize: '14px' }}>🔦</span>
                   <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.09em', color: teal }}>SPOTLIGHT</span>
@@ -409,7 +418,21 @@ export default function App() {
                 <p style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.75, maxWidth: '54ch' }}>
                   Imagina abrir o app e ver todas as promoções, eventos e novidades acontecendo agora perto de você. Aquele café com desconto na esquina, a manicure com 30% off na terça, o happy hour que começou há 10 minutos. O Spotlight te mostra o que está rolando no seu bairro em tempo real — pra você finalmente parar de descobrir as coisas boas depois que acabaram.
                 </p>
+                {/* Feature tags visible on mobile only — stacked inline below the copy */}
+                <div className="flex flex-col md:hidden gap-2 mt-5">
+                  {[
+                    { label: 'Promoções em tempo real', icon: '⚡' },
+                    { label: 'Eventos perto de você', icon: '📍' },
+                    { label: 'Novidades do bairro', icon: '✨' },
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '14px', background: '#fff', border: `1px solid ${line}`, boxShadow: '0 2px 8px rgba(17,16,38,0.04)' }}>
+                      <span style={{ fontSize: '18px' }}>{item.icon}</span>
+                      <span style={{ fontSize: '13px', fontWeight: 600, color: '#111026' }}>{item.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+              {/* Feature tags visible on desktop only — right sidebar */}
               <div className="hidden md:flex" style={{ flexDirection: 'column', gap: '10px', padding: '44px 40px', borderLeft: `1px solid ${line}`, minWidth: '220px', justifyContent: 'center', background: 'rgba(80,242,150,0.04)' }}>
                 {[
                   { label: 'Promoções em tempo real', icon: '⚡' },
@@ -427,7 +450,7 @@ export default function App() {
         </section>
 
         {/* ── De Vizinho para Vizinho ── */}
-        <section id="vizinho" style={{ padding: '100px 0', background: 'linear-gradient(155deg, #111026 0%, #332d59 60%, #111026 100%)', position: 'relative', overflow: 'hidden' }}>
+        <section id="vizinho" className="py-16 sm:py-20 md:py-24 lg:py-[100px]" style={{ background: 'linear-gradient(155deg, #111026 0%, #332d59 60%, #111026 100%)', position: 'relative', overflow: 'hidden' }}>
           <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.2, pointerEvents: 'none', transform: 'scaleX(-1)' }}>
             <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
@@ -465,7 +488,8 @@ export default function App() {
                 whileHover={{ scale: 1.04, boxShadow: `0 8px 32px ${green}55` }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => navigate('/cadastro')}
-                style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: green, color: navy, fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
+                className="w-full sm:w-auto"
+                style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: green, color: navy, fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 Junte-se a essa revolução →
               </motion.button>
