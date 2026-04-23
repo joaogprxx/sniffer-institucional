@@ -70,6 +70,7 @@ const districtAccents = [
   { bg: 'rgba(10,166,137,0.07)', border: 'rgba(10,166,137,0.20)', dot: teal, labelColor: teal },
   { bg: 'rgba(51,45,89,0.06)',   border: 'rgba(51,45,89,0.14)',   dot: navy, labelColor: navy },
   { bg: 'rgba(80,242,150,0.05)', border: 'rgba(80,242,150,0.18)', dot: green, labelColor: teal },
+  { bg: 'rgba(51,45,89,0.08)',   border: 'rgba(51,45,89,0.18)',   dot: navy, labelColor: navy },
 ];
 
 function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof useNavigate> }) {
@@ -99,6 +100,12 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
       tag: 'NEGÓCIOS',
       title: 'Presença que converte',
       desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
+    },
+    {
+      emoji: '🐺',
+      tag: 'MATILHA',
+      title: 'Sua Matilha. Suas Regras.',
+      desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos — com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço. Não é mais um chat que morre em duas semanas. É o espaço onde as pessoas que você escolheu se encontram de verdade.',
     },
   ];
 
