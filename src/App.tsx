@@ -442,7 +442,7 @@ export default function App() {
 
       <main id="top">
         {/* ── Hero ── */}
-        <section style={{ padding: '36px 0 28px' }}>
+        <section style={{ padding: 'clamp(64px, 10vw, 96px) 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
             <div>
               <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy }}>
