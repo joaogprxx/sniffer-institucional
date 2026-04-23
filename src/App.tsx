@@ -429,44 +429,44 @@ export default function App() {
     >
       {/* ── Navbar ── */}
       <div style={{ position: 'sticky', top: '52px', zIndex: 40, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
-        <div className={shell} style={{ minHeight: '74px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
-          <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
-            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '40px', height: '40px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 180px)', objectFit: 'contain' }} />
+        <div className={shell} style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 0' }}>
+          <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit' }}>
+            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '32px', height: '32px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '22px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
           </a>
-          <button onClick={() => navigate('/cadastro')} style={btnPrimary}>
-            Junte-se à revolução
+          <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}>
+            Junte-se
           </button>
         </div>
       </div>
 
       <main id="top">
         {/* ── Hero ── */}
-        <section style={{ padding: '54px 0 34px' }}>
+        <section style={{ padding: '36px 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: navy, fontSize: '14px', fontWeight: 700, marginBottom: '20px' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: green, boxShadow: '0 0 0 8px rgba(80,242,150,0.16)', flexShrink: 0 }} />
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 12px', borderRadius: '999px', background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: navy, fontSize: '13px', fontWeight: 700, marginBottom: '18px' }}>
+                <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: green, boxShadow: '0 0 0 6px rgba(80,242,150,0.16)', flexShrink: 0 }} />
                 Chegando primeiro ao Brasil
               </div>
-              <h1 style={{ margin: 0, fontSize: 'clamp(40px, 5.5vw, 72px)', lineHeight: 0.95, letterSpacing: '-0.055em', maxWidth: '11ch', fontWeight: 800 }}>
+              <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy }}>
                 Descubra o que realmente vale a pena na sua cidade.
               </h1>
-              <p style={{ margin: '22px 0 0', fontSize: 'clamp(17px, 1.8vw, 20px)', color: muted, maxWidth: '33ch' }}>
+              <p style={{ margin: '16px 0 0', fontSize: 'clamp(15px, 1.8vw, 20px)', color: muted, maxWidth: '33ch', lineHeight: 1.6 }}>
                 Lugares, pessoas, comunidades e eventos conectados por contexto real — com uma experiência pensada para ser bonita, útil e muito mais confiável.
               </p>
-              <div className="flex flex-wrap gap-3 mt-7">
-                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '16px' }}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
+                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px' }}>
                   Quero ser convidado
                 </button>
-                <a href="#ao-vivo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '14px 24px', borderRadius: '999px', fontWeight: 700, background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: '#111026', textDecoration: 'none', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                <a href="#ao-vivo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '13px 24px', borderRadius: '999px', fontWeight: 700, background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: '#111026', textDecoration: 'none', fontSize: '15px', fontFamily: "'Ferom', Inter, sans-serif", width: '100%', maxWidth: '320px' }}>
                   Ver o que já está no ar
                 </a>
               </div>
-              <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6" style={{ color: muted, fontSize: '14px' }}>
+              <div className="flex flex-col gap-y-2 mt-5" style={{ color: muted, fontSize: '13px' }}>
                 {['Comunidades locais', 'Eventos e interações reais', 'Baseado em confiança, não em poluição digital'].map(item => (
                   <span key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: navy, opacity: 0.5, flexShrink: 0 }} />
+                    <span style={{ width: '5px', height: '5px', borderRadius: '999px', background: navy, opacity: 0.5, flexShrink: 0 }} />
                     {item}
                   </span>
                 ))}
@@ -652,10 +652,10 @@ export default function App() {
             <motion.div initial={{ opacity: 0, y: 48 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.1)', border: '1px solid rgba(80,242,150,0.2)', marginBottom: '36px' }}>
                 <span>🏘️</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>DE VIZINHO PARA VIZINHO</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>de vizinho para vizinho</span>
               </div>
               <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
-                "Seu bairro sempre teve voz. Com a <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700 }}>Sniffer</span>, ele recupera o alcance."
+                "seu bairro sempre teve voz. com a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />, ele recupera o alcance."
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                 <p style={{ margin: 0 }}>
@@ -668,7 +668,7 @@ export default function App() {
                   <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
                 </p>
                 <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
-                  A <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700 }}>Sniffer</span> nasceu para ser esse caminho.
+                  a <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} /> nasceu para ser esse caminho.
                 </p>
                 <p style={{ margin: 0 }}>
                   Nós damos mobilidade ao conhecimento que já existe — vivo, real e espalhado pela comunidade. Aqui, a tecnologia não substitui ninguém; ela serve como suporte e velocidade para que a indicação da{' '}
@@ -691,55 +691,63 @@ export default function App() {
 
       {/* ── Footer ── */}
       <footer style={{ background: 'linear-gradient(180deg, #332d59 0%, #111026 100%)', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
-        <div className={shell} style={{ padding: '64px 0 44px', display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '32px' }}>
-          <div style={{ gridColumn: 'span 5' }}>
-            <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '36px', width: 'auto', marginBottom: '12px', display: 'block' }} />
-            <p style={{ margin: '0 0 24px', fontSize: '15px', lineHeight: 1.65, maxWidth: '26ch', color: 'rgba(255,255,255,0.5)' }}>
-              O faro que faltava no seu bairro. Descoberta local, confiança real.
-            </p>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              {['Instagram', 'LinkedIn', 'TikTok'].map(s => (
-                <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', fontWeight: 600, transition: 'color 0.2s' }}
+        {/* Mobile: single column stack; Desktop: 12-col grid */}
+        <div className={shell} style={{ padding: '48px 0 36px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-8">
+            {/* Brand — full width on mobile */}
+            <div className="sm:col-span-2 md:col-span-5">
+              <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '32px', width: 'auto', marginBottom: '12px', display: 'block' }} />
+              <p style={{ margin: '0 0 20px', fontSize: '14px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
+                O faro que faltava no seu bairro. Descoberta local, confiança real.
+              </p>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                {['Instagram', 'LinkedIn', 'TikTok'].map(s => (
+                  <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, transition: 'color 0.2s' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = green)}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
+                  >{s}</a>
+                ))}
+              </div>
+            </div>
+            {/* Spacer — desktop only */}
+            <div className="hidden md:block md:col-span-1" />
+            {/* Produto */}
+            <div className="md:col-span-2">
+              <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>PRODUTO</strong>
+              {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
+                <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = green)}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
-                >{s}</a>
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                >{l}</a>
+              ))}
+            </div>
+            {/* Empresa */}
+            <div className="md:col-span-2">
+              <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>EMPRESA</strong>
+              {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
+                <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = green)}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                >{l}</a>
+              ))}
+            </div>
+            {/* Legal */}
+            <div className="md:col-span-2">
+              <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>LEGAL</strong>
+              {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
+                <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = green)}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                >{l}</a>
               ))}
             </div>
           </div>
-          <div style={{ gridColumn: 'span 1' }} />
-          <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>PRODUTO</strong>
-            {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = green)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
-              >{l}</a>
-            ))}
-          </div>
-          <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>EMPRESA</strong>
-            {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = green)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
-              >{l}</a>
-            ))}
-          </div>
-          <div style={{ gridColumn: 'span 2' }}>
-            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>LEGAL</strong>
-            {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
-              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = green)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
-              >{l}</a>
-            ))}
-          </div>
         </div>
-        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '20px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-            © 2026 <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '16px', width: 'auto', opacity: 0.7 }} /> · Todos os direitos reservados.
+        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-start' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px' }}>
+            © 2026 <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '14px', width: 'auto', opacity: 0.6 }} /> · Todos os direitos reservados.
           </span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px' }}>
             Feito com <span style={{ color: green, margin: '0 2px' }}>♥</span> no Brasil
           </span>
         </div>
