@@ -428,7 +428,7 @@ export default function App() {
       }}
     >
       {/* ── Navbar ── */}
-      <div style={{ position: 'sticky', top: '52px', zIndex: 40, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
+      <div style={{ position: 'sticky', top: '72px', zIndex: 40, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
         <div className={shell} style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 0' }}>
           <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit' }}>
             <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '32px', height: '32px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
