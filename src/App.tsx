@@ -337,12 +337,22 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.4)' }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #0d1f17 0%, #111026 55%, #0e1b13 100%)', boxShadow: '0 32px 80px rgba(17,16,38,0.4)' }}
             >
-              <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.22, pointerEvents: 'none' }}>
-                <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-                <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+              {/* Radial green glow */}
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 70% 40%, rgba(80,242,150,0.10) 0%, transparent 60%)', pointerEvents: 'none' }} />
+              <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.30, pointerEvents: 'none' }}>
+                {/* Rota principal */}
+                <path d="M 60,200 C 120,160 200,100 300,120 C 400,140 440,220 520,200 C 580,185 630,140 690,160" fill="none" stroke="#50f296" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Desvio bairro */}
+                <path d="M 300,120 C 310,80 340,50 370,70 C 400,90 390,130 360,150 C 330,170 290,160 300,120 Z" fill="none" stroke="#50f296" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Nó de chegada */}
+                <circle cx="520" cy="200" r="18" fill="none" stroke="#50f296" strokeWidth="10" />
+                <circle cx="520" cy="200" r="6" fill="#50f296" opacity="0.6" />
+                {/* Ponto de partida */}
+                <circle cx="60" cy="200" r="10" fill="none" stroke="#50f296" strokeWidth="8" />
+                {/* Ramificação */}
+                <path d="M 440,210 C 460,260 480,300 520,320 C 550,335 580,330 610,310" fill="none" stroke="#50f296" strokeWidth="8" strokeLinecap="round" strokeDasharray="18 10" />
               </svg>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
                 <div className="p-6 sm:p-10 lg:px-[52px] lg:py-[56px]" style={{ position: 'relative', zIndex: 1 }}>
