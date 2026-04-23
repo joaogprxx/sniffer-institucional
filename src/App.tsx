@@ -1,226 +1,224 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-import { useState, type CSSProperties } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 
-function PeopleNavbar() {
-  const navigate = useNavigate();
-  const [mobileOpen, setMobileOpen] = useState(false);
+const shell = 'w-[min(calc(100%-32px),1180px)] mx-auto';
 
-  const NAV_LINKS = [
-    { label: 'Funcionalidades', href: '#como-funciona' },
-    { label: 'Comunidades', href: '#tribos' },
-    { label: 'Sobre', href: '#' },
+const green = '#50f296';
+const teal = '#0aa689';
+const navy = '#332d59';
+const muted = 'rgba(17,16,38,0.55)';
+const surface = 'rgba(255,255,255,0.82)';
+const line = 'rgba(17,16,38,0.08)';
+const shadowSoft = '0 12px 36px rgba(17,16,38,0.05)';
+
+function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: string; tag: string; title: string; desc: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div style={{ borderBottom: `1px solid ${line}` }}>
+      <button
+        onClick={() => setOpen(v => !v)}
+        style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '22px 0', display: 'flex', alignItems: 'center', gap: '14px', textAlign: 'left' }}
+      >
+        <span style={{ fontSize: '24px', flexShrink: 0 }}>{emoji}</span>
+        <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', flexShrink: 0 }}>{tag}</span>
+        <span style={{ fontSize: '18px', fontWeight: 700, color: '#111026', flex: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>{title}</span>
+        <motion.span
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ fontSize: '24px', color: muted, fontWeight: 300, flexShrink: 0, lineHeight: 1 }}
+        >+</motion.span>
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? 'auto' : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{ overflow: 'hidden' }}
+      >
+        <p style={{ margin: '0 0 22px', color: muted, fontSize: '16px', lineHeight: 1.7, maxWidth: '72ch', paddingLeft: '38px' }}>{desc}</p>
+      </motion.div>
+    </div>
+  );
+}
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ border: `1px solid ${line}`, borderRadius: '22px', background: 'rgba(255,255,255,0.8)', padding: '0 22px', boxShadow: shadowSoft }}>
+      <button
+        onClick={() => setOpen(v => !v)}
+        style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700, padding: '22px 34px 22px 0', position: 'relative', fontSize: '16px', color: '#111026', fontFamily: "'Ferom', Inter, sans-serif" }}
+      >
+        {question}
+        <span style={{ position: 'absolute', right: 0, top: '16px', fontSize: '26px', fontWeight: 400, color: muted, lineHeight: 1 }}>
+          {open ? '–' : '+'}
+        </span>
+      </button>
+      {open && (
+        <p style={{ margin: '0 0 20px', color: muted, maxWidth: '70ch', fontSize: '15px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+          {answer}
+        </p>
+      )}
+    </div>
+  );
+}
+
+const bentoColSpan = [
+  'col-span-1 md:col-span-5',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-3',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-4',
+];
+
+function BentoSection({ navigate }: { navigate: ReturnType<typeof useNavigate> }) {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const cards = [
+    {
+      emoji: '🗺️',
+      tag: 'DESCOBERTA',
+      title: 'Encontre o que pulsa',
+      desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece — organizados por contexto e confiança.',
+      large: true,
+    },
+    {
+      emoji: '🏘️',
+      tag: 'COMUNIDADES',
+      title: 'Seu bairro tem voz',
+      desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.',
+    },
+    {
+      emoji: '📅',
+      tag: 'EVENTOS',
+      title: 'Acontece agora',
+      desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.',
+    },
+    {
+      emoji: '🏪',
+      tag: 'NEGÓCIOS',
+      title: 'Presença que converte',
+      desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
+    },
+    {
+      emoji: '🏅',
+      tag: 'RASTRO',
+      title: '10.000 vagas fundadoras',
+      desc: '3 anos gratuito. Selo permanente de Fundador. Taxas reduzidas vitalícias. Seja um dos primeiros a deixar rastro.',
+      dark: true,
+    },
   ];
 
-  const navLinkStyle: CSSProperties = {
-    fontFamily: "'Ferom', Inter, sans-serif",
-    fontWeight: 500,
-    fontSize: '15px',
-    color: 'rgba(45,47,94,0.65)',
-    textDecoration: 'none',
-    transition: 'color 200ms ease',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: 0,
-    lineHeight: 1,
-  };
-
   return (
-    <>
-      {/* Floating bottom bar */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '16px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: 'calc(100% - 48px)',
-          maxWidth: '960px',
-          zIndex: 50,
-          backgroundColor: 'rgba(255,255,255,0.97)',
-          backdropFilter: 'blur(28px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(180%)',
-          boxShadow: '0 -2px 32px rgba(45,47,94,0.10), 0 2px 16px rgba(45,47,94,0.06)',
-          borderRadius: '16px',
-          border: '1px solid rgba(45,47,94,0.08)',
-          height: '64px',
-        }}
-      >
-        {/* Mobile row */}
-        <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '64px' }}>
-          <a href="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
-          </a>
-          <button
-            aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen(v => !v)}
-            style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', color: '#2D2F5E', marginLeft: 'auto' }}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+    <section id="produtos" style={{ padding: '42px 0' }}>
+      <div className={shell}>
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.10)', border: `1px solid rgba(80,242,150,0.24)`, color: teal, fontSize: '13px', fontWeight: 700, marginBottom: '16px' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
+            Produtos
+          </div>
+          <h2 style={{ margin: 0, fontSize: 'clamp(32px, 4vw, 54px)', lineHeight: 1.02, letterSpacing: '-0.045em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif" }}>
+            Tudo que você precisa.<br />
+            <span style={{ color: teal }}>No seu bairro.</span>
+          </h2>
         </div>
 
-        {/* Desktop row */}
-        <div
-          className="hidden lg:grid"
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: '0 24px',
-            height: '64px',
-            gridTemplateColumns: '1fr auto 1fr',
-            alignItems: 'center',
-          }}
-        >
-          {/* Logo */}
-          <a href="/" style={{ display: 'flex', alignItems: 'center', justifySelf: 'start' }}>
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '36px', width: 'auto' }} />
-          </a>
+        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-4">
+          <svg
+            viewBox="0 0 690 430"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.07, pointerEvents: 'none', zIndex: 0 }}
+          >
+            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#50f296" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#50f296" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#50f296" strokeWidth="14" />
+          </svg>
 
-          {/* Nav links */}
-          <nav aria-label="Menu principal">
-            <ul style={{ display: 'flex', alignItems: 'center', gap: '32px', listStyle: 'none', margin: 0, padding: 0 }}>
-              {NAV_LINKS.map(item => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    style={navLinkStyle}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#3DDC84'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(45,47,94,0.65)'; }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* CTA */}
-          <div style={{ justifySelf: 'end' }}>
-            <button
-              onClick={() => navigate('/cadastro?mode=people')}
-              style={{
-                background: '#3DDC84',
-                border: 'none',
-                borderRadius: '10px',
-                padding: '10px 24px',
-                fontFamily: "'Ferom', Inter, sans-serif",
-                fontWeight: 700,
-                fontSize: '15px',
-                color: '#2D2F5E',
-                cursor: 'pointer',
-                transition: 'background-color 200ms ease',
-                lineHeight: 1,
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#2FC476'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#3DDC84'; }}
-            >
-              Entrar na lista
-            </button>
-          </div>
+          {cards.map((card, i) => {
+            const isActive = hovered === i;
+            const isDimmed = hovered !== null && !isActive;
+            return (
+              <div
+                key={i}
+                className={bentoColSpan[i]}
+                style={{
+                  opacity: isDimmed ? 0.45 : 1,
+                  transition: 'opacity 0.2s ease',
+                  position: 'relative',
+                  zIndex: isActive ? 2 : 1,
+                }}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(80,242,150,0.28)' }}
+                  style={{
+                    padding: card.large ? '36px' : '28px',
+                    borderRadius: '28px',
+                    background: card.dark ? `linear-gradient(135deg, ${navy} 0%, #111026 100%)` : surface,
+                    border: isActive ? '1px solid rgba(80,242,150,0.45)' : `1px solid ${line}`,
+                    boxShadow: shadowSoft,
+                    height: '100%',
+                    cursor: 'default',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                  }}
+                >
+                  <span style={{ fontSize: card.large ? '32px' : '26px' }}>{card.emoji}</span>
+                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', alignSelf: 'flex-start' }}>{card.tag}</span>
+                  <h3 style={{ margin: 0, fontSize: card.large ? '22px' : '18px', fontWeight: 700, letterSpacing: '-0.025em', color: card.dark ? '#F2F2F2' : '#111026', fontFamily: "'Ferom', Inter, sans-serif" }}>{card.title}</h3>
+                  <p style={{ margin: 0, fontSize: '14px', color: card.dark ? 'rgba(242,242,242,0.55)' : muted, lineHeight: 1.65 }}>{card.desc}</p>
+                  {card.dark && (
+                    <button
+                      onClick={() => navigate('/cadastro')}
+                      style={{ marginTop: 'auto', padding: '12px 24px', borderRadius: '999px', background: green, color: '#111026', fontWeight: 700, fontSize: '14px', border: 'none', cursor: 'pointer', alignSelf: 'flex-start', fontFamily: "'Ferom', Inter, sans-serif", boxShadow: '0 8px 24px rgba(80,242,150,0.35)' }}
+                    >
+                      Garantir vaga Rastro →
+                    </button>
+                  )}
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              key="people-backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
-              onClick={() => setMobileOpen(false)}
-              style={{
-                position: 'fixed',
-                inset: 0,
-                zIndex: 48,
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                backdropFilter: 'blur(4px)',
-                WebkitBackdropFilter: 'blur(4px)',
-              }}
-            />
-            <motion.div
-              key="people-sheet"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              style={{
-                position: 'fixed',
-                top: 0,
-                right: 0,
-                width: 'min(360px, 90vw)',
-                height: '100vh',
-                zIndex: 70,
-                backgroundColor: '#FFFFFF',
-                overflowY: 'auto',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: '-8px 0 40px rgba(45,47,94,0.12)',
-              }}
-            >
-              {/* Sheet header */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', borderBottom: '1px solid rgba(45,47,94,0.08)', flexShrink: 0 }}>
-                <a href="/" onClick={() => setMobileOpen(false)}>
-                  <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '36px', width: 'auto' }} />
-                </a>
-                <button
-                  aria-label="Fechar menu"
-                  onClick={() => setMobileOpen(false)}
-                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2D2F5E', borderRadius: '8px' }}
-                >
-                  <X size={22} />
-                </button>
-              </div>
-
-              {/* Nav links */}
-              <div style={{ flex: 1, overflowY: 'auto', padding: '8px 24px 24px' }}>
-                <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                  {NAV_LINKS.map(item => (
-                    <li key={item.label}>
-                      <a
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        style={{ display: 'flex', alignItems: 'center', padding: '16px 0', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 600, fontSize: '17px', color: '#2D2F5E', textDecoration: 'none', borderBottom: '1px solid rgba(45,47,94,0.07)', minHeight: '52px' }}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CTA footer */}
-              <div style={{ position: 'sticky', bottom: 0, backgroundColor: '#FFFFFF', padding: '20px 24px', borderTop: '1px solid rgba(45,47,94,0.08)', flexShrink: 0 }}>
-                <button
-                  onClick={() => { navigate('/cadastro?mode=people'); setMobileOpen(false); }}
-                  style={{ background: '#3DDC84', border: 'none', borderRadius: '12px', padding: '14px 24px', fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700, fontSize: '15px', color: '#2D2F5E', cursor: 'pointer', width: '100%', lineHeight: 1 }}
-                >
-                  Entrar na lista
-                </button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+    </section>
   );
 }
 
 export default function App() {
-  const { scrollY } = useScroll();
-  // Move dog to the right as user scrolls down
-  const dogX = useTransform(scrollY, [0, 1500], [0, 1500]);
+  const navigate = useNavigate();
+
+  const btnPrimary: React.CSSProperties = {
+    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+    padding: '14px 24px', borderRadius: '999px', fontWeight: 700,
+    background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)',
+    color: '#111026', border: '1px solid transparent', cursor: 'pointer',
+    boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '15px',
+    fontFamily: "'Ferom', Inter, sans-serif",
+  };
+
+  const h2Style: React.CSSProperties = {
+    margin: 0, fontSize: 'clamp(32px, 4vw, 54px)', lineHeight: 1.02,
+    letterSpacing: '-0.045em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif",
+  };
+
+  const faqs = [
+    { q: 'O que é a Sniffer?', a: 'A Sniffer é uma plataforma de descoberta social focada em lugares, pessoas, comunidades e eventos, com uma arquitetura pensada para confiança e contexto real.' },
+    { q: 'O que já existe na experiência?', a: 'A base já considera descoberta de lugares, comunidades, eventos e interação entre usuários e negócios, além de camadas estruturadas de moderação e verificação para sustentar o ecossistema.' },
+    { q: 'O que torna a Sniffer diferente?', a: 'Ela não tenta ser só mapa, só rede social ou só agenda. A proposta é conectar descoberta local e participação real em um mesmo ambiente, com foco maior em autenticidade.' },
+    { q: 'Preciso verificar minha conta?', a: 'Nem sempre. Em alguns casos, a Sniffer pode solicitar validações para ajudar a manter interações mais seguras e confiáveis na plataforma.' },
+    { q: 'Quando a Sniffer chega?', a: 'A Sniffer está sendo construída em etapas, com abertura gradual. "Quero ser convidado" é a melhor forma de acompanhar as primeiras liberações e novidades.' },
+  ];
+
   return (
     <motion.div
       variants={pageVariants}
@@ -228,529 +226,333 @@ export default function App() {
       animate="animate"
       exit="exit"
       transition={pageTransition}
-      className="text-navy antialiased min-h-screen"
-      style={{ background: 'radial-gradient(ellipse 80% 50% at top left, rgba(61,220,132,0.22), transparent 60%), radial-gradient(ellipse 60% 40% at top right, rgba(51,45,89,0.14), transparent 55%), linear-gradient(180deg, #f4fbf7 0%, #eff4fb 40%, #e9eff8 100%)' }}
+      style={{
+        background: `
+          radial-gradient(circle at top left, rgba(80,242,150,0.14), transparent 28%),
+          radial-gradient(circle at top right, rgba(51,45,89,0.08), transparent 24%),
+          linear-gradient(180deg, #F2F2F2 0%, #ebebeb 100%)
+        `,
+        minHeight: '100vh',
+        fontFamily: "'Ferom', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        color: '#111026',
+        lineHeight: '1.5',
+      }}
     >
-      <PeopleNavbar />
-
-      {/* BEGIN: HeroSection */}
-      <section className="pt-20 sm:pt-24 overflow-hidden" id="hero">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Logo — entre o toggle e o título */}
-          <div className="flex justify-center mb-10 sm:mb-12">
-            <img src="./logo-sniffer-wordmark.png" alt="Sniffer" className="h-10 sm:h-12 w-auto" />
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold text-navy leading-tight mb-8">
-            Tudo que acontece perto de você, <span className="text-verdeSniffer">no seu bolso.</span>
-          </h1>
-          <p className="text-navy/70 text-base md:text-xl max-w-2xl mx-auto mb-10">
-            O aplicativo que conecta você ao pulso real da sua cidade. Descubra e viva eventos, tribos e conexões locais em tempo real.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="#" className="bg-verdeSniffer text-navy px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-verdeSniffer/20 no-underline inline-flex items-center justify-center">
-              Começar a farejar
-            </a>
-            <a href="#como-funciona" className="border-2 border-navy/20 text-navy px-10 py-4 rounded-full font-bold text-lg hover:border-navy/40 transition-colors no-underline inline-flex items-center justify-center">
-              Como funciona →
-            </a>
-          </div>
-          {/* Mascote — GIF loop infinito sem corte */}
-          <div className="relative flex justify-center -mt-16">
-            <div className="w-full max-w-5xl">
-              <motion.video
-                style={{ x: dogX, background: 'transparent' }}
-                className="w-full h-auto block"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src="./mascote-sniffer.webm" type="video/webm" />
-              </motion.video>
-            </div>
-          </div>
+      {/* ── Navbar ── */}
+      <div style={{ position: 'sticky', top: '52px', zIndex: 40, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
+        <div className={shell} style={{ minHeight: '74px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+          <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
+            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '40px', height: '40px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 180px)', objectFit: 'contain' }} />
+          </a>
+          <button onClick={() => navigate('/cadastro')} style={btnPrimary}>
+            Junte-se à revolução
+          </button>
         </div>
-      </section>
-      {/* END: HeroSection */}
+      </div>
 
-      {/* BEGIN: StepByStep */}
-      <section id="como-funciona" className="relative overflow-hidden">
-
-        {/* ── Section Header ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-8 text-center"
-        >
-          <span className="inline-block text-xs font-black tracking-[4px] uppercase text-verdeSniffer mb-6">Como funciona</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy tracking-tight leading-[1.1]" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            Três passos para<br className="hidden md:block" /> farejar sua cidade.
-          </h2>
-        </motion.div>
-
-        {/* ══════════ STEP 01 — FAREJAR ══════════ */}
-        <div className="relative mt-16 border-t border-navy/6">
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="relative order-2 md:order-1"
-            >
-              <span className="pointer-events-none select-none absolute -top-4 -left-2 font-black leading-none" style={{ fontSize: 'clamp(4rem, 18vw, 14rem)', color: 'rgba(45,47,94,0.04)', fontFamily: 'var(--font-jakarta)', lineHeight: 0.85 }}>01</span>
-              <div className="relative z-10">
-                <span className="inline-block text-xs font-black tracking-[3px] uppercase text-verdeSniffer mb-5">Passo 1 de 3</span>
-                <h3 className="text-4xl sm:text-5xl md:text-7xl font-black leading-none mb-4 text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Farejar.</h3>
-                <p className="text-lg md:text-xl text-verdeSniffer font-bold mb-5 leading-snug">Detecta o pulso real ao seu redor</p>
-                <p className="text-base md:text-lg text-navy/60 leading-relaxed max-w-md mb-10">Geolocalização inteligente que sabe exatamente onde o movimento está acontecendo agora — mapa em tempo real com o pulso vivo da cidade.</p>
-                <ul className="space-y-4">
-                  {['Mapa de calor em tempo real', 'Pins de atividade pulsantes', 'Atualização ao vivo, sem espera'].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-navy">
-                      <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-verdeSniffer text-navy rounded-full text-xs font-bold">✓</span>
-                      <span className="text-sm md:text-base font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+      <main id="top">
+        {/* ── Hero ── */}
+        <section style={{ padding: '54px 0 34px' }}>
+          <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: navy, fontSize: '14px', fontWeight: 700, marginBottom: '20px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: green, boxShadow: '0 0 0 8px rgba(80,242,150,0.16)', flexShrink: 0 }} />
+                Chegando primeiro ao Brasil
               </div>
-            </motion.div>
-
-            {/* Visual — animated map */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
-              className="order-1 md:order-2 flex justify-center"
-            >
-              <div className="relative w-full max-w-sm h-[280px] sm:h-[340px] md:h-[420px] rounded-3xl overflow-hidden" style={{ background: '#111128', border: '1px solid rgba(61,220,132,0.18)', boxShadow: '0 0 60px rgba(61,220,132,0.12), inset 0 0 40px rgba(61,220,132,0.04)' }}>
-                {/* Grid */}
-                <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(61,220,132,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(61,220,132,0.06) 1px, transparent 1px)', backgroundSize: '44px 44px' }} />
-                {/* Heat blobs */}
-                <div className="absolute rounded-full" style={{ width: 220, height: 220, background: 'radial-gradient(circle, rgba(61,220,132,0.18) 0%, transparent 70%)', left: '10%', top: '15%', filter: 'blur(28px)', animation: 'step-pulse 3.5s ease-in-out infinite' }} />
-                <div className="absolute rounded-full" style={{ width: 160, height: 160, background: 'radial-gradient(circle, rgba(61,220,132,0.14) 0%, transparent 70%)', right: '8%', bottom: '20%', filter: 'blur(22px)', animation: 'step-pulse 4.2s ease-in-out infinite 0.8s' }} />
-                {/* Scan line */}
-                <div className="absolute left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(61,220,132,0.8) 50%, transparent 100%)', animation: 'scan-sweep 4s linear infinite' }} />
-                {/* Location pins */}
-                {[
-                  { top: '28%', left: '40%', delay: '0s', lg: true },
-                  { top: '54%', left: '62%', delay: '0.6s', lg: false },
-                  { top: '38%', left: '74%', delay: '1.1s', lg: false },
-                  { top: '68%', left: '26%', delay: '0.3s', lg: false },
-                  { top: '18%', left: '64%', delay: '1.5s', lg: false },
-                ].map((p, i) => (
-                  <div key={i} className="absolute" style={{ top: p.top, left: p.left, transform: 'translate(-50%,-50%)' }}>
-                    <div className={p.lg ? 'w-3 h-3' : 'w-2 h-2'} style={{ borderRadius: '50%', background: '#3DDC84', boxShadow: '0 0 12px rgba(61,220,132,0.9)' }} />
-                    <div className={`absolute ${p.lg ? '-inset-3' : '-inset-2'} rounded-full border border-verdeSniffer/40`} style={{ animation: `pin-ring ${p.lg ? '2' : '2.8'}s ease-out infinite ${p.delay}` }} />
-                  </div>
-                ))}
-                {/* Corner brackets */}
-                {['top-3 left-3 border-t-2 border-l-2', 'top-3 right-3 border-t-2 border-r-2', 'bottom-3 left-3 border-b-2 border-l-2', 'bottom-3 right-3 border-b-2 border-r-2'].map((cls, i) => (
-                  <div key={i} className={`absolute w-5 h-5 ${cls} border-verdeSniffer/40`} />
-                ))}
-                <div className="absolute bottom-5 left-5 text-xs font-bold px-3 py-1.5 rounded-full" style={{ background: 'rgba(61,220,132,0.12)', border: '1px solid rgba(61,220,132,0.28)', color: '#3DDC84' }}>🐾 Farejar aqui</div>
+              <h1 style={{ margin: 0, fontSize: 'clamp(40px, 5.5vw, 72px)', lineHeight: 0.95, letterSpacing: '-0.055em', maxWidth: '11ch', fontWeight: 800 }}>
+                Descubra o que realmente vale a pena na sua cidade.
+              </h1>
+              <p style={{ margin: '22px 0 0', fontSize: 'clamp(17px, 1.8vw, 20px)', color: muted, maxWidth: '33ch' }}>
+                Lugares, pessoas, comunidades e eventos conectados por contexto real — com uma experiência pensada para ser bonita, útil e muito mais confiável.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-7">
+                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '16px' }}>
+                  Quero ser convidado
+                </button>
+                <a href="#ao-vivo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '14px 24px', borderRadius: '999px', fontWeight: 700, background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: '#111026', textDecoration: 'none', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  Ver o que já está no ar
+                </a>
               </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* ══════════ STEP 02 — CONECTAR ══════════ */}
-        <div className="relative border-t border-navy/6">
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-
-            {/* Visual — network graph */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="order-1 flex justify-center"
-            >
-              <div className="relative w-full max-w-sm h-[280px] sm:h-[340px] md:h-[420px] rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #EBF9EC 0%, #EEF2FF 100%)', border: '1px solid rgba(61,220,132,0.18)', boxShadow: '0 8px 48px rgba(45,47,94,0.06)' }}>
-                {/* SVG connection lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 360 360" preserveAspectRatio="xMidYMid meet">
-                  {[
-                    [180, 180, 180, 55],
-                    [180, 180, 288, 117],
-                    [180, 180, 288, 243],
-                    [180, 180, 180, 305],
-                    [180, 180, 72, 243],
-                    [180, 180, 72, 117],
-                  ].map(([x1, y1, x2, y2], i) => (
-                    <motion.line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                      stroke="rgba(61,220,132,0.35)" strokeWidth="1.5"
-                      initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
-                    />
-                  ))}
-                </svg>
-                {/* Center node */}
-                <div className="absolute flex items-center justify-center w-14 h-14 rounded-full font-black text-sm text-navy" style={{ top: 'calc(50% - 28px)', left: 'calc(50% - 28px)', background: '#3DDC84', boxShadow: '0 0 32px rgba(61,220,132,0.5)', zIndex: 10 }}>YOU</div>
-                {/* Outer nodes */}
-                {[
-                  { top: '8%', left: '43%', e: '😄' },
-                  { top: '26%', left: '72%', e: '🙋' },
-                  { top: '58%', left: '74%', e: '👋' },
-                  { top: '76%', left: '43%', e: '😎' },
-                  { top: '58%', left: '11%', e: '🤝' },
-                  { top: '26%', left: '13%', e: '👤' },
-                ].map((n, i) => (
-                  <motion.div key={i}
-                    className="absolute w-11 h-11 rounded-full flex items-center justify-center text-lg bg-white shadow-md"
-                    style={{ top: n.top, left: n.left, transform: 'translate(-50%,-50%)', border: '2px solid rgba(61,220,132,0.28)', zIndex: 5 }}
-                    initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.09, ease: [0.34, 1.56, 0.64, 1] }}
-                  >{n.e}</motion.div>
-                ))}
-                <div className="absolute bottom-5 left-5 text-xs font-bold px-3 py-1.5 rounded-full bg-white/80" style={{ border: '1px solid rgba(45,47,94,0.1)', color: '#2D2F5E' }}>🤝 242 na sua área</div>
-              </div>
-            </motion.div>
-
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
-              className="relative order-2"
-            >
-              <span className="pointer-events-none select-none absolute -top-4 right-0 text-right font-black leading-none" style={{ fontSize: 'clamp(4rem, 18vw, 14rem)', color: 'rgba(45,47,94,0.07)', fontFamily: 'var(--font-jakarta)', lineHeight: 0.85 }}>02</span>
-              <div className="relative z-10">
-                <span className="inline-block text-xs font-black tracking-[3px] uppercase text-verdeSniffer mb-5">Passo 2 de 3</span>
-                <h3 className="text-4xl sm:text-5xl md:text-7xl font-black leading-none mb-4 text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Conectar.</h3>
-                <p className="text-lg md:text-xl text-verdeSniffer font-bold mb-5 leading-snug">Encontra sua gente no bairro</p>
-                <p className="text-base md:text-lg text-navy/65 leading-relaxed max-w-md mb-10">Tribos reais que compartilham seus interesses. Pessoas com o mesmo vibe a poucos metros de você, prontas para conectar agora.</p>
-                <ul className="space-y-4">
-                  {['Redes sociais por interesse', 'Chat com membros da tribo', 'Conexão instantânea no bairro'].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-navy">
-                      <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-verdeSniffer text-navy rounded-full text-xs font-bold">✓</span>
-                      <span className="text-sm md:text-base font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* ══════════ STEP 03 — DESCOBRIR ══════════ */}
-        <div className="relative border-t border-navy/6">
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-16 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="relative order-2 md:order-1"
-            >
-              <span className="pointer-events-none select-none absolute -top-4 -left-2 font-black leading-none" style={{ fontSize: 'clamp(4rem, 18vw, 14rem)', color: 'rgba(45,47,94,0.04)', fontFamily: 'var(--font-jakarta)', lineHeight: 0.85 }}>03</span>
-              <div className="relative z-10">
-                <span className="inline-block text-xs font-black tracking-[3px] uppercase text-verdeSniffer mb-5">Passo 3 de 3</span>
-                <h3 className="text-4xl sm:text-5xl md:text-7xl font-black leading-none mb-4 text-navy" style={{ fontFamily: 'var(--font-jakarta)' }}>Descobrir.</h3>
-                <p className="text-lg md:text-xl text-verdeSniffer font-bold mb-5 leading-snug">Abre portas que ninguém mais vê</p>
-                <p className="text-base md:text-lg text-navy/60 leading-relaxed max-w-md mb-10">Benefícios exclusivos, eventos VIP e acesso antecipado para quem está por dentro. Descobertas que ninguém mais tem.</p>
-                <ul className="space-y-4">
-                  {['Eventos exclusivos para insiders', 'Descontos em locais parceiros', 'Primeiros a saber de tudo'].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-navy">
-                      <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-verdeSniffer text-navy rounded-full text-xs font-bold">✓</span>
-                      <span className="text-sm md:text-base font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Visual — star + floating benefit cards */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
-              className="order-1 md:order-2 flex justify-center"
-            >
-              <div className="relative w-full max-w-sm h-[280px] sm:h-[340px] md:h-[420px] rounded-3xl overflow-hidden" style={{ background: '#0d0d20', border: '1px solid rgba(61,220,132,0.18)', boxShadow: '0 0 60px rgba(61,220,132,0.10)' }}>
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)', backgroundSize: '44px 44px' }} />
-                {/* Ambient glow */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-44 h-44 rounded-full" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.18) 0%, transparent 70%)', filter: 'blur(24px)', animation: 'step-pulse 3s ease-in-out infinite' }} />
-                </div>
-                {/* Compass rose — rotating */}
-                <div className="absolute inset-0 flex items-center justify-center" style={{ top: '-12%' }}>
-                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}>
-                    <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
-                      {/* Outer ring */}
-                      <circle cx="70" cy="70" r="66" stroke="rgba(61,220,132,0.18)" strokeWidth="1"/>
-                      {/* 24 tick marks around the ring */}
-                      {Array.from({ length: 24 }).map((_, i) => {
-                        const angle = (i * 360) / 24;
-                        const rad = (angle * Math.PI) / 180;
-                        const major = i % 6 === 0;
-                        const r1 = major ? 58 : 61;
-                        const r2 = 66;
-                        return (
-                          <line
-                            key={i}
-                            x1={70 + r1 * Math.sin(rad)}
-                            y1={70 - r1 * Math.cos(rad)}
-                            x2={70 + r2 * Math.sin(rad)}
-                            y2={70 - r2 * Math.cos(rad)}
-                            stroke="#3DDC84"
-                            strokeWidth={major ? 1.5 : 0.75}
-                            strokeOpacity={major ? 0.7 : 0.3}
-                          />
-                        );
-                      })}
-                      {/* Middle ring */}
-                      <circle cx="70" cy="70" r="46" stroke="rgba(61,220,132,0.12)" strokeWidth="1"/>
-                      {/* 4-pointed compass star */}
-                      <path d="M70 18 L76 62 L70 70 L64 62 Z" fill="rgba(61,220,132,0.22)" stroke="#3DDC84" strokeWidth="1.2" strokeLinejoin="round"/>
-                      <path d="M122 70 L78 76 L70 70 L78 64 Z" fill="rgba(61,220,132,0.10)" stroke="#3DDC84" strokeWidth="1.2" strokeLinejoin="round" strokeOpacity="0.6"/>
-                      <path d="M70 122 L64 78 L70 70 L76 78 Z" fill="rgba(61,220,132,0.10)" stroke="#3DDC84" strokeWidth="1.2" strokeLinejoin="round" strokeOpacity="0.6"/>
-                      <path d="M18 70 L62 64 L70 70 L62 76 Z" fill="rgba(61,220,132,0.10)" stroke="#3DDC84" strokeWidth="1.2" strokeLinejoin="round" strokeOpacity="0.6"/>
-                      {/* 4 secondary points (45°) */}
-                      <path d="M70 70 L104 36 L100 46 Z" fill="rgba(61,220,132,0.12)" stroke="#3DDC84" strokeWidth="0.8" strokeOpacity="0.4"/>
-                      <path d="M70 70 L104 104 L94 100 Z" fill="rgba(61,220,132,0.12)" stroke="#3DDC84" strokeWidth="0.8" strokeOpacity="0.4"/>
-                      <path d="M70 70 L36 104 L40 94 Z" fill="rgba(61,220,132,0.12)" stroke="#3DDC84" strokeWidth="0.8" strokeOpacity="0.4"/>
-                      <path d="M70 70 L36 36 L46 40 Z" fill="rgba(61,220,132,0.12)" stroke="#3DDC84" strokeWidth="0.8" strokeOpacity="0.4"/>
-                      {/* Center circle */}
-                      <circle cx="70" cy="70" r="7" fill="#3DDC84" fillOpacity="0.9"/>
-                      <circle cx="70" cy="70" r="3.5" fill="#0d0d20"/>
-                    </svg>
-                  </motion.div>
-                </div>
-                {/* Benefit cards */}
-                {[
-                  { text: 'Happy Hour −30%', sub: 'Expira em 2h', x: '6%', y: '58%', delay: 0.5 },
-                  { text: 'Show ao vivo 🎸', sub: '500m de você', x: '48%', y: '62%', delay: 0.7 },
-                  { text: 'VIP Access ✨', sub: 'Só para insiders', x: '22%', y: '12%', delay: 0.9 },
-                ].map((card, i) => (
-                  <motion.div key={i}
-                    className="absolute px-3 py-2 rounded-xl"
-                    style={{ left: card.x, top: card.y, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.11)', backdropFilter: 'blur(8px)' }}
-                    initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: card.delay }}
-                  >
-                    <p className="text-white text-xs font-bold whitespace-nowrap">{card.text}</p>
-                    <p className="text-white/50 text-[10px]">{card.sub}</p>
-                  </motion.div>
-                ))}
-                {/* Twinkle stars */}
-                {[{ x: '8%', y: '10%', d: 0 }, { x: '88%', y: '7%', d: 0.6 }, { x: '91%', y: '88%', d: 1.1 }, { x: '5%', y: '87%', d: 1.7 }].map((s, i) => (
-                  <motion.div key={i} className="absolute w-1.5 h-1.5 rounded-full" style={{ left: s.x, top: s.y, background: '#3DDC84', boxShadow: '0 0 6px rgba(61,220,132,0.8)' }} animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 2.5, repeat: Infinity, delay: s.d }} />
-                ))}
-                <div className="absolute bottom-5 right-5 text-xs font-bold px-3 py-1.5 rounded-full" style={{ background: 'rgba(61,220,132,0.14)', border: '1px solid rgba(61,220,132,0.28)', color: '#3DDC84' }}>Exclusivo 🔓</div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-      </section>
-      {/* END: StepByStep */}
-
-      {/* BEGIN: FeaturesSplit */}
-      <section className="pt-14 pb-2 md:pb-2 px-4 overflow-hidden border-t border-navy/5">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-          {/* Left: Phone Mockup — order-2 on mobile so text comes first */}
-          <div className="relative flex items-center justify-center h-[480px] sm:h-[640px] md:h-[680px] order-2 md:order-1">
-            {/* Ambient glow behind phone */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.22) 0%, transparent 70%)', filter: 'blur(32px)' }} />
-            </div>
-            <img
-              src="./mockup-app.png"
-              alt="Sniffer App — mapa em tempo real"
-              className="animate-float relative z-10 w-auto max-h-[480px] sm:max-h-[640px] md:max-h-[680px] object-contain select-none"
-              style={{ filter: 'drop-shadow(0 20px 48px rgba(45,47,94,0.22)) drop-shadow(0 4px 12px rgba(45,47,94,0.10))' }}
-            />
-          </div>
-
-          {/* Right: Content — order-1 on mobile so it appears first */}
-          <div className="space-y-7 order-1 md:order-2">
-            <span className="inline-block text-xs font-bold tracking-[3px] uppercase text-verdeSniffer">O mapa que respira com a cidade</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-navy">A cidade inteira na palma da mão.</h2>
-            <p className="text-lg text-navy/65 leading-relaxed">
-              O mapa em tempo real mostra tudo: onde está o movimento agora (Farejar), quem está perto de você (Conectar), e quais eventos exclusivos só você pode acessar (Descobrir).
-            </p>
-            <ul className="space-y-5 pt-2">
-              <li className="flex items-center gap-4">
-                <div className="w-7 h-7 flex-shrink-0 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-base font-bold">✓</div>
-                <span className="font-semibold text-navy/80">Mapa de calor em tempo real</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-7 h-7 flex-shrink-0 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-base font-bold">✓</div>
-                <span className="font-semibold text-navy/80">Alertas de proximidade</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-7 h-7 flex-shrink-0 bg-verdeSniffer/20 text-verdeSniffer flex items-center justify-center rounded-full text-base font-bold">✓</div>
-                <span className="font-semibold text-navy/80">Filtros por interesses específicos</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      {/* END: FeaturesSplit */}
-
-      {/* BEGIN: TribesGrid */}
-      <section className="pt-2 md:pt-2 pb-14 px-4 border-t border-navy/5">
-        <div className="max-w-7xl mx-auto">
-
-          {/* ── Header ── */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-14 gap-4">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="inline-block text-xs font-black tracking-[4px] uppercase text-verdeSniffer mb-4">Comunidades</span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy tracking-tight leading-tight">Tribos locais.</h2>
-              <p className="mt-3 text-navy/55 text-lg leading-relaxed max-w-md">Sua turma já está aqui. Eles estão farejando agora.</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="shrink-0"
-            >
-              <button className="text-sm font-bold text-navy/60 border-b-2 border-verdeSniffer pb-1 uppercase tracking-wide hover:text-verdeSniffer transition-colors duration-200">
-                Ver todas as tribos
-              </button>
-            </motion.div>
-          </div>
-
-          {/* ── Cards ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {[
-              { name: 'Café & Tech', desc: 'Networking e debates sobre o futuro da web nos cafés da cidade.', tag: 'Ativa agora', members: '242 membros', delay: 0 },
-              { name: 'Corrida Noturna', desc: 'Grupos que exploram a cidade toda terça-feira depois das 21h.', tag: 'Hoje à noite', members: '1.2k membros', delay: 0.08 },
-              { name: 'Circuito das Artes', desc: 'Visitas e debates sobre as exposições abertas na sua região.', tag: 'Hoje', members: '156 membros', delay: 0.16 },
-              { name: 'Rota Gastronômica', desc: 'Explorando os melhores botecos e restaurantes da vizinhança.', tag: 'Sábado', members: '890 membros', delay: 0.24 },
-            ].map((tribe, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.6, delay: tribe.delay, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="group relative flex flex-col p-7 rounded-3xl border border-navy/6 bg-white cursor-pointer overflow-hidden"
-                style={{ boxShadow: '0 2px 12px rgba(45,47,94,0.04)' }}
-              >
-                {/* Bottom border accent on hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-verdeSniffer scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-3xl" />
-
-                {/* Live tag */}
-                <div className="mb-6">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-verdeSniffer">
-                    <span className="w-1.5 h-1.5 rounded-full bg-verdeSniffer" style={{ boxShadow: '0 0 5px rgba(61,220,132,0.8)' }} />
-                    {tribe.tag}
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6" style={{ color: muted, fontSize: '14px' }}>
+                {['Comunidades locais', 'Eventos e interações reais', 'Baseado em confiança, não em poluição digital'].map(item => (
+                  <span key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: navy, opacity: 0.5, flexShrink: 0 }} />
+                    {item}
                   </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden md:block" style={{ position: 'relative', minHeight: '560px' }}>
+              <div style={{ position: 'absolute', inset: '4% 10% 10% 8%', borderRadius: '40px', background: 'radial-gradient(circle, rgba(80,242,150,0.24) 0%, rgba(80,242,150,0.07) 36%, transparent 68%)', filter: 'blur(18px)', zIndex: 0 }} />
+              <div style={{ position: 'absolute', left: '20px', top: '24px', padding: '12px 14px', borderRadius: '18px', zIndex: 3, fontSize: '13px', color: navy, fontWeight: 700, background: 'rgba(255,255,255,0.9)', border: `1px solid rgba(19,21,26,0.06)`, boxShadow: shadowSoft, backdropFilter: 'blur(14px)' }}>
+                Primeiras comunidades já estão surgindo
+              </div>
+              <div style={{ position: 'absolute', right: '10px', top: '12px', width: 'min(300px, 100%)', background: 'rgba(17,16,38,0.96)', borderRadius: '40px', padding: '14px', boxShadow: '0 30px 80px rgba(17,16,38,0.2)', zIndex: 2 }}>
+                <div style={{ width: '34%', height: '28px', background: '#111026', borderRadius: '0 0 18px 18px', margin: '-2px auto 10px' }} />
+                <div style={{ background: 'linear-gradient(180deg, rgba(80,242,150,0.12) 0%, rgba(61,220,132,0.06) 100%)', borderRadius: '28px', minHeight: '440px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src="/AppScreenshot.png" alt="Screenshot do app Sniffer" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
                 </div>
+              </div>
+              <div style={{ position: 'absolute', left: 0, bottom: '100px', width: '220px', padding: '18px', borderRadius: '24px', zIndex: 3, background: 'rgba(255,255,255,0.9)', border: `1px solid rgba(19,21,26,0.06)`, boxShadow: shadowSoft, backdropFilter: 'blur(14px)' }}>
+                <strong style={{ display: 'block', fontSize: '15px', marginBottom: '6px' }}>Hoje à noite</strong>
+                <p style={{ color: muted, margin: 0, fontSize: '13px' }}>Encontro aberto com pessoas e negócios locais</p>
+                <span style={{ display: 'inline-flex', marginTop: '10px', padding: '8px 12px', borderRadius: '999px', background: 'rgba(80,242,150,0.14)', color: teal, fontSize: '12px', fontWeight: 700 }}>Evento em destaque</span>
+              </div>
+              <div style={{ position: 'absolute', right: '-8px', bottom: '20px', width: '200px', padding: '16px', borderRadius: '20px', zIndex: 3, background: 'rgba(255,255,255,0.9)', border: `1px solid rgba(19,21,26,0.06)`, boxShadow: shadowSoft, backdropFilter: 'blur(14px)' }}>
+                <strong style={{ display: 'block', fontSize: '14px', marginBottom: '6px' }}>Confiança em foco</strong>
+                <p style={{ color: muted, margin: 0, fontSize: '13px' }}>Perfis, negócios e interações com camadas reais de validação e moderação.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                {/* Name */}
-                <h4 className="text-xl font-extrabold text-navy mb-3 leading-tight group-hover:text-verdeSniffer transition-colors duration-250">{tribe.name}</h4>
-
-                {/* Description */}
-                <p className="text-navy/55 text-sm leading-relaxed flex-1">{tribe.desc}</p>
-
-                {/* Footer */}
-                <div className="mt-6 pt-5 border-t border-navy/6 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-navy/40 uppercase tracking-wide">{tribe.members}</span>
-                  <span className="text-xs font-bold text-verdeSniffer opacity-0 group-hover:opacity-100 transition-opacity duration-200">Entrar →</span>
-                </div>
+        {/* ── Quem Somos ── */}
+        <section id="ao-vivo" style={{ padding: '42px 0' }}>
+          <div className={shell}>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              style={{ padding: '48px', borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
+            >
+              <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.14), transparent 70%)', right: '-60px', bottom: '-60px', pointerEvents: 'none' }} />
+              <h2 style={{ ...h2Style, marginBottom: '32px' }}>Quem Somos</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '72ch' }}>
+                <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}>
+                  Você já passou por uma rua mil vezes e nunca reparou naquele lugar incrível escondido ali? A Sniffer nasceu dessa mesma curiosidade. Mais que uma rede social, somos o faro que faltava no seu bairro: o elo de confiança que ajuda as pessoas a descobrirem o que realmente está vivo e pulsante ao redor delas.
+                </motion.p>
+                <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}>
+                  Nossa missão é simples: transformar a curiosidade em um motivo novo para sair de casa. Queremos que a vizinhança sinta o cheiro do que é autêntico e descubra lugares, sabores e experiências que estão logo ali, esperando para serem encontrados. Na Sniffer, a tecnologia não serve para te prender online, mas para te levar de volta para a calçada.
+                </motion.p>
+              </div>
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
+                <button onClick={() => navigate('/cadastro')} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  Junte-se a essa revolução! →
+                </button>
               </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── Quem faz a Sniffer ── */}
+        <section style={{ padding: '0 0 42px' }}>
+          <div id="confianca" className={shell} style={{ padding: '48px', borderRadius: '32px', background: 'linear-gradient(135deg, #111026 0%, #332d59 100%)', color: '#F2F2F2', boxShadow: '0 30px 80px rgba(17,16,38,0.18)', overflow: 'hidden', position: 'relative' }}>
+            <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.22), transparent 70%)', right: '-80px', top: '-80px', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', width: '200px', height: '200px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.10), transparent 70%)', left: '-40px', bottom: '-40px', pointerEvents: 'none' }} />
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '64ch' }}>
+              <h2 style={{ ...h2Style, color: '#F2F2F2', marginBottom: '24px' }}>Quem faz a Sniffer</h2>
+              <p style={{ margin: 0, fontSize: '18px', color: 'rgba(242,242,242,0.80)', lineHeight: 1.75 }}>
+                Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── Produtos — bento mural ── */}
+        <BentoSection navigate={navigate} />
+
+        {/* ── RASTRO Early Adopter ── */}
+        <section id="rastro" style={{ padding: '42px 0' }}>
+          <div className={shell}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: '#332d59', boxShadow: '0 32px 80px rgba(17,16,38,0.4)' }}
+            >
+              <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.22, pointerEvents: 'none' }}>
+                <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+                <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+              </svg>
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
+                <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.3)', marginBottom: '28px' }}>
+                    <span style={{ fontSize: '14px' }}>🏅</span>
+                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO — SELO EARLY ADOPTER</span>
+                  </div>
+                  <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                    Você marca presença.<br />
+                    <span style={{ color: green }}>A gente garante o seu lugar.</span>
+                  </h2>
+                  <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(242,242,242,0.65)', lineHeight: 1.75, maxWidth: '50ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                    O rastro começa com você. Estamos reservando apenas{' '}
+                    <strong style={{ color: '#F2F2F2', fontWeight: 700 }}>10.000 vagas</strong>{' '}
+                    para os negócios fundadores que vão deixar sua marca no mapa.
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+                    {[
+                      { icon: '🎁', text: '3 anos de acesso gratuito a todas as ferramentas e novos produtos da plataforma.' },
+                      { icon: '🔖', text: 'Selo permanente de Fundador no seu perfil, visível para toda a rede.' },
+                      { icon: '💰', text: 'Taxas reduzidas vitalícias após o período inicial de 3 anos.' },
+                      { icon: '🧪', text: 'Acesso garantido ao ambiente de testes — experimente e influencie nossas inovações antes de todo o ecossistema.' },
+                    ].map((b, i) => (
+                      <motion.div key={i} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}>
+                        <span style={{ fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>{b.icon}</span>
+                        <span style={{ fontSize: '15px', color: 'rgba(242,242,242,0.78)', lineHeight: 1.6, fontFamily: "'Ferom', Inter, sans-serif" }}>{b.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <button onClick={() => navigate('/cadastro')} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}>
+                    Garantir minha vaga Rastro →
+                  </button>
+                  <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
+                    Uma vez preenchidas as 10.000 vagas, o programa será selado para sempre.
+                  </p>
+                </div>
+                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 32px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '10px', background: 'rgba(0,0,0,0.14)' }}>
+                  <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
+                  <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
+                  <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
+                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', color: 'rgba(80,242,150,0.55)', textAlign: 'center', fontFamily: "'Ferom', Inter, sans-serif" }}>ACESSO<br />VITALÍCIO</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── Mensageria de Confiança ── */}
+        <section style={{ padding: '42px 0' }}>
+          <div className={shell}>
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-0"
+              style={{ borderRadius: '32px', overflow: 'hidden', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft }}
+            >
+              <div style={{ padding: '44px 48px' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.10)', border: '1px solid rgba(80,242,150,0.24)', marginBottom: '20px' }}>
+                  <span style={{ fontSize: '14px' }}>💬</span>
+                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.09em', color: teal }}>UIVO</span>
+                </div>
+                <h2 style={{ ...h2Style, marginBottom: '16px' }}>Mensageria de Confiança</h2>
+                <p style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.75, maxWidth: '54ch' }}>
+                  Conversas que geram movimento. Na Sniffer, a mensageria entende o seu território. Quando alguém te chama, você sabe exatamente como essa pessoa se conecta ao seu negócio, garantindo um atendimento personalizado e seguro. É a tecnologia servindo para fortalecer o aperto de mão digital entre você e quem realmente vive o bairro.
+                </p>
+              </div>
+              <div className="hidden md:flex" style={{ flexDirection: 'column', gap: '10px', padding: '44px 40px', borderLeft: `1px solid ${line}`, minWidth: '220px', justifyContent: 'center', background: 'rgba(80,242,150,0.04)' }}>
+                {[
+                  { label: 'Contexto do cliente', icon: '👤' },
+                  { label: 'Histórico do negócio', icon: '🏪' },
+                  { label: 'Atendimento seguro', icon: '🔒' },
+                ].map((item, i) => (
+                  <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.15 + i * 0.09, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '14px', background: '#fff', border: `1px solid ${line}`, boxShadow: '0 2px 8px rgba(17,16,38,0.04)' }}>
+                    <span style={{ fontSize: '18px' }}>{item.icon}</span>
+                    <span style={{ fontSize: '13px', fontWeight: 600, color: '#111026' }}>{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── De Vizinho para Vizinho ── */}
+        <section id="vizinho" style={{ padding: '100px 0', background: 'linear-gradient(155deg, #111026 0%, #332d59 60%, #111026 100%)', position: 'relative', overflow: 'hidden' }}>
+          <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.2, pointerEvents: 'none', transform: 'scaleX(-1)' }}>
+            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+          </svg>
+          <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
+            <motion.div initial={{ opacity: 0, y: 48 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.1)', border: '1px solid rgba(80,242,150,0.2)', marginBottom: '36px' }}>
+                <span>🏘️</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>DE VIZINHO PARA VIZINHO</span>
+              </div>
+              <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
+                "Seu bairro sempre teve voz. Com a Sniffer, ele recupera o alcance."
+              </blockquote>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
+                <p style={{ margin: 0 }}>
+                  Você lembra quando o sucesso de um lugar era simples? Alguém de confiança indicava e dizia:{' '}
+                  <em style={{ color: '#fff', fontStyle: 'italic' }}>"Você precisa conhecer esse lugar"</em>.
+                  Não tinha feed viciante, não tinha anúncio de multinacional. Tinha gente olhando nos olhos e dividindo o que amava no bairro.
+                </p>
+                <p style={{ margin: 0 }}>
+                  Esse saber não desapareceu, ele só ficou sem caminho para circular. Ele está no cliente fiel que conhece cada esquina, na vizinha que sabe quem faz o melhor café e no amigo que sempre descobre as novidades antes de todo mundo. As grandes redes sociais tentaram substituir isso por{' '}
+                  <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
+                </p>
+                <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
+                  A Sniffer nasceu para ser esse caminho.
+                </p>
+                <p style={{ margin: 0 }}>
+                  Nós damos mobilidade ao conhecimento que já existe — vivo, real e espalhado pela comunidade. Aqui, a tecnologia não substitui ninguém; ela serve como suporte e velocidade para que a indicação da{' '}
+                  <em style={{ color: 'rgba(255,255,255,0.85)' }}>"Dona Marta"</em>{' '}
+                  chegue a centenas de pessoas no momento certo. A essência de um negócio querido e o toque humano são conhecimentos que nenhum sistema consegue fabricar.
+                </p>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.04, boxShadow: `0 8px 32px ${green}55` }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => navigate('/cadastro')}
+                style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: green, color: navy, fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
+              >
+                Junte-se a essa revolução →
+              </motion.button>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+
+      {/* ── Footer ── */}
+      <footer style={{ background: 'linear-gradient(180deg, #332d59 0%, #111026 100%)', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
+        <div className={shell} style={{ padding: '64px 0 44px', display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '32px' }}>
+          <div style={{ gridColumn: 'span 5' }}>
+            <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '36px', width: 'auto', marginBottom: '12px', display: 'block' }} />
+            <p style={{ margin: '0 0 24px', fontSize: '15px', lineHeight: 1.65, maxWidth: '26ch', color: 'rgba(255,255,255,0.5)' }}>
+              O faro que faltava no seu bairro. Descoberta local, confiança real.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              {['Instagram', 'LinkedIn', 'TikTok'].map(s => (
+                <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '13px', fontWeight: 600, transition: 'color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = green)}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
+                >{s}</a>
+              ))}
+            </div>
+          </div>
+          <div style={{ gridColumn: 'span 1' }} />
+          <div style={{ gridColumn: 'span 2' }}>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>PRODUTO</strong>
+            {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+              >{l}</a>
             ))}
           </div>
-
-        </div>
-      </section>
-      {/* END: TribesGrid */}
-
-      {/* BEGIN: BottomCTA */}
-      <section className="py-16 px-4 border-t border-navy/6">
-        <div className="max-w-4xl mx-auto text-center">
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="inline-block text-xs font-black tracking-[4px] uppercase text-verdeSniffer mb-5">Disponível agora</span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-navy leading-tight tracking-tight mb-5" style={{ fontFamily: 'var(--font-jakarta)' }}>
-              Baixe o Sniffer<br className="hidden sm:block" /> e comece a farejar.
-            </h2>
-            <p className="text-navy/55 text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              Disponível para iOS e Android. Gratuito para começar — sem cartão de crédito.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            {/* App Store */}
-            <a
-              href="https://apps.apple.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 px-7 py-4 rounded-2xl border-2 border-navy/12 hover:border-navy/30 bg-white hover:bg-navy/2 transition-all duration-250 hover:-translate-y-1 hover:shadow-lg hover:shadow-navy/8 w-full sm:w-auto sm:min-w-[200px]"
-            >
-              <svg className="w-8 h-8 text-navy flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              <div className="text-left">
-                <p className="text-[11px] font-semibold text-navy/50 uppercase tracking-wider leading-none mb-0.5">Disponível na</p>
-                <p className="text-base font-extrabold text-navy leading-none">App Store</p>
-              </div>
-            </a>
-
-            {/* Google Play */}
-            <a
-              href="https://play.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 px-7 py-4 rounded-2xl border-2 border-navy/12 hover:border-navy/30 bg-white hover:bg-navy/2 transition-all duration-250 hover:-translate-y-1 hover:shadow-lg hover:shadow-navy/8 w-full sm:w-auto sm:min-w-[200px]"
-            >
-              {/* Google Play logo — 4 colored triangles */}
-              <svg className="w-8 h-8 flex-shrink-0" viewBox="0 0 24 24" fill="none">
-                <path d="M3.5 1.6 L13.9 12 L3.5 22.4 C3.1 22.1 2.9 21.7 2.9 21.2 V2.8 C2.9 2.3 3.1 1.9 3.5 1.6Z" fill="#4285F4"/>
-                <path d="M17.6 8.1 L14.7 12 L17.6 15.9 L21.0 13.9 C21.9 13.4 21.9 10.6 21.0 10.1 Z" fill="#FBBC05"/>
-                <path d="M3.5 1.6 L13.9 12 L17.6 8.1 L6.3 1.6 C5.3 1.1 4.2 1.2 3.5 1.6Z" fill="#EA4335"/>
-                <path d="M3.5 22.4 L13.9 12 L17.6 15.9 L6.3 22.4 C5.3 22.9 4.2 22.8 3.5 22.4Z" fill="#34A853"/>
-              </svg>
-              <div className="text-left">
-                <p className="text-[11px] font-semibold text-navy/50 uppercase tracking-wider leading-none mb-0.5">Disponível no</p>
-                <p className="text-base font-extrabold text-navy leading-none">Google Play</p>
-              </div>
-            </a>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 text-xs text-navy/35 font-medium"
-          >
-            iOS 15+ · Android 9+ · Gratuito
-          </motion.p>
-
-        </div>
-      </section>
-
-      {/* BEGIN: Footer */}
-      <footer className="pt-10 pb-24 px-4 border-t border-navy/6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-navy/50 text-xs md:text-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md flex items-center justify-center font-bold text-[10px] text-navy" style={{ background: 'linear-gradient(135deg, #3DDC84 0%, #2cc870 100%)' }}>S</div>
-            <span>© 2026 Sniffer App. Belo Horizonte, MG.</span>
+          <div style={{ gridColumn: 'span 2' }}>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>EMPRESA</strong>
+            {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+              >{l}</a>
+            ))}
           </div>
-          <div className="flex gap-6">
-            <a className="hover:text-verdeSniffer transition-colors duration-200" href="#">Termos</a>
-            <a className="hover:text-verdeSniffer transition-colors duration-200" href="#">Privacidade</a>
-            <a className="hover:text-verdeSniffer transition-colors duration-200" href="#">Contato</a>
+          <div style={{ gridColumn: 'span 2' }}>
+            <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>LEGAL</strong>
+            {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
+              <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = green)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+              >{l}</a>
+            ))}
           </div>
+        </div>
+        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '20px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+          <span>© 2026 Sniffer · Todos os direitos reservados.</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            Feito com <span style={{ color: green, margin: '0 2px' }}>♥</span> no Brasil
+          </span>
         </div>
       </footer>
-      {/* END: BottomCTA */}
     </motion.div>
   );
 }

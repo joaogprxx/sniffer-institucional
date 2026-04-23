@@ -1,8 +1,7 @@
 import {StrictMode, useEffect} from 'react';
 import {createRoot} from 'react-dom/client';
-import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate, useLocation} from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
-import Home from './Home.tsx';
 import App from './App.tsx';
 import Business from './Business.tsx';
 import Corporate from './Corporate.tsx';
@@ -27,7 +26,7 @@ function AnimatedRoutes() {
       <AnimatePresence mode="wait" initial={false}>
         {/* @ts-ignore */}
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/people" replace />} />
           <Route path="/people" element={<App />} />
           <Route path="/business" element={<Business />} />
           <Route path="/corporate" element={<Corporate />} />

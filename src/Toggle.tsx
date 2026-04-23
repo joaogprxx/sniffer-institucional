@@ -6,53 +6,46 @@ import { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 
-const OPTIONS = ['home', 'people', 'business', 'corporate'] as const;
+const OPTIONS = ['people', 'business', 'corporate'] as const;
 type Option = (typeof OPTIONS)[number];
 
 const ROUTES: Record<Option, string> = {
-  home: '/',
   people: '/people',
   business: '/business',
   corporate: '/corporate',
 };
 
 const LABEL: Record<Option, string> = {
-  home: 'Home',
   people: 'Pessoas',
   business: 'Negócios',
   corporate: 'Comunidade',
 };
 
 const TRACK_BG: Record<Option, string> = {
-  home: '#eeeee8',
   people: '#eeeee8',
   business: 'rgba(0,0,0,0.25)',
   corporate: 'rgba(45,47,94,0.20)',
 };
 
 const PILL_BG: Record<Option, string> = {
-  home: '#2D2F5E',
   people: '#3DDC84',
   business: '#2D2F5E',
   corporate: '#00A896',
 };
 
 const PILL_SHADOW: Record<Option, string> = {
-  home: 'none',
   people: '0 4px 16px -4px #3DDC8499',
   business: 'none',
   corporate: 'none',
 };
 
 const ACTIVE_TEXT: Record<Option, string> = {
-  home: '#ffffff',
   people: '#ffffff',
   business: '#00A896',
   corporate: '#2D2F5E',
 };
 
 const INACTIVE_TEXT: Record<Option, string> = {
-  home: 'rgba(45,47,94,0.5)',
   people: 'rgba(45,47,94,0.5)',
   business: 'rgba(255,255,255,0.45)',
   corporate: 'rgba(45,47,94,0.55)',
@@ -61,7 +54,6 @@ const INACTIVE_TEXT: Record<Option, string> = {
 const TRANSITION_BG = { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] as const };
 
 function routeToOption(pathname: string): Option {
-  if (pathname === '/') return 'home';
   if (pathname.startsWith('/business')) return 'business';
   if (pathname.startsWith('/corporate')) return 'corporate';
   return 'people';

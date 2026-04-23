@@ -1098,7 +1098,7 @@ export default function Business() {
             <a href="#" className="hover:text-tealBusiness transition-colors">Termos</a>
             <a href="#" className="hover:text-tealBusiness transition-colors">Privacidade</a>
             <a href="#" className="hover:text-tealBusiness transition-colors">Contato</a>
-            <a href="/" className="hover:text-tealBusiness transition-colors font-medium">← Voltar para sniffer.app</a>
+            <a href="/people" className="hover:text-tealBusiness transition-colors font-medium">← Voltar para sniffer.app</a>
           </div>
         </div>
       </footer>
