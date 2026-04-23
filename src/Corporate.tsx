@@ -149,21 +149,6 @@ export default function Corporate() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 inset-x-0 z-[2]" style={{ borderTop: '1px solid rgba(45,47,94,0.12)' }}>
-          <div className="max-w-[1200px] mx-auto px-6 sm:px-12 grid grid-cols-2 md:grid-cols-4">
-            {([
-              { value: '500+', label: 'Comunidades ativas', delay: '0.9s' },
-              { value: '50k+', label: 'Membros conectados', delay: '1.0s' },
-              { value: 'Eventos', label: 'Criados em segundos', delay: '1.1s' },
-              { value: 'Bairro', label: 'Inteligente', delay: '1.2s' },
-            ] as const).map((m, i) => (
-              <div key={i} className="py-9 opacity-0 animate-[fadeUp_0.6s_forwards]" style={{ animationDelay: m.delay, borderRight: i < 3 ? '1px solid rgba(45,47,94,0.12)' : 'none' }}>
-                <div className="font-bold text-[28px] text-[#2D2F5E]" style={{ fontFamily: "'Ferom', sans-serif", letterSpacing: '-1px' }}>{m.value}</div>
-                <div className="text-[13px] mt-1.5" style={{ color: 'rgba(45,47,94,0.70)' }}>{m.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ═══════════════════ QUEM SOMOS ═══════════════════ */}
