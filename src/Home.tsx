@@ -418,12 +418,7 @@ export default function Home() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ position: 'relative', maxWidth: '64ch' }}
             >
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.22)', color: green, fontSize: '13px', fontWeight: 700, marginBottom: '20px' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
-                A matilha
-              </div>
-
-              <h2 style={{ ...h2Style, color: '#F2F2F2', marginBottom: '24px' }}>Quem faz a Sniffer</h2>
+<h2 style={{ ...h2Style, color: '#F2F2F2', marginBottom: '24px' }}>Quem faz a Sniffer</h2>
 
               <p style={{ margin: 0, fontSize: '18px', color: 'rgba(242,242,242,0.80)', lineHeight: 1.75 }}>
                 Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
