@@ -10,7 +10,6 @@ export const solutionsItems = [
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
   { icon: '📣', label: 'Uivo', desc: 'Canal de atendimento direto dentro da Sniffer', href: '/business/uivo' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa de fundadores — 10.000 vagas', href: '/business/rastro' },
-  { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '/business#como-funciona' },
   { icon: '🔍', label: 'Faro', desc: 'Inteligência local — dados que viram decisão', href: '/business/faro' },
   { icon: '🤝', label: 'SVA', desc: 'Parceria para operadoras e distribuidores', href: '/business#parceiros' },
 ];
