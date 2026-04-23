@@ -107,7 +107,7 @@ export default function Business() {
             As grandes plataformas te ignoraram.<br />
             <span style={{ color: '#00A896', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.18em', flexWrap: 'wrap' }}>
               A{' '}
-              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.05em' }} />
+              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '1.15em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.08em' }} />
               {' '}não.
             </span>
           </h1>
