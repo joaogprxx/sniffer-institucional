@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type CSSProperties } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
@@ -119,12 +119,20 @@ export default function Xodos() {
                   borderRadius: 3,
                   zIndex: 2,
                 }} />
-                {/* Screen */}
-                <div style={{ borderRadius: 34, overflow: 'hidden', background: '#000' }}>
+                {/* Screen — fixed height with internal scroll, no visible scrollbar */}
+                <div style={{
+                  borderRadius: 34,
+                  overflowY: 'scroll',
+                  overflowX: 'hidden',
+                  background: '#000',
+                  height: 580,
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                } as CSSProperties}>
                   <img
                     src="/mockups/mockup-xodos.png"
                     alt="Mockup do Xodós — perfil com mapa de recomendações"
-                    style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top' }}
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
                   />
                 </div>
               </div>
