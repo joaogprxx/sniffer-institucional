@@ -64,6 +64,143 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+const bentoColSpan = [
+  'col-span-1 md:col-span-5',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-3',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-4',
+];
+
+function BentoSection({ navigate }: { navigate: ReturnType<typeof useNavigate> }) {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const cards = [
+    {
+      emoji: '🗺️',
+      tag: 'DESCOBERTA',
+      title: 'Encontre o que pulsa',
+      desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece — organizados por contexto e confiança.',
+      large: true,
+    },
+    {
+      emoji: '🏘️',
+      tag: 'COMUNIDADES',
+      title: 'Seu bairro tem voz',
+      desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.',
+    },
+    {
+      emoji: '📅',
+      tag: 'EVENTOS',
+      title: 'Acontece agora',
+      desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.',
+    },
+    {
+      emoji: '🏪',
+      tag: 'NEGÓCIOS',
+      title: 'Presença que converte',
+      desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
+    },
+    {
+      emoji: '💬',
+      tag: 'UIVO',
+      title: 'Mensageria com contexto',
+      desc: 'Cada conversa vem com contexto real: quem é, como chegou e o que quer. Atendimento que nasce de confiança.',
+    },
+    {
+      emoji: '🏅',
+      tag: 'RASTRO',
+      title: '10.000 vagas fundadoras',
+      desc: '3 anos gratuito. Selo permanente de Fundador. Taxas reduzidas vitalícias. Seja um dos primeiros a deixar rastro.',
+      dark: true,
+    },
+  ];
+
+  return (
+    <section id="produtos" style={{ padding: '42px 0' }}>
+      <div className={shell}>
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.10)', border: `1px solid rgba(80,242,150,0.24)`, color: teal, fontSize: '13px', fontWeight: 700, marginBottom: '16px' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
+            Produtos
+          </div>
+          <h2 style={{ margin: 0, fontSize: 'clamp(32px, 4vw, 54px)', lineHeight: 1.02, letterSpacing: '-0.045em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif" }}>
+            Tudo que você precisa.<br />
+            <span style={{ color: teal }}>No seu bairro.</span>
+          </h2>
+        </div>
+
+        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-4">
+          {/* Coleira SVG — fundo, sem rect */}
+          <svg
+            viewBox="0 0 690 430"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.07, pointerEvents: 'none', zIndex: 0 }}
+          >
+            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#50f296" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#50f296" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#50f296" strokeWidth="14" />
+          </svg>
+
+          {cards.map((card, i) => {
+            const isActive = hovered === i;
+            const isDimmed = hovered !== null && !isActive;
+            return (
+              <div
+                key={i}
+                className={bentoColSpan[i]}
+                style={{
+                  opacity: isDimmed ? 0.45 : 1,
+                  transition: 'opacity 0.2s ease',
+                  position: 'relative',
+                  zIndex: isActive ? 2 : 1,
+                }}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(80,242,150,0.28)' }}
+                  style={{
+                    padding: card.large ? '36px' : '28px',
+                    borderRadius: '28px',
+                    background: card.dark ? `linear-gradient(135deg, ${navy} 0%, #111026 100%)` : surface,
+                    border: isActive ? '1px solid rgba(80,242,150,0.45)' : `1px solid ${line}`,
+                    boxShadow: shadowSoft,
+                    height: '100%',
+                    cursor: 'default',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                  }}
+                >
+                  <span style={{ fontSize: card.large ? '32px' : '26px' }}>{card.emoji}</span>
+                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.12)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.24)', alignSelf: 'flex-start' }}>{card.tag}</span>
+                  <h3 style={{ margin: 0, fontSize: card.large ? '22px' : '18px', fontWeight: 700, letterSpacing: '-0.025em', color: card.dark ? '#F2F2F2' : '#111026', fontFamily: "'Ferom', Inter, sans-serif" }}>{card.title}</h3>
+                  <p style={{ margin: 0, fontSize: '14px', color: card.dark ? 'rgba(242,242,242,0.55)' : muted, lineHeight: 1.65 }}>{card.desc}</p>
+                  {card.dark && (
+                    <button
+                      onClick={() => navigate('/cadastro')}
+                      style={{ marginTop: 'auto', padding: '12px 24px', borderRadius: '999px', background: green, color: '#111026', fontWeight: 700, fontSize: '14px', border: 'none', cursor: 'pointer', alignSelf: 'flex-start', fontFamily: "'Ferom', Inter, sans-serif", boxShadow: '0 8px 24px rgba(80,242,150,0.35)' }}
+                    >
+                      Garantir vaga Rastro →
+                    </button>
+                  )}
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -225,65 +362,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Quem Somos ── */}
-        <section id="ao-vivo" style={{ padding: '42px 0' }}>
-          <div className={shell}>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ padding: '48px', borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
-            >
-              {/* Glow decorativo */}
-              <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.14), transparent 70%)', right: '-60px', bottom: '-60px', pointerEvents: 'none' }} />
-
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: `1px solid rgba(80,242,150,0.28)`, color: teal, fontSize: '13px', fontWeight: 700, marginBottom: '20px' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
-                Nossa história
-              </div>
-
-              <h2 style={{ ...h2Style, marginBottom: '32px' }}>Quem Somos</h2>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '72ch' }}>
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}
-                >
-                  Você já passou por uma rua mil vezes e nunca reparou naquele lugar incrível escondido ali? A Sniffer nasceu dessa mesma curiosidade. Mais que uma rede social, somos o faro que faltava no seu bairro: o elo de confiança que ajuda as pessoas a descobrirem o que realmente está vivo e pulsante ao redor delas.
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}
-                >
-                  Nossa missão é simples: transformar a curiosidade em um motivo novo para sair de casa. Queremos que a vizinhança sinta o cheiro do que é autêntico e descubra lugares, sabores e experiências que estão logo ali, esperando para serem encontrados. Na Sniffer, a tecnologia não serve para te prender online, mas para te levar de volta para a calçada.
-                </motion.p>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                style={{ marginTop: '36px' }}
-              >
-                <button
-                  onClick={() => navigate('/cadastro')}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}
-                >
-                  Junte-se a essa revolução! →
-                </button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* ── No que a gente acredita ── */}
         <section id="como-funciona" style={{ padding: '42px 0' }}>
@@ -356,102 +434,7 @@ export default function Home() {
 
 
         {/* ── Produtos — bento mural ── */}
-        <section style={{ padding: '42px 0 56px', position: 'relative', overflow: 'hidden' }}>
-          <style>{`
-            @keyframes sonar {
-              0%   { transform: translate(-50%,-50%) scale(0.2); opacity: 0.55; }
-              100% { transform: translate(-50%,-50%) scale(4);   opacity: 0; }
-            }
-            @keyframes emoji-drift {
-              0%,100% { transform: translateY(0px) rotate(0deg); }
-              50%      { transform: translateY(-7px) rotate(4deg); }
-            }
-          `}</style>
-          {/* Sonar ping — 3 ondas defasadas */}
-          {[0, 1.3, 2.6].map((delay, i) => (
-            <div key={i} style={{ position: 'absolute', left: '50%', top: '45%', width: '180px', height: '180px', borderRadius: '50%', border: '1.5px solid rgba(80,242,150,0.28)', pointerEvents: 'none', animation: `sonar 4s ease-out infinite ${delay}s` }} />
-          ))}
-          <div className={shell}>
-            <div style={sectionHead}>
-              <h2 style={h2Style}>O que estamos preparando para você</h2>
-            </div>
-
-            {/* Bento grid — 12 cols */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridAutoRows: 'auto', gap: '14px' }}>
-
-              {/* UIVO — largo, leve tilt negativo */}
-              <motion.div initial={{ opacity: 0, x: -80, y: -100, rotate: -14, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -0.8, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 90, damping: 14, mass: 1.1, delay: 0 }}
-                style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,16,38,0.07)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1, animation: 'emoji-drift 5s ease-in-out infinite' }}>💬</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>UIVO</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Canal direto com o cliente</h3>
-                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '46ch' }}>É o canal de comunicação direto e humano que traz o cliente para dentro da sua loja. Esqueça o caos dos grupos genéricos; o Uivo oferece um chat profissional onde o contexto do negócio e o perfil do cliente caminham juntos, acelerando reservas e vendas.</p>
-              </motion.div>
-
-              {/* XODÓ — menor, tilt positivo */}
-              <motion.div initial={{ opacity: 0, x: 90, y: -80, rotate: 16, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 1.2, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 85, damping: 13, mass: 1.2, delay: 0.1 }}
-                style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.08)', border: '1px solid rgba(80,242,150,0.22)', boxShadow: '0 8px 28px rgba(80,242,150,0.08)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.22, lineHeight: 1, animation: 'emoji-drift 6s ease-in-out infinite 1s' }}>⭐</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>XODÓ</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Selo de alta confiança</h3>
-                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65 }}>Em um mundo de "seguidores" vazios, o Xodó é uma recomendação especial e limitada: cada usuário tem apenas <strong style={{ color: teal }}>7 slots</strong> para indicar quem realmente ama. Estar na galeria de Xodós é o maior prestígio que sua marca pode alcançar.</p>
-              </motion.div>
-
-              {/* MATILHA — médio, tilt negativo */}
-              <motion.div initial={{ opacity: 0, x: -100, y: -60, rotate: -18, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -1.3, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 80, damping: 13, mass: 1.3, delay: 0.18 }}
-                style={{ gridColumn: 'span 5', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,16,38,0.07)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🐾</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MATILHA</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Comunidade ao redor do negócio</h3>
-                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65 }}>Transforme vizinhos em comunidades fiéis. Crie grupos exclusivos para gerar conversas reais e encontros presenciais. Para quem quer ser mais que uma loja — quer ser o ponto de encontro oficial do bairro.</p>
-              </motion.div>
-
-              {/* FARO — largo, tilt leve */}
-              <motion.div initial={{ opacity: 0, x: 60, y: -120, rotate: 12, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0.7, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 75, damping: 12, mass: 1.4, delay: 0.08 }}
-                style={{ gridColumn: 'span 7', padding: '28px 30px', borderRadius: '24px', background: 'rgba(51,45,89,0.04)', border: '1px solid rgba(51,45,89,0.10)', boxShadow: '0 8px 28px rgba(51,45,89,0.06)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '20px', top: '16px', fontSize: '52px', opacity: 0.18, lineHeight: 1 }}>🔍</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: navy, background: 'rgba(51,45,89,0.08)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(51,45,89,0.15)' }}>FARO</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Inteligência da rua em tempo real</h3>
-                <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '50ch' }}>O Faro detecta o que as pessoas estão buscando na sua rua agora, permitindo que você adapte estoque ou promoções ao desejo da comunidade. Pare de adivinhar. É como ter um consultor que conhece o bairro todo — entregando as respostas que você precisa num painel inteligente.</p>
-              </motion.div>
-
-              {/* MEU TERRITÓRIO — full width mobile, 1/3 desktop */}
-              <motion.div initial={{ opacity: 0, x: -70, y: -90, rotate: -20, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 1.4, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 95, damping: 14, mass: 1.0, delay: 0.22 }}
-                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: '#ffffff', border: `1px solid ${line}`, boxShadow: '0 8px 28px rgba(17,16,38,0.07)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.18, lineHeight: 1 }}>📍</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.14)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.26)' }}>MEU TERRITÓRIO</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Sua placa digital na esquina</h3>
-                <p style={{ margin: 0, fontSize: '14px', color: muted, lineHeight: 1.65 }}>Perfil profissional completo onde a visibilidade é ligada à proximidade. Quem está a apenas 200 metros finalmente te acha.</p>
-              </motion.div>
-
-              {/* SPOTLIGHT — médio */}
-              <motion.div initial={{ opacity: 0, x: 50, y: -70, rotate: 15, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: -0.9, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 88, damping: 13, mass: 1.1, delay: 0.28 }}
-                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'rgba(80,242,150,0.06)', border: '1px solid rgba(80,242,150,0.18)', boxShadow: '0 8px 28px rgba(80,242,150,0.06)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.22, lineHeight: 1 }}>🔦</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: teal, background: 'rgba(80,242,150,0.18)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.3)' }}>SPOTLIGHT</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#111026' }}>Visibilidade no momento certo</h3>
-                <p style={{ margin: 0, fontSize: '14px', color: muted, lineHeight: 1.65 }}>Impulsione eventos ou promoções relâmpago no exato momento em que a vizinhança está decidindo para onde ir.</p>
-              </motion.div>
-
-              {/* RASTRO — dark, destaque */}
-              <motion.div initial={{ opacity: 0, x: 80, y: -60, rotate: 18, filter: 'blur(10px)' }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0.6, filter: 'blur(0px)' }} whileHover={{ rotate: 0, scale: 1.01 }} viewport={{ once: true }} transition={{ type: 'spring', stiffness: 82, damping: 12, mass: 1.3, delay: 0.32 }}
-                style={{ gridColumn: 'span 4', padding: '28px 30px', borderRadius: '24px', background: 'linear-gradient(135deg, #111026 0%, #332d59 100%)', border: '1px solid rgba(80,242,150,0.2)', boxShadow: '0 12px 36px rgba(17,16,38,0.2)', position: 'relative', overflow: 'hidden' }}>
-                <span style={{ position: 'absolute', right: '16px', top: '14px', fontSize: '44px', opacity: 0.25, lineHeight: 1, animation: 'emoji-drift 7s ease-in-out infinite 0.5s' }}>🏅</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em', color: green, background: 'rgba(80,242,150,0.15)', padding: '4px 10px', borderRadius: '999px', border: '1px solid rgba(80,242,150,0.28)' }}>RASTRO</span>
-                <h3 style={{ margin: '12px 0 8px', fontSize: '20px', fontWeight: 800, letterSpacing: '-0.03em', color: '#F2F2F2' }}>Onde o legado começa</h3>
-                <p style={{ margin: 0, fontSize: '14px', color: 'rgba(242,242,242,0.72)', lineHeight: 1.65 }}>Benefícios vitalícios para os primeiros 10.000 negócios. Um distintivo de honra que ninguém mais poderá comprar — para quem acreditou desde sempre.</p>
-              </motion.div>
-
-            </div>
-
-            <div style={{ marginTop: '28px', textAlign: 'center' }}>
-              <button onClick={() => navigate('/cadastro')}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Junte-se a essa revolução! →
-              </button>
-            </div>
-          </div>
-        </section>
+        <BentoSection navigate={navigate} />
 
         {/* ── RASTRO Early Adopter ── */}
         <section id="rastro" style={{ padding: '42px 0' }}>
@@ -681,7 +664,7 @@ export default function Home() {
           {/* Produto */}
           <div style={{ gridColumn: 'span 2' }}>
             <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '20px', fontWeight: 700 }}>PRODUTO</strong>
-            {['People', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
+            {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
               <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '12px', fontSize: '15px', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = green)}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}

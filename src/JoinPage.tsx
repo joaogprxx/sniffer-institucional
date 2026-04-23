@@ -108,8 +108,8 @@ const LOCK_COLOR: Record<Mode, string> = {
 };
 
 const PERSONAS: { label: string; mode: Mode; route: string }[] = [
-  { label: 'People', mode: 'people', route: '/cadastro?mode=people' },
-  { label: 'Business', mode: 'business', route: '/cadastro?mode=business' },
+  { label: 'Pessoas', mode: 'people', route: '/cadastro?mode=people' },
+  { label: 'Negócios', mode: 'business', route: '/cadastro?mode=business' },
   { label: 'Comunidade', mode: 'comunidade', route: '/cadastro?mode=comunidade' },
 ];
 
@@ -318,7 +318,7 @@ export default function JoinPage() {
                   )}
 
                   <div>
-                    <label style={labelStyle}>celular</label>
+                    <label style={labelStyle}>WhatsApp</label>
                     <input
                       type="tel"
                       placeholder="(00) 00000-0000"
