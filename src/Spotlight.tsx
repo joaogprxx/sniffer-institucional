@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
+import { IPhoneFrame } from './components/IPhoneFrame';
 import { ChevronRight } from 'lucide-react';
 
 export default function Spotlight() {
@@ -38,11 +39,18 @@ export default function Spotlight() {
             viva o tempo todo.
           </h1>
 
-          <div className="prose prose-invert max-w-none">
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Spotlight é a ferramenta de promoção do seu negócio dentro da Sniffer, um card visual que aparece no perfil da sua empresa, no mapa, no feed dos seus seguidores e via notificação push. Funciona assim: você cria uma oferta com imagem, uma chamada direta e um botão de ação (ligar, ver no mapa, mandar mensagem, abrir link, são 11 opções), define o prazo de até 7 dias e publica. Pronto. Sua promoção chega na hora certa, para as pessoas certas, no bairro certo. "Compre um café e ganhe um salgado", "segunda e terça: todos os serviços de manicure com 30% de desconto", o tipo de oferta que antes morria num story que ninguém via ou num panfleto que ninguém guardava. Com o Spotlight, sua promoção tem endereço, tem prazo, tem botão de ação e tem alcance real. E se você quiser tirar do ar antes? Um toque e acabou.
-            </p>
+          {/* Two-column: paragraph + mockup */}
+          <div className="flex flex-col lg:flex-row gap-16 items-start mb-12">
+            <div className="flex-1">
+              <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                O Spotlight é a ferramenta de promoção do seu negócio dentro da Sniffer, um card visual que aparece no perfil da sua empresa, no mapa, no feed dos seus seguidores e via notificação push. Funciona assim: você cria uma oferta com imagem, uma chamada direta e um botão de ação (ligar, ver no mapa, mandar mensagem, abrir link, são 11 opções), define o prazo de até 7 dias e publica. Pronto. Sua promoção chega na hora certa, para as pessoas certas, no bairro certo. "Compre um café e ganhe um salgado", "segunda e terça: todos os serviços de manicure com 30% de desconto", o tipo de oferta que antes morria num story que ninguém via ou num panfleto que ninguém guardava. Com o Spotlight, sua promoção tem endereço, tem prazo, tem botão de ação e tem alcance real. E se você quiser tirar do ar antes? Um toque e acabou.
+              </p>
+            </div>
 
+            <IPhoneFrame src="/mockups/mockup-spotlight.png" alt="Mockup do Spotlight — promoção ativa no app Sniffer" />
+          </div>
+
+          <div className="prose prose-invert max-w-none">
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
