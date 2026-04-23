@@ -9,7 +9,7 @@ export const solutionsItems = [
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '/business#como-funciona' },
   { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '/business#como-funciona' },
-  { icon: '🔍', label: 'Faro', desc: 'Descoberta hiperlocal e busca inteligente', href: '/business#como-funciona' },
+  { icon: '🔍', label: 'Faro', desc: 'Inteligência local — dados que viram decisão', href: '/business/faro' },
   { icon: '🤝', label: 'SVA', desc: 'Parceria para operadoras e distribuidores', href: '/business#parceiros' },
 ];
 
