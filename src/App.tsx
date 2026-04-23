@@ -64,20 +64,20 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', textAlign: 'center' }}
+          style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
-          <div>
-            <p style={{ margin: '0 0 16px', fontSize: '13px', fontWeight: 800, letterSpacing: '0.16em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>
+          <div style={{ maxWidth: '700px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ margin: '0 0 16px', fontSize: '14px', fontWeight: 700, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const, padding: '0 16px' }}>
               Produtos
             </p>
             <h2 style={{ margin: 0, fontSize: 'clamp(36px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
               Tudo que você precisa.<br />
               <span style={{ color: green }}>No seu bairro.</span>
             </h2>
+            <p style={{ margin: '16px 0 0', fontSize: '16px', color: navy, lineHeight: 1.65, textAlign: 'center' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
+              Cinco ferramentas construídas em torno de um único princípio: <strong>confiança real</strong>.
+            </p>
           </div>
-          <p style={{ margin: 0, fontSize: '15px', color: navy, lineHeight: 1.65, maxWidth: '28ch', textAlign: 'center' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
-            Cinco ferramentas construídas em torno de um único princípio: <strong>confiança real</strong>.
-          </p>
         </motion.div>
 
         {/* Top rule */}
