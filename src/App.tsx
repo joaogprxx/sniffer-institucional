@@ -462,19 +462,21 @@ export default function App() {
         </section>
 
         {/* ── De Vizinho para Vizinho ── */}
-        <section id="vizinho" className="py-16 sm:py-20 md:py-24 lg:py-[100px]" style={{ background: 'linear-gradient(155deg, #111026 0%, #332d59 60%, #111026 100%)', position: 'relative', overflow: 'hidden' }}>
-          <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.2, pointerEvents: 'none', transform: 'scaleX(-1)' }}>
-            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#3DFFA0" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#3DFFA0" strokeWidth="14" />
+        <section id="vizinho" className="py-16 sm:py-20 md:py-24 lg:py-[100px]" style={{ background: 'linear-gradient(155deg, #1b4d32 0%, #1e3d28 60%, #164d2a 100%)', position: 'relative', overflow: 'hidden' }}>
+          {/* Radial glow — Explorador */}
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 50%, rgba(61,220,132,0.14) 0%, rgba(46,204,113,0.04) 50%, transparent 70%)', pointerEvents: 'none' }} />
+          <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.28, pointerEvents: 'none', transform: 'scaleX(-1)' }}>
+            <path d="M 340,0 C 420,40 520,80 500,170 C 480,250 380,260 340,300 C 300,340 260,390 310,400 C 360,410 430,380 480,350 C 540,315 590,290 620,300 C 650,310 660,340 640,370" fill="none" stroke="#3DDC84" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 340,300 C 280,340 200,370 180,340 C 155,305 190,260 240,250 C 290,240 330,260 340,300 Z" fill="none" stroke="#6DC96A" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+            <ellipse cx="640" cy="378" rx="22" ry="16" fill="none" stroke="#2ECC71" strokeWidth="14" />
           </svg>
           <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
             <motion.div initial={{ opacity: 0, y: 48 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.1)', border: '1px solid rgba(80,242,150,0.2)', marginBottom: '36px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(61,220,132,0.12)', border: '1px solid rgba(61,220,132,0.25)', marginBottom: '36px' }}>
                 <span>🏘️</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>de vizinho para vizinho</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: '#3DDC84', fontFamily: "'Ferom', Inter, sans-serif" }}>de vizinho para vizinho</span>
               </div>
-              <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
+              <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: '3px solid #3DDC84', fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
                 "seu bairro sempre teve voz. com a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />, ele recupera o alcance."
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
@@ -487,7 +489,7 @@ export default function App() {
                   Esse saber não desapareceu, ele só ficou sem caminho para circular. Ele está no cliente fiel que conhece cada esquina, na vizinha que sabe quem faz o melhor café e no amigo que sempre descobre as novidades antes de todo mundo. As grandes redes sociais tentaram substituir isso por{' '}
                   <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
                 </p>
-                <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
+                <p style={{ margin: 0, color: '#3DDC84', fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
                   a <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} /> nasceu para ser esse caminho.
                 </p>
                 <p style={{ margin: 0 }}>
@@ -497,11 +499,11 @@ export default function App() {
                 </p>
               </div>
               <motion.button
-                whileHover={{ scale: 1.04, boxShadow: `0 8px 32px ${green}55` }}
+                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(61,220,132,0.45)' }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => navigate('/cadastro')}
                 className="w-full sm:w-auto"
-                style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: green, color: navy, fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: '#3DDC84', color: '#111026', fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 Junte-se a essa revolução →
               </motion.button>
