@@ -606,11 +606,15 @@ export default function App() {
                     Uma vez preenchidas as 30.000 vagas, o programa será selado para sempre.
                   </p>
                 </div>
-                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 32px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '10px', background: 'rgba(0,0,0,0.14)' }}>
-                  <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
-                  <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
-                  <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
-                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', color: 'rgba(80,242,150,0.55)', textAlign: 'center', fontFamily: "'Ferom', Inter, sans-serif" }}>ACESSO<br />VITALÍCIO</span>
+                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, alignItems: 'center', justifyContent: 'center', padding: '32px', borderLeft: '1px solid rgba(255,255,255,0.10)', background: 'rgba(0,0,0,0.14)', minWidth: '240px' }}>
+                  <video
+                    src="/selo-eap.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: '180px', height: '180px', objectFit: 'contain', borderRadius: '50%' }}
+                  />
                 </div>
               </div>
             </motion.div>
