@@ -597,8 +597,8 @@ export default function App() {
                   <motion.img
                     src="/selo-eap-estatico.png"
                     alt="Selo Early Adopter"
-                    animate={{ y: [0, -12, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    animate={{ y: [0, -24, 0], rotate: [0, 3, -3, 0], scale: [1, 1.05, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                     style={{ width: '280px', height: '280px', objectFit: 'contain' }}
                   />
                   {/* <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
