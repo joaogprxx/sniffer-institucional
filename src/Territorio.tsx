@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type CSSProperties } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
@@ -39,9 +39,58 @@ export default function Territorio() {
           </h1>
 
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Meu Território é o painel de controle do seu negócio dentro da Sniffer. Tudo que uma pessoa faz com o seu perfil, visitar, clicar no WhatsApp, ligar, pedir rota, salvar uma promoção, deixar uma avaliação, entrar na sua comunidade, mandar uma mensagem, aparece num único dashboard, em tempo real, organizado pra você entender sem precisar de planilha nem de agência. Você enxerga quem te encontrou, como te encontrou, o que fez depois de te encontrar, e o que funcionou melhor. Não é um painel de métricas genéricas. É o raio-x completo de como as pessoas interagem com o seu negócio, do primeiro toque até a conversão.
-            </p>
+
+            {/* Two-column: paragraphs + browser frame mockup */}
+            <div className="flex flex-col lg:flex-row gap-12 items-start mb-12">
+              {/* Paragraphs */}
+              <div className="flex-1">
+                <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  O Meu Território é o painel de controle do seu negócio dentro da Sniffer. Tudo que uma pessoa faz com o seu perfil — visitar, clicar no WhatsApp, ligar, pedir rota, salvar uma promoção, deixar uma avaliação, entrar na sua comunidade — aparece num único dashboard, em tempo real, organizado pra você entender sem precisar de planilha nem de agência.
+                </p>
+                <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                  Você enxerga quem te encontrou, como te encontrou, o que fez depois de te encontrar, e o que funcionou melhor. Não é um painel de métricas genéricas. É o raio-x completo de como as pessoas interagem com o seu negócio, do primeiro toque até a conversão.
+                </p>
+              </div>
+
+              {/* Browser frame mockup */}
+              <div className="w-full lg:w-[480px] shrink-0">
+                <div style={{
+                  width: '100%',
+                  background: '#1a1a1a',
+                  borderRadius: 12,
+                  overflow: 'hidden',
+                  boxShadow: '0 32px 64px rgba(0,0,0,0.35), 0 0 0 1px #111',
+                }}>
+                  {/* Browser bar */}
+                  <div style={{ background: '#2a2a2a', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
+                    {/* Traffic light dots */}
+                    <div style={{ display: 'flex', gap: 6 }}>
+                      <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57', display: 'block' }} />
+                      <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FFBD2E', display: 'block' }} />
+                      <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840', display: 'block' }} />
+                    </div>
+                    {/* URL bar */}
+                    <div style={{ background: '#3a3a3a', borderRadius: 6, padding: '4px 12px', fontSize: 12, color: '#888', flex: 1, textAlign: 'center' as const }}>
+                      sniffer.app/territorio
+                    </div>
+                  </div>
+                  {/* Screen with internal scroll */}
+                  <div style={{
+                    overflowY: 'scroll',
+                    overflowX: 'hidden',
+                    height: 480,
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                  } as CSSProperties}>
+                    <img
+                      src="/mockups/mockup-territorio.png"
+                      alt="Mockup Meu Território — dashboard de inteligência"
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
