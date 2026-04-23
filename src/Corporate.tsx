@@ -325,20 +325,20 @@ export default function Corporate() {
       <section className="py-[140px]" style={{ background: '#E6F6F5' }}>
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
           <Reveal>
-            <div className="relative rounded-3xl px-8 sm:px-16 py-20 text-center overflow-hidden" style={{ background: '#2D2F5E' }}>
-              <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(0,168,150,0.15) 0%, transparent 70%)' }} />
-              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-[#3DDC84] mb-7 relative z-[2]">Faça parte</p>
-              <h2 className="font-bold leading-[1.15] text-white mb-5 mx-auto relative z-[2]" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '540px' }}>
-                Seu bairro merece uma <span style={{ color: '#3DDC84' }}>comunidade real.</span>
+            <div className="relative rounded-3xl px-8 sm:px-16 py-20 text-center overflow-hidden" style={{ background: '#00A896' }}>
+              <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.12) 0%, transparent 70%)' }} />
+              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-[#2D2F5E] mb-7 relative z-[2]">Faça parte</p>
+              <h2 className="font-bold leading-[1.15] text-[#2D2F5E] mb-5 mx-auto relative z-[2]" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '540px' }}>
+                Seu bairro merece uma <span style={{ color: '#FFFFFF' }}>comunidade real.</span>
               </h2>
-              <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '440px' }}>
+              <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(45,47,94,0.80)', maxWidth: '440px' }}>
                 A Sniffer está chegando. Entre na lista e seja um dos primeiros a construir a comunidade do seu bairro numa plataforma feita pra isso.
               </p>
               <div className="flex gap-4 justify-center items-center flex-wrap relative z-[2]">
-                <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-[#2D2F5E] bg-[#3DDC84] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(61,220,132,0.25)]">
+                <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-white bg-[#2D2F5E] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,47,94,0.25)]">
                   Entrar na lista <ChevronRight className="size-4" />
                 </a>
-                <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.60)' }}>
+                <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(45,47,94,0.70)' }}>
                   Conhecer mais <ChevronRight className="size-4" />
                 </a>
               </div>
