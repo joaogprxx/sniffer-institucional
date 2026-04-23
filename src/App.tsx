@@ -701,14 +701,6 @@ export default function App() {
               <p style={{ margin: '0 0 20px', fontSize: '14px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
                 Comunidade, Comodidade e Experiência.
               </p>
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                {['LinkedIn', 'TikTok'].map(s => (
-                  <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, transition: 'color 0.2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = green)}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
-                  >{s}</a>
-                ))}
-              </div>
             </div>
             {/* Spacer — desktop only */}
             <div className="hidden md:block md:col-span-1" />
