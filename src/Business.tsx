@@ -150,7 +150,7 @@ export default function Business() {
                 <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Sobre a plataforma</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', maxWidth: '18ch', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.2em', lineHeight: 1.1 }}>
-                Quem é a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '0.85em', display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: '2px' }} />
+                Quem é a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1em', display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: '2px' }} />
               </h2>
             </div>
           </Reveal>
