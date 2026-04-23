@@ -53,12 +53,8 @@ function XodosProfileMockup() {
   return (
     <div
       style={{
-        maxWidth: 280,
         width: '100%',
-        borderRadius: 36,
-        background: '#fff',
-        border: '1.5px solid #D1D5DB',
-        boxShadow: '0 8px 40px rgba(0,0,0,0.22)',
+        background: '#F5F5F3',
         overflow: 'hidden',
         fontFamily: "'Inter', system-ui, sans-serif",
         userSelect: 'none',
@@ -517,9 +513,39 @@ export default function Xodos() {
               </p>
             </div>
 
-            {/* Mockup column */}
+            {/* Mockup column — wrapped in iPhone frame */}
             <div className="lg:w-[320px] shrink-0 flex justify-center lg:justify-end">
-              <XodosProfileMockup />
+              {/* iPhone frame */}
+              <div style={{
+                position: 'relative',
+                width: 280,
+                background: '#1a1a1a',
+                borderRadius: 44,
+                padding: 12,
+                boxShadow: 'inset 0 0 0 2px #3a3a3a, 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px #111',
+                flexShrink: 0,
+              }}>
+                {/* Dynamic island / notch */}
+                <div style={{
+                  position: 'absolute',
+                  top: 12,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: 80,
+                  height: 6,
+                  background: '#2a2a2a',
+                  borderRadius: 3,
+                  zIndex: 2,
+                }} />
+                {/* Screen */}
+                <div style={{
+                  borderRadius: 34,
+                  overflow: 'hidden',
+                  background: '#F5F5F3',
+                }}>
+                  <XodosProfileMockup />
+                </div>
+              </div>
             </div>
           </div>
 
