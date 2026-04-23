@@ -337,7 +337,7 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #0c2018 0%, #0f1c11 55%, #0a1a0d 100%)', boxShadow: '0 32px 80px rgba(12,32,24,0.55)' }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #1b4d32 0%, #1e3d28 55%, #164d2a 100%)', boxShadow: '0 32px 80px rgba(27,77,50,0.45)' }}
             >
               {/* Radial glow — Explorador Green Principal #3DDC84 */}
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 65% 35%, rgba(61,220,132,0.16) 0%, rgba(46,204,113,0.05) 45%, transparent 70%)', pointerEvents: 'none' }} />
