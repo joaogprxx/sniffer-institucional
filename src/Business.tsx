@@ -641,7 +641,7 @@ export default function Business() {
       className="bg-navy text-white antialiased min-h-screen pt-20"
       style={{ fontFamily: 'var(--font-nunito)', position: 'relative', overflow: 'hidden' }}
     >
-      <img src="/sniffer_brandbook_bg.svg" alt="" aria-hidden="true" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '100%', height: '100%', objectFit: 'cover', opacity: 0.04, pointerEvents: 'none', zIndex: 0 }} />
+      <img src="/sniffer_brandbook_bg.svg" alt="" aria-hidden="true" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', objectFit: 'cover', opacity: 0.04, pointerEvents: 'none', zIndex: 0 }} />
 
       {/* ═══════════════════ NAVBAR ═══════════════════ */}
       <BusinessNavbar />
