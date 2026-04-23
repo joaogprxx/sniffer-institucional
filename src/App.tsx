@@ -337,29 +337,29 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #0d1f17 0%, #111026 55%, #0e1b13 100%)', boxShadow: '0 32px 80px rgba(17,16,38,0.4)' }}
+              style={{ borderRadius: '36px', overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #0c2018 0%, #0f1c11 55%, #0a1a0d 100%)', boxShadow: '0 32px 80px rgba(12,32,24,0.55)' }}
             >
-              {/* Radial green glow */}
-              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 70% 40%, rgba(80,242,150,0.10) 0%, transparent 60%)', pointerEvents: 'none' }} />
-              <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.30, pointerEvents: 'none' }}>
-                {/* Rota principal */}
-                <path d="M 60,200 C 120,160 200,100 300,120 C 400,140 440,220 520,200 C 580,185 630,140 690,160" fill="none" stroke="#50f296" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
-                {/* Desvio bairro */}
-                <path d="M 300,120 C 310,80 340,50 370,70 C 400,90 390,130 360,150 C 330,170 290,160 300,120 Z" fill="none" stroke="#50f296" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-                {/* Nó de chegada */}
-                <circle cx="520" cy="200" r="18" fill="none" stroke="#50f296" strokeWidth="10" />
-                <circle cx="520" cy="200" r="6" fill="#50f296" opacity="0.6" />
-                {/* Ponto de partida */}
-                <circle cx="60" cy="200" r="10" fill="none" stroke="#50f296" strokeWidth="8" />
-                {/* Ramificação */}
-                <path d="M 440,210 C 460,260 480,300 520,320 C 550,335 580,330 610,310" fill="none" stroke="#50f296" strokeWidth="8" strokeLinecap="round" strokeDasharray="18 10" />
+              {/* Radial glow — Explorador Green Principal #3DDC84 */}
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 65% 35%, rgba(61,220,132,0.16) 0%, rgba(46,204,113,0.05) 45%, transparent 70%)', pointerEvents: 'none' }} />
+              <svg viewBox="0 0 690 430" aria-hidden="true" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.32, pointerEvents: 'none' }}>
+                {/* Rota principal — Green Principal #3DDC84 */}
+                <path d="M 60,200 C 120,160 200,100 300,120 C 400,140 440,220 520,200 C 580,185 630,140 690,160" fill="none" stroke="#3DDC84" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Desvio bairro — Green Alternativo #6DC96A */}
+                <path d="M 300,120 C 310,80 340,50 370,70 C 400,90 390,130 360,150 C 330,170 290,160 300,120 Z" fill="none" stroke="#6DC96A" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Nó de chegada — Green Principal */}
+                <circle cx="520" cy="200" r="18" fill="none" stroke="#3DDC84" strokeWidth="10" />
+                <circle cx="520" cy="200" r="6" fill="#3DDC84" opacity="0.7" />
+                {/* Ponto de partida — Green Alternativo */}
+                <circle cx="60" cy="200" r="10" fill="none" stroke="#6DC96A" strokeWidth="8" />
+                {/* Ramificação — Green Esmeralda #2ECC71 tracejado */}
+                <path d="M 440,210 C 460,260 480,300 520,320 C 550,335 580,330 610,310" fill="none" stroke="#2ECC71" strokeWidth="8" strokeLinecap="round" strokeDasharray="18 10" />
               </svg>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
                 <div className="p-6 sm:p-10 lg:px-[52px] lg:py-[56px]" style={{ position: 'relative', zIndex: 1 }}>
 
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Antes de todos.<br />
-                    <span style={{ color: green }}>Para sempre.</span>
+                    <span style={{ color: '#3DDC84' }}>Para sempre.</span>
                   </h2>
                   <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(242,242,242,0.65)', lineHeight: 1.75, maxWidth: '50ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Você sempre é o primeiro a experimentar tudo. O primeiro a descobrir, o primeiro a indicar, o primeiro a chegar. O Rastro é pra gente como você. Benefícios exclusivos para as primeiras{' '}
@@ -373,7 +373,7 @@ export default function App() {
                       { icon: '💰', text: 'Taxas reduzidas vitalícias após o período inicial de 3 anos.' },
                       { icon: '🧪', text: 'Acesso garantido ao ambiente de testes — experimente e influencie nossas inovações antes de todo o ecossistema.' },
                     ].map((b, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}>
+                      <motion.div key={i} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', borderRadius: '16px', background: 'rgba(61,220,132,0.07)', border: '1px solid rgba(61,220,132,0.18)' }}>
                         <span style={{ fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>{b.icon}</span>
                         <span style={{ fontSize: '15px', color: 'rgba(242,242,242,0.78)', lineHeight: 1.6, fontFamily: "'Ferom', Inter, sans-serif" }}>{b.text}</span>
                       </motion.div>
@@ -389,14 +389,14 @@ export default function App() {
                       style={{ width: '140px', height: '140px', objectFit: 'contain' }}
                     />
                   </div>
-                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
+                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: '#3DDC84', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 12px 40px rgba(61,220,132,0.45)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
                     Garantir minha vaga Rastro →
                   </button>
                   <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
                     Uma vez preenchidas as 30.000 vagas, o programa será selado para sempre.
                   </p>
                 </div>
-                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '12px' }}>
+                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', borderLeft: '1px solid rgba(61,220,132,0.22)', gap: '12px' }}>
                   <motion.img
                     src="/selo-eap-estatico.png"
                     alt="Selo Early Adopter"
