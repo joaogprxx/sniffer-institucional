@@ -102,8 +102,8 @@ export default function Business() {
 
       {/* ═══════════════════ SEÇÃO 1 — HERO ═══════════════════ */}
       <section className="pt-28 pb-20 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
             As grandes plataformas te ignoraram.<br />
             <span style={{ color: '#00A896' }}>A Sniffer não.</span>
           </h1>
