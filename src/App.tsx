@@ -64,331 +64,318 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-// District accent colors — each card is a zone of the city
-const districtAccents = [
-  { bg: 'rgba(80,242,150,0.07)', border: 'rgba(80,242,150,0.22)', dot: green, labelColor: teal },
-  { bg: 'rgba(10,166,137,0.07)', border: 'rgba(10,166,137,0.20)', dot: teal, labelColor: teal },
-  { bg: 'rgba(51,45,89,0.06)',   border: 'rgba(51,45,89,0.14)',   dot: navy, labelColor: navy },
-  { bg: 'rgba(80,242,150,0.05)', border: 'rgba(80,242,150,0.18)', dot: green, labelColor: teal },
-  { bg: 'rgba(51,45,89,0.08)',   border: 'rgba(51,45,89,0.18)',   dot: navy, labelColor: navy },
-];
+// Stagger indents — each row sits at a different horizontal position
+// creating a slow sine-wave cadence as the eye travels down the list.
+// The pattern is: flush → slight → mid → slight → flush, forming a V-shape.
+const rowIndents = ['0px', '5%', '10%', '5%', '0px'];
 
 function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof useNavigate> }) {
-  const [active, setActive] = useState<number>(0);
+  const [hovered, setHovered] = useState<number | null>(null);
 
-  const cards = [
+  const items = [
     {
-      emoji: '🗺️',
+      num: '01',
       tag: 'DESCOBERTA',
       title: 'Encontre o que pulsa',
       desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece — organizados por contexto e confiança.',
     },
     {
-      emoji: '🏘️',
+      num: '02',
       tag: 'COMUNIDADES',
       title: 'Seu bairro tem voz',
       desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.',
     },
     {
-      emoji: '📅',
+      num: '03',
       tag: 'EVENTOS',
       title: 'Acontece agora',
       desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.',
     },
     {
-      emoji: '🏪',
+      num: '04',
       tag: 'NEGÓCIOS',
       title: 'Presença que converte',
       desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
     },
     {
-      emoji: '🐺',
+      num: '05',
       tag: 'MATILHA',
       title: 'Sua Matilha. Suas Regras.',
-      desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos — com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço. Não é mais um chat que morre em duas semanas. É o espaço onde as pessoas que você escolheu se encontram de verdade.',
+      desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos — com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.',
     },
   ];
 
+  const anyHovered = hovered !== null;
+
   return (
-    <section id="produtos" style={{ padding: '72px 0 80px' }}>
+    <section id="produtos" style={{ padding: '80px 0 96px' }}>
       <div className={shell}>
 
-        {/* Section label + heading */}
+        {/* Section header — editorial, sparse */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ marginBottom: '48px' }}
+          style={{ marginBottom: '72px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}
         >
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            padding: '7px 14px', borderRadius: '999px',
-            background: 'rgba(80,242,150,0.10)', border: '1px solid rgba(80,242,150,0.24)',
-            color: teal, fontSize: '12px', fontWeight: 700, letterSpacing: '0.06em',
-            marginBottom: '18px',
-          }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: green, flexShrink: 0 }} />
-            PRODUTOS
+          <div>
+            <p style={{
+              margin: '0 0 14px',
+              fontSize: '11px',
+              fontWeight: 800,
+              letterSpacing: '0.14em',
+              color: teal,
+              fontFamily: "'Ferom', Inter, sans-serif",
+              textTransform: 'uppercase',
+            }}>
+              Produtos
+            </p>
+            <h2 style={{
+              margin: 0,
+              fontSize: 'clamp(32px, 4.2vw, 58px)',
+              lineHeight: 1.0,
+              letterSpacing: '-0.05em',
+              fontWeight: 800,
+              fontFamily: "'Ferom', Inter, sans-serif",
+              color: '#111026',
+            }}>
+              Tudo que você precisa.<br />
+              <span style={{ color: teal }}>No seu bairro.</span>
+            </h2>
           </div>
-          <h2 style={{
+          {/* Pull quote — right aligned, contrasts the heavy headline */}
+          <p style={{
             margin: 0,
-            fontSize: 'clamp(30px, 3.8vw, 52px)',
-            lineHeight: 1.02,
-            letterSpacing: '-0.045em',
-            fontWeight: 800,
+            fontSize: '15px',
+            color: muted,
+            lineHeight: 1.65,
+            maxWidth: '26ch',
+            textAlign: 'right',
             fontFamily: "'Ferom', Inter, sans-serif",
-            color: '#111026',
           }}>
-            Tudo que você precisa.<br />
-            <span style={{ color: teal }}>No seu bairro.</span>
-          </h2>
+            Cinco ferramentas construídas em torno de um único princípio: confiança real.
+          </p>
         </motion.div>
 
-        {/* ── Desktop: horizontal accordion ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="hidden md:flex"
-          style={{
-            height: '420px',
-            gap: '10px',
-            borderRadius: '28px',
-            overflow: 'hidden',
-          }}
-        >
-          {cards.map((card, i) => {
-            const isActive = active === i;
-            const accent = districtAccents[i];
+        {/* ── Editorial list — desktop ── */}
+        <div className="hidden md:block">
+          {/* Top rule */}
+          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)', marginBottom: '0' }} />
 
-            return (
-              <motion.div
-                key={i}
-                layout
-                animate={{
-                  flex: isActive ? 4.2 : 1,
-                }}
-                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                onMouseEnter={() => setActive(i)}
-                style={{
-                  position: 'relative',
-                  borderRadius: '22px',
-                  background: isActive
-                    ? `linear-gradient(160deg, #ffffff 0%, rgba(255,255,255,0.94) 100%)`
-                    : 'rgba(255,255,255,0.68)',
-                  border: isActive
-                    ? `1px solid ${accent.border}`
-                    : '1px solid rgba(17,16,38,0.07)',
-                  boxShadow: isActive
-                    ? `0 16px 56px rgba(17,16,38,0.08), inset 0 0 0 1px ${accent.border}`
-                    : '0 2px 12px rgba(17,16,38,0.04)',
-                  cursor: 'pointer',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-end',
-                  flexShrink: 0,
-                  minWidth: 0,
-                  backdropFilter: 'blur(8px)',
-                }}
-              >
-                {/* Collapsed state — rotated tag label */}
-                <motion.div
-                  animate={{ opacity: isActive ? 0 : 1, scale: isActive ? 0.88 : 1 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '14px',
-                    pointerEvents: 'none',
-                  }}
-                >
-                  <span style={{ fontSize: '22px' }}>{card.emoji}</span>
-                  <span
-                    style={{
-                      fontSize: '10px',
-                      fontWeight: 800,
-                      letterSpacing: '0.12em',
-                      color: accent.labelColor,
-                      writingMode: 'vertical-lr',
-                      textOrientation: 'mixed',
-                      transform: 'rotate(180deg)',
-                      opacity: 0.8,
-                      fontFamily: "'Ferom', Inter, sans-serif",
-                    }}
-                  >
-                    {card.tag}
-                  </span>
-                  {/* Thin accent line */}
-                  <span style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '2px',
-                    height: '40px',
-                    background: `linear-gradient(to bottom, transparent, ${accent.dot})`,
-                    borderRadius: '2px',
-                    opacity: 0.5,
-                  }} />
-                </motion.div>
+          {items.map((item, i) => {
+            const isHov = hovered === i;
+            const isDimmed = anyHovered && !isHov;
 
-                {/* Active state — full content */}
-                <motion.div
-                  animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 12 }}
-                  transition={{ duration: 0.35, delay: isActive ? 0.12 : 0, ease: [0.16, 1, 0.3, 1] }}
-                  style={{
-                    padding: '36px 36px 36px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '14px',
-                    pointerEvents: isActive ? 'auto' : 'none',
-                    minWidth: '260px',
-                  }}
-                >
-                  {/* Tag pill */}
-                  <span style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '7px',
-                    fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em',
-                    color: accent.labelColor,
-                    background: accent.bg,
-                    padding: '5px 12px',
-                    borderRadius: '999px',
-                    border: `1px solid ${accent.border}`,
-                    alignSelf: 'flex-start',
-                    fontFamily: "'Ferom', Inter, sans-serif",
-                  }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: accent.dot, flexShrink: 0 }} />
-                    {card.tag}
-                  </span>
-
-                  {/* Emoji + Title row */}
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                    <span style={{ fontSize: '34px', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>{card.emoji}</span>
-                    <h3 style={{
-                      margin: 0,
-                      fontSize: 'clamp(20px, 2vw, 26px)',
-                      fontWeight: 800,
-                      letterSpacing: '-0.032em',
-                      lineHeight: 1.15,
-                      color: '#111026',
-                      fontFamily: "'Ferom', Inter, sans-serif",
-                    }}>
-                      {card.title}
-                    </h3>
-                  </div>
-
-                  {/* Description */}
-                  <p style={{
-                    margin: 0,
-                    fontSize: '15px',
-                    color: muted,
-                    lineHeight: 1.72,
-                    maxWidth: '38ch',
-                  }}>
-                    {card.desc}
-                  </p>
-
-                  {/* Progress bar — shows which card is active */}
-                  <div style={{ display: 'flex', gap: '5px', marginTop: '8px' }}>
-                    {cards.map((_, di) => (
-                      <motion.span
-                        key={di}
-                        animate={{ scaleX: di === i ? 1 : 1, opacity: di === i ? 1 : 0.22 }}
-                        transition={{ duration: 0.3 }}
-                        style={{
-                          display: 'block',
-                          height: '3px',
-                          width: di === i ? '28px' : '10px',
-                          borderRadius: '3px',
-                          background: di === i ? accent.dot : 'rgba(17,16,38,0.18)',
-                          transition: 'width 0.4s cubic-bezier(0.16,1,0.3,1)',
-                        }}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Bottom edge accent — subtle strip */}
-                <motion.div
-                  animate={{ scaleX: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: `linear-gradient(90deg, ${accent.dot}, transparent)`,
-                    transformOrigin: 'left',
-                    borderRadius: '0 0 22px 22px',
-                  }}
-                />
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* ── Mobile: vertical stack ── */}
-        <div className="flex flex-col gap-3 md:hidden">
-          {cards.map((card, i) => {
-            const accent = districtAccents[i];
             return (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.55, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
                 style={{
-                  padding: '28px 24px',
-                  borderRadius: '20px',
-                  background: 'rgba(255,255,255,0.84)',
-                  border: `1px solid ${accent.border}`,
-                  boxShadow: '0 4px 20px rgba(17,16,38,0.05)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
-                  backdropFilter: 'blur(6px)',
+                  marginLeft: rowIndents[i],
+                  paddingRight: rowIndents[i],
+                  borderBottom: '1px solid rgba(17,16,38,0.08)',
+                  cursor: 'default',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '7px',
-                    fontSize: '11px', fontWeight: 800, letterSpacing: '0.08em',
-                    color: accent.labelColor, background: accent.bg,
-                    padding: '5px 12px', borderRadius: '999px',
-                    border: `1px solid ${accent.border}`,
-                    fontFamily: "'Ferom', Inter, sans-serif",
-                  }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: accent.dot, flexShrink: 0 }} />
-                    {card.tag}
-                  </span>
-                  <span style={{ fontSize: '26px' }}>{card.emoji}</span>
-                </div>
-                <h3 style={{
-                  margin: 0,
-                  fontSize: '20px',
-                  fontWeight: 800,
-                  letterSpacing: '-0.03em',
-                  color: '#111026',
-                  fontFamily: "'Ferom', Inter, sans-serif",
-                }}>
-                  {card.title}
-                </h3>
-                <p style={{ margin: 0, fontSize: '14px', color: muted, lineHeight: 1.7 }}>
-                  {card.desc}
-                </p>
-                <div style={{ height: '2px', background: `linear-gradient(90deg, ${accent.dot}, transparent)`, borderRadius: '2px', marginTop: '4px' }} />
+                <motion.div
+                  animate={{
+                    opacity: isDimmed ? 0.28 : 1,
+                  }}
+                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '80px 1fr auto',
+                    alignItems: 'center',
+                    gap: '0',
+                    padding: '32px 0',
+                    position: 'relative',
+                  }}
+                >
+                  {/* Large ordinal — the visual anchor of each row */}
+                  <motion.span
+                    animate={{
+                      color: isHov ? green : 'rgba(51,45,89,0.12)',
+                    }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: 800,
+                      letterSpacing: '0.08em',
+                      fontFamily: "'Ferom', Inter, sans-serif",
+                      lineHeight: 1,
+                      userSelect: 'none',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {item.num}
+                  </motion.span>
+
+                  {/* Center column — tag + title stacked */}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap' }}>
+                    {/* Tag — small, uppercase, sits beside title */}
+                    <motion.span
+                      animate={{ color: isHov ? teal : 'rgba(17,16,38,0.30)' }}
+                      transition={{ duration: 0.2 }}
+                      style={{
+                        fontSize: '10px',
+                        fontWeight: 800,
+                        letterSpacing: '0.14em',
+                        fontFamily: "'Ferom', Inter, sans-serif",
+                        textTransform: 'uppercase' as const,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {item.tag}
+                    </motion.span>
+
+                    {/* Title — display scale, the weight of the row */}
+                    <motion.h3
+                      animate={{
+                        color: isHov ? '#111026' : 'rgba(17,16,38,0.72)',
+                      }}
+                      transition={{ duration: 0.2 }}
+                      style={{
+                        margin: 0,
+                        fontSize: 'clamp(22px, 2.8vw, 40px)',
+                        fontWeight: 800,
+                        letterSpacing: '-0.04em',
+                        lineHeight: 1.05,
+                        fontFamily: "'Ferom', Inter, sans-serif",
+                      }}
+                    >
+                      {item.title}
+                    </motion.h3>
+                  </div>
+
+                  {/* Description — revealed on hover, slides in from right */}
+                  <motion.p
+                    animate={{
+                      opacity: isHov ? 1 : 0,
+                      x: isHov ? 0 : 16,
+                    }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    style={{
+                      margin: 0,
+                      fontSize: '14px',
+                      color: muted,
+                      lineHeight: 1.68,
+                      maxWidth: '28ch',
+                      textAlign: 'right',
+                      fontFamily: "'Ferom', Inter, sans-serif",
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {item.desc}
+                  </motion.p>
+
+                  {/* Green slash — the signature element. Appears on hover as a structural mark
+                      between number and title, angled 20deg, like a typographic slash from
+                      a magazine layout. Positioned absolutely over the gap. */}
+                  <motion.span
+                    animate={{
+                      opacity: isHov ? 1 : 0,
+                      scaleY: isHov ? 1 : 0.4,
+                    }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    style={{
+                      position: 'absolute',
+                      left: '68px',
+                      top: '50%',
+                      transform: 'translateY(-50%) rotate(20deg)',
+                      width: '2px',
+                      height: '32px',
+                      background: green,
+                      borderRadius: '2px',
+                      transformOrigin: 'center',
+                      pointerEvents: 'none',
+                    }}
+                  />
+                </motion.div>
               </motion.div>
             );
           })}
+
+          {/* Bottom rule */}
+          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)' }} />
+        </div>
+
+        {/* ── Mobile: numbered list, compact ── */}
+        <div className="flex flex-col md:hidden">
+          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)' }} />
+          {items.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                borderBottom: '1px solid rgba(17,16,38,0.08)',
+                padding: '28px 0',
+              }}
+            >
+              {/* Number + tag row */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+                <span style={{
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  letterSpacing: '0.08em',
+                  color: 'rgba(51,45,89,0.28)',
+                  fontFamily: "'Ferom', Inter, sans-serif",
+                }}>
+                  {item.num}
+                </span>
+                {/* Mobile slash */}
+                <span style={{
+                  display: 'inline-block',
+                  width: '1.5px',
+                  height: '14px',
+                  background: green,
+                  borderRadius: '2px',
+                  transform: 'rotate(20deg)',
+                  flexShrink: 0,
+                }} />
+                <span style={{
+                  fontSize: '10px',
+                  fontWeight: 800,
+                  letterSpacing: '0.12em',
+                  color: teal,
+                  textTransform: 'uppercase' as const,
+                  fontFamily: "'Ferom', Inter, sans-serif",
+                }}>
+                  {item.tag}
+                </span>
+              </div>
+              {/* Title */}
+              <h3 style={{
+                margin: '0 0 10px',
+                fontSize: 'clamp(22px, 5.5vw, 30px)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 1.08,
+                color: '#111026',
+                fontFamily: "'Ferom', Inter, sans-serif",
+              }}>
+                {item.title}
+              </h3>
+              {/* Description */}
+              <p style={{
+                margin: 0,
+                fontSize: '14px',
+                color: muted,
+                lineHeight: 1.7,
+                maxWidth: '42ch',
+              }}>
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
       </div>
