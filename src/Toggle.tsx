@@ -40,7 +40,7 @@ const PILL_SHADOW: Record<Option, string> = {
 };
 
 const ACTIVE_TEXT: Record<Option, string> = {
-  people: '#ffffff',
+  people: '#332D59',
   business: '#00A896',
   corporate: '#2D2F5E',
 };
@@ -86,7 +86,7 @@ export function Toggle() {
   }, [active]);
 
   return (
-    <div className="fixed top-0 inset-x-0 z-[60] flex justify-center pointer-events-none pt-2">
+    <div className="fixed top-0 inset-x-0 z-[60] flex justify-center items-center pointer-events-none" style={{ height: '48px', background: 'rgba(242,242,242,0.88)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(19,21,26,0.06)' }}>
       <div className="pointer-events-auto">
       <motion.div
         ref={trackRef}

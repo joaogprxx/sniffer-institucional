@@ -49,7 +49,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
   const items = [
     { num: '01', tag: 'Descoberta', title: 'Encontre o que pulsa', desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece, organizados por contexto e confiança.' },
     { num: '02', tag: 'Comunidades', title: 'Seu bairro tem voz', desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.' },
-    { num: '03', tag: 'Eventos', title: 'Acontece agora', desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.' },
+    { num: '03', tag: 'Eventos', title: 'Acontece Agora', desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.' },
     { num: '04', tag: 'Negócios', title: 'Presença que converte', desc: 'Perfil verificado, vitrine local e visibilidade orgânica, ferramentas pensadas para o comércio do bairro.' },
     { num: '05', tag: 'Matilha', title: 'Sua Matilha. Suas Regras.', desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos, com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.' },
   ];
@@ -64,24 +64,24 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ marginBottom: '80px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}
+          style={{ marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', textAlign: 'center' }}
         >
           <div>
-            <p style={{ margin: '0 0 16px', fontSize: '11px', fontWeight: 800, letterSpacing: '0.16em', color: teal, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>
+            <p style={{ margin: '0 0 16px', fontSize: '13px', fontWeight: 800, letterSpacing: '0.16em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>
               Produtos
             </p>
             <h2 style={{ margin: 0, fontSize: 'clamp(36px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
               Tudo que você precisa.<br />
-              <span style={{ color: teal }}>No seu bairro.</span>
+              <span style={{ color: green }}>No seu bairro.</span>
             </h2>
           </div>
-          <p style={{ margin: 0, fontSize: '15px', color: muted, lineHeight: 1.65, maxWidth: '28ch', textAlign: 'right' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
-            Cinco ferramentas construídas em torno de um único princípio: confiança real.
+          <p style={{ margin: 0, fontSize: '15px', color: navy, lineHeight: 1.65, maxWidth: '28ch', textAlign: 'center' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
+            Cinco ferramentas construídas em torno de um único princípio: <strong>confiança real</strong>.
           </p>
         </motion.div>
 
         {/* Top rule */}
-        <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)' }} />
+        <div style={{ height: '2px', background: 'rgba(17,16,38,0.10)' }} />
 
         {/* Rows */}
         {items.map((item, i) => {
@@ -166,6 +166,17 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           );
         })}
 
+        {/* Mascot + CTA */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '64px', gap: '24px' }}>
+          <img src="/mascote-sniffer.svg" alt="" style={{ width: '120px', height: 'auto' }} />
+          <button
+            onClick={() => _navigate('/cadastro')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 800, background: navy, color: '#fff', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em' }}
+          >
+            Comece a farejar bons lugares →
+          </button>
+        </div>
+
       </div>
     </section>
   );
@@ -209,10 +220,10 @@ export default function App() {
       }}
     >
       {/* ── Navbar ── */}
-      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '60px', zIndex: 50, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
-        <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '48px', zIndex: 75, background: 'transparent', pointerEvents: 'none' }}>
+        <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', pointerEvents: 'auto' }}>
           <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit' }}>
-            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '32px', height: '32px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '36px', height: '36px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '22px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}>
@@ -221,13 +232,13 @@ export default function App() {
         </div>
       </div>
 
-      <main id="top" style={{ paddingTop: '60px' }}>
+      <main id="top" style={{ paddingTop: '48px' }}>
         {/* ── Hero ── */}
         <section style={{ padding: 'clamp(64px, 10vw, 96px) 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
             <div>
-              <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy }}>
-                Descubra o que realmente vale a pena na sua cidade.
+              <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy, textAlign: 'justify' }}>
+                Descubra o que realmente vale a pena na <span style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400, whiteSpace: 'nowrap' }}>sua cidade</span>.
               </h1>
               <p style={{ margin: '16px 0 0', fontSize: 'clamp(15px, 1.8vw, 20px)', color: muted, maxWidth: '33ch', lineHeight: 1.6 }}>
                 Lugares, pessoas, comunidades e eventos conectados por contexto real — com uma experiência pensada para ser bonita, útil e muito mais confiável.
@@ -249,9 +260,6 @@ export default function App() {
 
             <div className="hidden md:block" style={{ position: 'relative', minHeight: '560px' }}>
               <div style={{ position: 'absolute', inset: '4% 10% 10% 8%', borderRadius: '40px', background: 'radial-gradient(circle, rgba(80,242,150,0.24) 0%, rgba(80,242,150,0.07) 36%, transparent 68%)', filter: 'blur(18px)', zIndex: 0 }} />
-              <div style={{ position: 'absolute', left: '20px', top: '24px', padding: '12px 14px', borderRadius: '18px', zIndex: 3, fontSize: '13px', color: navy, fontWeight: 700, background: 'rgba(255,255,255,0.9)', border: `1px solid rgba(19,21,26,0.06)`, boxShadow: shadowSoft, backdropFilter: 'blur(14px)' }}>
-                Primeiras comunidades já estão surgindo
-              </div>
               <div style={{ position: 'absolute', right: '10px', top: '12px', width: 'min(300px, 100%)', background: 'rgba(17,16,38,0.96)', borderRadius: '40px', padding: '14px', boxShadow: '0 30px 80px rgba(17,16,38,0.2)', zIndex: 2 }}>
                 <div style={{ width: '34%', height: '28px', background: '#111026', borderRadius: '0 0 18px 18px', margin: '-2px auto 10px' }} />
                 <div style={{ background: 'linear-gradient(180deg, rgba(80,242,150,0.12) 0%, rgba(61,220,132,0.06) 100%)', borderRadius: '28px', minHeight: '440px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -303,12 +311,10 @@ export default function App() {
 
         {/* ── Quem faz a Sniffer ── */}
         <section style={{ padding: '0 0 42px' }}>
-          <div id="confianca" className={shell} style={{ padding: '48px', borderRadius: '32px', background: 'linear-gradient(135deg, #111026 0%, #332d59 100%)', color: '#F2F2F2', boxShadow: '0 30px 80px rgba(17,16,38,0.18)', overflow: 'hidden', position: 'relative' }}>
-            <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.22), transparent 70%)', right: '-80px', top: '-80px', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', width: '200px', height: '200px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.10), transparent 70%)', left: '-40px', bottom: '-40px', pointerEvents: 'none' }} />
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '64ch' }}>
-              <h2 style={{ ...h2Style, color: '#F2F2F2', marginBottom: '24px' }}>Quem faz a Sniffer</h2>
-              <p style={{ margin: 0, fontSize: '18px', color: 'rgba(242,242,242,0.80)', lineHeight: 1.75 }}>
+          <div id="confianca" className={shell} style={{ padding: '32px 48px', borderRadius: '32px', background: '#F5F5F3', color: navy, boxShadow: '0 8px 32px rgba(17,16,38,0.06)', overflow: 'hidden', position: 'relative' }}>
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '64ch', margin: '0 auto', textAlign: 'center' }}>
+              <h2 style={{ ...h2Style, color: navy, marginBottom: '24px' }}>Quem faz a Sniffer</h2>
+              <p style={{ margin: 0, fontSize: '18px', color: navy, lineHeight: 1.75 }}>
                 Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
               </p>
             </motion.div>
