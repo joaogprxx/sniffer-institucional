@@ -1,4 +1,5 @@
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect } from 'react';
+import { IPhoneFrame } from './components/IPhoneFrame';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
@@ -95,48 +96,7 @@ export default function Xodos() {
               </p>
             </div>
 
-            {/* Mockup column — wrapped in iPhone frame */}
-            <div className="lg:w-[320px] shrink-0 flex justify-center lg:justify-end">
-              {/* iPhone frame */}
-              <div style={{
-                position: 'relative',
-                width: 280,
-                background: '#1a1a1a',
-                borderRadius: 44,
-                padding: 12,
-                boxShadow: 'inset 0 0 0 2px #3a3a3a, 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px #111',
-                flexShrink: 0,
-              }}>
-                {/* Dynamic island / notch */}
-                <div style={{
-                  position: 'absolute',
-                  top: 12,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: 80,
-                  height: 6,
-                  background: '#2a2a2a',
-                  borderRadius: 3,
-                  zIndex: 2,
-                }} />
-                {/* Screen — fixed height with internal scroll, no visible scrollbar */}
-                <div style={{
-                  borderRadius: 34,
-                  overflowY: 'scroll',
-                  overflowX: 'hidden',
-                  background: '#000',
-                  height: 580,
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
-                } as CSSProperties}>
-                  <img
-                    src="/mockups/mockup-xodos.png"
-                    alt="Mockup do Xodós — perfil com mapa de recomendações"
-                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                  />
-                </div>
-              </div>
-            </div>
+            <IPhoneFrame src="/mockups/mockup-xodos.png" alt="Mockup do Xodós — perfil com mapa de recomendações" />
           </div>
 
           {/* Highlight box — full width below the two columns */}

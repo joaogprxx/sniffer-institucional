@@ -1,4 +1,5 @@
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect } from 'react';
+import { IPhoneFrame } from './components/IPhoneFrame';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
@@ -52,47 +53,7 @@ export default function Rastro() {
                 </p>
               </div>
 
-              {/* Mockup column — iPhone frame with internal scroll */}
-              <div className="lg:w-[320px] shrink-0 flex justify-center lg:justify-end">
-                <div style={{
-                  position: 'relative',
-                  width: 280,
-                  background: '#1a1a1a',
-                  borderRadius: 44,
-                  padding: 12,
-                  boxShadow: 'inset 0 0 0 2px #3a3a3a, 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px #111',
-                  flexShrink: 0,
-                }}>
-                  {/* Dynamic island / notch */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 12,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 80,
-                    height: 6,
-                    background: '#2a2a2a',
-                    borderRadius: 3,
-                    zIndex: 2,
-                  }} />
-                  {/* Screen — fixed height with internal scroll, no visible scrollbar */}
-                  <div style={{
-                    borderRadius: 34,
-                    overflowY: 'scroll',
-                    overflowX: 'hidden',
-                    background: '#000',
-                    height: 580,
-                    scrollbarWidth: 'none',
-                    msOverflowStyle: 'none',
-                  } as CSSProperties}>
-                    <img
-                      src="/mockups/mockup-rastro.png"
-                      alt="Mockup do Rastro — badge de fundador no perfil"
-                      style={{ width: '100%', height: 'auto', display: 'block' }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <IPhoneFrame src="/mockups/mockup-rastro.png" alt="Mockup do Rastro — badge de fundador no perfil" />
             </div>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
