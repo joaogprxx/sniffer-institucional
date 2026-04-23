@@ -18,8 +18,8 @@ const ROUTES: Record<Option, string> = {
 
 const LABEL: Record<Option, string> = {
   home: 'Home',
-  people: 'People',
-  business: 'Business',
+  people: 'Pessoas',
+  business: 'Negócios',
   corporate: 'Comunidade',
 };
 
