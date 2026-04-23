@@ -311,8 +311,8 @@ export default function App() {
 
         {/* ── Quem faz a Sniffer ── */}
         <section style={{ padding: '0 0 42px' }}>
-          <div id="confianca" className={shell} style={{ padding: '32px 48px', borderRadius: '32px', background: '#F5F5F3', color: navy, boxShadow: '0 8px 32px rgba(17,16,38,0.06)', overflow: 'hidden', position: 'relative' }}>
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '64ch', margin: '0 auto', textAlign: 'center' }}>
+          <div id="confianca" className={shell} style={{ padding: '48px 56px', borderRadius: '32px', background: '#F5F5F3', color: navy, boxShadow: '0 8px 32px rgba(17,16,38,0.06)', overflow: 'hidden', position: 'relative' }}>
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
               <h2 style={{ ...h2Style, color: navy, marginBottom: '24px' }}>Quem faz a Sniffer</h2>
               <p style={{ margin: 0, fontSize: '18px', color: navy, lineHeight: 1.75 }}>
                 Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
