@@ -363,47 +363,6 @@ export default function Home() {
         </section>
 
 
-        {/* ── No que a gente acredita ── */}
-        <section id="como-funciona" style={{ padding: '42px 0' }}>
-          <div className={shell}>
-            <div style={sectionHead}>
-              <h2 style={h2Style}>No que a gente acredita</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                {
-                  icon: '🤝',
-                  title: 'Indicações reais',
-                  desc: 'Quem indica seu negócio são seus vizinhos e clientes reais. Sem truques digitais — só a confiança de quem vive o bairro.',
-                },
-                {
-                  icon: '📍',
-                  title: 'Perto primeiro',
-                  desc: 'Você aparece primeiro para quem já está na sua rua ou a poucos minutos, antes mesmo de pensarem em atravessar a cidade.',
-                },
-                {
-                  icon: '✨',
-                  title: 'O pequeno brilha aqui',
-                  desc: 'A pizzaria do bairro, o ateliê da esquina e o novo café da rua têm a mesma prioridade que as gigantes. Seu talento local dita sua visibilidade.',
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ ...card, position: 'relative', overflow: 'hidden' }}
-                >
-                  <div style={{ fontSize: '28px', marginBottom: '16px' }}>{item.icon}</div>
-                  <h3 style={{ margin: '0 0 8px', fontSize: '20px', letterSpacing: '-0.02em', fontWeight: 700 }}>{item.title}</h3>
-                  <p style={{ color: muted, fontSize: '15px', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── Quem faz a Sniffer ── */}
         <section style={{ padding: '0 0 42px' }}>
