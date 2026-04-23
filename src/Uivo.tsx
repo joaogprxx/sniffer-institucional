@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
+import { IPhoneFrame } from './components/IPhoneFrame';
 import { ChevronRight } from 'lucide-react';
 
 export default function Uivo() {
@@ -38,11 +39,18 @@ export default function Uivo() {
             dentro da Sniffer.
           </h1>
 
-          <div className="prose prose-invert max-w-none">
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Uivo é o canal direto entre o seu negócio e as pessoas que te encontram na Sniffer. Quando alguém visita seu perfil, vê sua promoção ou descobre seu negócio no mapa, ela pode te mandar uma mensagem ali mesmo, sem sair do app, sem precisar de número de telefone, sem fricção. Você recebe tudo numa caixa de entrada dedicada ao seu negócio, com notificação em tempo real, histórico completo de conversa e indicador de mensagem lida. Dúvida sobre horário, pedido de orçamento, agendamento, reserva, tudo acontece dentro do Uivo. E diferente de outras plataformas, a conversa começa porque a pessoa já te encontrou num ambiente de confiança. Ela não está comparando dez opções num buscador. Ela te achou, gostou do que viu e decidiu falar com você.
-            </p>
+          {/* Two-column: paragraph + mockup */}
+          <div className="flex flex-col lg:flex-row gap-16 items-start mb-12">
+            <div className="flex-1">
+              <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                O Uivo é o canal direto entre o seu negócio e as pessoas que te encontram na Sniffer. Quando alguém visita seu perfil, vê sua promoção ou descobre seu negócio no mapa, ela pode te mandar uma mensagem ali mesmo, sem sair do app, sem precisar de número de telefone, sem fricção. Você recebe tudo numa caixa de entrada dedicada ao seu negócio, com notificação em tempo real, histórico completo de conversa e indicador de mensagem lida. Dúvida sobre horário, pedido de orçamento, agendamento, reserva, tudo acontece dentro do Uivo. E diferente de outras plataformas, a conversa começa porque a pessoa já te encontrou num ambiente de confiança. Ela não está comparando dez opções num buscador. Ela te achou, gostou do que viu e decidiu falar com você.
+              </p>
+            </div>
 
+            <IPhoneFrame src="/mockups/mockup-uivo.png" alt="Mockup do Uivo — caixa de entrada de atendimento no app Sniffer" />
+          </div>
+
+          <div className="prose prose-invert max-w-none">
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
