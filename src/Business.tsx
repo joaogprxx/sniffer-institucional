@@ -734,6 +734,70 @@ export default function Business() {
 
       <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
 
+      {/* ═══════════════════ QUEM É A SNIFFER ═══════════════════ */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            {/* Header */}
+            <div style={{ marginBottom: '48px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+                <div style={{ width: '48px', height: '3px', background: '#00A896', borderRadius: '2px' }} />
+                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Sobre a plataforma</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', maxWidth: '18ch' }}>Quem é a Sniffer</h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Left — Main narrative */}
+            <Reveal delay={100}>
+              <blockquote style={{ margin: '0 0 32px', padding: '0 0 0 24px', borderLeft: '3px solid #00A896', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Buasley', cursive", maxWidth: '32ch' }}>
+                "confiança se constrói no bairro, de pessoa pra pessoa, olho no olho."
+              </blockquote>
+              <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                A Sniffer é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.
+              </p>
+              <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite. Cada usuário tem apenas <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia.
+              </p>
+              <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                Quando alguém coloca o seu negócio ali, essa recomendação não some num algoritmo. Ela fica visível, gera alcance e traz gente real até a sua porta. A Sniffer não inventou o boca a boca. Ela deu estrutura, tecnologia e escala pra ele funcionar no mundo digital.
+              </p>
+            </Reveal>
+
+            {/* Right — Product features grid */}
+            <Reveal delay={200}>
+              <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                Para você, dono de negócio, a Sniffer não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver. É uma <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>plataforma completa de presença, atendimento e inteligência</strong> — tudo num lugar só.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                {[
+                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.' },
+                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.' },
+                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.' },
+                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.' },
+                  { icon: '📊', name: 'Faro', desc: 'Cada interação vira dado acionável sobre o que funciona.' },
+                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.' },
+                ].map((item) => (
+                  <div
+                    key={item.name}
+                    style={{ padding: '20px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}
+                  >
+                    <span style={{ fontSize: '22px', display: 'block', marginBottom: '10px' }}>{item.icon}</span>
+                    <span style={{ fontSize: '14px', fontWeight: 800, color: '#FFFFFF', display: 'block', marginBottom: '6px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
+                    <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ margin: '28px 0 0', fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                A Sniffer nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
       {/* ═══════════════════ SEÇÃO 4 — BUSINESS CARD EM DESTAQUE ═══════════════════ */}
       <section className="py-20 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
