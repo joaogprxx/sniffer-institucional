@@ -160,7 +160,7 @@ export default function Corporate() {
 
           <Reveal>
             <div className="rounded-3xl p-10" style={{ background: 'rgba(255,255,255,0.22)', border: '1px solid rgba(255,255,255,0.20)' }}>
-              <img src="/matilha-icon.png" alt="Matilha" className="w-20 h-20 rounded-full object-cover mb-6" />
+              <img src="/matilha-icon.png" alt="Matilha" className="w-32 h-32 object-contain mb-6" />
               <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "'Ferom', sans-serif" }}>O Conectador</h3>
               <p className="text-[13px] font-semibold tracking-[1px] uppercase text-white mb-6">Construtor de Comunidade</p>
               <blockquote className="text-[16px] leading-[1.7] font-light italic pl-5 mb-6" style={{ color: 'rgba(255,255,255,0.90)', borderLeft: '2px solid rgba(255,255,255,0.35)' }}>
