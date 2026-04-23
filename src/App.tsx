@@ -476,8 +476,10 @@ export default function App() {
                 <span>🏘️</span>
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: '#3DDC84', fontFamily: "'Ferom', Inter, sans-serif" }}>de vizinho para vizinho</span>
               </div>
-              <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: '3px solid #3DDC84', fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
-                "seu bairro sempre teve voz. com a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />, ele recupera o alcance."
+              <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: '3px solid #3DDC84', fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
+                "seu bairro sempre teve <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400, letterSpacing: '0.01em' }}>voz.</span> com a{' '}
+                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '0.9em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />,{' '}
+                ele recupera o <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400, letterSpacing: '0.01em' }}>alcance."</span>
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                 <p style={{ margin: 0 }}>
