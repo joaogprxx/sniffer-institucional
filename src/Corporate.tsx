@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronRight, Check } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { pageVariants, pageTransition } from './pageTransition';
 
 function useReveal() {
@@ -26,15 +27,20 @@ function Reveal({ children, className = '' }: { children: React.ReactNode; class
   );
 }
 
-export default function Corporate() {
-  const [isNavScrolled, setIsNavScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const shell = 'w-[min(calc(100%-32px),1180px)] mx-auto';
 
-  useEffect(() => {
-    const handleScroll = () => setIsNavScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+export default function Corporate() {
+  const navigate = useNavigate();
+
+  const btnPrimary = {
+    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+    padding: '10px 16px', borderRadius: '999px', fontWeight: 700,
+    background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)',
+    color: '#111026', border: '1px solid transparent', cursor: 'pointer',
+    boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '13px',
+    fontFamily: "'Ferom', Inter, sans-serif", whiteSpace: 'nowrap' as const,
+    pointerEvents: 'auto' as const,
+  };
 
   return (
     <motion.div
@@ -47,102 +53,49 @@ export default function Corporate() {
       style={{ fontFamily: "'Ferom', sans-serif", color: '#2D2F5E', background: '#E6F6F5' }}
     >
 
-      {/* ═══════════════════ NAV ═══════════════════ */}
-      <header className="fixed top-[68px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[960px] z-50">
-        <nav className="px-4 sm:px-6">
-          <div
-            className="relative flex flex-wrap items-center justify-between gap-6 py-3 px-6 lg:gap-0 lg:py-3 rounded-full transition-all duration-500"
-            style={{
-              background: isNavScrolled ? 'rgba(255,255,255,0.60)' : 'rgba(0,100,88,0.50)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: isNavScrolled ? '1px solid rgba(255,255,255,0.70)' : '1px solid rgba(255,255,255,0.20)',
-              boxShadow: isNavScrolled ? '0 8px 32px rgba(45,47,94,0.08)' : '0 8px 32px rgba(0,0,0,0.15)',
-            }}
-          >
-            <div className="flex w-full justify-between lg:w-auto">
-              <a href="/corporate" className="flex items-center no-underline">
-                <img src={isNavScrolled ? '/logo-sniffer-wordmark.png' : '/logo-sniffer-white.png'} alt="Sniffer" className="h-9 w-auto transition-opacity duration-300" />
-              </a>
-              <button
-                className="relative z-20 -m-1 block cursor-pointer p-2 lg:hidden transition-colors duration-300"
-                style={{ color: isNavScrolled ? '#2D2F5E' : '#fff' }}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-                aria-expanded={isMobileMenuOpen}
-              >
-                {isMobileMenuOpen ? <X className="size-6 duration-200" /> : <Menu className="size-6 duration-200" />}
-              </button>
-            </div>
-
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-              <ul className="flex gap-8 text-sm font-semibold list-none">
-                {[
-                  { label: 'Quem Somos', href: '#quem-somos' },
-                  { label: 'O Conectador', href: '#conectador' },
-                  { label: 'Funcionalidades', href: '#funcionalidades' },
-                  { label: 'Plataforma', href: '#plataforma' },
-                ].map(link => (
-                  <li key={link.label}>
-                    <a href={link.href} className="block no-underline transition-colors duration-300" style={{ color: isNavScrolled ? 'rgba(45,47,94,0.70)' : 'rgba(255,255,255,0.90)' }}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={`${isMobileMenuOpen ? 'flex' : 'hidden'} bg-white/95 lg:bg-transparent backdrop-blur-xl mt-4 lg:mt-0 w-full flex-wrap items-center justify-end space-y-6 rounded-3xl border border-navy/5 p-6 shadow-2xl shadow-navy/10 lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:p-0 lg:shadow-none`}>
-              <div className="lg:hidden w-full">
-                <ul className="space-y-6 text-base font-semibold list-none">
-                  {[
-                    { label: 'Quem Somos', href: '#quem-somos' },
-                    { label: 'O Conectador', href: '#conectador' },
-                    { label: 'Funcionalidades', href: '#funcionalidades' },
-                    { label: 'Plataforma', href: '#plataforma' },
-                  ].map(link => (
-                    <li key={link.label}><a href={link.href} className="block transition-colors duration-150" style={{ color: 'rgba(45,47,94,0.65)' }}>{link.label}</a></li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 lg:w-fit">
-                <a href="/cadastro?mode=comunidade" className="text-[13px] font-bold px-6 py-2 rounded-full transition-all no-underline text-center w-full lg:w-auto" style={{ color: '#2D2F5E', background: '#FFFFFF' }}>
-                  Entrar na lista
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      {/* ═══════════════════ NAV (People-style) ═══════════════════ */}
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '48px', zIndex: 75, background: 'transparent', pointerEvents: 'none' }}>
+        <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', pointerEvents: 'none' }}>
+          <a href="/corporate" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit', pointerEvents: 'auto' }}>
+            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '44px', height: '44px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
+          </a>
+          <button onClick={() => navigate('/cadastro')} style={btnPrimary}>
+            Junte-se
+          </button>
+        </div>
+      </div>
 
       {/* ═══════════════════ HERO ═══════════════════ */}
       <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#00A896' }}>
         <div className="absolute -top-[40%] -right-[20%] w-[900px] h-[900px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%)' }} />
         <div className="absolute -bottom-[30%] -left-[10%] w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.12) 0%, transparent 70%)' }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: 'linear-gradient(rgba(45,47,94,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(45,47,94,0.06) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
         }} />
 
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12 relative z-[2]">
           <div className="max-w-[760px] pt-[180px] pb-[160px]">
-            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full animate-[fadeUp_0.8s_0.1s_forwards] opacity-0" style={{ background: 'rgba(45,47,94,0.10)', border: '1px solid rgba(45,47,94,0.15)' }}>
-              <span className="w-[6px] h-[6px] rounded-full bg-[#2D2F5E] animate-pulse" />
-              <span className="text-[11px] font-semibold tracking-[2px] uppercase text-[#2D2F5E]">Comunidade Sniffer</span>
+            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full animate-[fadeUp_0.8s_0.1s_forwards] opacity-0" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)' }}>
+              <span className="w-[6px] h-[6px] rounded-full bg-white animate-pulse" />
+              <span className="text-[11px] font-semibold tracking-[2px] uppercase text-white">Comunidade Sniffer</span>
             </div>
             <h1
-              className="font-bold leading-[1.05] text-[#2D2F5E] mb-8 animate-[fadeUp_0.8s_0.3s_forwards] opacity-0"
+              className="font-bold leading-[1.05] text-white mb-8 animate-[fadeUp_0.8s_0.3s_forwards] opacity-0"
               style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(42px, 6vw, 72px)', letterSpacing: '-2px' }}
             >
               O bairro inteiro na<br />
               palma da <em className="not-italic text-white">sua mão.</em>
             </h1>
-            <p className="text-lg leading-[1.7] mb-12 font-light animate-[fadeUp_0.8s_0.5s_forwards] opacity-0" style={{ color: 'rgba(45,47,94,0.80)', maxWidth: '560px' }}>
+            <p className="text-lg leading-[1.7] mb-12 font-semibold animate-[fadeUp_0.8s_0.5s_forwards] opacity-0" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '560px' }}>
               A Sniffer é a plataforma onde pessoas descobrem o melhor do seu bairro através de quem elas mais confiam. Não é algoritmo. É gente real recomendando gente real.
             </p>
             <div className="flex gap-4 items-center flex-wrap animate-[fadeUp_0.8s_0.7s_forwards] opacity-0">
               <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-[#2D2F5E] bg-white px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.30)]">
                 Entrar na lista <ChevronRight className="size-4" />
               </a>
-              <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(45,47,94,0.80)' }}>
+              <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.80)' }}>
                 Conheça a Sniffer <ChevronRight className="size-4" />
               </a>
             </div>
@@ -190,34 +143,34 @@ export default function Corporate() {
         <div className="absolute right-[-300px] top-[-200px] w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(45,47,94,0.08) 0%, transparent 70%)' }} />
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-[2]">
           <Reveal>
-            <p className="text-[11px] font-semibold tracking-[3px] uppercase text-[#2D2F5E] mb-5 flex items-center gap-3">
-              <span className="w-6 h-px bg-[#2D2F5E]" />
+            <p className="text-[11px] font-semibold tracking-[3px] uppercase text-white mb-5 flex items-center gap-3">
+              <span className="w-6 h-px bg-white" />
               A comunidade
             </p>
-            <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '520px' }}>
+            <h2 className="font-bold leading-[1.1] text-white mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '520px' }}>
               Feita pra quem já constrói o bairro e quer ir além.
             </h2>
-            <p className="text-[17px] leading-[1.8] font-light mb-6" style={{ color: 'rgba(45,47,94,0.80)', maxWidth: '520px' }}>
+            <p className="text-[17px] leading-[1.8] font-semibold mb-6" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '520px' }}>
               Você já organiza o churrasco do prédio, já criou o grupo do condomínio, já indicou o melhor restaurante pra todo mundo. Você é quem conecta as pessoas ao redor. A Sniffer foi construída pra gente como você, e te dá as ferramentas que nenhum grupo de mensagens consegue oferecer.
             </p>
-            <p className="text-[17px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.80)', maxWidth: '520px' }}>
+            <p className="text-[17px] leading-[1.8] font-semibold" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '520px' }}>
               Na Sniffer, você não é só mais um membro. Você é o Conectador: a pessoa que transforma vizinhos em comunidade, que dá voz ao comércio local, que faz o bairro funcionar como rede. E agora, tudo isso tem nome, tem estrutura e tem alcance.
             </p>
           </Reveal>
 
           <Reveal>
-            <div className="rounded-3xl p-10" style={{ background: 'rgba(255,255,255,0.22)', border: '1px solid rgba(45,47,94,0.12)' }}>
+            <div className="rounded-3xl p-10" style={{ background: 'rgba(255,255,255,0.22)', border: '1px solid rgba(255,255,255,0.20)' }}>
               <div className="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold text-white mb-6" style={{ background: 'linear-gradient(135deg, #2D2F5E, #3DDC84)' }}>
                 C
               </div>
-              <h3 className="text-2xl font-bold text-[#2D2F5E] mb-1" style={{ fontFamily: "'Ferom', sans-serif" }}>O Conectador</h3>
-              <p className="text-[13px] font-semibold tracking-[1px] uppercase text-[#2D2F5E] mb-6">Construtor de Comunidade</p>
-              <blockquote className="text-[16px] leading-[1.7] font-light italic pl-5 mb-6" style={{ color: 'rgba(45,47,94,0.85)', borderLeft: '2px solid rgba(45,47,94,0.30)' }}>
+              <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "'Ferom', sans-serif" }}>O Conectador</h3>
+              <p className="text-[13px] font-semibold tracking-[1px] uppercase text-white mb-6">Construtor de Comunidade</p>
+              <blockquote className="text-[16px] leading-[1.7] font-light italic pl-5 mb-6" style={{ color: 'rgba(255,255,255,0.90)', borderLeft: '2px solid rgba(255,255,255,0.35)' }}>
                 "Eu conheço todo mundo no bairro. O problema é que cada conversa está num grupo diferente, cada indicação se perde, e ninguém lembra quem recomendou quem. Eu quero um lugar onde tudo isso tenha valor."
               </blockquote>
               <div className="flex flex-wrap gap-2">
                 {['Organizador nato', '35–45 anos', 'Urbano', 'Líder de comunidade', 'Power user', 'Curador local'].map(trait => (
-                  <span key={trait} className="text-[12px] font-medium px-3 py-1 rounded-full" style={{ background: 'rgba(45,47,94,0.10)', border: '1px solid rgba(45,47,94,0.18)', color: '#2D2F5E' }}>
+                  <span key={trait} className="text-[12px] font-medium px-3 py-1 rounded-full" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF' }}>
                     {trait}
                   </span>
                 ))}
@@ -327,18 +280,18 @@ export default function Corporate() {
           <Reveal>
             <div className="relative rounded-3xl px-8 sm:px-16 py-20 text-center overflow-hidden" style={{ background: '#00A896' }}>
               <div className="absolute top-[-50%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(61,220,132,0.12) 0%, transparent 70%)' }} />
-              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-[#2D2F5E] mb-7 relative z-[2]">Faça parte</p>
-              <h2 className="font-bold leading-[1.15] text-[#2D2F5E] mb-5 mx-auto relative z-[2]" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '540px' }}>
-                Seu bairro merece uma <span style={{ color: '#FFFFFF' }}>comunidade real.</span>
+              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-white mb-7 relative z-[2]">Faça parte</p>
+              <h2 className="font-bold leading-[1.15] text-white mb-5 mx-auto relative z-[2]" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '540px' }}>
+                Seu bairro merece uma <span style={{ color: '#50F296' }}>comunidade real.</span>
               </h2>
-              <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(45,47,94,0.80)', maxWidth: '440px' }}>
+              <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '440px' }}>
                 A Sniffer está chegando. Entre na lista e seja um dos primeiros a construir a comunidade do seu bairro numa plataforma feita pra isso.
               </p>
               <div className="flex gap-4 justify-center items-center flex-wrap relative z-[2]">
                 <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-white bg-[#2D2F5E] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,47,94,0.25)]">
                   Entrar na lista <ChevronRight className="size-4" />
                 </a>
-                <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(45,47,94,0.70)' }}>
+                <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   Conhecer mais <ChevronRight className="size-4" />
                 </a>
               </div>
@@ -353,11 +306,11 @@ export default function Corporate() {
           <a href="/corporate" className="no-underline">
             <img src="/logo-sniffer-white.png" alt="Sniffer" className="h-6 w-auto" />
           </a>
-          <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(45,47,94,0.70)' }}>
+          <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(255,255,255,0.70)' }}>
             <span>© 2026 Sniffer</span>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Privacidade</a>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Termos</a>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Contato</a>
+            <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Privacidade</a>
+            <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Termos</a>
+            <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Contato</a>
           </div>
         </div>
       </footer>
