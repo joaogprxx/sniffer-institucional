@@ -21,16 +21,28 @@ const LABEL: Record<Option, string> = {
   corporate: 'Comunidade',
 };
 
+const STRIP_BG: Record<Option, string> = {
+  people: 'rgba(242,242,242,0.88)',
+  business: 'rgba(51,45,89,0.92)',
+  corporate: 'rgba(0,168,150,0.92)',
+};
+
+const STRIP_BORDER: Record<Option, string> = {
+  people: 'rgba(19,21,26,0.06)',
+  business: 'rgba(255,255,255,0.08)',
+  corporate: 'rgba(255,255,255,0.12)',
+};
+
 const TRACK_BG: Record<Option, string> = {
   people: '#eeeee8',
   business: 'rgba(0,0,0,0.25)',
-  corporate: 'rgba(45,47,94,0.20)',
+  corporate: 'rgba(0,0,0,0.15)',
 };
 
 const PILL_BG: Record<Option, string> = {
   people: '#3DDC84',
   business: '#2D2F5E',
-  corporate: '#00A896',
+  corporate: '#332D59',
 };
 
 const PILL_SHADOW: Record<Option, string> = {
@@ -42,13 +54,13 @@ const PILL_SHADOW: Record<Option, string> = {
 const ACTIVE_TEXT: Record<Option, string> = {
   people: '#332D59',
   business: '#00A896',
-  corporate: '#2D2F5E',
+  corporate: '#ffffff',
 };
 
 const INACTIVE_TEXT: Record<Option, string> = {
   people: 'rgba(45,47,94,0.5)',
   business: 'rgba(255,255,255,0.45)',
-  corporate: 'rgba(45,47,94,0.55)',
+  corporate: 'rgba(255,255,255,0.70)',
 };
 
 const TRANSITION_BG = { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] as const };
@@ -86,7 +98,12 @@ export function Toggle() {
   }, [active]);
 
   return (
-    <div className="fixed top-0 inset-x-0 z-[60] flex justify-center items-center pointer-events-none" style={{ height: '48px', background: 'rgba(242,242,242,0.88)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(19,21,26,0.06)' }}>
+    <motion.div
+      className="fixed top-0 inset-x-0 z-[60] flex justify-center items-center pointer-events-none"
+      animate={{ backgroundColor: STRIP_BG[active] }}
+      transition={TRANSITION_BG}
+      style={{ height: '48px', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: `1px solid ${STRIP_BORDER[active]}` }}
+    >
       <div className="pointer-events-auto">
       <motion.div
         ref={trackRef}
@@ -133,6 +150,6 @@ export function Toggle() {
         ))}
       </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
