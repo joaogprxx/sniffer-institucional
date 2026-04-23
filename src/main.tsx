@@ -7,6 +7,7 @@ import Business from './Business.tsx';
 import Corporate from './Corporate.tsx';
 import JoinPage from './JoinPage.tsx';
 import Xodos from './Xodos.tsx';
+import Matilha from './Matilha.tsx';
 import { Toggle } from './Toggle.tsx';
 import './index.css';
 
@@ -31,6 +32,7 @@ function AnimatedRoutes() {
           <Route path="/people" element={<App />} />
           <Route path="/business" element={<Business />} />
           <Route path="/business/xodos" element={<Xodos />} />
+          <Route path="/business/matilha" element={<Matilha />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cadastro" element={<JoinPage />} />
         </Routes>
