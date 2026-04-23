@@ -50,28 +50,68 @@ export default function Territorio() {
               </p>
             </div>
 
-            {/* Browser frame mockup — full width below text */}
-            <div className="flex justify-center mt-10 mb-4">
-              <div style={{
-                width: '100%',
-                maxWidth: 900,
-                background: '#1a1a1a',
-                borderRadius: 12,
-                overflow: 'hidden',
-                boxShadow: '0 32px 64px rgba(0,0,0,0.35), 0 0 0 1px #111',
-              }}>
-                {/* Browser bar */}
+            {/* Browser frame mockup — interactive showcase */}
+            <motion.div
+              className="group flex justify-center mt-14 mb-8"
+              style={{ position: 'relative' }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Ambient glow — intensifies on group hover */}
+              <div
+                className="opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  position: 'absolute',
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '75%', height: '60%',
+                  background: 'radial-gradient(ellipse at center, rgba(10,166,137,0.22) 0%, rgba(80,242,150,0.06) 50%, transparent 70%)',
+                  filter: 'blur(48px)',
+                  borderRadius: '50%',
+                  zIndex: 0,
+                  pointerEvents: 'none',
+                }}
+              />
+
+              {/* Browser frame */}
+              <motion.div
+                whileHover={{ y: -6, scale: 1.008 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  width: '100%', maxWidth: 900,
+                  background: '#1a1a1a',
+                  borderRadius: 12,
+                  overflow: 'hidden',
+                  boxShadow: '0 32px 64px rgba(0,0,0,0.35), 0 0 0 1px #111',
+                  position: 'relative', zIndex: 1,
+                }}
+              >
+                {/* Browser bar with live indicator */}
                 <div style={{ background: '#2a2a2a', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{ display: 'flex', gap: 6 }}>
                     <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FF5F57', display: 'block' }} />
                     <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#FFBD2E', display: 'block' }} />
                     <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28C840', display: 'block' }} />
                   </div>
-                  <div style={{ background: '#3a3a3a', borderRadius: 6, padding: '4px 12px', fontSize: 12, color: '#888', flex: 1, textAlign: 'center' as const }}>
-                    sniffer.app/territorio
+                  <div style={{ background: '#3a3a3a', borderRadius: 6, padding: '4px 12px', fontSize: 12, color: '#888', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+                    {/* Pulsing live dot */}
+                    <span style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 10, height: 10, flexShrink: 0 }}>
+                      <motion.span
+                        animate={{ scale: [1, 2.2], opacity: [0.6, 0] }}
+                        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeOut', repeatDelay: 0.4 }}
+                        style={{ position: 'absolute', width: 8, height: 8, borderRadius: '50%', background: '#0AA689', display: 'block' }}
+                      />
+                      <span style={{ position: 'relative', width: 6, height: 6, borderRadius: '50%', background: '#0AA689', display: 'block', flexShrink: 0, boxShadow: '0 0 6px rgba(10,166,137,0.8)' }} />
+                    </span>
+                    <span style={{ fontFamily: 'monospace', letterSpacing: '0.01em' }}>sniffer.app/territorio</span>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: '#0AA689', letterSpacing: '0.06em', textTransform: 'uppercase' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                      Ao vivo
+                    </span>
                   </div>
                 </div>
-                {/* Screen — full image, no fixed height */}
+                {/* Screen — full image */}
                 <div style={{ overflow: 'hidden', width: '100%' }}>
                   <img
                     src="/mockups/mockup-territorio.png"
@@ -79,8 +119,57 @@ export default function Territorio() {
                     style={{ width: '100%', height: 'auto', display: 'block' }}
                   />
                 </div>
-              </div>
-            </div>
+              </motion.div>
+
+              {/* Chip 1 — Visualizações (top-left) */}
+              <motion.div
+                initial={{ opacity: 0, x: -16, y: 8 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.45, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{ position: 'absolute', top: -18, left: 32, background: 'rgba(10,166,137,0.12)', border: '1px solid rgba(10,166,137,0.35)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: 10, padding: '8px 14px', display: 'flex', alignItems: 'center', gap: 8, zIndex: 10, whiteSpace: 'nowrap' as const, boxShadow: '0 4px 24px rgba(10,166,137,0.15)' }}
+              >
+                <span style={{ fontSize: 16 }}>👁</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em' }}>1.240</span>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 10, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em', textTransform: 'uppercase' as const }}>visualizações</span>
+                </div>
+                <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 11, fontWeight: 700, color: '#50F296', background: 'rgba(80,242,150,0.12)', borderRadius: 5, padding: '2px 6px', letterSpacing: '0.02em' }}>+18%</span>
+              </motion.div>
+
+              {/* Chip 2 — Avaliações (bottom-right) */}
+              <motion.div
+                initial={{ opacity: 0, x: 16, y: -8 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{ position: 'absolute', bottom: -20, right: 48, background: 'rgba(51,45,89,0.85)', border: '1px solid rgba(80,242,150,0.25)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: 10, padding: '8px 14px', display: 'flex', alignItems: 'center', gap: 8, zIndex: 10, whiteSpace: 'nowrap' as const, boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}
+              >
+                <span style={{ fontSize: 15 }}>⭐</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em' }}>24 avaliações</span>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 10, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em', textTransform: 'uppercase' as const }}>este mês</span>
+                </div>
+                <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 11, fontWeight: 700, color: '#50F296', background: 'rgba(80,242,150,0.12)', borderRadius: 5, padding: '2px 6px' }}>+3</span>
+              </motion.div>
+
+              {/* Chip 3 — Chats (right mid) — hidden on mobile */}
+              <motion.div
+                className="hidden md:flex"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.75, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{ position: 'absolute', top: '38%', right: -20, background: 'rgba(51,45,89,0.9)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: 10, padding: '8px 14px', alignItems: 'center', gap: 8, zIndex: 10, whiteSpace: 'nowrap' as const, boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}
+              >
+                <span style={{ fontSize: 15 }}>💬</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 13, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em' }}>61 chats</span>
+                  <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 10, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em', textTransform: 'uppercase' as const }}>atendimentos</span>
+                </div>
+                <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: 11, fontWeight: 700, color: '#FFBD2E', background: 'rgba(255,189,46,0.12)', borderRadius: 5, padding: '2px 6px' }}>-5</span>
+              </motion.div>
+            </motion.div>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
