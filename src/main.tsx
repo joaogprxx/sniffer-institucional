@@ -12,6 +12,7 @@ import Spotlight from './Spotlight.tsx';
 import Faro from './Faro.tsx';
 import Uivo from './Uivo.tsx';
 import Rastro from './Rastro.tsx';
+import Territorio from './Territorio.tsx';
 import { Toggle } from './Toggle.tsx';
 import './index.css';
 
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
           <Route path="/business/faro" element={<Faro />} />
           <Route path="/business/uivo" element={<Uivo />} />
           <Route path="/business/rastro" element={<Rastro />} />
+          <Route path="/business/territorio" element={<Territorio />} />
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cadastro" element={<JoinPage />} />
         </Routes>

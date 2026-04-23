@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export const solutionsItems = [
+  { icon: '📍', label: 'Território', desc: 'Painel de controle completo do seu negócio', href: '/business/territorio' },
   { icon: '💛', label: 'Xodós', desc: 'Camada de confiança e programa de indicação', href: '/business/xodos' },
   { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '/business/matilha' },
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
