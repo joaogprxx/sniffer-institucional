@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 
 const shell = 'w-[min(calc(100%-32px),1180px)] mx-auto';
@@ -109,6 +109,10 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           const isActive = activeRow === i;
           const isDimmed = activeRow !== null && !isActive;
           return (
+            // Outer div owns only the scroll-reveal animation.
+            // Its `transition` is intentionally scoped to the enter animation via
+            // `viewport={{ once: true }}` — it will not re-fire on hover, so it
+            // cannot slow down hover state changes on inner elements.
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -126,10 +130,14 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                 style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '2px', background: green, transformOrigin: 'top', borderRadius: '0 0 2px 2px' }}
               />
 
+              {/* Dim wrapper — owns its own fast transition, isolated from scroll reveal */}
               <motion.div
                 animate={{ opacity: isDimmed ? 0.30 : 1 }}
                 transition={{ duration: 0.2 }}
-                style={{ padding: '0 0 0 20px' }}
+                // Consistent paddingBottom on every row replaces the conditional spacer.
+                // The description expands inside this padding, so there are no layout
+                // jumps caused by a spacer div appearing/disappearing instantly.
+                style={{ padding: '0 0 30px 20px' }}
               >
                 {/* Main row — num | tag | title */}
                 <div
@@ -155,10 +163,18 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                   </motion.h3>
                 </div>
 
-                {/* Description — slides in below the title on hover */}
+                {/* Description — slides in below the title on hover.
+                    maxHeight animates between a numeric 0 and a numeric cap (200px is
+                    safely larger than any description will ever render), so Framer
+                    Motion can interpolate it correctly — unlike `height: 'auto'` which
+                    cannot be interpolated from 0. overflow: hidden clips the content
+                    during the transition. */}
                 <motion.div
                   initial={false}
-                  animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0, marginBottom: isActive ? '28px' : '0' }}
+                  animate={{
+                    maxHeight: isActive ? 200 : 0,
+                    opacity: isActive ? 1 : 0,
+                  }}
                   transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                   style={{ overflow: 'hidden', paddingLeft: 'calc(48px + 140px)' }}
                 >
@@ -166,9 +182,6 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
                     {item.desc}
                   </p>
                 </motion.div>
-
-                {/* Spacer when not active */}
-                {!isActive && <div style={{ height: '30px' }} />}
               </motion.div>
             </motion.div>
           );
