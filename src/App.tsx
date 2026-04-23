@@ -593,7 +593,15 @@ export default function App() {
                     Uma vez preenchidas as 30.000 vagas, o programa será selado para sempre.
                   </p>
                 </div>
-                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 32px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '10px', background: 'rgba(0,0,0,0.14)' }}>
+                <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '12px', background: 'rgba(0,0,0,0.14)' }}>
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    src="/selo-eap.mp4"
+                    style={{ width: '160px', height: '160px', objectFit: 'contain', mixBlendMode: 'screen' }}
+                  />
                   <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
                   <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
                   <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
