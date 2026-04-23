@@ -600,7 +600,7 @@ export default function App() {
                     muted
                     playsInline
                     src="/selo-eap.mp4"
-                    style={{ width: '220px', height: '220px', objectFit: 'contain', filter: 'invert(1)', mixBlendMode: 'screen' }}
+                    style={{ width: '220px', height: '220px', objectFit: 'contain', mixBlendMode: 'multiply' }}
                   />
                   {/* <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
                   <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
