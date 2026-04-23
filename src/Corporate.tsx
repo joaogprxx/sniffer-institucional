@@ -348,16 +348,16 @@ export default function Corporate() {
       </section>
 
       {/* ═══════════════════ FOOTER ═══════════════════ */}
-      <footer className="py-12" style={{ borderTop: '1px solid rgba(0,168,150,0.20)' }}>
+      <footer className="py-12" style={{ background: '#00A896', borderTop: '1px solid rgba(45,47,94,0.12)' }}>
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12 flex flex-col sm:flex-row justify-between items-center gap-4">
           <a href="/corporate" className="no-underline">
-            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" className="h-6 w-auto" />
+            <img src="/logo-sniffer-white.png" alt="Sniffer" className="h-6 w-auto" />
           </a>
-          <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(45,47,94,0.50)' }}>
+          <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(45,47,94,0.70)' }}>
             <span>© 2026 Sniffer</span>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.60)' }}>Privacidade</a>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.60)' }}>Termos</a>
-            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.60)' }}>Contato</a>
+            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Privacidade</a>
+            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Termos</a>
+            <a href="#" className="no-underline transition-colors hover:text-[#2D2F5E]" style={{ color: 'rgba(45,47,94,0.70)' }}>Contato</a>
           </div>
         </div>
       </footer>
