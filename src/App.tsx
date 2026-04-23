@@ -513,7 +513,7 @@ export default function App() {
       </main>
 
       {/* ── Footer ── */}
-      <footer style={{ background: 'linear-gradient(180deg, #332d59 0%, #111026 100%)', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
+      <footer style={{ background: 'linear-gradient(180deg, #1b4d32 0%, #0f1c11 100%)', color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
         {/* Mobile: single column stack; Desktop: 12-col grid */}
         <div className={shell} style={{ padding: '48px 0 36px' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-8">
@@ -531,7 +531,7 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>PRODUTO</strong>
               {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = '#3DDC84')}
                   onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
@@ -541,7 +541,7 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>EMPRESA</strong>
               {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = '#3DDC84')}
                   onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
@@ -551,19 +551,19 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>LEGAL</strong>
               {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = '#3DDC84')}
                   onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
             </div>
           </div>
         </div>
-        <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-start' }}>
+        <div className={shell} style={{ borderTop: '1px solid rgba(61,220,132,0.20)', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-start' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px' }}>
             © 2026 <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '14px', width: 'auto', opacity: 0.6 }} /> · Todos os direitos reservados.
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px' }}>
-            Feito com <span style={{ color: green, margin: '0 2px' }}>♥</span> no Brasil
+            Feito com <span style={{ color: '#3DDC84', margin: '0 2px' }}>♥</span> no Brasil
           </span>
         </div>
       </footer>
