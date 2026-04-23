@@ -104,8 +104,8 @@ export default function Business() {
       <section className="pt-28 pb-20 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            As grandes plataformas te ignoraram.{' '}
-            <span style={{ color: '#00A896' }}>A Sniffer foi feita pra você.</span>
+            As grandes plataformas te ignoraram.<br />
+            <span style={{ color: '#00A896' }}>A Sniffer não.</span>
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
