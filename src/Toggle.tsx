@@ -99,7 +99,7 @@ export function Toggle() {
 
   return (
     <motion.div
-      className="fixed top-0 inset-x-0 z-[60] flex justify-center items-center pointer-events-none"
+      className="fixed top-[48px] md:top-0 inset-x-0 z-[60] flex justify-center items-center pointer-events-none"
       animate={{ backgroundColor: STRIP_BG[active] }}
       transition={TRANSITION_BG}
       style={{ height: '48px', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: `1px solid ${STRIP_BORDER[active]}` }}

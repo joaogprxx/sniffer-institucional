@@ -234,7 +234,7 @@ export default function App() {
         </div>
       </div>
 
-      <main id="top" style={{ paddingTop: '48px' }}>
+      <main id="top" className="pt-24 md:pt-[48px]">
         {/* ── Hero ── */}
         <section style={{ padding: 'clamp(64px, 10vw, 96px) 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
