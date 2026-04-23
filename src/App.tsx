@@ -493,31 +493,92 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── Quem Somos ── */}
-        <section id="ao-vivo" style={{ padding: '42px 0' }}>
+        {/* ── Quem é a Sniffer ── */}
+        <section id="quem-e-a-sniffer" style={{ padding: '42px 0' }}>
           <div className={shell}>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ padding: '48px', borderRadius: '32px', background: surface, border: `1px solid ${line}`, boxShadow: shadowSoft, position: 'relative', overflow: 'hidden' }}
+              style={{ position: 'relative' }}
             >
-              <div style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '999px', background: 'radial-gradient(circle, rgba(80,242,150,0.14), transparent 70%)', right: '-60px', bottom: '-60px', pointerEvents: 'none' }} />
-              <h2 style={{ ...h2Style, marginBottom: '32px' }}>Quem Somos</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '72ch' }}>
-                <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}>
-                  Você já passou por uma rua mil vezes e nunca reparou naquele lugar incrível escondido ali? A Sniffer nasceu dessa mesma curiosidade. Mais que uma rede social, somos o faro que faltava no seu bairro: o elo de confiança que ajuda as pessoas a descobrirem o que realmente está vivo e pulsante ao redor delas.
-                </motion.p>
-                <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.7 }}>
-                  Nossa missão é simples: transformar a curiosidade em um motivo novo para sair de casa. Queremos que a vizinhança sinta o cheiro do que é autêntico e descubra lugares, sabores e experiências que estão logo ali, esperando para serem encontrados. Na Sniffer, a tecnologia não serve para te prender online, mas para te levar de volta para a calçada.
-                </motion.p>
+              {/* Title */}
+              <h2 style={{ ...h2Style, marginBottom: '48px' }}>Quem é a Sniffer</h2>
+
+              {/* Two-column editorial layout */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+                {/* Column 1 — The concept */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ position: 'relative' }}
+                >
+                  {/* Accent quote mark */}
+                  <span style={{ position: 'absolute', top: '-28px', left: '-8px', fontSize: '120px', fontWeight: 900, color: 'rgba(80,242,150,0.08)', lineHeight: 1, pointerEvents: 'none', fontFamily: 'Georgia, serif' }}>"</span>
+
+                  <p style={{ margin: '0 0 28px', fontSize: '18px', color: muted, lineHeight: 1.85, position: 'relative' }}>
+                    A Sniffer é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: <strong style={{ color: navy, fontWeight: 700 }}>confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.</strong>
+                  </p>
+                  <p style={{ margin: '0 0 28px', fontSize: '17px', color: muted, lineHeight: 1.85 }}>
+                    Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite.
+                  </p>
+                  <div style={{ padding: '24px 28px', borderRadius: '20px', background: 'rgba(80,242,150,0.06)', borderLeft: `4px solid ${green}`, marginBottom: '28px' }}>
+                    <p style={{ margin: 0, fontSize: '16px', color: navy, lineHeight: 1.8, fontWeight: 500 }}>
+                      Cada usuário tem apenas <strong style={{ color: green, fontWeight: 800 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia. Quando alguém coloca o seu negócio ali, essa recomendação não some num algoritmo. Ela fica visível, gera alcance e traz gente real até a sua porta.
+                    </p>
+                  </div>
+                  <p style={{ margin: 0, fontSize: '16px', color: 'rgba(17,16,38,0.45)', lineHeight: 1.8, fontStyle: 'italic' }}>
+                    A Sniffer não inventou o boca a boca. Ela deu estrutura, tecnologia e escala pra ele funcionar no mundo digital.
+                  </p>
+                </motion.div>
+
+                {/* Column 2 — For business owners */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <p style={{ margin: '0 0 28px', fontSize: '17px', color: muted, lineHeight: 1.85 }}>
+                    Para você, dono de negócio, a Sniffer <strong style={{ color: navy, fontWeight: 700 }}>não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver.</strong> É uma plataforma completa de presença, atendimento e inteligência — tudo num lugar só.
+                  </p>
+
+                  {/* Product highlights as a feature grid */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '32px' }}>
+                    {[
+                      { name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.' },
+                      { name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.' },
+                      { name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.' },
+                      { name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.' },
+                      { name: 'Faro', desc: 'Cada interação vira dado acionável sobre o que funciona.' },
+                      { name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.' },
+                    ].map((p, i) => (
+                      <motion.div
+                        key={p.name}
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.3 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ padding: '16px', borderRadius: '16px', background: surface, border: `1px solid ${line}` }}
+                      >
+                        <span style={{ display: 'inline-block', fontSize: '13px', fontWeight: 800, color: green, letterSpacing: '-0.01em', marginBottom: '4px', fontFamily: "'Ferom', Inter, sans-serif" }}>{p.name}</span>
+                        <p style={{ margin: 0, fontSize: '13px', color: 'rgba(17,16,38,0.5)', lineHeight: 1.55 }}>{p.desc}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div style={{ padding: '24px 28px', borderRadius: '20px', background: `linear-gradient(135deg, ${navy} 0%, #111026 100%)`, color: '#F2F2F2' }}>
+                    <p style={{ margin: 0, fontSize: '16px', lineHeight: 1.8, fontWeight: 500 }}>
+                      A Sniffer nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: <strong style={{ color: green }}>transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.</strong>
+                    </p>
+                  </div>
+                </motion.div>
+
               </div>
-              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
-                <button onClick={() => navigate('/cadastro')} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif" }}>
-                  Junte-se a essa revolução! →
-                </button>
-              </motion.div>
             </motion.div>
           </div>
         </section>
