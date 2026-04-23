@@ -415,7 +415,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── Mensageria de Confiança ── */}
+        {/* ── Spotlight ── */}
         <section style={{ padding: '42px 0' }}>
           <div className={shell}>
             <motion.div
@@ -428,19 +428,19 @@ export default function App() {
             >
               <div style={{ padding: '44px 48px' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '999px', background: 'rgba(80,242,150,0.10)', border: '1px solid rgba(80,242,150,0.24)', marginBottom: '20px' }}>
-                  <span style={{ fontSize: '14px' }}>💬</span>
-                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.09em', color: teal }}>UIVO</span>
+                  <span style={{ fontSize: '14px' }}>🔦</span>
+                  <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.09em', color: teal }}>SPOTLIGHT</span>
                 </div>
-                <h2 style={{ ...h2Style, marginBottom: '16px' }}>Mensageria de Confiança</h2>
+                <h2 style={{ ...h2Style, marginBottom: '16px' }}>Sua vitrine, viva o tempo todo.</h2>
                 <p style={{ margin: 0, fontSize: '18px', color: muted, lineHeight: 1.75, maxWidth: '54ch' }}>
-                  Conversas que geram movimento. Na Sniffer, a mensageria entende o seu território. Quando alguém te chama, você sabe exatamente como essa pessoa se conecta ao seu negócio, garantindo um atendimento personalizado e seguro. É a tecnologia servindo para fortalecer o aperto de mão digital entre você e quem realmente vive o bairro.
+                  Imagina abrir o app e ver todas as promoções, eventos e novidades acontecendo agora perto de você. Aquele café com desconto na esquina, a manicure com 30% off na terça, o happy hour que começou há 10 minutos. O Spotlight te mostra o que está rolando no seu bairro em tempo real — pra você finalmente parar de descobrir as coisas boas depois que acabaram.
                 </p>
               </div>
               <div className="hidden md:flex" style={{ flexDirection: 'column', gap: '10px', padding: '44px 40px', borderLeft: `1px solid ${line}`, minWidth: '220px', justifyContent: 'center', background: 'rgba(80,242,150,0.04)' }}>
                 {[
-                  { label: 'Contexto do cliente', icon: '👤' },
-                  { label: 'Histórico do negócio', icon: '🏪' },
-                  { label: 'Atendimento seguro', icon: '🔒' },
+                  { label: 'Promoções em tempo real', icon: '⚡' },
+                  { label: 'Eventos perto de você', icon: '📍' },
+                  { label: 'Novidades do bairro', icon: '✨' },
                 ].map((item, i) => (
                   <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.15 + i * 0.09, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '14px', background: '#fff', border: `1px solid ${line}`, boxShadow: '0 2px 8px rgba(17,16,38,0.04)' }}>
                     <span style={{ fontSize: '18px' }}>{item.icon}</span>
