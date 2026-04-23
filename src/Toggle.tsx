@@ -36,7 +36,7 @@ const STRIP_BORDER: Record<Option, string> = {
 const TRACK_BG: Record<Option, string> = {
   people: '#eeeee8',
   business: 'rgba(0,0,0,0.25)',
-  corporate: 'rgba(0,0,0,0.15)',
+  corporate: 'transparent',
 };
 
 const PILL_BG: Record<Option, string> = {
@@ -110,7 +110,7 @@ export function Toggle() {
         className="relative flex items-center rounded-full px-1 py-1"
         animate={{ backgroundColor: TRACK_BG[active] }}
         transition={TRANSITION_BG}
-        style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.15)' }}
+        style={{ boxShadow: active === 'corporate' ? 'none' : 'inset 0 2px 8px rgba(0,0,0,0.15)' }}
       >
         {/* Single always-mounted pill — slides & morphs color */}
         <motion.div
