@@ -412,9 +412,9 @@ export default function Business() {
                       <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : plan.textBright ? 'text-white/70' : 'text-white/40'}`}>Principais Entregas</p>
                       <ul className="space-y-3 px-2">
                         {plan.features.map(f => (
-                          <li key={f} className="flex items-start text-sm">
-                            <CheckIcon className={`w-5 h-5 mr-2 shrink-0 ${plan.popular ? 'text-white' : 'text-tealBusiness'}`} />
-                            <span className={`leading-tight ${plan.popular ? 'text-white/80' : plan.light ? 'text-navy/80' : plan.textBright ? 'text-white' : 'text-white/70'}`}>{f}</span>
+                          <li key={f} className="flex items-start text-base">
+                            <CheckIcon className={`w-5 h-5 mr-2 mt-0.5 shrink-0 ${plan.popular ? 'text-white' : 'text-tealBusiness'}`} />
+                            <span className={`leading-snug ${plan.popular ? 'text-white/80' : plan.light ? 'text-navy/80' : plan.textBright ? 'text-white' : 'text-white/70'}`}>{f}</span>
                           </li>
                         ))}
                       </ul>
@@ -485,7 +485,7 @@ export default function Business() {
                 style={{ overflow: 'hidden' }}
               >
                 <div className="mt-10 overflow-x-auto">
-                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
                     <thead>
                       <tr>
                         <th style={{ textAlign: 'left', padding: '12px 16px', color: 'rgba(255,255,255,0.40)', fontWeight: 600, width: '35%', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>Recurso</th>
@@ -497,7 +497,7 @@ export default function Business() {
                         ].map(p => (
                           <th key={p.name} style={{ textAlign: 'center', padding: '12px 8px', borderBottom: '1px solid rgba(255,255,255,0.08)', background: p.highlight ? 'rgba(0,168,150,0.12)' : 'transparent', borderRadius: p.highlight ? '8px 8px 0 0' : 0 }}>
                             <div style={{ color: p.highlight ? '#00A896' : '#FFFFFF', fontWeight: 700 }}>{p.name}</div>
-                            <div style={{ color: 'rgba(255,255,255,0.40)', fontWeight: 400, fontSize: '12px', marginTop: '2px' }}>{p.price}</div>
+                            <div style={{ color: 'rgba(255,255,255,0.40)', fontWeight: 400, fontSize: '14px', marginTop: '2px' }}>{p.price}</div>
                           </th>
                         ))}
                       </tr>
