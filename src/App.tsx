@@ -455,9 +455,6 @@ export default function App() {
                 <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px' }}>
                   Quero ser convidado
                 </button>
-                <a href="#ao-vivo" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '13px 24px', borderRadius: '999px', fontWeight: 700, background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: '#111026', textDecoration: 'none', fontSize: '15px', fontFamily: "'Ferom', Inter, sans-serif", width: '100%', maxWidth: '320px' }}>
-                  Ver o que já está no ar
-                </a>
               </div>
               <div className="flex flex-col gap-y-2 mt-5" style={{ color: muted, fontSize: '13px' }}>
                 {['Comunidades locais', 'Eventos e interações reais', 'Baseado em confiança, não em poluição digital'].map(item => (
