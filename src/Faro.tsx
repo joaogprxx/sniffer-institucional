@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Faro() {
   useEffect(() => {
-    document.title = 'Faro — Sniffer Business';
+    document.title = 'Faro | Sniffer Business';
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export default function Faro() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-jakarta)', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-            Faro —{' '}
+            Faro{' '}
             <br className="hidden md:block" />
             <span className="text-[#0AA689]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>Fareja antes.</span>
             <br />
@@ -40,7 +40,7 @@ export default function Faro() {
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Faro é a inteligência por trás de tudo que acontece com o seu negócio na Sniffer. Cada pessoa que visita seu perfil, toca num botão de ação, salva sua promoção, entra na sua comunidade, te escolhe como Xodó ou deixa uma avaliação — tudo vira dado. E o Faro transforma esse dado em resposta. Não em gráfico bonito pra você interpretar sozinho: em resposta direta. "Seu perfil recebe 3x mais visitas no sábado de manhã." "Seu botão de ligar não recebe cliques — considere testar outra ação." "Você responde avaliações 3x mais rápido que negócios similares no seu bairro — isso está fortalecendo sua reputação." O Faro não te mostra números — te diz o que os números significam e o que fazer com eles.
+              O Faro é a inteligência por trás de tudo que acontece com o seu negócio na Sniffer. Cada pessoa que visita seu perfil, toca num botão de ação, salva sua promoção, entra na sua comunidade, te escolhe como Xodó ou deixa uma avaliação, tudo vira dado. E o Faro transforma esse dado em resposta. Não em gráfico bonito pra você interpretar sozinho: em resposta direta. "Seu perfil recebe 3x mais visitas no sábado de manhã." "Seu botão de ligar não recebe cliques, considere testar outra ação." "Você responde avaliações 3x mais rápido que negócios similares no seu bairro, isso está fortalecendo sua reputação." O Faro não te mostra números, te diz o que os números significam e o que fazer com eles.
             </p>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
@@ -49,7 +49,7 @@ export default function Faro() {
                 Além dos seus próprios dados
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                E o Faro vai além do seu próprio negócio. Nos planos pagos, ele compara seu desempenho com negócios similares na sua categoria e região, de forma anônima, e te mostra onde você está: acima da média, abaixo, ou empatado. Mais poderoso ainda: o Faro detecta demanda que ninguém está atendendo. Se pessoas no seu bairro estão buscando um serviço que nenhum negócio oferece, o Faro te avisa — e te dá o caminho pra capturar essa oportunidade antes de qualquer concorrente.
+                E o Faro vai além do seu próprio negócio. Nos planos pagos, ele compara seu desempenho com negócios similares na sua categoria e região, de forma anônima, e te mostra onde você está: acima da média, abaixo, ou empatado. Mais poderoso ainda: o Faro detecta demanda que ninguém está atendendo. Se pessoas no seu bairro estão buscando um serviço que nenhum negócio oferece, o Faro te avisa, e te dá o caminho pra capturar essa oportunidade antes de qualquer concorrente.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 É como ter o faro de um cachorro pra negócios: sentir o que está acontecendo antes de virar óbvio, e agir enquanto os outros ainda estão adivinhando.

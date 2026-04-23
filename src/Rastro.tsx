@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Rastro() {
   useEffect(() => {
-    document.title = 'Rastro — Sniffer Business';
+    document.title = 'Rastro | Sniffer Business';
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export default function Rastro() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-jakarta)', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-            Rastro —{' '}
+            Rastro{' '}
             <br className="hidden md:block" />
             <span className="text-[#0AA689]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>Antes de todos.</span>
             <br />
@@ -40,7 +40,7 @@ export default function Rastro() {
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Rastro é o programa de fundadores da Sniffer — e ele tem limite. São apenas 10.000 vagas para negócios em todo o Brasil. Quem entra agora garante 3 anos de acesso gratuito a todos os produtos da plataforma, incluindo tudo que for lançado nesse período. Sem mensalidade, sem cartão de crédito, sem surpresa. Quando as 10.000 vagas acabarem, o programa fecha permanentemente — sem exceção, sem reabertura, sem lista de espera com promessa. Para participar, seu negócio precisa estar 100% ativo na Sniffer: perfil completo no Meu Território, Xodós escolhidos, primeira Matilha criada, Spotlight publicado, Uivo ativo, eventos cadastrados, Faro e Insights configurados. Não é preencher um formulário — é usar a plataforma de verdade. No momento em que tudo estiver completo, o relógio dos 3 anos começa a contar e o selo Rastro aparece no seu perfil pra sempre.
+              O Rastro é o programa de fundadores da Sniffer, e ele tem limite. São apenas 10.000 vagas para negócios em todo o Brasil. Quem entra agora garante 3 anos de acesso gratuito a todos os produtos da plataforma, incluindo tudo que for lançado nesse período. Sem mensalidade, sem cartão de crédito, sem surpresa. Quando as 10.000 vagas acabarem, o programa fecha permanentemente, sem exceção, sem reabertura, sem lista de espera com promessa. Para participar, seu negócio precisa estar 100% ativo na Sniffer: perfil completo no Meu Território, Xodós escolhidos, primeira Matilha criada, Spotlight publicado, Uivo ativo, eventos cadastrados, Faro e Insights configurados. Não é preencher um formulário, é usar a plataforma de verdade. No momento em que tudo estiver completo, o relógio dos 3 anos começa a contar e o selo Rastro aparece no seu perfil pra sempre.
             </p>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
@@ -49,7 +49,7 @@ export default function Rastro() {
                 Uma marca de fundador
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                E quando dizemos pra sempre, é pra sempre. O selo Rastro é permanente — ele aparece no seu perfil, nos resultados de busca, no mapa, no feed, em toda superfície da Sniffer onde seu negócio for visto. Mas o mais poderoso acontece fora do app: cada negócio fundador recebe um adesivo físico e um quadro emoldurado com o selo Rastro e um QR code que leva direto pro seu perfil. Quando alguém entra no seu estabelecimento e vê a pata verde na parede, a pergunta é automática: "o que é isso?" — e aí começa uma conversa que nenhum anúncio pago consegue comprar.
+                E quando dizemos pra sempre, é pra sempre. O selo Rastro é permanente, ele aparece no seu perfil, nos resultados de busca, no mapa, no feed, em toda superfície da Sniffer onde seu negócio for visto. Mas o mais poderoso acontece fora do app: cada negócio fundador recebe um adesivo físico e um quadro emoldurado com o selo Rastro e um QR code que leva direto pro seu perfil. Quando alguém entra no seu estabelecimento e vê a pata verde na parede, a pergunta é automática: "o que é isso?", e aí começa uma conversa que nenhum anúncio pago consegue comprar.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Depois dos 3 anos, você migra para uma tarifa permanentemente reduzida como reconhecimento por ter acreditado primeiro. O Rastro não é um desconto. É uma marca de fundador. E só 10.000 negócios no Brasil vão ter uma.

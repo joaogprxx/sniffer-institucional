@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Uivo() {
   useEffect(() => {
-    document.title = 'Uivo — Sniffer Business';
+    document.title = 'Uivo | Sniffer Business';
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export default function Uivo() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-jakarta)', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-            Uivo —{' '}
+            Uivo{' '}
             <br className="hidden md:block" />
             <span className="text-[#0AA689]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>Sua voz</span>
             <br />
@@ -40,7 +40,7 @@ export default function Uivo() {
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Uivo é o canal direto entre o seu negócio e as pessoas que te encontram na Sniffer. Quando alguém visita seu perfil, vê sua promoção ou descobre seu negócio no mapa, ela pode te mandar uma mensagem ali mesmo — sem sair do app, sem precisar de número de telefone, sem fricção. Você recebe tudo numa caixa de entrada dedicada ao seu negócio, com notificação em tempo real, histórico completo de conversa e indicador de mensagem lida. Dúvida sobre horário, pedido de orçamento, agendamento, reserva — tudo acontece dentro do Uivo. E diferente de outras plataformas, a conversa começa porque a pessoa já te encontrou num ambiente de confiança. Ela não está comparando dez opções num buscador. Ela te achou, gostou do que viu e decidiu falar com você.
+              O Uivo é o canal direto entre o seu negócio e as pessoas que te encontram na Sniffer. Quando alguém visita seu perfil, vê sua promoção ou descobre seu negócio no mapa, ela pode te mandar uma mensagem ali mesmo, sem sair do app, sem precisar de número de telefone, sem fricção. Você recebe tudo numa caixa de entrada dedicada ao seu negócio, com notificação em tempo real, histórico completo de conversa e indicador de mensagem lida. Dúvida sobre horário, pedido de orçamento, agendamento, reserva, tudo acontece dentro do Uivo. E diferente de outras plataformas, a conversa começa porque a pessoa já te encontrou num ambiente de confiança. Ela não está comparando dez opções num buscador. Ela te achou, gostou do que viu e decidiu falar com você.
             </p>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
@@ -49,10 +49,10 @@ export default function Uivo() {
                 O balcão de atendimento digital
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Para você, dono de negócio, o Uivo transforma interesse em conversa e conversa em receita. Você acompanha o tempo médio de resposta do seu negócio — e esse tempo aparece no seu perfil público, mostrando pra todo mundo o quanto você é ágil. Crie respostas rápidas pra perguntas frequentes, compartilhe fotos e documentos direto no chat, e nos planos pagos, coloque mais de um atendente na mesma caixa de entrada pra nunca deixar ninguém esperando.
+                Para você, dono de negócio, o Uivo transforma interesse em conversa e conversa em receita. Você acompanha o tempo médio de resposta do seu negócio, e esse tempo aparece no seu perfil público, mostrando pra todo mundo o quanto você é ágil. Crie respostas rápidas pra perguntas frequentes, compartilhe fotos e documentos direto no chat, e nos planos pagos, coloque mais de um atendente na mesma caixa de entrada pra nunca deixar ninguém esperando.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Cada conversa iniciada, cada tempo de resposta, cada mensagem trocada alimenta o Faro — e vira inteligência sobre como as pessoas se comunicam com o seu negócio. O Uivo não é um chat. É o balcão de atendimento do seu negócio dentro da Sniffer — aberto, rápido e rastreável.
+                Cada conversa iniciada, cada tempo de resposta, cada mensagem trocada alimenta o Faro, e vira inteligência sobre como as pessoas se comunicam com o seu negócio. O Uivo não é um chat. É o balcão de atendimento do seu negócio dentro da Sniffer, aberto, rápido e rastreável.
               </p>
             </div>
 

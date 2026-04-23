@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Matilha() {
   useEffect(() => {
-    document.title = 'Matilha — Sniffer Business';
+    document.title = 'Matilha | Sniffer Business';
   }, []);
 
   return (
@@ -56,7 +56,7 @@ export default function Matilha() {
             className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-white"
             style={{ fontFamily: 'var(--font-jakarta)', lineHeight: 1.15, letterSpacing: '-0.02em' }}
           >
-            Matilha —{' '}
+            Matilha{' '}
             <br className="hidden md:block" />
             <span className="text-[#0AA689]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>
               Sua Matilha.
@@ -67,7 +67,7 @@ export default function Matilha() {
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              A Matilha é a camada de comunidade privada da Sniffer — um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer — quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
+              A Matilha é a camada de comunidade privada da Sniffer, um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer, quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
             </p>
 
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
@@ -80,10 +80,10 @@ export default function Matilha() {
                 Rituais de Matilha
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                O que torna a Matilha genuinamente diferente de qualquer grupo que existe hoje são os Rituais de Matilha — interações recorrentes e programadas que mantêm o grupo vivo sem você precisar carregar tudo nas costas. Você cria um ritual (uma pergunta semanal, um pedido de foto, um check-in rápido por emoji), define a frequência e o prazo de resposta, e a Sniffer entrega automaticamente para todos os membros.
+                O que torna a Matilha genuinamente diferente de qualquer grupo que existe hoje são os Rituais de Matilha, interações recorrentes e programadas que mantêm o grupo vivo sem você precisar carregar tudo nas costas. Você cria um ritual (uma pergunta semanal, um pedido de foto, um check-in rápido por emoji), define a frequência e o prazo de resposta, e a Sniffer entrega automaticamente para todos os membros.
               </p>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                As respostas ficam escondidas até que todos participem — criando um momento coletivo onde o grupo inteiro se enxerga. O resultado é um arquivo vivo de memórias compartilhadas, engajamento real sem esforço diário, e uma comunidade que se sente viva porque tem ritmo, não barulho.
+                As respostas ficam escondidas até que todos participem, criando um momento coletivo onde o grupo inteiro se enxerga. O resultado é um arquivo vivo de memórias compartilhadas, engajamento real sem esforço diário, e uma comunidade que se sente viva porque tem ritmo, não barulho.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Para o dono de negócio, isso significa uma coisa simples: seus clientes mais fiéis voltam toda semana, participam, e constroem uma relação com a sua marca que nenhum algoritmo de rede social consegue replicar.

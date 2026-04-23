@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 export default function Xodos() {
   // Set document title
   useEffect(() => {
-    document.title = 'Xodó — Sniffer Business';
+    document.title = 'Xodó | Sniffer Business';
   }, []);
 
   return (
@@ -60,18 +60,18 @@ export default function Xodos() {
             className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-white"
             style={{ fontFamily: "var(--font-jakarta)", lineHeight: 1.15, letterSpacing: '-0.02em' }}
           >
-            Xodó — <br className="hidden md:block"/>
+            Xodó <br className="hidden md:block"/>
             <span className="text-[#0AA689]" style={{ fontFamily: "var(--font-buasley)", fontWeight: 400 }}>Os Meus Xodós.</span><br/>
             Confiança tem nome.
           </h1>
 
           <div className="prose prose-invert max-w-none">
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              O Xodó é a camada de confiança da Sniffer. Cada negócio na plataforma tem 7 Xodós — espaços no perfil onde você escolhe, de forma pública e deliberada, as pessoas, negócios e comunidades em quem confia e recomenda.
+              O Xodó é a camada de confiança da Sniffer. Cada negócio na plataforma tem 7 Xodós, espaços no perfil onde você escolhe, de forma pública e deliberada, as pessoas, negócios e comunidades em quem confia e recomenda.
             </p>
             
             <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              E as pessoas fazem o mesmo com você: quando alguém coloca o seu negócio num dos 7 Xodós dela, essa escolha fica visível no perfil, alimenta o sistema de descoberta da Sniffer e faz seu negócio aparecer para toda a rede de confiança ao redor. Não é um seguir. Não é um curtir. É uma via de mão dupla — você recomenda quem confia, e é recomendado por quem confia em você. É o boca a boca que sempre existiu — só que agora ele tem endereço, tem visibilidade e tem alcance.
+              E as pessoas fazem o mesmo com você: quando alguém coloca o seu negócio num dos 7 Xodós dela, essa escolha fica visível no perfil, alimenta o sistema de descoberta da Sniffer e faz seu negócio aparecer para toda a rede de confiança ao redor. Não é um seguir. Não é um curtir. É uma via de mão dupla, você recomenda quem confia, e é recomendado por quem confia em você. É o boca a boca que sempre existiu, só que agora ele tem endereço, tem visibilidade e tem alcance.
             </p>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
@@ -80,13 +80,13 @@ export default function Xodos() {
                 Para o dono de negócio
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                O Xodó é a forma mais poderosa de crescer dentro da Sniffer. Escolha o fornecedor que você indica, o parceiro do bairro, a comunidade que representa seu mercado — e mostre pro mundo em quem você acredita.
+                O Xodó é a forma mais poderosa de crescer dentro da Sniffer. Escolha o fornecedor que você indica, o parceiro do bairro, a comunidade que representa seu mercado, e mostre pro mundo em quem você acredita.
               </p>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Do outro lado, pessoas que confiam no seu trabalho te colocam nos Xodós delas, e isso gera visibilidade orgânica real — seu negócio aparece mais nas buscas, no mapa e no feed de quem importa.
+                Do outro lado, pessoas que confiam no seu trabalho te colocam nos Xodós delas, e isso gera visibilidade orgânica real, seu negócio aparece mais nas buscas, no mapa e no feed de quem importa.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Cada visualização, cada toque, cada pessoa que chegou até você por um Xodó aparece no seu painel. Não é métrica inventada. É gente real dizendo publicamente que confia em você — e outras pessoas agindo com base nessa confiança. Nenhuma plataforma oferece isso hoje.
+                Cada visualização, cada toque, cada pessoa que chegou até você por um Xodó aparece no seu painel. Não é métrica inventada. É gente real dizendo publicamente que confia em você, e outras pessoas agindo com base nessa confiança. Nenhuma plataforma oferece isso hoje.
               </p>
             </div>
             
