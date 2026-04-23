@@ -445,10 +445,6 @@ export default function App() {
         <section style={{ padding: '36px 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 12px', borderRadius: '999px', background: 'rgba(255,255,255,0.72)', border: `1px solid ${line}`, color: navy, fontSize: '13px', fontWeight: 700, marginBottom: '18px' }}>
-                <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: green, boxShadow: '0 0 0 6px rgba(80,242,150,0.16)', flexShrink: 0 }} />
-                Chegando primeiro ao Brasil
-              </div>
               <h1 style={{ margin: 0, fontSize: 'clamp(30px, 5.5vw, 72px)', lineHeight: 1.0, letterSpacing: '-0.04em', maxWidth: '14ch', fontWeight: 800, color: navy }}>
                 Descubra o que realmente vale a pena na sua cidade.
               </h1>
