@@ -72,13 +72,10 @@ function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; 
 
 /* ───────────────────── Navbar Solutions items ───────────────────── */
 const solutionsItems = [
-  { icon: '📍', label: 'Território', desc: 'Presença digital completa para PMEs', href: '#como-funciona' },
   { icon: '💛', label: 'Xodós', desc: 'Camada de confiança e programa de indicação', href: '#como-funciona' },
   { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '#como-funciona' },
-  { icon: '💬', label: 'Uivo', desc: 'Mensageria: DM, grupos e live', href: '#como-funciona' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa early adopter com badge exclusivo', href: '#como-funciona' },
   { icon: '📊', label: 'Insights', desc: 'Analytics e inteligência para o seu negócio', href: '#como-funciona' },
-  { icon: '🔦', label: 'Spotlight', desc: 'Anúncio nativo no Place Card do negócio', href: '#planos' },
   { icon: '🤝', label: 'SVA', desc: 'Parceria para operadoras e distribuidores', href: '#parceiros' },
 ];
 
