@@ -102,13 +102,6 @@ function BentoSection({ navigate }: { navigate: ReturnType<typeof useNavigate> }
       title: 'Presença que converte',
       desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
     },
-    {
-      emoji: '🏅',
-      tag: 'RASTRO',
-      title: 'Antes de todos. Para sempre.',
-      desc: 'Benefícios exclusivos para as primeiras 30.000 pessoas. Selo permanente que ninguém mais vai conseguir. O Rastro não se compra. Se conquista.',
-      dark: true,
-    },
   ];
 
   return (
