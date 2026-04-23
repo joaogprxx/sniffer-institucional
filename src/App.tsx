@@ -560,10 +560,7 @@ export default function App() {
               </svg>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
                 <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.3)', marginBottom: '28px' }}>
-                    <span style={{ fontSize: '14px' }}>🏅</span>
-                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.04em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>Rastro — Antes de todos. Para sempre.</span>
-                  </div>
+
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Antes de todos.<br />
                     <span style={{ color: green }}>Para sempre.</span>
