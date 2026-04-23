@@ -103,12 +103,6 @@ function BentoSection({ navigate }: { navigate: ReturnType<typeof useNavigate> }
       desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
     },
     {
-      emoji: '💬',
-      tag: 'UIVO',
-      title: 'Mensageria com contexto',
-      desc: 'Cada conversa vem com contexto real: quem é, como chegou e o que quer. Atendimento que nasce de confiança.',
-    },
-    {
       emoji: '🏅',
       tag: 'RASTRO',
       title: '10.000 vagas fundadoras',
