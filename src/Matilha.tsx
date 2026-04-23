@@ -18,7 +18,7 @@ export default function Matilha() {
       exit="exit"
       transition={pageTransition}
       style={{
-        backgroundColor: '#111026',
+        backgroundColor: '#332D59',
         minHeight: '100vh',
         color: '#FFFFFF',
         position: 'relative',
@@ -47,9 +47,9 @@ export default function Matilha() {
         {/* Left Column - Content */}
         <div className="flex-1">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00A896] mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#00A896]"></span>
-            <span className="text-[#00A896] font-['Ferom'] text-[13px]">Produto</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AA689] mb-8">
+            <span className="w-2 h-2 rounded-full bg-[#0AA689]"></span>
+            <span className="text-[#0AA689] font-['Ferom'] text-[13px]">Produto</span>
           </div>
 
           <h1
@@ -58,7 +58,7 @@ export default function Matilha() {
           >
             Matilha —{' '}
             <br className="hidden md:block" />
-            <span className="text-[#00A896]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>
+            <span className="text-[#0AA689]" style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400 }}>
               Sua Matilha.
             </span>
             <br />
@@ -75,7 +75,7 @@ export default function Matilha() {
             </p>
 
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00A896]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Rituais de Matilha
               </h2>
@@ -85,7 +85,7 @@ export default function Matilha() {
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 As respostas ficam escondidas até que todos participem — criando um momento coletivo onde o grupo inteiro se enxerga. O resultado é um arquivo vivo de memórias compartilhadas, engajamento real sem esforço diário, e uma comunidade que se sente viva porque tem ritmo, não barulho.
               </p>
-              <p className="text-[17px] text-[#00A896] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Para o dono de negócio, isso significa uma coisa simples: seus clientes mais fiéis voltam toda semana, participam, e constroem uma relação com a sua marca que nenhum algoritmo de rede social consegue replicar.
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function Matilha() {
             {/* CTA */}
             <div className="mt-12">
               <button
-                className="bg-[#00A896] hover:bg-[#009A89] text-white font-bold py-4 px-8 rounded-xl transition-colors duration-200"
+                className="bg-[#0AA689] hover:bg-[#098F75] text-white font-bold py-4 px-8 rounded-xl transition-colors duration-200"
                 style={{ fontFamily: "'Ferom', Inter, sans-serif", fontSize: '16px' }}
               >
                 Crie sua Matilha
@@ -107,7 +107,7 @@ export default function Matilha() {
           <div
             className="sticky top-32 p-6 rounded-2xl border border-white/10"
             style={{
-              backgroundColor: 'rgba(30, 32, 70, 0.4)',
+              backgroundColor: 'rgba(51, 45, 89, 0.4)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
             }}
@@ -127,7 +127,7 @@ export default function Matilha() {
                       href={item.href}
                       className={`flex items-start gap-4 p-4 rounded-xl transition-all duration-200 ${
                         isActive
-                          ? 'bg-[#00A896]/10 border border-[#00A896]/30'
+                          ? 'bg-[#0AA689]/10 border border-[#0AA689]/30'
                           : 'bg-transparent border border-transparent hover:bg-white/5'
                       }`}
                       style={{ textDecoration: 'none' }}
@@ -135,7 +135,7 @@ export default function Matilha() {
                       <span className="text-2xl shrink-0 leading-none">{item.icon}</span>
                       <div className="flex-1 flex flex-col gap-1">
                         <span
-                          className={`font-semibold text-[15px] ${isActive ? 'text-[#00A896]' : 'text-white'}`}
+                          className={`font-semibold text-[15px] ${isActive ? 'text-[#0AA689]' : 'text-white'}`}
                           style={{ fontFamily: "'Ferom', Inter, sans-serif" }}
                         >
                           {item.label}
@@ -147,7 +147,7 @@ export default function Matilha() {
                           {item.desc}
                         </span>
                       </div>
-                      {isActive && <ChevronRight className="text-[#00A896] w-5 h-5 shrink-0 self-center" />}
+                      {isActive && <ChevronRight className="text-[#0AA689] w-5 h-5 shrink-0 self-center" />}
                     </a>
                   </li>
                 );

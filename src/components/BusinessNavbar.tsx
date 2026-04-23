@@ -56,7 +56,7 @@ export function BusinessNavbar() {
         position: 'sticky',
         top: '80px',
         zIndex: 50,
-        backgroundColor: 'rgba(30, 32, 70, 0.95)',
+        backgroundColor: 'rgba(51, 45, 89, 0.95)',
         backdropFilter: 'blur(28px) saturate(180%)',
         WebkitBackdropFilter: 'blur(28px) saturate(180%)',
         boxShadow: '0 4px 32px rgba(0, 0, 0, 0.13)',
@@ -118,7 +118,7 @@ export function BusinessNavbar() {
                 href="/business#quem-somos"
                 style={navLinkStyle}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#0AA689';
                   (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
                 }}
                 onMouseLeave={e => {
@@ -146,7 +146,7 @@ export function BusinessNavbar() {
                 <ChevronDown
                   size={14}
                   style={{
-                    color: '#00A896',
+                    color: '#0AA689',
                     transition: 'transform 200ms ease',
                     transform: solutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                   }}
@@ -162,7 +162,7 @@ export function BusinessNavbar() {
                   top: 'calc(100% + 24px)',
                   left: '50%',
                   width: '1100px',
-                  backgroundColor: '#1E2046',
+                  backgroundColor: '#332D59',
                   borderRadius: '16px',
                   boxShadow: '0 8px 32px rgba(51, 45, 89, 0.10)',
                   border: '1px solid rgba(255,255,255,0.10)',
@@ -257,7 +257,7 @@ export function BusinessNavbar() {
                 href="/business#planos"
                 style={navLinkStyle}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#00A896';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#0AA689';
                   (e.currentTarget as HTMLAnchorElement).style.textDecoration = 'underline';
                 }}
                 onMouseLeave={e => {
@@ -278,7 +278,7 @@ export function BusinessNavbar() {
             <button
               onClick={() => navigate('/cadastro?mode=business')}
               style={{
-                background: '#00A896',
+                background: '#0AA689',
                 border: 'none',
                 borderRadius: '10px',
                 padding: '10px 24px',
@@ -291,10 +291,10 @@ export function BusinessNavbar() {
                 lineHeight: 1,
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89';
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#098F75';
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896';
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#0AA689';
               }}
             >
               Junte-se a essa revolução
@@ -342,7 +342,7 @@ export function BusinessNavbar() {
                 width: 'min(360px, 90vw)',
                 height: '100vh',
                 zIndex: 70,
-                backgroundColor: '#1E2046',
+                backgroundColor: '#332D59',
                 overflowY: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
@@ -438,7 +438,7 @@ export function BusinessNavbar() {
                       <ChevronDown
                         size={18}
                         style={{
-                          color: '#00A896',
+                          color: '#0AA689',
                           flexShrink: 0,
                           transition: 'transform 250ms ease',
                           transform: mobileSolutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -508,7 +508,7 @@ export function BusinessNavbar() {
                 style={{
                   position: 'sticky',
                   bottom: 0,
-                  backgroundColor: '#1E2046',
+                  backgroundColor: '#332D59',
                   padding: '20px 24px',
                   borderTop: '1px solid rgba(255,255,255,0.10)',
                   display: 'flex',
@@ -520,7 +520,7 @@ export function BusinessNavbar() {
                 <button
                   onClick={() => navigate('/cadastro?mode=business')}
                   style={{
-                    background: '#00A896',
+                    background: '#0AA689',
                     border: 'none',
                     borderRadius: '12px',
                     padding: '14px 24px',
