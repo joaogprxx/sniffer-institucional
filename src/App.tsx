@@ -702,7 +702,7 @@ export default function App() {
                 O faro que faltava no seu bairro. Descoberta local, confiança real.
               </p>
               <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                {['Instagram', 'LinkedIn', 'TikTok'].map(s => (
+                {['LinkedIn', 'TikTok'].map(s => (
                   <a key={s} href="#" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, transition: 'color 0.2s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = green)}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
