@@ -68,7 +68,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
           style={{ marginBottom: 'clamp(40px, 6vw, 80px)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <div style={{ maxWidth: '700px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
-            <p style={{ margin: '0 0 16px', fontSize: '14px', fontWeight: 700, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const, padding: '0 16px' }}>
+            <p style={{ margin: '0 0 16px', fontSize: '22px', fontWeight: 700, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const, padding: '0 16px' }}>
               Produtos
             </p>
             <h2 style={{ margin: 0, fontSize: 'clamp(30px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
