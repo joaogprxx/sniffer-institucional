@@ -699,7 +699,7 @@ export default function App() {
             <div className="sm:col-span-2 md:col-span-5">
               <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '32px', width: 'auto', marginBottom: '12px', display: 'block' }} />
               <p style={{ margin: '0 0 20px', fontSize: '14px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
-                O faro que faltava no seu bairro. Descoberta local, confiança real.
+                Comunidade, Comodidade e Experiência.
               </p>
               <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
                 {['LinkedIn', 'TikTok'].map(s => (
