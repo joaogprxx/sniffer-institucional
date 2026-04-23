@@ -562,7 +562,7 @@ export default function App() {
                 <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.3)', marginBottom: '28px' }}>
                     <span style={{ fontSize: '14px' }}>🏅</span>
-                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO — ANTES DE TODOS. PARA SEMPRE.</span>
+                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.04em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>Rastro — Antes de todos. Para sempre.</span>
                   </div>
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Antes de todos.<br />
@@ -655,7 +655,7 @@ export default function App() {
                 <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>DE VIZINHO PARA VIZINHO</span>
               </div>
               <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 400, lineHeight: 1.2, letterSpacing: '-0.01em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Buasley', cursive" }}>
-                "Seu bairro sempre teve voz. Com a Sniffer, ele recupera o alcance."
+                "Seu bairro sempre teve voz. Com a <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700 }}>Sniffer</span>, ele recupera o alcance."
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                 <p style={{ margin: 0 }}>
@@ -668,7 +668,7 @@ export default function App() {
                   <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
                 </p>
                 <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
-                  A Sniffer nasceu para ser esse caminho.
+                  A <span style={{ fontFamily: "'Ferom', Inter, sans-serif", fontWeight: 700 }}>Sniffer</span> nasceu para ser esse caminho.
                 </p>
                 <p style={{ margin: 0 }}>
                   Nós damos mobilidade ao conhecimento que já existe — vivo, real e espalhado pela comunidade. Aqui, a tecnologia não substitui ninguém; ela serve como suporte e velocidade para que a indicação da{' '}
