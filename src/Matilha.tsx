@@ -98,6 +98,9 @@ export default function Matilha() {
               >
                 Crie sua Matilha
               </button>
+            <p className="mt-5 text-sm text-white/30" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <a href="/business#planos" className="hover:text-white/60 transition-colors duration-200" style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}>comparar preços</a>
+            </p>
             </div>
           </div>
         </div>
