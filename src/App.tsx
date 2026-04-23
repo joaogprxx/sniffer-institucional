@@ -170,10 +170,10 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
 
         {/* Mascot + CTA */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '48px', gap: '12px' }}>
-          <img src="/mascote-sniffer.svg" alt="Sniffer mascote" style={{ width: '64px', height: 'auto' }} />
+          <img src="/logo-sniffer.png" alt="Sniffer mascote" style={{ width: '64px', height: 'auto' }} />
           <button
             onClick={() => _navigate('/cadastro')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontWeight: 700, color: navy, fontFamily: "'Ferom', Inter, sans-serif", textAlign: 'center' }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontWeight: 700, color: green, fontFamily: "'Ferom', Inter, sans-serif", textAlign: 'center' }}
           >
             Comece a farejar bons lugares →
           </button>
