@@ -105,7 +105,11 @@ export default function Business() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
             As grandes plataformas te ignoraram.<br />
-            <span style={{ color: '#00A896' }}>A Sniffer não.</span>
+            <span style={{ color: '#00A896', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.18em', flexWrap: 'wrap' }}>
+              A{' '}
+              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.05em' }} />
+              {' '}não.
+            </span>
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
