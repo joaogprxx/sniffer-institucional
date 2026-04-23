@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
 import { BusinessNavbar, solutionsItems } from './components/BusinessNavbar';
+import { IPhoneFrame } from './components/IPhoneFrame';
 import { ChevronRight } from 'lucide-react';
 
 export default function Matilha() {
@@ -65,15 +66,22 @@ export default function Matilha() {
             Suas Regras.
           </h1>
 
+          {/* Two-column: paragraphs + mockup */}
+          <div className="flex flex-col lg:flex-row gap-16 items-start mb-12">
+            <div className="flex-1">
+              <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                A Matilha é a camada de comunidade privada da Sniffer, um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer, quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
+              </p>
+
+              <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
+                Pense num grupo VIP para os seus melhores clientes, numa comunidade de lançamento para um produto novo, ou num canal direto com os parceiros do seu bairro. A Matilha não é mais um chat. É o espaço onde pertencimento vira estratégia.
+              </p>
+            </div>
+
+            <IPhoneFrame src="/mockups/mockup-matilha.png" alt="Mockup da Matilha — comunidade privada no app Sniffer" />
+          </div>
+
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              A Matilha é a camada de comunidade privada da Sniffer, um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer, quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
-            </p>
-
-            <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-              Pense num grupo VIP para os seus melhores clientes, numa comunidade de lançamento para um produto novo, ou num canal direto com os parceiros do seu bairro. A Matilha não é mais um chat. É o espaço onde pertencimento vira estratégia.
-            </p>
-
             <div className="my-12 p-8 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0AA689]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
