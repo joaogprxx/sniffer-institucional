@@ -682,57 +682,7 @@ export default function Business() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
 
-      {/* ═══════════════════ SEÇÃO 2 — O PROBLEMA ═══════════════════ */}
-      <section id="como-funciona" className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <Reveal>
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-semibold text-center mb-14" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            <span style={{ letterSpacing: '-0.02em' }}>O que é a{' '}
-            <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em', marginLeft: '-0.2em', marginRight: '-0.25em' }} />
-            ?</span>
-          </h2>
-
-          </Reveal>
-          <Reveal delay={100}>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            {/* Before */}
-            <div className="border border-white/10 rounded-2xl p-8">
-              <h3 className="font-extrabold text-lg mb-5 text-white/40" style={{ fontFamily: 'var(--font-jakarta)' }}>Antes</h3>
-              <ul className="space-y-4">
-                {['Só listagem e visualização', 'Presença sem ação', 'Zero integração operacional', 'Sem retorno mensurável'].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="text-red-400/60 font-bold mt-0.5">✕</span>
-                    <span className="text-white/50 line-through">{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {/* After */}
-            <div className="border border-tealBusiness/30 bg-tealBusiness/10 rounded-2xl p-8">
-              <h3 className="font-extrabold text-lg mb-5 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>Com o Sniffer</h3>
-              <ul className="space-y-4">
-                {['Leads verificáveis e conversões', 'Business Card com ações diretas', 'Integração com seu dia a dia', 'ROI em tempo real'].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="text-tealBusiness font-bold mt-0.5">✓</span>
-                    <span className="text-white font-semibold">{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          </Reveal>
-          <Reveal delay={200}>
-          <p className="text-center text-white/50 text-[0.95rem] max-w-[600px] mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-nunito)' }}>
-            PMEs brasileiras investem mais de R$ 40 bilhões por ano em marketing e tecnologia. A maioria vai pra ferramentas que entregam alcance — não resultado. A gente tá aqui pra mudar isso.
-          </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
 
       {/* ═══════════════════ QUEM É A SNIFFER ═══════════════════ */}
       <section className="py-20 sm:py-24 px-4 sm:px-6">
