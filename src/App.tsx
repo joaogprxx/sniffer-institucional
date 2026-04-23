@@ -209,8 +209,8 @@ export default function App() {
       }}
     >
       {/* ── Navbar ── */}
-      <div style={{ position: 'sticky', top: '72px', zIndex: 40, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
-        <div className={shell} style={{ minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 0' }}>
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '60px', zIndex: 50, backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', background: 'rgba(242,242,242,0.82)', borderBottom: '1px solid rgba(19,21,26,0.05)' }}>
+        <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
           <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit' }}>
             <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '32px', height: '32px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '22px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
@@ -221,7 +221,7 @@ export default function App() {
         </div>
       </div>
 
-      <main id="top">
+      <main id="top" style={{ paddingTop: '60px' }}>
         {/* ── Hero ── */}
         <section style={{ padding: 'clamp(64px, 10vw, 96px) 0 28px' }}>
           <div className={`${shell} grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}>
