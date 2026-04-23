@@ -57,7 +57,7 @@ export default function Corporate() {
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '48px', zIndex: 75, background: 'transparent', pointerEvents: 'none' }}>
         <div className={shell} style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', pointerEvents: 'none' }}>
           <a href="/corporate" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'inherit', pointerEvents: 'auto' }}>
-            <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '44px', height: '44px', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
+            <img src="/mascote-navbar.png" alt="Sniffer" style={{ height: '44px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro')} style={btnPrimary}>
