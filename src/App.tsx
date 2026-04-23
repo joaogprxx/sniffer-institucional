@@ -736,7 +736,9 @@ export default function App() {
           </div>
         </div>
         <div className={shell} style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '20px 0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-          <span>© 2026 Sniffer · Todos os direitos reservados.</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            © 2026 <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '16px', width: 'auto', opacity: 0.7 }} /> · Todos os direitos reservados.
+          </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             Feito com <span style={{ color: green, margin: '0 2px' }}>♥</span> no Brasil
           </span>
