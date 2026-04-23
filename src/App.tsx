@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
@@ -386,7 +386,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
 export default function App() {
   const navigate = useNavigate();
 
-  const btnPrimary: React.CSSProperties = {
+  const btnPrimary: CSSProperties = {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
     padding: '14px 24px', borderRadius: '999px', fontWeight: 700,
     background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)',
@@ -395,7 +395,7 @@ export default function App() {
     fontFamily: "'Ferom', Inter, sans-serif",
   };
 
-  const h2Style: React.CSSProperties = {
+  const h2Style: CSSProperties = {
     margin: 0, fontSize: 'clamp(32px, 4vw, 54px)', lineHeight: 1.02,
     letterSpacing: '-0.045em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif",
   };
