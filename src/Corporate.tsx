@@ -241,14 +241,14 @@ export default function Corporate() {
       <section className="py-[140px]" id="plataforma" style={{ background: '#D0EFED' }}>
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12">
           <Reveal className="mb-16">
-            <p className="text-[11px] font-semibold tracking-[3px] uppercase text-[#00A896] mb-5 flex items-center gap-3">
+            <p className="text-[14px] font-semibold tracking-[3px] uppercase text-[#00A896] mb-5 flex items-center gap-3">
               <span className="w-6 h-px bg-[#00A896]" />
               A plataforma
             </p>
-            <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '560px' }}>
+            <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(34px, 4vw, 52px)', letterSpacing: '-1.5px', maxWidth: '560px' }}>
               Cada camada resolve um problema real.
             </h2>
-            <p className="text-[17px] leading-[1.75] font-light" style={{ color: 'rgba(45,47,94,0.60)', maxWidth: '540px' }}>
+            <p className="text-[20px] leading-[1.75] font-light" style={{ color: 'rgba(45,47,94,0.60)', maxWidth: '540px' }}>
               A Sniffer é construída em camadas que trabalham juntas. Cada uma entrega valor sozinha, e todas se alimentam entre si.
             </p>
           </Reveal>
@@ -263,10 +263,10 @@ export default function Corporate() {
                 { num: '05', name: 'Marketplace', desc: 'Ofertas, reservas e transações dentro da rede de confiança. Monetização por assinatura, sem comissão sobre vendas.' },
               ]).map((layer, i, arr) => (
                 <div key={i} className="grid gap-12 py-8 group transition-colors duration-200 cursor-default" style={{ gridTemplateColumns: '160px 1fr', borderBottom: i < arr.length - 1 ? '1px solid rgba(0,168,150,0.15)' : 'none' }}>
-                  <div className="font-bold text-[15px] tracking-[1px] pt-0.5 transition-colors duration-200 group-hover:text-[#00A896]" style={{ fontFamily: "'Ferom', sans-serif", color: '#2D2F5E' }}>
+                  <div className="font-bold text-[19px] tracking-[1px] pt-0.5 transition-colors duration-200 group-hover:text-[#00A896]" style={{ fontFamily: "'Ferom', sans-serif", color: '#2D2F5E' }}>
                     {layer.num} {layer.name}
                   </div>
-                  <div className="text-[16px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.65)' }}>{layer.desc}</div>
+                  <div className="text-[19px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.65)' }}>{layer.desc}</div>
                 </div>
               ))}
             </div>
