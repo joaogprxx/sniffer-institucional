@@ -105,8 +105,8 @@ function BentoSection({ navigate }: { navigate: ReturnType<typeof useNavigate> }
     {
       emoji: '🏅',
       tag: 'RASTRO',
-      title: '10.000 vagas fundadoras',
-      desc: '3 anos gratuito. Selo permanente de Fundador. Taxas reduzidas vitalícias. Seja um dos primeiros a deixar rastro.',
+      title: 'Antes de todos. Para sempre.',
+      desc: 'Benefícios exclusivos para as primeiras 30.000 pessoas. Selo permanente que ninguém mais vai conseguir. O Rastro não se compra. Se conquista.',
       dark: true,
     },
   ];
@@ -373,16 +373,16 @@ export default function App() {
                 <div style={{ padding: '56px 52px', position: 'relative', zIndex: 1 }}>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 16px', borderRadius: '999px', background: 'rgba(80,242,150,0.12)', border: '1px solid rgba(80,242,150,0.3)', marginBottom: '28px' }}>
                     <span style={{ fontSize: '14px' }}>🏅</span>
-                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO — SELO EARLY ADOPTER</span>
+                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: green, fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO — ANTES DE TODOS. PARA SEMPRE.</span>
                   </div>
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
-                    Você marca presença.<br />
-                    <span style={{ color: green }}>A gente garante o seu lugar.</span>
+                    Antes de todos.<br />
+                    <span style={{ color: green }}>Para sempre.</span>
                   </h2>
                   <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(242,242,242,0.65)', lineHeight: 1.75, maxWidth: '50ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
-                    O rastro começa com você. Estamos reservando apenas{' '}
-                    <strong style={{ color: '#F2F2F2', fontWeight: 700 }}>10.000 vagas</strong>{' '}
-                    para os negócios fundadores que vão deixar sua marca no mapa.
+                    Você sempre é o primeiro a experimentar tudo. O primeiro a descobrir, o primeiro a indicar, o primeiro a chegar. O Rastro é pra gente como você. Benefícios exclusivos para as primeiras{' '}
+                    <strong style={{ color: '#F2F2F2', fontWeight: 700 }}>30.000 pessoas</strong>{' '}
+                    e um selo permanente que ninguém mais vai conseguir. O Rastro não se compra. Se conquista.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
                     {[
@@ -401,11 +401,11 @@ export default function App() {
                     Garantir minha vaga Rastro →
                   </button>
                   <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
-                    Uma vez preenchidas as 10.000 vagas, o programa será selado para sempre.
+                    Uma vez preenchidas as 30.000 vagas, o programa será selado para sempre.
                   </p>
                 </div>
                 <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 32px', borderLeft: '1px solid rgba(255,255,255,0.10)', gap: '10px', background: 'rgba(0,0,0,0.14)' }}>
-                  <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>10k</span>
+                  <span style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-0.06em', color: green, lineHeight: 1, fontFamily: "'Ferom', Inter, sans-serif" }}>30k</span>
                   <span style={{ fontSize: '13px', color: 'rgba(242,242,242,0.4)', textAlign: 'center', lineHeight: 1.5, fontFamily: "'Ferom', Inter, sans-serif" }}>vagas<br />disponíveis</span>
                   <div style={{ width: '36px', height: '1px', background: 'rgba(80,242,150,0.35)', margin: '8px 0' }} />
                   <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', color: 'rgba(80,242,150,0.55)', textAlign: 'center', fontFamily: "'Ferom', Inter, sans-serif" }}>ACESSO<br />VITALÍCIO</span>
