@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, type CSSProperties, type MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
@@ -42,27 +42,6 @@ function ProductItem({ emoji, tag, title, desc, defaultOpen = false }: { emoji: 
   );
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div style={{ border: `1px solid ${line}`, borderRadius: '22px', background: 'rgba(255,255,255,0.8)', padding: '0 22px', boxShadow: shadowSoft }}>
-      <button
-        onClick={() => setOpen(v => !v)}
-        style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700, padding: '22px 34px 22px 0', position: 'relative', fontSize: '16px', color: '#111026', fontFamily: "'Ferom', Inter, sans-serif" }}
-      >
-        {question}
-        <span style={{ position: 'absolute', right: 0, top: '16px', fontSize: '26px', fontWeight: 400, color: muted, lineHeight: 1 }}>
-          {open ? '–' : '+'}
-        </span>
-      </button>
-      {open && (
-        <p style={{ margin: '0 0 20px', color: muted, maxWidth: '70ch', fontSize: '15px', fontFamily: "'Ferom', Inter, sans-serif" }}>
-          {answer}
-        </p>
-      )}
-    </div>
-  );
-}
 
 function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof useNavigate> }) {
   const [activeRow, setActiveRow] = useState<number | null>(null);
@@ -209,13 +188,6 @@ export default function App() {
     letterSpacing: '-0.045em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif",
   };
 
-  const faqs = [
-    { q: 'O que é a Sniffer?', a: 'A Sniffer é uma plataforma de descoberta social focada em lugares, pessoas, comunidades e eventos, com uma arquitetura pensada para confiança e contexto real.' },
-    { q: 'O que já existe na experiência?', a: 'A base já considera descoberta de lugares, comunidades, eventos e interação entre usuários e negócios, além de camadas estruturadas de moderação e verificação para sustentar o ecossistema.' },
-    { q: 'O que torna a Sniffer diferente?', a: 'Ela não tenta ser só mapa, só rede social ou só agenda. A proposta é conectar descoberta local e participação real em um mesmo ambiente, com foco maior em autenticidade.' },
-    { q: 'Preciso verificar minha conta?', a: 'Nem sempre. Em alguns casos, a Sniffer pode solicitar validações para ajudar a manter interações mais seguras e confiáveis na plataforma.' },
-    { q: 'Quando a Sniffer chega?', a: 'A Sniffer está sendo construída em etapas, com abertura gradual. "Quero ser convidado" é a melhor forma de acompanhar as primeiras liberações e novidades.' },
-  ];
 
   return (
     <motion.div
@@ -515,8 +487,8 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>PRODUTO</strong>
               {['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = green)}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
             </div>
@@ -525,8 +497,8 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>EMPRESA</strong>
               {['Quem Somos', 'Cadastro', 'Contato'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = green)}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
             </div>
@@ -535,8 +507,8 @@ export default function App() {
               <strong style={{ display: 'block', color: 'rgba(255,255,255,0.3)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}>LEGAL</strong>
               {['Termos de Uso', 'Privacidade', 'Cookies'].map(l => (
                 <a key={l} href="#" style={{ display: 'block', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px', transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = green)}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                  onMouseEnter={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = green)}
+                  onMouseLeave={(e: MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >{l}</a>
               ))}
             </div>
