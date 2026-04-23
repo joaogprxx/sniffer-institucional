@@ -105,10 +105,10 @@ export default function Business() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
             As grandes plataformas te ignoraram.<br />
-            <span style={{ color: '#00A896', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.18em', flexWrap: 'wrap' }}>
-              A{' '}
-              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginTop: '-0.7em', marginBottom: '-0.7em' }} />
-              {' '}não.
+            <span style={{ color: '#00A896', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 0, flexWrap: 'wrap' }}>
+              A
+              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginTop: '-0.7em', marginBottom: '-0.7em', marginLeft: '-0.18em', marginRight: '-0.18em' }} />
+              não.
             </span>
           </h1>
 
