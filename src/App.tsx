@@ -64,316 +64,363 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-// Stagger indents — each row sits at a different horizontal position
-// creating a slow sine-wave cadence as the eye travels down the list.
-// The pattern is: flush → slight → mid → slight → flush, forming a V-shape.
-const rowIndents = ['0px', '5%', '10%', '5%', '0px'];
-
 function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof useNavigate> }) {
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
-  const items = [
+  // Each product has a surface temperature, a watermark number, an accent, and a structural tint.
+  // No icons. Differentiation comes from: surface tint, typographic scale, accent glow, card weight.
+  const products = [
     {
       num: '01',
       tag: 'DESCOBERTA',
-      title: 'Encontre o que pulsa',
-      desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece — organizados por contexto e confiança.',
+      tagline: 'Encontre o que pulsa',
+      desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece, organizados por contexto e confiança.',
+      // Surface: warm off-white with the faintest sage undertone — like a page that's been near sunlight.
+      surface: 'rgba(245,245,240,1)',
+      surfaceHover: 'rgba(240,242,236,1)',
+      accent: teal,
+      accentGlow: 'rgba(10,166,137,0.12)',
+      tagColor: teal,
+      titleColor: '#111026',
+      descColor: muted,
+      numColor: 'rgba(17,16,38,0.06)',
+      border: 'rgba(17,16,38,0.07)',
+      dark: false,
     },
     {
       num: '02',
       tag: 'COMUNIDADES',
-      title: 'Seu bairro tem voz',
+      tagline: 'Seu bairro tem voz',
       desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.',
+      // Surface: slightly cooler — like concrete that's been in the shade. Urban.
+      surface: 'rgba(236,237,242,1)',
+      surfaceHover: 'rgba(230,231,240,1)',
+      accent: '#332d59',
+      accentGlow: 'rgba(51,45,89,0.10)',
+      tagColor: '#332d59',
+      titleColor: '#111026',
+      descColor: muted,
+      numColor: 'rgba(51,45,89,0.06)',
+      border: 'rgba(17,16,38,0.07)',
+      dark: false,
     },
     {
       num: '03',
       tag: 'EVENTOS',
-      title: 'Acontece agora',
+      tagline: 'Acontece agora',
       desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.',
+      // Surface: fresh green tint — like a park in the morning. Alive.
+      surface: 'rgba(80,242,150,0.08)',
+      surfaceHover: 'rgba(80,242,150,0.13)',
+      accent: green,
+      accentGlow: 'rgba(80,242,150,0.22)',
+      tagColor: '#0a7a4a',
+      titleColor: '#111026',
+      descColor: muted,
+      numColor: 'rgba(80,242,150,0.16)',
+      border: 'rgba(80,242,150,0.20)',
+      dark: false,
     },
     {
       num: '04',
       tag: 'NEGÓCIOS',
-      title: 'Presença que converte',
-      desc: 'Perfil verificado, vitrine local e visibilidade orgânica — ferramentas pensadas para o comércio do bairro.',
+      tagline: 'Presença que converte',
+      desc: 'Perfil verificado, vitrine local e visibilidade orgânica, ferramentas pensadas para o comércio do bairro.',
+      // Surface: teal-tinted — commerce, momentum, clarity.
+      surface: 'rgba(10,166,137,0.07)',
+      surfaceHover: 'rgba(10,166,137,0.12)',
+      accent: teal,
+      accentGlow: 'rgba(10,166,137,0.18)',
+      tagColor: teal,
+      titleColor: '#111026',
+      descColor: muted,
+      numColor: 'rgba(10,166,137,0.14)',
+      border: 'rgba(10,166,137,0.16)',
+      dark: false,
     },
     {
       num: '05',
       tag: 'MATILHA',
-      title: 'Sua Matilha. Suas Regras.',
-      desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos — com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.',
+      tagline: 'Sua Matilha. Suas Regras.',
+      desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos, com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.',
+      // Surface: deep navy — innermost circle. Private. Sacred. The wolf.
+      surface: '#111026',
+      surfaceHover: '#1a1838',
+      accent: green,
+      accentGlow: 'rgba(80,242,150,0.18)',
+      tagColor: green,
+      titleColor: '#F5F5F0',
+      descColor: 'rgba(245,245,240,0.55)',
+      numColor: 'rgba(245,245,240,0.04)',
+      border: 'rgba(255,255,255,0.07)',
+      dark: true,
     },
   ];
 
-  const anyHovered = hovered !== null;
-
   return (
-    <section id="produtos" style={{ padding: '80px 0 96px' }}>
+    <section id="produtos" style={{ padding: '72px 0 96px' }}>
       <div className={shell}>
 
-        {/* Section header — editorial, sparse */}
+        {/* ── Section header ── */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ marginBottom: '72px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{ marginBottom: '56px' }}
         >
-          <div>
-            <p style={{
-              margin: '0 0 14px',
-              fontSize: '11px',
-              fontWeight: 800,
-              letterSpacing: '0.14em',
-              color: teal,
-              fontFamily: "'Ferom', Inter, sans-serif",
-              textTransform: 'uppercase',
-            }}>
-              Produtos
-            </p>
-            <h2 style={{
-              margin: 0,
-              fontSize: 'clamp(32px, 4.2vw, 58px)',
-              lineHeight: 1.0,
-              letterSpacing: '-0.05em',
-              fontWeight: 800,
-              fontFamily: "'Ferom', Inter, sans-serif",
-              color: '#111026',
-            }}>
-              Tudo que você precisa.<br />
-              <span style={{ color: teal }}>No seu bairro.</span>
-            </h2>
-          </div>
-          {/* Pull quote — right aligned, contrasts the heavy headline */}
           <p style={{
-            margin: 0,
-            fontSize: '15px',
-            color: muted,
-            lineHeight: 1.65,
-            maxWidth: '26ch',
-            textAlign: 'right',
+            margin: '0 0 12px',
+            fontSize: '11px',
+            fontWeight: 800,
+            letterSpacing: '0.16em',
+            color: teal,
             fontFamily: "'Ferom', Inter, sans-serif",
+            textTransform: 'uppercase' as const,
           }}>
-            Cinco ferramentas construídas em torno de um único princípio: confiança real.
+            Produtos
           </p>
+          <h2 style={{
+            margin: 0,
+            fontSize: 'clamp(36px, 4.8vw, 64px)',
+            lineHeight: 1.0,
+            letterSpacing: '-0.05em',
+            fontWeight: 800,
+            fontFamily: "'Ferom', Inter, sans-serif",
+            color: '#111026',
+          }}>
+            Tudo que você precisa<br />
+            <span style={{ color: teal }}>no seu bairro.</span>
+          </h2>
         </motion.div>
 
-        {/* ── Editorial list — desktop ── */}
-        <div className="hidden md:block">
-          {/* Top rule */}
-          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)', marginBottom: '0' }} />
+        {/* ── Card grid ── */}
+        {/* Desktop: 5-column strip of tall cards. Mobile: vertical stack. */}
+        {/* The signature: each card has a massive rotated ordinal as a structural watermark.
+            It is not decoration — it IS the background plane of the card, barely visible,
+            creating depth without any shadow. The card title punches through it. */}
 
-          {items.map((item, i) => {
-            const isHov = hovered === i;
-            const isDimmed = anyHovered && !isHov;
-
+        {/* Desktop grid */}
+        <div
+          className="hidden md:grid"
+          style={{
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            gap: '10px',
+            alignItems: 'stretch',
+          }}
+        >
+          {products.map((p, i) => {
+            const isActive = activeCard === i;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
+                transition={{ duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                onMouseEnter={() => setActiveCard(i)}
+                onMouseLeave={() => setActiveCard(null)}
                 style={{
-                  marginLeft: rowIndents[i],
-                  paddingRight: rowIndents[i],
-                  borderBottom: '1px solid rgba(17,16,38,0.08)',
+                  position: 'relative',
+                  borderRadius: '24px',
+                  border: `1px solid ${p.border}`,
+                  background: isActive ? p.surfaceHover : p.surface,
+                  padding: '32px 24px 28px',
+                  minHeight: '380px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  overflow: 'hidden',
                   cursor: 'default',
+                  transition: 'background 0.3s cubic-bezier(0.16,1,0.3,1)',
                 }}
               >
-                <motion.div
-                  animate={{
-                    opacity: isDimmed ? 0.28 : 1,
-                  }}
-                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                {/* Structural watermark — the ordinal rotated 90°, spanning the full card height.
+                    This element IS the card's depth. It is the column behind the content. */}
+                <div
+                  aria-hidden="true"
                   style={{
-                    display: 'grid',
-                    gridTemplateColumns: '80px 1fr auto',
-                    alignItems: 'center',
-                    gap: '0',
-                    padding: '32px 0',
-                    position: 'relative',
+                    position: 'absolute',
+                    bottom: '-24px',
+                    right: '-8px',
+                    fontSize: '180px',
+                    fontWeight: 900,
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    lineHeight: 1,
+                    letterSpacing: '-0.06em',
+                    color: p.numColor,
+                    userSelect: 'none',
+                    pointerEvents: 'none',
+                    transition: 'color 0.4s ease',
                   }}
                 >
-                  {/* Large ordinal — the visual anchor of each row */}
-                  <motion.span
-                    animate={{
-                      color: isHov ? green : 'rgba(51,45,89,0.12)',
-                    }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                    style={{
-                      fontSize: '13px',
-                      fontWeight: 800,
-                      letterSpacing: '0.08em',
-                      fontFamily: "'Ferom', Inter, sans-serif",
-                      lineHeight: 1,
-                      userSelect: 'none',
-                      flexShrink: 0,
-                    }}
-                  >
-                    {item.num}
-                  </motion.span>
+                  {p.num}
+                </div>
 
-                  {/* Center column — tag + title stacked */}
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap' }}>
-                    {/* Tag — small, uppercase, sits beside title */}
-                    <motion.span
-                      animate={{ color: isHov ? teal : 'rgba(17,16,38,0.30)' }}
-                      transition={{ duration: 0.2 }}
-                      style={{
-                        fontSize: '10px',
-                        fontWeight: 800,
-                        letterSpacing: '0.14em',
-                        fontFamily: "'Ferom', Inter, sans-serif",
-                        textTransform: 'uppercase' as const,
-                        flexShrink: 0,
-                      }}
-                    >
-                      {item.tag}
-                    </motion.span>
+                {/* Accent glow — a radial bloom at the top-left corner, unique per card */}
+                <motion.div
+                  animate={{ opacity: isActive ? 1 : 0 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    top: '-40px',
+                    left: '-40px',
+                    width: '180px',
+                    height: '180px',
+                    borderRadius: '999px',
+                    background: `radial-gradient(circle, ${p.accentGlow}, transparent 70%)`,
+                    pointerEvents: 'none',
+                  }}
+                />
 
-                    {/* Title — display scale, the weight of the row */}
-                    <motion.h3
-                      animate={{
-                        color: isHov ? '#111026' : 'rgba(17,16,38,0.72)',
-                      }}
-                      transition={{ duration: 0.2 }}
-                      style={{
-                        margin: 0,
-                        fontSize: 'clamp(22px, 2.8vw, 40px)',
-                        fontWeight: 800,
-                        letterSpacing: '-0.04em',
-                        lineHeight: 1.05,
-                        fontFamily: "'Ferom', Inter, sans-serif",
-                      }}
-                    >
-                      {item.title}
-                    </motion.h3>
-                  </div>
+                {/* Tag */}
+                <div style={{ position: 'relative', zIndex: 1, marginBottom: 'auto' }}>
+                  <span style={{
+                    fontSize: '10px',
+                    fontWeight: 800,
+                    letterSpacing: '0.14em',
+                    color: p.tagColor,
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    textTransform: 'uppercase' as const,
+                  }}>
+                    {p.tag}
+                  </span>
+                </div>
 
-                  {/* Description — revealed on hover, slides in from right */}
+                {/* Content — sits at bottom, title anchors everything */}
+                <div style={{ position: 'relative', zIndex: 1, marginTop: '80px' }}>
+                  {/* Tagline — Buasley cursive, breathing room above the title */}
+                  <p style={{
+                    margin: '0 0 8px',
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    color: p.dark ? 'rgba(245,245,240,0.45)' : muted,
+                    fontFamily: "'Buasley', cursive",
+                    lineHeight: 1.4,
+                  }}>
+                    {p.tagline}
+                  </p>
+
+                  {/* Description — small, muted, completes the card */}
                   <motion.p
-                    animate={{
-                      opacity: isHov ? 1 : 0,
-                      x: isHov ? 0 : 16,
-                    }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    animate={{ opacity: isActive ? 1 : 0.65 }}
+                    transition={{ duration: 0.25, ease: 'easeOut' }}
                     style={{
                       margin: 0,
-                      fontSize: '14px',
-                      color: muted,
-                      lineHeight: 1.68,
-                      maxWidth: '28ch',
-                      textAlign: 'right',
+                      fontSize: '13px',
+                      color: p.descColor,
+                      lineHeight: 1.65,
                       fontFamily: "'Ferom', Inter, sans-serif",
-                      pointerEvents: 'none',
                     }}
                   >
-                    {item.desc}
+                    {p.desc}
                   </motion.p>
+                </div>
 
-                  {/* Green slash — the signature element. Appears on hover as a structural mark
-                      between number and title, angled 20deg, like a typographic slash from
-                      a magazine layout. Positioned absolutely over the gap. */}
-                  <motion.span
-                    animate={{
-                      opacity: isHov ? 1 : 0,
-                      scaleY: isHov ? 1 : 0.4,
-                    }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    style={{
-                      position: 'absolute',
-                      left: '68px',
-                      top: '50%',
-                      transform: 'translateY(-50%) rotate(20deg)',
-                      width: '2px',
-                      height: '32px',
-                      background: green,
-                      borderRadius: '2px',
-                      transformOrigin: 'center',
-                      pointerEvents: 'none',
-                    }}
-                  />
-                </motion.div>
+                {/* Bottom accent line — appears on hover. Thin, the color of the card's accent.
+                    It is the only moment of color in an otherwise tonal card. */}
+                <motion.div
+                  animate={{ scaleX: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '2px',
+                    background: p.accent,
+                    transformOrigin: 'left center',
+                    borderRadius: '0 0 24px 24px',
+                  }}
+                />
               </motion.div>
             );
           })}
-
-          {/* Bottom rule */}
-          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)' }} />
         </div>
 
-        {/* ── Mobile: numbered list, compact ── */}
-        <div className="flex flex-col md:hidden">
-          <div style={{ height: '1px', background: 'rgba(17,16,38,0.10)' }} />
-          {items.map((item, i) => (
+        {/* ── Mobile: vertical stack ── */}
+        <div className="flex flex-col md:hidden" style={{ gap: '10px' }}>
+          {products.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                borderBottom: '1px solid rgba(17,16,38,0.08)',
-                padding: '28px 0',
+                position: 'relative',
+                borderRadius: '20px',
+                border: `1px solid ${p.border}`,
+                background: p.surface,
+                padding: '28px 24px',
+                overflow: 'hidden',
               }}
             >
-              {/* Number + tag row */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-                <span style={{
-                  fontSize: '11px',
-                  fontWeight: 800,
-                  letterSpacing: '0.08em',
-                  color: 'rgba(51,45,89,0.28)',
+              {/* Watermark — smaller on mobile, bottom-right corner */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  bottom: '-10px',
+                  right: '8px',
+                  fontSize: '100px',
+                  fontWeight: 900,
                   fontFamily: "'Ferom', Inter, sans-serif",
-                }}>
-                  {item.num}
-                </span>
-                {/* Mobile slash */}
-                <span style={{
-                  display: 'inline-block',
-                  width: '1.5px',
-                  height: '14px',
-                  background: green,
-                  borderRadius: '2px',
-                  transform: 'rotate(20deg)',
-                  flexShrink: 0,
-                }} />
-                <span style={{
-                  fontSize: '10px',
-                  fontWeight: 800,
-                  letterSpacing: '0.12em',
-                  color: teal,
-                  textTransform: 'uppercase' as const,
-                  fontFamily: "'Ferom', Inter, sans-serif",
-                }}>
-                  {item.tag}
-                </span>
+                  lineHeight: 1,
+                  letterSpacing: '-0.06em',
+                  color: p.numColor,
+                  userSelect: 'none',
+                  pointerEvents: 'none',
+                }}
+              >
+                {p.num}
               </div>
-              {/* Title */}
-              <h3 style={{
-                margin: '0 0 10px',
-                fontSize: 'clamp(22px, 5.5vw, 30px)',
-                fontWeight: 800,
-                letterSpacing: '-0.04em',
-                lineHeight: 1.08,
-                color: '#111026',
-                fontFamily: "'Ferom', Inter, sans-serif",
-              }}>
-                {item.title}
-              </h3>
-              {/* Description */}
-              <p style={{
-                margin: 0,
-                fontSize: '14px',
-                color: muted,
-                lineHeight: 1.7,
-                maxWidth: '42ch',
-              }}>
-                {item.desc}
-              </p>
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                {/* Tag + tagline row */}
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                  <span style={{
+                    fontSize: '10px',
+                    fontWeight: 800,
+                    letterSpacing: '0.14em',
+                    color: p.tagColor,
+                    fontFamily: "'Ferom', Inter, sans-serif",
+                    textTransform: 'uppercase' as const,
+                  }}>
+                    {p.tag}
+                  </span>
+                  <span style={{
+                    fontSize: '13px',
+                    color: p.dark ? 'rgba(245,245,240,0.5)' : muted,
+                    fontFamily: "'Buasley', cursive",
+                  }}>
+                    {p.tagline}
+                  </span>
+                </div>
+                {/* Description */}
+                <p style={{
+                  margin: 0,
+                  fontSize: '14px',
+                  color: p.descColor,
+                  lineHeight: 1.7,
+                  maxWidth: '44ch',
+                  fontFamily: "'Ferom', Inter, sans-serif",
+                }}>
+                  {p.desc}
+                </p>
+              </div>
+
+              {/* Accent bottom line */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '2px',
+                background: p.accent,
+                opacity: 0.55,
+                borderRadius: '0 0 20px 20px',
+              }} />
             </motion.div>
           ))}
         </div>
