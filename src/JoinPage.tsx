@@ -305,16 +305,27 @@ export default function JoinPage() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-8">
 
                 {/* Header */}
-                <div>
+                <div className="flex flex-col gap-3">
                   <h2
-                    className="font-semibold text-2xl mb-2"
-                    style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)' }}
+                    className="font-semibold text-2xl"
+                    style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
                   >
-                    {mode === 'people' ? 'Poucos vão entrar primeiro. Você é um deles.' : 'faça o seu bairro acontecer'}
+                    {mode === 'people' ? 'A Sniffer está chegando — e o lançamento não é pra todo mundo.' : 'faça o seu bairro acontecer'}
                   </h2>
-                  <p style={{ color: TEXT_MUTED[mode], fontSize: '14px' }}>
-                    {mode === 'people' ? 'Explore o que tá pulsando aí, bem pertinho de você.' : 'conecte pessoas, crie movimento local.'}
-                  </p>
+                  {mode === 'people' ? (
+                    <>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        Deixa seu nome, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar seu perfil antes de todo mundo.
+                      </p>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 pessoas da sua confiança</strong>. Só cinco. Escolhe bem — na Sniffer, quem você traz diz muito sobre você.
+                      </p>
+                    </>
+                  ) : (
+                    <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', fontFamily: 'var(--font-ferom)' }}>
+                      conecte pessoas, crie movimento local.
+                    </p>
+                  )}
                 </div>
 
                 {/* Fields */}
