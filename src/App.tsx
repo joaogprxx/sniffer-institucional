@@ -384,7 +384,7 @@ export default function App() {
                   {/* Seal visible on mobile — compact, centered above the CTA */}
                   <div className="flex lg:hidden justify-center mb-4">
                     <motion.img
-                      src="/selo-eap-estatico.png"
+                      src="/selo-sniffer.png"
                       alt="Selo Early Adopter"
                       animate={{ y: [0, -10, 0], rotate: [0, 2, -2, 0], scale: [1, 1.03, 1] }}
                       transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -400,7 +400,7 @@ export default function App() {
                 </div>
                 <div className="hidden lg:flex" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', borderLeft: '1px solid rgba(61,220,132,0.22)', gap: '12px' }}>
                   <motion.img
-                    src="/selo-eap-estatico.png"
+                    src="/selo-sniffer.png"
                     alt="Selo Early Adopter"
                     animate={{ y: [0, -24, 0], rotate: [0, 3, -3, 0], scale: [1, 1.05, 1] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
