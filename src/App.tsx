@@ -51,7 +51,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
     { num: '01', tag: 'Descoberta', title: 'Encontre o que pulsa', desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece, organizados por contexto e confiança.' },
     { num: '02', tag: 'Comunidades', title: 'Seu bairro tem voz', desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.' },
     { num: '03', tag: 'Eventos', title: 'Acontece Agora', desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.' },
-    { num: '04', tag: 'Negócios', title: 'Presença que converte', desc: 'Perfil verificado, vitrine local e visibilidade orgânica, ferramentas pensadas para o comércio do bairro.' },
+    { num: '04', tag: 'Negócios', title: 'O melhor a sua volta', desc: 'Perfil verificado, vitrine local e visibilidade orgânica, ferramentas pensadas para o comércio do bairro.' },
     { num: '05', tag: 'Matilha', title: 'Sua Matilha. Suas Regras.', desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos, com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.' },
   ];
 
