@@ -238,43 +238,39 @@ export default function JoinPage() {
 
             {submitted ? (
               <div className="flex flex-col items-center text-center gap-6 py-8">
-                {/* Animated checkmark circle */}
+                {/* Static mascot icon */}
                 <div
                   style={{
                     width: '80px',
                     height: '80px',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #3DDC84 0%, #00A896 100%)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 8px 32px rgba(61,220,132,0.35)',
-                    animation: 'pulse-glow 2s ease-in-out infinite',
                   }}
                 >
-                  <span style={{ fontSize: '36px' }}>🐾</span>
+                  <img src="/logo-sniffer.png" alt="Sniffer" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
 
                 <h2
                   className="font-extrabold text-2xl"
-                  style={{ color: '#3DDC84', fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
+                  style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
                 >
                   Pronto. Você já faz parte.
                 </h2>
 
                 <p style={{
-                  color: mode === 'people' ? 'rgba(17,16,38,0.75)' : 'rgba(255,255,255,0.75)',
+                  color: TEXT_PRIMARY[mode],
                   fontSize: '15px',
                   lineHeight: 1.7,
                   maxWidth: '34ch',
                   fontFamily: 'var(--font-ferom)',
                 }}>
                   Quando a Sniffer abrir as portas, seu convite chegará direto no seu WhatsApp ou e-mail. E com ele,{' '}
-                  <strong style={{ color: mode === 'people' ? '#111026' : '#fff' }}>5 convites</strong> pra você trazer quem realmente importa.
+                  <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 800 }}>5 convites</strong> pra você trazer quem realmente importa.
                 </p>
 
                 <p style={{
-                  color: '#3DDC84',
+                  color: TEXT_PRIMARY[mode],
                   fontSize: '18px',
                   fontWeight: 700,
                   fontFamily: "'Buasley', cursive",
