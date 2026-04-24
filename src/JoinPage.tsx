@@ -8,7 +8,7 @@ type Mode = 'people' | 'business' | 'comunidade';
 const ACCENT: Record<Mode, string> = {
   people: '#3DDC84',
   business: '#00A896',
-  comunidade: '#3DDC84',
+  comunidade: '#00A896',
 };
 
 const PAGE_BG: Record<Mode, string> = {

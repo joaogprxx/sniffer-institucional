@@ -35,9 +35,9 @@ export default function Corporate() {
   const btnPrimary = {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
     padding: '10px 16px', borderRadius: '999px', fontWeight: 700,
-    background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)',
-    color: '#111026', border: '1px solid transparent', cursor: 'pointer',
-    boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '13px',
+    background: '#00A896',
+    color: '#ffffff', border: '1px solid transparent', cursor: 'pointer',
+    boxShadow: '0 8px 24px rgba(0,168,150,0.35)', fontSize: '13px',
     fontFamily: "'Ferom', Inter, sans-serif", whiteSpace: 'nowrap' as const,
     pointerEvents: 'auto' as const,
   };
@@ -60,8 +60,8 @@ export default function Corporate() {
             <img src="/mascote-navbar.png" alt="Sniffer" style={{ height: '44px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
           </a>
-          <button onClick={() => navigate('/cadastro')} style={btnPrimary}>
-            Junte-se
+          <button onClick={() => navigate('/cadastro?mode=comunidade')} style={btnPrimary}>
+            Faça Parte
           </button>
         </div>
       </div>
