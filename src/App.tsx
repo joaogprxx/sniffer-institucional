@@ -471,8 +471,7 @@ export default function App() {
           <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
             <motion.div initial={{ opacity: 0, y: 48 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(61,220,132,0.12)', border: '1px solid rgba(61,220,132,0.25)', marginBottom: '36px' }}>
-                <span>🏘️</span>
-                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: '#3DDC84', fontFamily: "'Ferom', Inter, sans-serif" }}>de vizinho para vizinho</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: '#3DDC84', fontFamily: "'Ferom', Inter, sans-serif" }}>DE VIZINHO PARA VIZINHO</span>
               </div>
               <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: '3px solid #3DDC84', fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
                 "Seu <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400, letterSpacing: '0.01em' }}>bairro</span> tem voz. Com a{' '}
