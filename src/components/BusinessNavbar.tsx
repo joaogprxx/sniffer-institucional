@@ -299,7 +299,7 @@ export function BusinessNavbar() {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#0AA689';
               }}
             >
-              Junte-se a essa revolução
+              Faça parte
             </button>
           </div>
 
@@ -534,7 +534,7 @@ export function BusinessNavbar() {
                     width: '100%',
                   }}
                 >
-                  Junte-se a essa revolução
+                  Faça parte
                 </button>
               </div>
             </motion.div>
