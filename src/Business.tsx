@@ -131,11 +131,11 @@ export default function Business() {
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896'; }}
             >
-              Fazer parte
+              Faça parte
             </button>
           </div>
 
-          <p style={{ margin: '0 0 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
+          <p style={{ margin: '0 auto 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)', textAlign: 'center' }}>
             Comunidade – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#ffffff' }}>Experiência</span> – Comodidade
           </p>
         </div>
