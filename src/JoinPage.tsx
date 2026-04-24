@@ -310,9 +310,14 @@ export default function JoinPage() {
                     className="font-semibold text-2xl"
                     style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
                   >
-                    {mode === 'people' ? 'A Sniffer está chegando — e o lançamento não é pra todo mundo.' : 'faça o seu bairro acontecer'}
+                    {mode === 'people'
+                      ? 'A Sniffer está chegando — e o lançamento não é pra todo mundo.'
+                      : mode === 'business'
+                      ? 'A Sniffer está chegando — e os primeiros negócios do bairro já estão garantindo lugar.'
+                      : 'A Sniffer está chegando — e as comunidades que moldam o bairro entram primeiro.'}
                   </h2>
-                  {mode === 'people' ? (
+
+                  {mode === 'people' && (
                     <>
                       <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
                         Deixa seu nome, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar seu perfil antes de todo mundo.
@@ -321,10 +326,28 @@ export default function JoinPage() {
                         E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 pessoas da sua confiança</strong>. Só cinco. Escolhe bem — na Sniffer, quem você traz diz muito sobre você.
                       </p>
                     </>
-                  ) : (
-                    <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', fontFamily: 'var(--font-ferom)' }}>
-                      conecte pessoas, crie movimento local.
-                    </p>
+                  )}
+
+                  {mode === 'business' && (
+                    <>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        Deixa o nome do seu negócio, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar o perfil do seu estabelecimento e ser encontrado por quem mora pertinho de você.
+                      </p>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 negócios parceiros do bairro</strong>. Só cinco. Pensa bem em quem você quer trazer — na Sniffer, a sua vizinhança começa por você.
+                      </p>
+                    </>
+                  )}
+
+                  {mode === 'comunidade' && (
+                    <>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        Deixa o nome do seu grupo, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar o perfil da sua comunidade e aparecer pra quem já vive e respira o mesmo bairro que você.
+                      </p>
+                      <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 outras comunidades</strong>. Só cinco. Escolhe quem faz o bairro ser o que ele é — na Sniffer, pertencimento se constrói junto.
+                      </p>
+                    </>
                   )}
                 </div>
 
