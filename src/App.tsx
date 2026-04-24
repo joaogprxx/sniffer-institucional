@@ -172,7 +172,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '48px', gap: '12px' }}>
           <img src="/logo-sniffer.png" alt="Sniffer mascote" style={{ width: '64px', height: 'auto' }} />
           <button
-            onClick={() => _navigate('/cadastro')}
+            onClick={() => _navigate('/cadastro?mode=people')}
             style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontWeight: 700, color: green, fontFamily: "'Ferom', Inter, sans-serif", textAlign: 'center' }}
           >
             Comece a farejar bons lugares →
@@ -228,7 +228,7 @@ export default function App() {
             <img src="/logo-sniffer.png" alt="Sniffer" style={{ height: '36px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '24px', width: 'auto', maxWidth: 'min(28vw, 140px)', objectFit: 'contain' }} />
           </a>
-          <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
+          <button onClick={() => navigate('/cadastro?mode=people')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
             Faça Parte
           </button>
         </div>
@@ -246,7 +246,7 @@ export default function App() {
                 Lugares, pessoas, comunidades e eventos conectados por contexto real — pra você viver sua cidade de verdade.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
-                <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px', minHeight: '48px' }}>
+                <button onClick={() => navigate('/cadastro?mode=people')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px', minHeight: '48px' }}>
                   A revolução é local. Faça parte
                 </button>
               </div>
@@ -304,7 +304,7 @@ export default function App() {
                   </motion.p>
                 </div>
                 <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
-                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", minHeight: '48px' }}>
+                  <button onClick={() => navigate('/cadastro?mode=people')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", minHeight: '48px' }}>
                     A revolução é local. Faça parte →
                   </button>
                 </motion.div>
@@ -368,9 +368,7 @@ export default function App() {
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
                     {[
-                      { icon: '🎁', text: '3 anos de acesso gratuito a todas as ferramentas e novos produtos da plataforma.' },
                       { icon: '🔖', text: 'Selo permanente de Fundador no seu perfil, visível para toda a rede.' },
-                      { icon: '💰', text: 'Taxas reduzidas vitalícias após o período inicial de 3 anos.' },
                       { icon: '🧪', text: 'Acesso garantido ao ambiente de testes — experimente e influencie nossas inovações antes de todo o ecossistema.' },
                     ].map((b, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', borderRadius: '16px', background: 'rgba(61,220,132,0.07)', border: '1px solid rgba(61,220,132,0.18)' }}>
@@ -389,8 +387,8 @@ export default function App() {
                       style={{ width: '140px', height: '140px', objectFit: 'contain' }}
                     />
                   </div>
-                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
-                    Garantir minha vaga Rastro →
+                  <button onClick={() => navigate('/cadastro?mode=people')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
+                    Quero meu selo Rastro →
                   </button>
                   <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
                     Uma vez preenchidas as 30.000 vagas, o programa será selado para sempre.
@@ -503,7 +501,7 @@ export default function App() {
               <motion.button
                 whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(61,220,132,0.45)' }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => navigate('/cadastro')}
+                onClick={() => navigate('/cadastro?mode=people')}
                 className="w-full sm:w-auto"
                 style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: '#3DDC84', color: '#111026', fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
