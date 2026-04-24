@@ -389,7 +389,7 @@ export default function App() {
                       style={{ width: '140px', height: '140px', objectFit: 'contain' }}
                     />
                   </div>
-                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: '#3DDC84', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 12px 40px rgba(61,220,132,0.45)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
+                  <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '16px 36px', borderRadius: '999px', fontWeight: 800, background: green, color: '#111026', border: 'none', cursor: 'pointer', boxShadow: `0 12px 40px rgba(80,242,150,0.4)`, fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px' }}>
                     Garantir minha vaga Rastro →
                   </button>
                   <p style={{ margin: '18px 0 0', fontSize: '13px', color: 'rgba(242,242,242,0.32)', fontStyle: 'italic' }}>
