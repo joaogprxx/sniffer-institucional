@@ -42,7 +42,7 @@ const TRACK_BG: Record<Option, string> = {
 const PILL_BG: Record<Option, string> = {
   people: '#3DDC84',
   business: '#2D2F5E',
-  corporate: '#332D59',
+  corporate: '#00A896',
 };
 
 const PILL_SHADOW: Record<Option, string> = {
