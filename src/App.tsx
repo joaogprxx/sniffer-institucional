@@ -320,7 +320,7 @@ export default function App() {
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
               <h2 style={{ ...h2Style, color: navy, marginBottom: '24px' }}>Quem faz a Sniffer</h2>
               <p style={{ margin: 0, fontSize: '18px', color: navy, lineHeight: 1.75 }}>
-                Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em movimento e presença para o seu negócio.
+                Somos uma matilha de exploradores e especialistas em tecnologia apaixonados pela vida urbana. A Sniffer nasceu de quem valoriza o que acontece na calçada: cada vitrine, cada aroma e cada porta aberta. Unimos essa sensibilidade humana a uma inteligência consciente para criar um ecossistema que protege a essência do bairro e prioriza as relações reais. Construímos a solução que faltava para transformar a curiosidade da vizinhança em descobertas reais e conexões autênticas para o seu dia a dia.
               </p>
             </motion.div>
           </div>
