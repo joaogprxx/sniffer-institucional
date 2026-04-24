@@ -113,7 +113,13 @@ export default function Corporate() {
               Quem somos
             </p>
             <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '560px' }}>
-              Confiança se constrói de pessoa pra pessoa. A Sniffer dá escala pra isso.
+              Confiança se constrói de pessoa pra pessoa. A{' '}
+              <img
+                src="/logo-sniffer-wordmark.png"
+                alt="Sniffer"
+                style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }}
+              />{' '}
+              dá escala pra isso.
             </h2>
             <p className="text-[17px] leading-[1.8] font-light mb-6" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
               A Sniffer é uma plataforma de descoberta hiperlocal construída sobre o princípio que todo mundo já sabe mas nenhuma tecnologia resolveu: as melhores recomendações vêm de quem a gente confia. Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade, com nome, com rosto e com limite.
