@@ -229,7 +229,7 @@ export default function App() {
             <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '24px', width: 'auto', maxWidth: 'min(28vw, 140px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
-            Junte-se
+            Faça Parte
           </button>
         </div>
       </div>
@@ -305,7 +305,7 @@ export default function App() {
                 </div>
                 <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
                   <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", minHeight: '48px' }}>
-                    Junte-se a essa revolução! →
+                    Faça Parte →
                   </button>
                 </motion.div>
               </div>
@@ -507,7 +507,7 @@ export default function App() {
                 className="w-full sm:w-auto"
                 style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: '#3DDC84', color: '#111026', fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                Junte-se a essa revolução →
+                Faça Parte →
               </motion.button>
             </motion.div>
           </div>
