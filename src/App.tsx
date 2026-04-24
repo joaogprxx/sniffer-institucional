@@ -243,7 +243,7 @@ export default function App() {
                 Descubra o que realmente vale a pena na <span style={{ fontFamily: 'var(--font-buasley)', fontWeight: 400, whiteSpace: 'nowrap' }}>sua cidade</span>.
               </h1>
               <p style={{ margin: '16px 0 0', fontSize: 'clamp(15px, 1.8vw, 20px)', color: muted, maxWidth: '33ch', lineHeight: 1.6 }}>
-                Lugares, pessoas, comunidades e eventos conectados por contexto real — com uma experiência pensada para ser bonita, útil e muito mais confiável.
+                Lugares, pessoas, comunidades e eventos conectados por contexto real — pra você viver sua cidade de verdade.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
                 <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px', minHeight: '48px' }}>
