@@ -70,7 +70,7 @@ export default function Matilha() {
           <div className="flex flex-col lg:flex-row gap-16 items-start mb-12">
             <div className="flex-1">
               <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                A Matilha é a camada de comunidade privada da Sniffer, um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer, quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
+                A Matilha é a camada de comunidade privada da Sniffer, um espaço onde o seu negócio cria círculos fechados e exclusivos com os clientes que mais importam. Diferente de um grupo de WhatsApp que vira caos em dois dias, a Matilha coloca você no controle absoluto: você decide quem entra, quem sai, e como o grupo se comporta. Cada Matilha funciona por convite, com aprovação do criador, regras visíveis desde o primeiro momento e até data de validade, se fizer sentido pro seu caso. É um ambiente íntimo, protegido e com identidade visual própria dentro da Sniffer — quando o cliente entra na sua Matilha, ele sabe que está num lugar diferente.
               </p>
 
               <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>

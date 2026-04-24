@@ -122,7 +122,7 @@ export default function Corporate() {
               dá escala pra isso.
             </h2>
             <p className="text-[17px] leading-[1.8] font-light mb-6" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
-              A Sniffer é uma plataforma de descoberta hiperlocal construída sobre o princípio que todo mundo já sabe mas nenhuma tecnologia resolveu: as melhores recomendações vêm de quem a gente confia. Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade, com nome, com rosto e com limite.
+              A Sniffer é uma plataforma de descoberta hiperlocal construída sobre o princípio que todo mundo já sabe, mas nenhuma tecnologia resolveu: as melhores recomendações vêm de quem a gente confia. Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade, com nome, com rosto e com limite.
             </p>
             <p className="text-[17px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
               Cada pessoa na Sniffer tem 7 Xodós: espaços no perfil onde ela declara publicamente em quem confia. Essa recomendação não some num algoritmo. Ela fica visível, gera alcance e traz gente real até a sua porta. A Sniffer não inventou o boca a boca. Ela deu estrutura, tecnologia e escala pra ele funcionar no mundo digital.
@@ -173,7 +173,7 @@ export default function Corporate() {
                 "Eu conheço todo mundo no bairro. O problema é que cada conversa está num grupo diferente, cada indicação se perde, e ninguém lembra quem recomendou quem. Eu quero um lugar onde tudo isso tenha valor."
               </blockquote>
               <div className="flex flex-wrap gap-2">
-                {['Organizador nato', '35–45 anos', 'Urbano', 'Líder de comunidade', 'Power user', 'Curador local'].map(trait => (
+                {['Organizador nato', '35–45 anos', 'Urbano', 'Líder de comunidade', 'Usuário avançado', 'Curador local'].map(trait => (
                   <span key={trait} className="text-[12px] font-medium px-3 py-1 rounded-full" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', color: '#FFFFFF' }}>
                     {trait}
                   </span>
@@ -193,7 +193,7 @@ export default function Corporate() {
               Funcionalidades
             </p>
             <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '560px' }}>
-              Tudo que você precisa pra fazer seu bairro pulsar.
+              Tudo o que você precisa pra fazer seu bairro pulsar.
             </h2>
             <p className="text-[17px] leading-[1.75] font-light mb-16" style={{ color: 'rgba(45,47,94,0.60)', maxWidth: '520px' }}>
               Cada ferramenta da Sniffer foi desenhada pra quem vive a comunidade de verdade, não pra quem assiste de longe.

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source not "../public";
 
 /* ─── Ferom Typeface — Fonte oficial Sniffer ─── */
 @font-face {

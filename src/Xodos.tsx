@@ -90,7 +90,7 @@ export default function Xodos() {
                 E as pessoas fazem o mesmo com você: quando alguém coloca o seu negócio num dos 7
                 Xodós dela, essa escolha fica visível no perfil, alimenta o sistema de descoberta da
                 Sniffer e faz seu negócio aparecer para toda a rede de confiança ao redor. Não é um
-                seguir. Não é um curtir. É uma via de mão dupla, você recomenda quem confia, e é
+                seguir. Não é um curtir. É uma via de mão dupla: você recomenda quem confia, e é
                 recomendado por quem confia em você. É o boca a boca que sempre existiu, só que
                 agora ele tem endereço, tem visibilidade e tem alcance.
               </p>
@@ -121,7 +121,7 @@ export default function Xodos() {
               style={{ fontFamily: "'Ferom', Inter, sans-serif" }}
             >
               Do outro lado, pessoas que confiam no seu trabalho te colocam nos Xodós delas, e isso
-              gera visibilidade orgânica real, seu negócio aparece mais nas buscas, no mapa e no
+              gera visibilidade orgânica real: seu negócio aparece mais nas buscas, no mapa e no
               feed de quem importa.
             </p>
             <p

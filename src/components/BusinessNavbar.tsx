@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 export const solutionsItems = [
   { icon: '📍', label: 'Território', desc: 'Painel de controle completo do seu negócio', href: '/business/territorio' },
   { icon: '💛', label: 'Xodós', desc: 'Camada de confiança e programa de indicação', href: '/business/xodos' },
-  { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Pack Rituals', href: '/business/matilha' },
+  { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Rituais de Matilha', href: '/business/matilha' },
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
   { icon: '📣', label: 'Uivo', desc: 'Canal de atendimento direto dentro da Sniffer', href: '/business/uivo' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa de fundadores — 10.000 vagas', href: '/business/rastro' },
@@ -144,7 +144,7 @@ export function BusinessNavbar() {
                 onClick={() => setSolutionsOpen(v => !v)}
                 style={{ ...navLinkStyle, display: 'inline-flex', alignItems: 'center', gap: '4px' }}
               >
-                Solutions
+                Soluções
                 <ChevronDown
                   size={14}
                   style={{
@@ -188,7 +188,7 @@ export function BusinessNavbar() {
                     color: '#FFFFFF',
                     display: 'block',
                     marginBottom: '12px',
-                  }}>Solutions</span>
+                  }}>Soluções</span>
                   <p style={{
                     fontFamily: "'Ferom', Inter, sans-serif",
                     fontSize: '13px',
@@ -436,7 +436,7 @@ export function BusinessNavbar() {
                         minHeight: '52px',
                       }}
                     >
-                      Solutions
+                      Soluções
                       <ChevronDown
                         size={18}
                         style={{

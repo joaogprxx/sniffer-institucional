@@ -62,7 +62,7 @@ export default function Rastro() {
                 Uma marca de fundador
               </h2>
               <p className="text-[17px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                E quando dizemos pra sempre, é pra sempre. O selo Rastro é permanente, ele aparece no seu perfil, nos resultados de busca, no mapa, no feed, em toda superfície da Sniffer onde seu negócio for visto. Mas o mais poderoso acontece fora do app: cada negócio fundador recebe um adesivo físico e um quadro emoldurado com o selo Rastro e um QR code que leva direto pro seu perfil. Quando alguém entra no seu estabelecimento e vê a pata verde na parede, a pergunta é automática: "o que é isso?", e aí começa uma conversa que nenhum anúncio pago consegue comprar.
+                E quando dizemos pra sempre, é pra sempre. O selo Rastro é permanente, ele aparece no seu perfil, nos resultados de busca, no mapa, no feed, em toda a superfície da Sniffer onde seu negócio for visto. Mas o mais poderoso acontece fora do app: cada negócio fundador recebe um adesivo físico e um quadro emoldurado com o selo Rastro e um QR code que leva direto pro seu perfil. Quando alguém entra no seu estabelecimento e vê a pata verde na parede, a pergunta é automática: "o que é isso?", e aí começa uma conversa que nenhum anúncio pago consegue comprar.
               </p>
               <p className="text-[17px] text-[#0AA689] font-semibold leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Depois dos 3 anos, você migra para uma tarifa permanentemente reduzida como reconhecimento por ter acreditado primeiro. O Rastro não é um desconto. É uma marca de fundador. E só 10.000 negócios no Brasil vão ter uma.

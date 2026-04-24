@@ -50,7 +50,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
   const items = [
     { num: '01', tag: 'Descoberta', title: 'Encontre o que pulsa', desc: 'Lugares únicos, experiências reais e negócios do bairro que você ainda não conhece, organizados por contexto e confiança.' },
     { num: '02', tag: 'Comunidades', title: 'Seu bairro tem voz', desc: 'Entre em grupos locais, troque indicações e construa vínculos reais com quem divide o mesmo território.' },
-    { num: '03', tag: 'Eventos', title: 'Acontece Agora', desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.' },
+    { num: '03', tag: 'Eventos', title: 'Acontece agora', desc: 'Rolês, encontros e movimentações perto de você, com pessoas que você pode conhecer.' },
     { num: '04', tag: 'Negócios', title: 'O melhor a sua volta', desc: 'Vitrines locais e perfis verificados para você descobrir e apoiar quem faz a sua localidade pulsar.' },
     { num: '05', tag: 'Matilha', title: 'Sua Matilha. Suas Regras.', desc: 'Crie grupos privados com sua família, seus amigos, seus vizinhos, com regras claras, convite por aprovação e rituais que mantêm o grupo vivo sem esforço.' },
   ];
@@ -72,7 +72,7 @@ function BentoSection({ navigate: _navigate }: { navigate: ReturnType<typeof use
               Produtos
             </p>
             <h2 style={{ margin: 0, fontSize: 'clamp(30px, 4.8vw, 62px)', lineHeight: 1.0, letterSpacing: '-0.05em', fontWeight: 800, fontFamily: "'Ferom', Inter, sans-serif", color: '#111026' }}>
-              Tudo que você precisa.<br />
+              Tudo o que você precisa.<br />
               <span style={{ color: green }}>No seu bairro.</span>
             </h2>
             <p style={{ margin: '16px 0 0', fontSize: '16px', color: navy, lineHeight: 1.65, textAlign: 'center' as const, fontFamily: "'Ferom', Inter, sans-serif" }}>
@@ -485,7 +485,7 @@ export default function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                 <p style={{ margin: 0 }}>
                   Você lembra quando conhecer um lugar bom era simples? Alguém de confiança te puxava pelo braço e dizia:{' '}
-                  <em style={{ color: '#fff', fontStyle: 'italic' }}>"vem comigo, você precisa conhecer esse lugar."</em>{' '}
+                  <em style={{ color: '#fff', fontStyle: 'italic' }}>"Vem comigo, você precisa conhecer esse lugar."</em>{' '}
                   Não tinha feed, não tinha anúncio. Tinha gente olhando nos olhos e dividindo o que amava no bairro.
                 </p>
                 <p style={{ margin: 0 }}>
