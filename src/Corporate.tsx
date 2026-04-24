@@ -93,7 +93,7 @@ export default function Corporate() {
             </p>
             <div className="flex gap-4 items-center flex-wrap animate-[fadeUp_0.8s_0.7s_forwards] opacity-0">
               <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-[#2D2F5E] bg-white px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.30)]">
-                Entrar na lista <ChevronRight className="size-4" />
+                Faça parte <ChevronRight className="size-4" />
               </a>
               <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.80)' }}>
                 Conheça a Sniffer <ChevronRight className="size-4" />
@@ -287,7 +287,7 @@ export default function Corporate() {
               </p>
               <div className="flex gap-4 justify-center items-center flex-wrap relative z-[2]">
                 <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-white bg-[#2D2F5E] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,47,94,0.25)]">
-                  Entrar na lista <ChevronRight className="size-4" />
+                  Faça parte <ChevronRight className="size-4" />
                 </a>
                 <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   Conhecer mais <ChevronRight className="size-4" />
