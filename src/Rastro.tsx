@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Rastro() {
   useEffect(() => {
-    document.title = 'Rastro | Sniffer Business';
+    
   }, []);
 
   return (

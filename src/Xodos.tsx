@@ -8,7 +8,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Xodos() {
   useEffect(() => {
-    document.title = 'Xodó | Sniffer Business';
+    
   }, []);
 
   return (

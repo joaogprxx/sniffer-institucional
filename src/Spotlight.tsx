@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Spotlight() {
   useEffect(() => {
-    document.title = 'Spotlight | Sniffer Business';
+    
   }, []);
 
   return (

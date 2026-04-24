@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Uivo() {
   useEffect(() => {
-    document.title = 'Uivo | Sniffer Business';
+    
   }, []);
 
   return (

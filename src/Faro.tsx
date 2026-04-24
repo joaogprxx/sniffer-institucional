@@ -21,7 +21,7 @@ const chips = [
 
 export default function Faro() {
   useEffect(() => {
-    document.title = 'Faro | Sniffer Business';
+    
   }, []);
 
   return (

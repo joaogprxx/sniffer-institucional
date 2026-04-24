@@ -21,7 +21,7 @@ const chips = [
 
 export default function Territorio() {
   useEffect(() => {
-    document.title = 'Meu Território | Sniffer Business';
+    
   }, []);
 
   return (

@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function Matilha() {
   useEffect(() => {
-    document.title = 'Matilha | Sniffer Business';
+    
   }, []);
 
   return (
