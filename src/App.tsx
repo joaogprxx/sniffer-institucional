@@ -357,6 +357,10 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-0">
                 <div className="p-6 sm:p-10 lg:px-[52px] lg:py-[56px]" style={{ position: 'relative', zIndex: 1 }}>
 
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(61,220,132,0.12)', border: '1px solid rgba(61,220,132,0.25)', marginBottom: '20px' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.1em', color: '#3DDC84', fontFamily: "'Ferom', Inter, sans-serif" }}>RASTRO</span>
+                  </div>
+
                   <h2 style={{ margin: '0 0 16px', fontSize: 'clamp(30px, 3.8vw, 50px)', lineHeight: 1.04, letterSpacing: '-0.045em', fontWeight: 800, color: '#F2F2F2', fontFamily: "'Ferom', Inter, sans-serif" }}>
                     Antes de todos.<br />
                     <span style={{ color: '#3DDC84' }}>Para sempre.</span>
