@@ -479,7 +479,7 @@ export default function App() {
               </div>
               <blockquote style={{ margin: '0 0 44px', padding: '0 0 0 24px', borderLeft: '3px solid #3DDC84', fontSize: 'clamp(28px, 3.8vw, 52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#ffffff', maxWidth: '22ch', fontFamily: "'Ferom', Inter, sans-serif" }}>
                 "Seu <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400, letterSpacing: '0.01em' }}>bairro</span> tem voz. Com a{' '}
-                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '0.9em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />,{' '}
+                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.2em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />,{' '}
                 tem <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400, letterSpacing: '0.01em' }}>presença."</span>
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
