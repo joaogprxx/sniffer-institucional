@@ -247,7 +247,7 @@ export default function App() {
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
                 <button onClick={() => navigate('/cadastro')} style={{ ...btnPrimary, fontSize: '15px', width: '100%', maxWidth: '320px', minHeight: '48px' }}>
-                  Quero ser convidado
+                  A revolução é local. Faça parte
                 </button>
               </div>
               <div className="flex flex-col gap-y-2 mt-5" style={{ color: muted, fontSize: '13px' }}>
