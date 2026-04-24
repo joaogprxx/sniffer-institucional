@@ -228,7 +228,7 @@ export default function Corporate() {
                 },
               ]).map((card, i) => (
                 <div key={i} className="bg-white p-12 transition-all duration-300 hover:bg-[#D8F0EE] group cursor-default">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-7 transition-colors duration-300" style={{ background: 'rgba(0,168,150,0.10)' }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-7 transition-colors duration-300">
                     {card.icon}
                   </div>
                   <h3 className="font-semibold text-xl text-[#2D2F5E] mb-3" style={{ fontFamily: "'Ferom', sans-serif", letterSpacing: '-0.3px' }}>{card.title}</h3>
