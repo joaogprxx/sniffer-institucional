@@ -274,8 +274,8 @@ export default function App() {
                 <span style={{ display: 'inline-flex', marginTop: '10px', padding: '8px 12px', borderRadius: '999px', background: 'rgba(80,242,150,0.14)', color: teal, fontSize: '12px', fontWeight: 700 }}>Evento em destaque</span>
               </div>
               <div style={{ position: 'absolute', right: '-8px', bottom: '20px', width: '200px', padding: '16px', borderRadius: '20px', zIndex: 3, background: 'rgba(255,255,255,0.9)', border: `1px solid rgba(19,21,26,0.06)`, boxShadow: shadowSoft, backdropFilter: 'blur(14px)' }}>
-                <strong style={{ display: 'block', fontSize: '14px', marginBottom: '6px' }}>Confiança em foco</strong>
-                <p style={{ color: muted, margin: 0, fontSize: '13px' }}>Perfis, negócios e interações com camadas reais de validação e moderação.</p>
+                <strong style={{ display: 'block', fontSize: '14px', marginBottom: '6px' }}>Gente de verdade</strong>
+                <p style={{ color: muted, margin: 0, fontSize: '13px' }}>Perfis, lugares e recomendações validados por quem realmente vive o bairro.</p>
               </div>
             </div>
           </div>
