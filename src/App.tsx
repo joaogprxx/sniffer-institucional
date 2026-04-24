@@ -481,13 +481,12 @@ export default function App() {
               </blockquote>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                 <p style={{ margin: 0 }}>
-                  Você lembra quando o sucesso de um lugar era simples? Alguém de confiança indicava e dizia:{' '}
-                  <em style={{ color: '#fff', fontStyle: 'italic' }}>"Você precisa conhecer esse lugar"</em>.
-                  Não tinha feed viciante, não tinha anúncio de multinacional. Tinha gente olhando nos olhos e dividindo o que amava no bairro.
+                  Você lembra quando conhecer um lugar bom era simples? Alguém de confiança te puxava pelo braço e dizia:{' '}
+                  <em style={{ color: '#fff', fontStyle: 'italic' }}>"vem comigo, você precisa conhecer esse lugar."</em>{' '}
+                  Não tinha feed, não tinha anúncio. Tinha gente olhando nos olhos e dividindo o que amava no bairro.
                 </p>
                 <p style={{ margin: 0 }}>
-                  Esse saber não desapareceu, ele só ficou sem caminho para circular. Ele está no cliente fiel que conhece cada esquina, na vizinha que sabe quem faz o melhor café e no amigo que sempre descobre as novidades antes de todo mundo. As grandes redes sociais tentaram substituir isso por{' '}
-                  <em style={{ color: 'rgba(255,255,255,0.85)' }}>"gaiolas digitais"</em>, abafando o comércio local sob um mar de ruído.
+                  Esse saber não desapareceu. Ele só ficou sem caminho pra circular. Está no Seu Carlos que conhece cada esquina do Bixiga, na Dona Marta que sabe qual feira monta mais cedo, no amigo que sempre descobre o restaurante antes de todo mundo.
                 </p>
                 <p style={{ margin: 0, color: '#3DDC84', fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
                   a <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} /> nasceu para ser esse caminho.
