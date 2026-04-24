@@ -511,7 +511,7 @@ export default function App() {
                 className="w-full sm:w-auto"
                 style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: '#3DDC84', color: '#111026', fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                A revolução é local. Faça parte. →
+                Faça parte →
               </motion.button>
             </motion.div>
           </div>
