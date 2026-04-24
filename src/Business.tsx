@@ -135,8 +135,8 @@ export default function Business() {
             </button>
           </div>
 
-          <p className="text-sm text-white/40 font-medium animate-[fadeUp_0.8s_0.6s_forwards] opacity-0">
-            Presença · Interação · Inteligência
+          <p style={{ margin: '0 0 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
+            Comunidade – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#ffffff' }}>Experiência</span> – Comodidade
           </p>
         </div>
       </section>
