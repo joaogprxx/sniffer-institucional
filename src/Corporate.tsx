@@ -36,7 +36,7 @@ export default function Corporate() {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
     padding: '10px 16px', borderRadius: '999px', fontWeight: 700,
     background: '#00A896',
-    color: '#ffffff', border: '1px solid transparent', cursor: 'pointer',
+    color: '#ffffff', border: '1px solid rgba(255,255,255,0.65)', cursor: 'pointer',
     boxShadow: '0 8px 24px rgba(0,168,150,0.35)', fontSize: '13px',
     fontFamily: "'Ferom', Inter, sans-serif", whiteSpace: 'nowrap' as const,
     pointerEvents: 'auto' as const,

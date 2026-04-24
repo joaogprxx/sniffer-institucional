@@ -210,8 +210,8 @@ export default function JoinPage() {
                 className="px-5 py-2 rounded-full text-sm font-medium transition-all"
                 style={{
                   fontFamily: 'var(--font-ferom)',
-                  background: isActive ? accent : 'transparent',
-                  color: isActive ? TOGGLE_ACTIVE_TEXT[mode] : TOGGLE_INACTIVE_TEXT[mode],
+                  background: isActive ? (mode === 'comunidade' ? '#ffffff' : accent) : 'transparent',
+                  color: isActive ? (mode === 'comunidade' ? '#00A896' : TOGGLE_ACTIVE_TEXT[mode]) : TOGGLE_INACTIVE_TEXT[mode],
                   boxShadow: isActive ? `0 2px 8px ${accent}44` : 'none',
                   border: 'none',
                   cursor: 'pointer',
