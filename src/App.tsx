@@ -489,12 +489,16 @@ export default function App() {
                   Esse saber não desapareceu. Ele só ficou sem caminho pra circular. Está no Seu Carlos que conhece cada esquina do Bixiga, na Dona Marta que sabe qual feira monta mais cedo, no amigo que sempre descobre o restaurante antes de todo mundo.
                 </p>
                 <p style={{ margin: 0, color: '#3DDC84', fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", letterSpacing: '0.01em' }}>
-                  a <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} /> nasceu para ser esse caminho.
+                  A <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} /> é o caminho.
                 </p>
                 <p style={{ margin: 0 }}>
-                  Nós damos mobilidade ao conhecimento que já existe — vivo, real e espalhado pela comunidade. Aqui, a tecnologia não substitui ninguém; ela serve como suporte e velocidade para que a indicação da{' '}
-                  <em style={{ color: 'rgba(255,255,255,0.85)' }}>"Dona Marta"</em>{' '}
-                  chegue a centenas de pessoas no momento certo. A essência de um negócio querido e o toque humano são conhecimentos que nenhum sistema consegue fabricar.
+                  A gente pega esse conhecimento que já existe — vivo, real, espalhado por milhares de pessoas — e dá mobilidade pra ele correr de vizinho pra vizinho, de bairro pra bairro.
+                </p>
+                <p style={{ margin: 0 }}>
+                  Tecnologia aqui não substitui ninguém. Ela só garante que quando a Dona Marta indicar a melhor coxinha da rua dela, essa indicação chegue até você antes que o lugar feche.
+                </p>
+                <p style={{ margin: 0, fontWeight: 700, color: '#fff' }}>
+                  Seu bairro sempre teve voz. Agora ele tem presença.
                 </p>
               </div>
               <motion.button
@@ -504,7 +508,7 @@ export default function App() {
                 className="w-full sm:w-auto"
                 style={{ marginTop: '44px', padding: '16px 40px', borderRadius: '999px', background: '#3DDC84', color: '#111026', fontWeight: 800, fontSize: '17px', border: 'none', cursor: 'pointer', fontFamily: "'Ferom', Inter, sans-serif", letterSpacing: '-0.01em', minHeight: '48px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                Faça Parte →
+                A revolução é local. Faça parte. →
               </motion.button>
             </motion.div>
           </div>
@@ -519,8 +523,8 @@ export default function App() {
             {/* Brand — full width on mobile */}
             <div className="sm:col-span-2 md:col-span-5">
               <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '32px', width: 'auto', marginBottom: '12px', display: 'block' }} />
-              <p style={{ margin: '0 0 20px', fontSize: '14px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
-                Comunidade, Comodidade e Experiência.
+              <p style={{ margin: '0 0 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
+                Comunidade – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#fff' }}>Experiência</span> – Comodidade
               </p>
             </div>
             {/* Spacer — desktop only */}

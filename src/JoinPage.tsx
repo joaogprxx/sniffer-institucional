@@ -237,24 +237,73 @@ export default function JoinPage() {
           <div className="relative z-10 flex flex-col gap-8">
 
             {submitted ? (
-              <div className="flex flex-col items-center text-center gap-4 py-6">
-                <span className="text-5xl">🐾</span>
+              <div className="flex flex-col items-center text-center gap-6 py-8">
+                {/* Animated checkmark circle */}
+                <div
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #3DDC84 0%, #00A896 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 8px 32px rgba(61,220,132,0.35)',
+                    animation: 'pulse-glow 2s ease-in-out infinite',
+                  }}
+                >
+                  <span style={{ fontSize: '36px' }}>🐾</span>
+                </div>
+
                 <h2
                   className="font-extrabold text-2xl"
-                  style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)' }}
+                  style={{ color: '#3DDC84', fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
                 >
-                  você está dentro!
+                  Pronto. Você já faz parte.
                 </h2>
-                <p style={{ color: TEXT_MUTED[mode], fontSize: '14px' }}>
-                  em breve o Sniffer chega no seu bairro. fique de olho no seu e-mail.
+
+                <p style={{
+                  color: mode === 'people' ? 'rgba(17,16,38,0.75)' : 'rgba(255,255,255,0.75)',
+                  fontSize: '15px',
+                  lineHeight: 1.7,
+                  maxWidth: '34ch',
+                  fontFamily: 'var(--font-ferom)',
+                }}>
+                  Quando a Sniffer abrir as portas, seu convite chegará direto no seu WhatsApp ou e-mail. E com ele,{' '}
+                  <strong style={{ color: mode === 'people' ? '#111026' : '#fff' }}>5 convites</strong> pra você trazer quem realmente importa.
                 </p>
+
+                <p style={{
+                  color: '#3DDC84',
+                  fontSize: '18px',
+                  fontWeight: 700,
+                  fontFamily: "'Buasley', cursive",
+                  letterSpacing: '0.01em',
+                  marginTop: '4px',
+                }}>
+                  A revolução é local. E começa com você.
+                </p>
+
                 <button
                   onClick={() => navigate(-1)}
                   className="mt-4 text-sm font-bold hover:underline"
-                  style={{ color: accent }}
+                  style={{
+                    color: '#00A896',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-ferom)',
+                  }}
                 >
                   ← voltar
                 </button>
+
+                <style>{`
+                  @keyframes pulse-glow {
+                    0%, 100% { box-shadow: 0 8px 32px rgba(61,220,132,0.35); }
+                    50% { box-shadow: 0 8px 48px rgba(61,220,132,0.55); }
+                  }
+                `}</style>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-8">
@@ -265,10 +314,10 @@ export default function JoinPage() {
                     className="font-semibold text-2xl mb-2"
                     style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)' }}
                   >
-                    faça o seu bairro acontecer
+                    {mode === 'people' ? 'Poucos vão entrar primeiro. Você é um deles.' : 'faça o seu bairro acontecer'}
                   </h2>
                   <p style={{ color: TEXT_MUTED[mode], fontSize: '14px' }}>
-                    conecte pessoas, crie movimento local.
+                    {mode === 'people' ? 'Explore o que tá pulsando aí, bem pertinho de você.' : 'conecte pessoas, crie movimento local.'}
                   </p>
                 </div>
 
@@ -276,10 +325,10 @@ export default function JoinPage() {
                 <div className="flex flex-col gap-5">
 
                   <div>
-                    <label style={labelStyle}>nome completo</label>
+                    <label style={labelStyle}>{mode === 'people' ? 'Quem é você na rua?' : 'nome completo'}</label>
                     <input
                       type="text"
-                      placeholder="seu nome"
+                      placeholder={mode === 'people' ? 'Como te chamam?' : 'seu nome'}
                       value={nome}
                       onChange={e => setNome(e.target.value)}
                       required
@@ -338,7 +387,7 @@ export default function JoinPage() {
                   </div>
 
                   <div>
-                    <label style={labelStyle}>e-mail</label>
+                    <label style={labelStyle}>{mode === 'people' ? 'E-mail' : 'e-mail'}</label>
                     <input
                       type="email"
                       placeholder="seu@email.com"
@@ -377,7 +426,7 @@ export default function JoinPage() {
                     onMouseEnter={() => setHovering(true)}
                     onMouseLeave={() => setHovering(false)}
                   >
-                    quero fazer parte
+                    {mode === 'people' ? 'A revolução é local. Faça parte!' : 'quero fazer parte'}
                   </button>
                   <div className="flex items-center justify-center gap-2" style={{ color: LOCK_COLOR[mode] }}>
                     <Lock size={14} />
