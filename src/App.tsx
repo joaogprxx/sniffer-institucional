@@ -305,7 +305,7 @@ export default function App() {
                 </div>
                 <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ marginTop: '36px' }}>
                   <button onClick={() => navigate('/cadastro')} className="w-full sm:w-auto" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 28px', borderRadius: '999px', fontWeight: 700, background: 'linear-gradient(180deg, #68f6a5 0%, #50f296 100%)', color: '#111026', border: 'none', cursor: 'pointer', boxShadow: '0 16px 36px rgba(80,242,150,0.28)', fontSize: '16px', fontFamily: "'Ferom', Inter, sans-serif", minHeight: '48px' }}>
-                    Faça Parte →
+                    A revolução é local. Faça parte →
                   </button>
                 </motion.div>
               </div>
