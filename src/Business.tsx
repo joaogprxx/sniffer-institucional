@@ -166,10 +166,10 @@ export default function Business() {
                 "Confiança se constrói no bairro, de<br /><span style={{ fontFamily: "'Buasley', cursive" }}>pessoa pra pessoa</span>, olho no olho."
               </blockquote>
               <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
-                A Sniffer é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.
+                A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.
               </p>
               <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite. Cada usuário tem apenas <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia.
+                Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite. Cada usuário tem apenas <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia.
               </p>
               <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Quando alguém coloca o seu negócio ali, essa recomendação não some em um vácuo digital.
@@ -179,7 +179,7 @@ export default function Business() {
             {/* Right — Product features grid */}
             <Reveal delay={200}>
               <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Para você, dono de negócio, a Sniffer não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver. É uma <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>plataforma completa de presença, atendimento e inteligência</strong> — tudo num lugar só.
+                Para você, dono de negócio, a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver. É uma <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>plataforma completa de presença, atendimento e inteligência</strong> — tudo num lugar só.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 {[
@@ -204,7 +204,7 @@ export default function Business() {
                 ))}
               </div>
               <p style={{ margin: '28px 0 0', fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>
-                A Sniffer nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.
+                A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.
               </p>
             </Reveal>
           </div>
@@ -222,7 +222,7 @@ export default function Business() {
               A vitrine completa do seu negócio
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
-              O Perfil do Negócio é o coração do Sniffer Business. Mais que um perfil — é uma central completa que transforma o interesse do bairro em movimento no seu caixa.
+              O Perfil do Negócio é o coração da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}Business. Mais que um perfil — é uma central completa que transforma o interesse do bairro em movimento no seu caixa.
             </p>
             <ul className="space-y-4">
               {[
@@ -230,7 +230,7 @@ export default function Business() {
                 'Fotos, vídeos e cardápio em feed interativo',
                 'Avaliações verificadas com sistema antifraude',
                 'Localização, horários e dados operacionais em tempo real',
-                'Selo de Verificação Sniffer (disponível a partir do plano Plus)',
+                'Selo de Verificação (disponível a partir do plano Plus)',
               ].map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <span className="text-tealBusiness text-lg mt-0.5">🐾</span>
@@ -328,7 +328,7 @@ export default function Business() {
                   popular: true,
                   light: false,
                   textBright: false,
-                  features: ['Selo de Verificação Sniffer', 'Até 3 localizações', '1 promoção ativa por vez', 'Notificações restritas', 'Suporte N2']
+                  features: ['Selo de Verificação', 'Até 3 localizações', '1 promoção ativa por vez', 'Notificações restritas', 'Suporte N2']
                 },
                 {
                   name: 'Business',
@@ -508,7 +508,7 @@ export default function Business() {
                         { label: 'Feed cardápio/ação', values: ['✓', '✓', '✓', '✓'] },
                         { label: 'Comunidade', values: ['Básica', 'Básica', 'Avançada', 'Moderada'] },
                         { label: 'Rating e Reviews', values: ['✓', '✓', '✓', '✓'] },
-                        { label: 'Selo de Verificação', values: ['—', '✓', '✓', '✓'] },
+                        { label: 'Verificação', values: ['—', '✓', '✓', '✓'] },
                         { label: 'Promoções ativas', values: ['—', '1', 'Ilimitadas', 'Ilimitadas'] },
                         { label: 'Notificações', values: ['—', 'Restritas', '✓', '✓'] },
                         { label: 'Ranking Premium', values: ['—', '—', '✓', '✓'] },
@@ -570,7 +570,7 @@ export default function Business() {
           <div className="flex items-center gap-2 text-white/40 text-sm">
             <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
             <span className="text-white/30">business</span>
-            <span className="ml-2">© 2026 Sniffer Business. Belo Horizonte, MG.</span>
+            <span className="ml-2">© 2026{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)', opacity: 0.4 }} />{' '}Business. Belo Horizonte, MG.</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-white/50">
             <a href="#" className="hover:text-tealBusiness transition-colors">Termos</a>

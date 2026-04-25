@@ -265,7 +265,7 @@ export default function JoinPage() {
                   maxWidth: '34ch',
                   fontFamily: 'var(--font-ferom)',
                 }}>
-                  Quando a Sniffer abrir as portas, seu convite chegará direto no seu WhatsApp ou e-mail. E com ele,{' '}
+                  Quando a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: mode === 'business' ? 'brightness(0) invert(1)' : 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}abrir as portas, seu convite chegará direto no seu WhatsApp ou e-mail. E com ele,{' '}
                   <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 800 }}>5 convites</strong> pra você trazer quem realmente importa.
                 </p>
 
@@ -310,11 +310,13 @@ export default function JoinPage() {
                     className="font-semibold text-2xl"
                     style={{ color: TEXT_PRIMARY[mode], fontFamily: 'var(--font-ferom)', lineHeight: 1.3 }}
                   >
-                    {mode === 'people'
-                      ? 'A Sniffer está chegando — e o lançamento não é pra todo mundo.'
-                      : mode === 'business'
-                      ? 'A Sniffer está chegando — e os primeiros negócios do bairro já estão garantindo lugar.'
-                      : 'A Sniffer está chegando — e as comunidades que moldam o bairro entram primeiro.'}
+                    {mode === 'people' ? (
+                    <>A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}está chegando — e o lançamento não é pra todo mundo.</>
+                  ) : mode === 'business' ? (
+                    <>A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}está chegando — e os primeiros negócios do bairro já estão garantindo lugar.</>
+                  ) : (
+                    <>A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}está chegando — e as comunidades que moldam o bairro entram primeiro.</>
+                  )}
                   </h2>
 
                   {mode === 'people' && (
@@ -323,7 +325,7 @@ export default function JoinPage() {
                         Deixa seu nome, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar seu perfil antes de todo mundo.
                       </p>
                       <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
-                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 pessoas da sua confiança</strong>. Só cinco. Escolhe bem — na Sniffer, quem você traz diz muito sobre você.
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 pessoas da sua confiança</strong>. Só cinco. Escolhe bem — na{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />, quem você traz diz muito sobre você.
                       </p>
                     </>
                   )}
@@ -334,7 +336,7 @@ export default function JoinPage() {
                         Deixa o nome do seu negócio, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar o perfil do seu estabelecimento e ser encontrado por quem mora pertinho de você.
                       </p>
                       <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
-                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 negócios parceiros do bairro</strong>. Só cinco. Pensa bem em quem você quer trazer — na Sniffer, a sua vizinhança começa por você.
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 negócios parceiros do bairro</strong>. Só cinco. Pensa bem em quem você quer trazer — na{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />, a sua vizinhança começa por você.
                       </p>
                     </>
                   )}
@@ -345,7 +347,7 @@ export default function JoinPage() {
                         Deixa o nome do seu grupo, WhatsApp e e-mail. Quando abrirmos as portas, você recebe um convite exclusivo pra criar o perfil da sua comunidade e aparecer pra quem já vive e respira o mesmo bairro que você.
                       </p>
                       <p style={{ color: TEXT_MUTED[mode], fontSize: '14px', lineHeight: 1.65, fontFamily: 'var(--font-ferom)' }}>
-                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 outras comunidades</strong>. Só cinco. Escolhe quem faz o bairro ser o que ele é — na Sniffer, pertencimento se constrói junto.
+                        E tem mais: depois de entrar, você vai poder convidar <strong style={{ color: TEXT_PRIMARY[mode], fontWeight: 700 }}>5 outras comunidades</strong>. Só cinco. Escolhe quem faz o bairro ser o que ele é — na{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />, pertencimento se constrói junto.
                       </p>
                     </>
                   )}

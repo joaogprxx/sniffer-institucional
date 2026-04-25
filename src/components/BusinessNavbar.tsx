@@ -8,7 +8,7 @@ export const solutionsItems = [
   { icon: '💛', label: 'Xodós', desc: 'Camada de confiança e programa de indicação', href: '/business/xodos' },
   { icon: '🐺', label: 'Matilha', desc: 'Comunidades privadas com Rituais de Matilha', href: '/business/matilha' },
   { icon: '💡', label: 'Spotlight', desc: 'Promoções hiperlocais com alcance real', href: '/business/spotlight' },
-  { icon: '📣', label: 'Uivo', desc: 'Canal de atendimento direto dentro da Sniffer', href: '/business/uivo' },
+  { icon: '📣', label: 'Uivo', desc: 'Canal de atendimento direto na plataforma', href: '/business/uivo' },
   { icon: '🐾', label: 'Rastro', desc: 'Programa de fundadores — 10.000 vagas', href: '/business/rastro' },
   { icon: '🔍', label: 'Faro', desc: 'Inteligência local — dados que viram decisão', href: '/business/faro' },
   { icon: '🤝', label: 'SVA', desc: 'Parceria para operadoras e distribuidores', href: '/business#parceiros' },
@@ -197,7 +197,7 @@ export function BusinessNavbar() {
                     maxWidth: '180px',
                     margin: 0,
                   }}>
-                    Descubra os produtos Sniffer para transformar a presença digital do seu negócio local.
+                    Descubra os produtos{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}para transformar a presença digital do seu negócio local.
                   </p>
                 </div>
 

@@ -57,7 +57,7 @@ export default function Territorio() {
 
             <div style={{ maxWidth: 680 }}>
               <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-6" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
-                O Meu Território é o painel de controle do seu negócio dentro da Sniffer. Tudo o que uma pessoa faz com o seu perfil — visitar, clicar no WhatsApp, ligar, pedir rota, salvar uma promoção, deixar uma avaliação, entrar na sua comunidade — aparece num único dashboard, em tempo real, organizado pra você entender sem precisar de planilha nem de agência.
+                O Meu Território é o painel de controle do seu negócio dentro da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />. Tudo o que uma pessoa faz com o seu perfil — visitar, clicar no WhatsApp, ligar, pedir rota, salvar uma promoção, deixar uma avaliação, entrar na sua comunidade — aparece num único dashboard, em tempo real, organizado pra você entender sem precisar de planilha nem de agência.
               </p>
               <p className="text-lg lg:text-[19px] text-white/80 leading-relaxed" style={{ fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Você enxerga quem te encontrou, como te encontrou, o que fez depois de te encontrar, e o que funcionou melhor. Não é um painel de métricas genéricas. É o raio-x completo de como as pessoas interagem com o seu negócio, do primeiro toque até a conversão.
