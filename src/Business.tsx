@@ -163,7 +163,7 @@ export default function Business() {
             {/* Left — Main narrative */}
             <Reveal delay={100}>
               <blockquote style={{ margin: '0 0 32px', padding: '0 0 0 24px', borderLeft: '3px solid #00A896', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Ferom', Inter, sans-serif", maxWidth: '32ch' }}>
-                "Confiança se constrói no bairro, de <span style={{ fontFamily: "'Buasley', cursive" }}>pessoa pra pessoa</span>, olho no olho."
+                "Confiança se constrói no bairro, de<br /><span style={{ fontFamily: "'Buasley', cursive" }}>pessoa pra pessoa</span>, olho no olho."
               </blockquote>
               <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 A Sniffer é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.
