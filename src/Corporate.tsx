@@ -89,7 +89,7 @@ export default function Corporate() {
               palma da <em className="not-italic text-white">sua mão.</em>
             </h1>
             <p className="text-lg leading-[1.7] mb-12 font-semibold animate-[fadeUp_0.8s_0.5s_forwards] opacity-0" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '560px' }}>
-              A Sniffer é a plataforma onde pessoas descobrem o melhor do seu bairro através de quem elas mais confiam. Não é algoritmo. É gente real recomendando gente real.
+              A Sniffer é a plataforma onde pessoas descobrem o melhor do seu bairro através de quem elas mais confiam. Não é algoritmo.<br />É gente real recomendando gente real.
             </p>
             <div className="flex gap-4 items-center flex-wrap animate-[fadeUp_0.8s_0.7s_forwards] opacity-0">
               <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-[#2D2F5E] bg-white px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.30)]">
