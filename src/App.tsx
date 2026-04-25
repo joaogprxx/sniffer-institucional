@@ -527,7 +527,7 @@ export default function App() {
             <div className="sm:col-span-2 md:col-span-5">
               <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '32px', width: 'auto', marginBottom: '12px', display: 'block' }} />
               <p style={{ margin: '0 0 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
-                Comunidade – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#fff' }}>Experiência</span> – Comodidade
+                Comunidade – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#fff' }}>experiência</span> – Comodidade
               </p>
             </div>
             {/* Spacer — desktop only */}
