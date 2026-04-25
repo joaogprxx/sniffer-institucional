@@ -299,7 +299,7 @@ export function BusinessNavbar() {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#0AA689';
               }}
             >
-              Faça parte
+              A revolução é local, faça parte
             </button>
           </div>
 
@@ -534,7 +534,7 @@ export function BusinessNavbar() {
                     width: '100%',
                   }}
                 >
-                  Faça parte
+                  A revolução é local, faça parte
                 </button>
               </div>
             </motion.div>
