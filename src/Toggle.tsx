@@ -108,9 +108,15 @@ export function Toggle() {
       <motion.div
         ref={trackRef}
         className="relative flex items-center rounded-full px-1 py-1"
-        animate={{ backgroundColor: TRACK_BG[active] }}
+        animate={{
+          backgroundColor: TRACK_BG[active],
+          boxShadow: active === 'corporate'
+            ? '0 0 0 1px rgba(255,255,255,0.22), inset 0 1px 0 rgba(255,255,255,0.14)'
+            : active === 'business'
+              ? 'inset 0 2px 8px rgba(0,0,0,0.15)'
+              : 'inset 0 2px 8px rgba(0,0,0,0.15)',
+        }}
         transition={TRANSITION_BG}
-        style={{ boxShadow: active === 'corporate' ? 'none' : 'inset 0 2px 8px rgba(0,0,0,0.15)' }}
       >
         {/* Single always-mounted pill — slides & morphs color */}
         <motion.div
