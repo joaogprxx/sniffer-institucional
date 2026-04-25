@@ -293,11 +293,11 @@ export default function Corporate() {
                 Seu bairro merece uma <span style={{ color: '#50F296' }}>comunidade real.</span>
               </h2>
               <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '440px' }}>
-                A Sniffer está chegando. Entre na lista e seja um dos primeiros a construir a comunidade do seu bairro numa plataforma feita pra isso.
+                A Sniffer está chegando. Assuma a liderança e crie a rede da sua vizinhança.
               </p>
               <div className="flex gap-4 justify-center items-center flex-wrap relative z-[2]">
                 <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-white bg-[#2D2F5E] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,47,94,0.25)]">
-                  Faça parte <ChevronRight className="size-4" />
+                  Fundar minha comunidade <ChevronRight className="size-4" />
                 </a>
                 <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   Conhecer mais <ChevronRight className="size-4" />
