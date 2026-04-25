@@ -280,7 +280,7 @@ export default function Business() {
             Planos que crescem com você.
           </h2>
           <p className="text-center text-white/50 text-lg mb-10 max-w-xl mx-auto">
-            Comece grátis. Evolua quando fizer sentido. Cada plano inclui tudo do anterior.
+            Comece grátis. Evolua quando fizer sentido. Cada plano inclui tudo que o anterior oferece.
           </p>
           </Reveal>
 
@@ -321,14 +321,14 @@ export default function Business() {
                   name: 'Plus',
                   price: 'R$ 60',
                   tagline: 'Pra quem quer se destacar.',
-                  cta: 'Quero o Plus',
+                  cta: 'Quero crescer',
                   style: 'bg-tealBusiness border-transparent shadow-[0_8px_30px_-6px_rgba(0,168,150,0.35)]',
                   btnStyle: 'bg-white text-tealBusiness hover:bg-white/90',
                   titleStyle: 'text-xl sm:text-2xl font-extrabold text-white',
                   popular: true,
                   light: false,
                   textBright: false,
-                  features: ['Selo de Verificação Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
+                  features: ['Selo de Verificação Sniffer', 'Até 3 localizações', '1 promoção ativa por vez', 'Notificações restritas', 'Suporte N2']
                 },
                 {
                   name: 'Business',
@@ -409,7 +409,7 @@ export default function Business() {
                     </div>
 
                     <div className="flex-grow transition-opacity duration-500 delay-150" style={{ opacity: isActive ? 1 : 0 }}>
-                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : plan.textBright ? 'text-white/70' : 'text-white/40'}`}>Principais Entregas</p>
+                      <p className={`text-[0.7rem] uppercase tracking-wider font-bold mb-4 px-2 ${plan.popular ? 'text-white/50' : plan.light ? 'text-navy/50' : plan.textBright ? 'text-white/70' : 'text-white/40'}`}>Principais Benefícios</p>
                       <ul className="space-y-3 px-2">
                         {plan.features.map(f => (
                           <li key={f} className="flex items-start text-base">
@@ -510,7 +510,7 @@ export default function Business() {
                         { label: 'Rating e Reviews', values: ['✓', '✓', '✓', '✓'] },
                         { label: 'Selo de Verificação', values: ['—', '✓', '✓', '✓'] },
                         { label: 'Promoções ativas', values: ['—', '1', 'Ilimitadas', 'Ilimitadas'] },
-                        { label: 'Push Notification', values: ['—', 'Restrito', '✓', '✓'] },
+                        { label: 'Notificações', values: ['—', 'Restritas', '✓', '✓'] },
                         { label: 'Ranking Premium', values: ['—', '—', '✓', '✓'] },
                         { label: 'Análises de Mercado', values: ['—', '—', '✓', '✓'] },
                         { label: 'Insights Fora do Nicho', values: ['—', '—', '—', '✓'] },
