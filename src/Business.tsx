@@ -230,7 +230,7 @@ export default function Business() {
                 'Fotos, vídeos e cardápio em feed interativo',
                 'Avaliações verificadas com sistema antifraude',
                 'Localização, horários e dados operacionais em tempo real',
-                'Selo Verified Sniffer (a partir do Plus)',
+                'Selo de Verificação Sniffer (disponível a partir do plano Plus)',
               ].map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <span className="text-tealBusiness text-lg mt-0.5">🐾</span>
@@ -328,7 +328,7 @@ export default function Business() {
                   popular: true,
                   light: false,
                   textBright: false,
-                  features: ['Selo Verified Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
+                  features: ['Selo de Verificação Sniffer', 'Até 3 Localizações', '1 Promoção ativa por vez', 'Push Notification restrito', 'Suporte N2']
                 },
                 {
                   name: 'Business',
@@ -508,7 +508,7 @@ export default function Business() {
                         { label: 'Feed cardápio/ação', values: ['✓', '✓', '✓', '✓'] },
                         { label: 'Comunidade', values: ['Básica', 'Básica', 'Avançada', 'Moderada'] },
                         { label: 'Rating e Reviews', values: ['✓', '✓', '✓', '✓'] },
-                        { label: 'Selo Verified', values: ['—', '✓', '✓', '✓'] },
+                        { label: 'Selo de Verificação', values: ['—', '✓', '✓', '✓'] },
                         { label: 'Promoções ativas', values: ['—', '1', 'Ilimitadas', 'Ilimitadas'] },
                         { label: 'Push Notification', values: ['—', 'Restrito', '✓', '✓'] },
                         { label: 'Ranking Premium', values: ['—', '—', '✓', '✓'] },
