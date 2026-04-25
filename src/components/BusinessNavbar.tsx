@@ -197,7 +197,7 @@ export function BusinessNavbar() {
                     maxWidth: '180px',
                     margin: 0,
                   }}>
-                    Descubra os produtos{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}para transformar a presença digital do seu negócio local.
+                    Descubra os produtos{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}para transformar a presença digital do seu negócio local.
                   </p>
                 </div>
 
@@ -213,7 +213,7 @@ export function BusinessNavbar() {
                   {solutionsItems.map(item => (
                     <a
                       key={item.label}
-                      href={item.href}
+                      href="/cadastro?mode=business"
                       onClick={() => setSolutionsOpen(false)}
                       style={{
                         display: 'flex',
@@ -463,7 +463,7 @@ export function BusinessNavbar() {
                             {solutionsItems.map(item => (
                               <li key={item.label}>
                                 <a
-                                  href={item.href}
+                                  href="/cadastro?mode=business"
                                   onClick={() => { setMobileOpen(false); setMobileSolutionsOpen(false); }}
                                   style={{
                                     display: 'flex',
