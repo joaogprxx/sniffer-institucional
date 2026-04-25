@@ -316,8 +316,7 @@ export default function Corporate() {
           </a>
           <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(255,255,255,0.70)' }}>
             <span>© 2026 Sniffer</span>
-            <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Privacidade</a>
-            <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Termos</a>
+
             <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Contato</a>
           </div>
         </div>
