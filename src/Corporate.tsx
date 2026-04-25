@@ -61,7 +61,7 @@ export default function Corporate() {
             <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '28px', width: 'auto', maxWidth: 'min(32vw, 160px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro?mode=comunidade')} style={btnPrimary}>
-            Faça Parte
+            Liderar meu bairro
           </button>
         </div>
       </div>
