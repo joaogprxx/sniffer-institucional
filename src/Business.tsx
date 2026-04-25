@@ -187,7 +187,7 @@ export default function Business() {
                   { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
                   { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
                   { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
-                  { icon: '📊', name: 'Faro', desc: 'Cada interação vira dado acionável sobre o que funciona.', href: '/business/faro' },
+                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
                   { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
                 ].map((item) => (
                   <a
