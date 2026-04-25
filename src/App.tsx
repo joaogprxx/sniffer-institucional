@@ -229,7 +229,7 @@ export default function App() {
             <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '24px', width: 'auto', maxWidth: 'min(28vw, 140px)', objectFit: 'contain' }} />
           </a>
           <button onClick={() => navigate('/cadastro?mode=comunidade')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
-            Liderar meu bairro
+            A revolução é local, faça parte
           </button>
         </div>
       </div>
