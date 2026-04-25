@@ -219,7 +219,7 @@ export default function Business() {
           <Reveal>
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
-              Seu negócio com tudo num só lugar.
+              A vitrine completa do seu negócio
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
               O Business Card é o coração do Sniffer Business. Mais que um perfil — é um hub completo entre você e seu cliente.
