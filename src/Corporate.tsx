@@ -113,19 +113,23 @@ export default function Corporate() {
               Quem somos
             </p>
             <h2 className="font-bold leading-[1.1] text-[#2D2F5E] mb-6" style={{ fontFamily: "'Ferom', sans-serif", fontSize: 'clamp(28px, 3.5vw, 42px)', letterSpacing: '-1.5px', maxWidth: '560px' }}>
-              Confiança se constrói de pessoa pra pessoa. A{' '}
+              A confiança nasce no olho no olho. A{' '}
               <img
                 src="/logo-sniffer-wordmark.png"
                 alt="Sniffer"
                 style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }}
               />{' '}
-              dá escala pra isso.
+              cria o caminho para ela circular.
             </h2>
             <p className="text-[17px] leading-[1.8] font-light mb-6" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
-              A Sniffer é uma plataforma de descoberta hiperlocal construída sobre o princípio que todo mundo já sabe, mas nenhuma tecnologia resolveu: as melhores recomendações vêm de quem a gente confia. Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade, com nome, com rosto e com limite.
+              Somos a plataforma que resolveu algo simples, mas esquecido pela tecnologia: a indicação de quem a gente confia vale mais do que qualquer anúncio. Enquanto redes tradicionais vendem visibilidade para quem paga mais, a{' '}
+              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}
+              está construindo uma rede baseada em confiança — onde pessoas recomendam de verdade, com nome, com rosto e com responsabilidade.
             </p>
             <p className="text-[17px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
-              Cada pessoa na Sniffer tem 7 Xodós: espaços no perfil onde ela declara publicamente em quem confia. Essa recomendação não some num algoritmo. Ela fica visível, gera alcance e traz gente real até a sua porta. A Sniffer não inventou o boca a boca. Ela deu estrutura, tecnologia e escala pra ele funcionar no mundo digital.
+              Na{' '}
+              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />,{' '}
+              cada pessoa tem seus 7 Xodós: espaços no perfil para declarar publicamente sua confiança nos lugares que ama. Aqui, recomendações não se perdem em algoritmos. Elas ganham alcance, conectam vizinhos e levam pessoas reais até negócios que merecem ser descobertos. Não reinventamos o boca a boca. Estamos dando estrutura para ele crescer — e escala para ele voltar a mover o que está ao seu redor.
             </p>
           </Reveal>
 
