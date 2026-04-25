@@ -190,13 +190,13 @@ export default function JoinPage() {
         </button>
 
         {/* Logo */}
-        <a href="/" style={{ display: 'inline-block', marginBottom: '32px', cursor: 'pointer' }}>
+        <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginBottom: '32px', display: 'inline-block' }}>
           <img
             src={isLight ? '/logo-sniffer-wordmark.png' : '/logo-sniffer-white.png'}
             alt="Sniffer"
             style={{ height: '48px', width: 'auto', display: 'block' }}
           />
-        </a>
+        </button>
 
         {/* Toggle Pill */}
         <div
