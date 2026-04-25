@@ -258,7 +258,7 @@ export default function Business() {
                 <p className="text-xs text-navy/40 mb-3">Hambúrgueria artesanal · ⭐ 4.9 · 2.1k avaliações</p>
                 <div className="flex gap-2 mb-3">
                   <span className="bg-tealBusiness/10 text-tealBusiness text-[10px] font-bold px-2 py-1 rounded-full">Aberto</span>
-                  <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">Delivery</span>
+                  <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">Pedido</span>
                   <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">WhatsApp</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
