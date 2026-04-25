@@ -208,7 +208,7 @@ export default function JoinPage() {
             return (
               <button
                 key={p.mode}
-                onClick={() => navigate(p.route)}
+                onClick={() => navigate(p.route, { replace: true })}
                 className="px-5 py-2 rounded-full text-sm font-medium transition-all"
                 style={{
                   fontFamily: 'var(--font-ferom)',

@@ -228,7 +228,7 @@ export default function App() {
             <img src="/logo-sniffer.png" alt="Sniffer" style={{ height: '36px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 18px rgba(80,242,150,0.22))' }} />
             <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '24px', width: 'auto', maxWidth: 'min(28vw, 140px)', objectFit: 'contain' }} />
           </a>
-          <button onClick={() => navigate('/cadastro?mode=comunidade')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
+          <button onClick={() => navigate('/cadastro?mode=people')} style={{ ...btnPrimary, padding: '10px 16px', fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'auto' }}>
             A revolução é local, faça parte
           </button>
         </div>
