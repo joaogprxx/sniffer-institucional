@@ -136,7 +136,7 @@ export default function Business() {
           </div>
 
           <p style={{ margin: '0 auto 20px', fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)', textAlign: 'center' }}>
-            Comunidade – Experiência – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#ffffff' }}>Comodidade</span>
+            Comunidade – Experiência – <span style={{ fontFamily: "'Buasley', cursive", letterSpacing: '0.01em', fontSize: '18px', color: '#ffffff' }}>comodidade</span>
           </p>
         </div>
       </section>
