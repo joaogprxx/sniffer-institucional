@@ -172,7 +172,7 @@ export default function Business() {
                 Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a Sniffer criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite. Cada usuário tem apenas <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia.
               </p>
               <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Quando alguém coloca o seu negócio ali, essa recomendação não some num algoritmo. Ela fica visível, gera alcance e traz gente real até a sua porta. A Sniffer não inventou o boca a boca. Ela deu estrutura, tecnologia e escala pra ele funcionar no mundo digital.
+                Quando alguém coloca o seu negócio ali, essa recomendação não some em um vácuo digital.
               </p>
             </Reveal>
 
