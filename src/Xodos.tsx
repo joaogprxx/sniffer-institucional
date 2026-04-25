@@ -78,7 +78,7 @@ export default function Xodos() {
                 className="text-lg lg:text-[19px] text-white/80 leading-relaxed mb-8"
                 style={{ fontFamily: "'Ferom', Inter, sans-serif" }}
               >
-                O Xodó é a camada de confiança da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />. Cada negócio na plataforma tem 7 Xodós,
+                O Xodó é a camada de confiança da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />. Cada negócio na plataforma tem 7 Xodós,
                 espaços no perfil onde você escolhe, de forma pública e deliberada, as pessoas,
                 negócios e comunidades em quem confia e recomenda.
               </p>
@@ -89,7 +89,7 @@ export default function Xodos() {
               >
                 E as pessoas fazem o mesmo com você: quando alguém coloca o seu negócio num dos 7
                 Xodós dela, essa escolha fica visível no perfil, alimenta o sistema de descoberta da{' '}
-                <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}
+                <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}
                 e faz seu negócio aparecer para toda a rede de confiança ao redor. Não é um
                 seguir. Não é um curtir. É uma via de mão dupla: você recomenda quem confia, e é
                 recomendado por quem confia em você. É o boca a boca que sempre existiu, só que
@@ -113,7 +113,7 @@ export default function Xodos() {
               className="text-[17px] text-white/80 leading-relaxed mb-6"
               style={{ fontFamily: "'Ferom', Inter, sans-serif" }}
             >
-              O Xodó é a forma mais poderosa de crescer dentro da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />. Escolha o fornecedor que
+              O Xodó é a forma mais poderosa de crescer dentro da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />. Escolha o fornecedor que
               você indica, o parceiro do bairro, a comunidade que representa seu mercado, e mostre
               pro mundo em quem você acredita.
             </p>

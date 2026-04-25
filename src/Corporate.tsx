@@ -79,7 +79,7 @@ export default function Corporate() {
           <div className="max-w-[760px] pt-[180px] pb-[160px]">
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full animate-[fadeUp_0.8s_0.1s_forwards] opacity-0" style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)' }}>
               <span className="w-[6px] h-[6px] rounded-full bg-white animate-pulse" />
-              <span className="text-[11px] font-semibold tracking-[2px] uppercase text-white">Comunidade{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} /></span>
+              <span className="text-[11px] font-semibold tracking-[2px] uppercase text-white">Comunidade{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} /></span>
             </div>
             <h1
               className="font-bold leading-[1.05] text-white mb-8 animate-[fadeUp_0.8s_0.3s_forwards] opacity-0"
@@ -89,14 +89,14 @@ export default function Corporate() {
               palma da <em className="not-italic text-white">sua mão.</em>
             </h1>
             <p className="text-lg leading-[1.7] mb-12 font-semibold animate-[fadeUp_0.8s_0.5s_forwards] opacity-0" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '560px' }}>
-              A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}é a plataforma onde pessoas descobrem o melhor do seu bairro através de quem elas mais confiam. Não é algoritmo.<br />É gente real recomendando gente real.
+              A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}é a plataforma onde pessoas descobrem o melhor do seu bairro através de quem elas mais confiam. Não é algoritmo.<br />É gente real recomendando gente real.
             </p>
             <div className="flex gap-4 items-center flex-wrap animate-[fadeUp_0.8s_0.7s_forwards] opacity-0">
               <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-[#2D2F5E] bg-white px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.30)]">
                 Faça parte <ChevronRight className="size-4" />
               </a>
               <a href="#quem-somos" className="inline-flex items-center gap-2 text-[15px] py-4 no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.80)' }}>
-                Conheça a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}<ChevronRight className="size-4" />
+                Conheça a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}<ChevronRight className="size-4" />
               </a>
             </div>
           </div>
@@ -117,18 +117,18 @@ export default function Corporate() {
               <img
                 src="/logo-sniffer-wordmark.png"
                 alt="Sniffer"
-                style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }}
+                style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }}
               />{' '}
               cria o caminho para ela circular.
             </h2>
             <p className="text-[17px] leading-[1.8] font-light mb-6" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
               Somos a plataforma que resolveu algo simples, mas esquecido pela tecnologia: a indicação de quem a gente confia vale mais do que qualquer anúncio. Enquanto redes tradicionais vendem visibilidade para quem paga mais, a{' '}
-              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}
+              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}
               está construindo uma rede baseada em confiança — onde pessoas recomendam de verdade, com nome, com rosto e com responsabilidade.
             </p>
             <p className="text-[17px] leading-[1.8] font-light" style={{ color: 'rgba(45,47,94,0.65)', maxWidth: '540px' }}>
               Na{' '}
-              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />,{' '}
+              <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />,{' '}
               cada pessoa tem seus 7 Xodós: espaços no perfil para declarar publicamente sua confiança nos lugares que ama. Aqui, recomendações não se perdem em algoritmos. Elas ganham alcance, conectam vizinhos e levam pessoas reais até negócios que merecem ser descobertos. Não reinventamos o boca a boca. Estamos dando estrutura para ele crescer — e escala para ele voltar a mover o que está ao seu redor.
             </p>
           </Reveal>
@@ -161,10 +161,10 @@ export default function Corporate() {
               Feita pra quem já constrói o bairro e quer ir além.
             </h2>
             <p className="text-[17px] leading-[1.8] font-semibold mb-6" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '520px' }}>
-              Você já organiza o churrasco do prédio, já criou o grupo do condomínio, já indicou o melhor restaurante pra todo mundo. Você é quem conecta as pessoas ao redor. A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}foi construída pra gente como você, e te dá as ferramentas que nenhum grupo de mensagens consegue oferecer.
+              Você já organiza o churrasco do prédio, já criou o grupo do condomínio, já indicou o melhor restaurante pra todo mundo. Você é quem conecta as pessoas ao redor. A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}foi construída pra gente como você, e te dá as ferramentas que nenhum grupo de mensagens consegue oferecer.
             </p>
             <p className="text-[17px] leading-[1.8] font-semibold" style={{ color: 'rgba(255,255,255,0.90)', maxWidth: '520px' }}>
-              Na{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />, você não é só mais um membro. Você é o Conectador: a pessoa que transforma vizinhos em comunidade, que dá voz ao comércio local, que faz o bairro funcionar como rede. E agora, tudo isso tem nome, tem estrutura e tem alcance.
+              Na{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />, você não é só mais um membro. Você é o Conectador: a pessoa que transforma vizinhos em comunidade, que dá voz ao comércio local, que faz o bairro funcionar como rede. E agora, tudo isso tem nome, tem estrutura e tem alcance.
             </p>
           </Reveal>
 
@@ -200,7 +200,7 @@ export default function Corporate() {
               Tudo o que você precisa pra fazer seu bairro pulsar.
             </h2>
             <p className="text-[17px] leading-[1.75] font-light mb-16" style={{ color: 'rgba(45,47,94,0.60)', maxWidth: '520px' }}>
-              Cada ferramenta da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}foi desenhada pra quem vive a comunidade de verdade, não pra quem assiste de longe.
+              Cada ferramenta da{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}foi desenhada pra quem vive a comunidade de verdade, não pra quem assiste de longe.
             </p>
           </Reveal>
           <Reveal>
@@ -257,7 +257,7 @@ export default function Corporate() {
               Cada camada resolve um problema real.
             </h2>
             <p className="text-[20px] leading-[1.75] font-light" style={{ color: 'rgba(45,47,94,0.60)', maxWidth: '540px' }}>
-              A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}é construída em camadas que trabalham juntas. Cada uma entrega valor sozinha, e todas se alimentam entre si.
+              A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(600%) hue-rotate(215deg) brightness(85%)' }} />{' '}é construída em camadas que trabalham juntas. Cada uma entrega valor sozinha, e todas se alimentam entre si.
             </p>
           </Reveal>
 
@@ -293,7 +293,7 @@ export default function Corporate() {
                 Seu bairro merece uma <span style={{ color: '#50F296' }}>comunidade real.</span>
               </h2>
               <p className="text-base leading-[1.7] font-light mx-auto mb-10 relative z-[2]" style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '440px' }}>
-                A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}está chegando. Assuma a liderança e crie a rede da sua vizinhança.
+                A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}está chegando. Assuma a liderança e crie a rede da sua vizinhança.
               </p>
               <div className="flex gap-4 justify-center items-center flex-wrap relative z-[2]">
                 <a href="/cadastro?mode=comunidade" className="inline-flex items-center gap-2.5 text-[15px] font-medium text-white bg-[#2D2F5E] px-9 py-4 rounded-full no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,47,94,0.25)]">
@@ -315,7 +315,7 @@ export default function Corporate() {
             <img src="/logo-sniffer-white.png" alt="Sniffer" className="h-6 w-auto" />
           </a>
           <div className="flex items-center gap-6 text-[13px]" style={{ color: 'rgba(255,255,255,0.70)' }}>
-            <span>© 2026{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '0.85em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)', opacity: 0.7 }} /></span>
+            <span>© 2026{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)', opacity: 0.7 }} /></span>
 
             <a href="#" className="no-underline transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.70)' }}>Contato</a>
           </div>
