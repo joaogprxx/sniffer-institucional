@@ -183,16 +183,16 @@ export default function Business() {
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 {[
-                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.' },
-                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.' },
-                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.' },
-                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.' },
-                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.' },
-                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.' },
+                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
+                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
+                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
+                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
+                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
+                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
                 ].map((item) => (
                   <a
                     key={item.name}
-                    href="/cadastro?mode=business"
+                    href={item.href}
                     style={{ padding: '20px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(10,166,137,0.40)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.09)'; }}

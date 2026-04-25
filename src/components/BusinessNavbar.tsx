@@ -213,7 +213,7 @@ export function BusinessNavbar() {
                   {solutionsItems.map(item => (
                     <a
                       key={item.label}
-                      href="/cadastro?mode=business"
+                      href={item.href}
                       onClick={() => setSolutionsOpen(false)}
                       style={{
                         display: 'flex',
@@ -463,7 +463,7 @@ export function BusinessNavbar() {
                             {solutionsItems.map(item => (
                               <li key={item.label}>
                                 <a
-                                  href="/cadastro?mode=business"
+                                  href={item.href}
                                   onClick={() => { setMobileOpen(false); setMobileSolutionsOpen(false); }}
                                   style={{
                                     display: 'flex',
