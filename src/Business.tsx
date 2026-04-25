@@ -2,7 +2,7 @@
  * Sniffer Business Landing Page
  */
 import { useState, useEffect, useRef, type CSSProperties, type ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Menu, X, Shield, ChevronDown, ChevronLeft, ChevronRight, Check as CheckIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { pageVariants, pageTransition } from './pageTransition';
@@ -190,9 +190,9 @@ export default function Business() {
                   { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
                   { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
                 ].map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     style={{ padding: '20px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(10,166,137,0.40)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.09)'; }}
@@ -200,7 +200,7 @@ export default function Business() {
                     <span style={{ fontSize: '22px', display: 'block', marginBottom: '10px' }}>{item.icon}</span>
                     <span style={{ fontSize: '14px', fontWeight: 800, color: '#FFFFFF', display: 'block', marginBottom: '6px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
                     <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <p style={{ margin: '28px 0 0', fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>

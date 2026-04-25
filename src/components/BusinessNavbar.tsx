@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, CSSProperties } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -211,9 +211,9 @@ export function BusinessNavbar() {
                   alignContent: 'start',
                 }}>
                   {solutionsItems.map(item => (
-                    <a
+                    <Link
                       key={item.label}
-                      href={item.href}
+                      to={item.href}
                       onClick={() => setSolutionsOpen(false)}
                       style={{
                         display: 'flex',
@@ -248,7 +248,7 @@ export function BusinessNavbar() {
                           display: 'block',
                         }}>{item.desc}</span>
                       </span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -462,8 +462,8 @@ export function BusinessNavbar() {
                           <ul style={{ listStyle: 'none', margin: 0, padding: '4px 0 8px' }}>
                             {solutionsItems.map(item => (
                               <li key={item.label}>
-                                <a
-                                  href={item.href}
+                                <Link
+                                  to={item.href}
                                   onClick={() => { setMobileOpen(false); setMobileSolutionsOpen(false); }}
                                   style={{
                                     display: 'flex',
@@ -494,7 +494,7 @@ export function BusinessNavbar() {
                                       {item.desc}
                                     </span>
                                   </span>
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
