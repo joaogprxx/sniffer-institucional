@@ -222,11 +222,11 @@ export default function Business() {
               A vitrine completa do seu negócio
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
-              O Business Card é o coração do Sniffer Business. Mais que um perfil — é um hub completo entre você e seu cliente.
+              O Perfil do Negócio é o coração do Sniffer Business. Mais que um perfil — é uma central completa que transforma o interesse do bairro em movimento no seu caixa.
             </p>
             <ul className="space-y-4">
               {[
-                'Links diretos: compra, reserva, WhatsApp, delivery',
+                'Links diretos: compra, reserva, WhatsApp, pedidos',
                 'Fotos, vídeos e cardápio em feed interativo',
                 'Avaliações verificadas com sistema antifraude',
                 'Localização, horários e dados operacionais em tempo real',
