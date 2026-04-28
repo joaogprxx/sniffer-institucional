@@ -1,0 +1,38 @@
+<svg width="280" height="570" viewBox="0 0 280 570" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Mask: white = visible (frame), black = hidden (screen cutout) -->
+    <mask id="screenCutout">
+      <rect width="280" height="570" fill="white"/>
+      <rect x="7" y="7" width="266" height="556" rx="46" ry="46" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- iPhone 17 outer body with screen cutout -->
+  <rect x="0" y="0" width="280" height="570" rx="52" ry="52" fill="#1a1a1e" mask="url(#screenCutout)"/>
+  
+  <!-- Subtle titanium edge highlight -->
+  <rect x="0.5" y="0.5" width="279" height="569" rx="51.5" ry="51.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  
+  <!-- Inner bezel ring -->
+  <rect x="6" y="6" width="268" height="558" rx="47" ry="47" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+
+  <!-- Dynamic Island (smaller pill - iPhone 17 redesign) -->
+  <rect x="107" y="14" width="66" height="22" rx="11" fill="#1a1a1e"/>
+  <!-- Dynamic Island inner shadow -->
+  <rect x="108" y="15" width="64" height="20" rx="10" fill="#0d0d0f"/>
+  
+  <!-- Side button (power) right side -->
+  <rect x="278.5" y="140" width="2.5" height="56" rx="1.2" fill="#2a2a2e"/>
+  
+  <!-- Volume up left side -->
+  <rect x="-1" y="120" width="2.5" height="36" rx="1.2" fill="#2a2a2e"/>
+  
+  <!-- Volume down left side -->
+  <rect x="-1" y="168" width="2.5" height="36" rx="1.2" fill="#2a2a2e"/>
+  
+  <!-- Action button left side -->
+  <rect x="-1" y="96" width="2.5" height="20" rx="1.2" fill="#2a2a2e"/>
+  
+  <!-- Bottom indicator bar (like home indicator) - cosmetic -->
+  <rect x="105" y="550" width="70" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+</svg>

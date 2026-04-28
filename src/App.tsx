@@ -276,21 +276,60 @@ export default function App() {
             </div>
 
             <div className="hidden md:block" style={{ position: 'relative', minHeight: '540px' }}>
-              <div style={{ position: 'absolute', inset: '4% 10% 10% 8%', borderRadius: '40px', background: 'radial-gradient(circle, rgba(40,35,75,0.16) 0%, rgba(40,35,75,0.05) 40%, transparent 70%)', filter: 'blur(20px)', zIndex: 0 }} />
-              <div style={{ position: 'absolute', right: '10px', top: '12px', width: 'min(260px,100%)', background: 'rgba(17,16,38,0.96)', borderRadius: '40px', padding: '14px', boxShadow: '0 30px 80px rgba(40,35,75,0.28)', zIndex: 2 }}>
-                <div style={{ width: '34%', height: '28px', background: '#111026', borderRadius: '0 0 18px 18px', margin: '-2px auto 10px' }} />
-                <div style={{ borderRadius: '28px', minHeight: '400px', overflow: 'hidden' }}>
-                  <img src="/AppScreenshot.png" alt="App Sniffer" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+              {/* Shadow glow behind phone */}
+              <div style={{ position: 'absolute', inset: '4% 10% 10% 8%', borderRadius: '52px', background: 'radial-gradient(circle, rgba(40,35,75,0.20) 0%, rgba(40,35,75,0.06) 40%, transparent 70%)', filter: 'blur(24px)', zIndex: 0 }} />
+
+              {/* iPhone 17 mockup */}
+              <div style={{ position: 'absolute', right: '10px', top: '12px', width: '280px', height: '570px', zIndex: 2 }}>
+                {/* Screenshot inside the screen */}
+                <div style={{
+                  position: 'absolute',
+                  top: '7px', left: '7px',
+                  width: '266px', height: '556px',
+                  borderRadius: '46px',
+                  overflow: 'hidden',
+                  zIndex: 1,
+                }}>
+                  <img
+                    src="/AppScreenshot.png"
+                    alt="App Sniffer"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'top center',
+                      display: 'block',
+                    }}
+                  />
                 </div>
+
+                {/* iPhone 17 frame overlay */}
+                <img
+                  src="/iphone17-frame.svg"
+                  alt=""
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    top: 0, left: 0,
+                    width: '280px',
+                    height: '570px',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                    filter: 'drop-shadow(0 30px 80px rgba(40,35,75,0.32))',
+                  }}
+                />
               </div>
-              <div style={{ position: 'absolute', left: 0, bottom: '120px', width: '220px', padding: '16px', borderRadius: '24px', zIndex: 3, background: 'rgba(255,255,255,0.95)', border: `1px solid ${line}`, boxShadow: shadowSoft }}>
+
+              {/* Floating card — left top (now Gente de verdade) */}
+              <div style={{ position: 'absolute', left: '-10px', top: '40px', width: '200px', padding: '16px', borderRadius: '20px', zIndex: 3, background: 'rgba(255,255,255,0.95)', border: `1px solid ${line}`, boxShadow: shadowSoft }}>
+                <strong style={{ display: 'block', fontSize: '14px', marginBottom: '6px', color: navy }}>Gente de verdade</strong>
+                <p style={{ color: muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>Perfis, lugares e recomendações validados por quem realmente vive o bairro.</p>
+              </div>
+              {/* Floating card — left bottom (now Hoje à noite) */}
+              <div style={{ position: 'absolute', left: '10px', bottom: '80px', width: '220px', padding: '16px', borderRadius: '24px', zIndex: 3, background: 'rgba(255,255,255,0.95)', border: `1px solid ${line}`, boxShadow: shadowSoft }}>
                 <strong style={{ display: 'block', fontSize: '15px', marginBottom: '6px', color: navy }}>Hoje à noite</strong>
                 <p style={{ color: muted, margin: '0 0 10px', fontSize: '13px', lineHeight: 1.5 }}>Encontro aberto com pessoas e negócios locais</p>
                 <span style={{ display: 'inline-flex', padding: '6px 12px', borderRadius: '999px', background: navy, color: '#f2f2f2', fontSize: '12px', fontWeight: 700 }}>Evento em destaque</span>
-              </div>
-              <div style={{ position: 'absolute', right: '-8px', bottom: '20px', width: '200px', padding: '16px', borderRadius: '20px', zIndex: 3, background: 'rgba(255,255,255,0.95)', border: `1px solid ${line}`, boxShadow: shadowSoft }}>
-                <strong style={{ display: 'block', fontSize: '14px', marginBottom: '6px', color: navy }}>Gente de verdade</strong>
-                <p style={{ color: muted, margin: 0, fontSize: '13px', lineHeight: 1.5 }}>Perfis, lugares e recomendações validados por quem realmente vive o bairro.</p>
               </div>
             </div>
           </div>
