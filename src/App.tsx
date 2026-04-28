@@ -543,8 +543,8 @@ export default function App() {
         {/* Logo + tagline centralizados */}
         <div className={shell} style={{ padding: '48px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '12px' }}>
-            <img src="/mascote-white.png" alt="Sniffer mascote" style={{ height: '44px', width: 'auto' }} />
-            <img src="/logo-sniffer-marca-white.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+            <img src="/mascote-white.png" alt="Sniffer mascote" style={{ height: '72px', width: 'auto' }} />
+            <img src="/logo-sniffer-marca-white.png" alt="Sniffer" style={{ height: '46px', width: 'auto' }} />
           </div>
           <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)', textAlign: 'center' }}>
             Comunidade – <span style={{ fontFamily: "'Buasley', cursive", fontSize: '18px', color: '#fff' }}>experiência</span> – Comodidade
