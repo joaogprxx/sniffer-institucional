@@ -225,7 +225,7 @@ export default function App() {
       }}>
         <div className={shell} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
           <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}>
-            <img src="/mascote-navbar.png" alt="Sniffer" style={{ height: '38px', width: 'auto' }} />
+            <img src="/logo-sniffer.png" alt="Sniffer" style={{ height: '38px', width: 'auto' }} />
             <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '20px', width: 'auto', maxWidth: '120px', objectFit: 'contain' }} />
           </a>
           <div className="hidden md:block">
