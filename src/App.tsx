@@ -543,7 +543,10 @@ export default function App() {
         <div className={shell} style={{ padding: '48px 0 36px' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8">
             <div className="sm:col-span-2 md:col-span-5">
-              <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '32px', width: 'auto', marginBottom: '12px', display: 'block' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <img src="/mascote-white.png" alt="Sniffer mascote" style={{ height: '44px', width: 'auto' }} />
+                <img src="/logo-sniffer-marca-white.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
+              </div>
               <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(255,255,255,0.5)' }}>
                 Comunidade – <span style={{ fontFamily: "'Buasley', cursive", fontSize: '18px', color: '#fff' }}>experiência</span> – Comodidade
               </p>
