@@ -196,13 +196,13 @@ export default function Business() {
 
               <div className="flex flex-col gap-3">
                 {[
-                  { icon: '🔗', name: 'Conectador', desc: 'A preencher', href: '#' },
-                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
-                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
-                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
-                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
-                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
-                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
+                  { icon: '/icone-conectador.png', name: 'Conectador', desc: 'A preencher', href: '#' },
+                  { icon: '/icone-territorio.png', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
+                  { icon: '/spotlight.png', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
+                  { icon: '/icone-uivo.png', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
+                  { icon: '/icone-faro.png', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
+                  { icon: '/icone-matilha.png', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
+                  { icon: '/icone-xodo.png', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
                 ].map(item => (
                   <Link
                     key={item.name}
@@ -211,7 +211,7 @@ export default function Business() {
                     onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.35)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.25)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'; }}
                   >
-                    <span style={{ fontSize: '20px', flexShrink: 0 }}>{item.icon}</span>
+                    <img src={item.icon} alt={item.name} style={{ width: '32px', height: '32px', objectFit: 'contain', flexShrink: 0 }} />
                     <div>
                       <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
                       <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
