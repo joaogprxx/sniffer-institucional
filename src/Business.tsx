@@ -111,20 +111,21 @@ export default function Business() {
             <button
               onClick={() => navigate('/cadastro?mode=business')}
               style={{
-                background: '#00A896',
+                background: '#50F096',
                 border: 'none',
-                borderRadius: '10px',
-                padding: '14px 32px',
+                borderRadius: '40px',
+                padding: '14px 36px',
                 fontFamily: "'Ferom', Inter, sans-serif",
                 fontWeight: 700,
-                fontSize: '16px',
-                color: '#FFFFFF',
+                fontSize: '20px',
+                color: '#28234B',
                 cursor: 'pointer',
                 transition: 'background-color 200ms ease',
                 lineHeight: 1,
+                boxShadow: 'inset 0px -10px 16px 0px rgba(10,166,137,1)',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#009A89'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#00A896'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#3cd87a'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#50F096'; }}
             >
               Faça parte
             </button>
@@ -145,8 +146,8 @@ export default function Business() {
             {/* Header */}
             <div style={{ marginBottom: '48px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div style={{ width: '48px', height: '3px', background: '#00A896', borderRadius: '2px' }} />
-                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Sobre a plataforma</span>
+                <div style={{ width: '48px', height: '3px', background: '#50F096', borderRadius: '2px' }} />
+                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#50F096', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Sobre a plataforma</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', maxWidth: '18ch', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.2em', lineHeight: 1.1 }}>
                 O que é a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1em', display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: '2px' }} />
@@ -157,7 +158,7 @@ export default function Business() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left — Main narrative */}
             <Reveal delay={100}>
-              <blockquote style={{ margin: '0 0 32px', padding: '0 0 0 24px', borderLeft: '3px solid #00A896', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Ferom', Inter, sans-serif", maxWidth: '32ch' }}>
+              <blockquote style={{ margin: '0 0 32px', padding: '0 0 0 24px', borderLeft: '3px solid #50F096', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Ferom', Inter, sans-serif", maxWidth: '32ch' }}>
                 "Confiança se constrói no bairro, de<br /><span style={{ fontFamily: "'Buasley', cursive" }}>pessoa pra pessoa</span>, olho no olho."
               </blockquote>
               <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
@@ -194,7 +195,7 @@ export default function Business() {
           {/* Left - Text */}
           <Reveal>
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-white" style={{ fontFamily: 'var(--font-jakarta)' }}>
+            <h2 className="text-3xl sm:text-5xl font-semibold mb-4" style={{ fontFamily: 'var(--font-jakarta)', color: '#50F096', fontSize: 'clamp(2rem, 4.5vw, 3.75rem)' }}>
               A vitrine completa do seu negócio
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
@@ -238,7 +239,7 @@ export default function Business() {
                   <span className="bg-navy/5 text-navy/50 text-[10px] font-bold px-2 py-1 rounded-full">WhatsApp</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <button className="bg-tealBusiness text-navy text-xs font-bold py-2 rounded-xl">Pedir agora</button>
+                  <button className="text-xs font-bold py-2 rounded-xl" style={{ background: '#0AA689', color: '#28234B' }}>Pedir agora</button>
                   <button className="border border-navy/10 text-navy/60 text-xs font-bold py-2 rounded-xl">Ver cardápio</button>
                 </div>
               </div>
@@ -256,10 +257,10 @@ export default function Business() {
           <Reveal>
             <div style={{ marginBottom: '48px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div style={{ width: '48px', height: '3px', background: '#00A896', borderRadius: '2px' }} />
-                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Produtos</span>
+                <div style={{ width: '48px', height: '3px', background: '#50F096', borderRadius: '2px' }} />
+                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#50F096', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Produtos</span>
               </div>
-              <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', color: '#f2f2f2' }}>OS 7 xodós</h2>
+              <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', letterSpacing: '0.032em' }}><span style={{ color: '#f2f2f2' }}>OS </span><span style={{ color: '#50F096' }}>7 xodós</span></h2>
             </div>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -275,9 +276,9 @@ export default function Business() {
               <Link
                 key={item.name}
                 to={item.href}
-                style={{ padding: '24px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.09)'; }}
+                style={{ padding: '24px', borderRadius: '40px', background: 'rgba(242,242,242,0.25)', border: '1px solid transparent', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.35)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.25)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'; }}
               >
                 <span style={{ fontSize: '24px', display: 'block', marginBottom: '12px' }}>{item.icon}</span>
                 <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', marginBottom: '8px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
@@ -341,7 +342,7 @@ export default function Business() {
                   tagline: 'Pra quem quer se destacar.',
                   cta: 'Quero crescer',
                   style: 'bg-tealBusiness border-transparent shadow-[0_8px_30px_-6px_rgba(0,168,150,0.35)]',
-                  btnStyle: 'bg-white text-tealBusiness hover:bg-white/90',
+                  btnStyle: 'bg-[#28234B] text-white hover:bg-[#1e1c38]',
                   titleStyle: 'text-xl sm:text-2xl font-extrabold text-white',
                   popular: true,
                   light: false,
@@ -412,7 +413,7 @@ export default function Business() {
                     style={{ transform, opacity, zIndex, pointerEvents: isActive ? 'auto' : 'none' }}
                   >
                     {plan.popular && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] sm:text-xs font-extrabold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm tracking-wide transition-transform duration-500 delay-100" style={{ backgroundColor: '#00877A', transform: isActive ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)', opacity: isActive ? 1 : 0 }}>
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs font-extrabold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm tracking-wide transition-transform duration-500 delay-100" style={{ backgroundColor: '#E6F6F5', color: '#28234B', transform: isActive ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)', opacity: isActive ? 1 : 0 }}>
                         MAIS POPULAR
                       </span>
                     )}
@@ -472,10 +473,10 @@ export default function Business() {
           <div className="flex flex-col items-center gap-4 mt-10">
             <button
               onClick={() => navigate('/cadastro?mode=business')}
-              className="px-10 py-4 rounded-2xl font-black text-base text-white transition-all"
-              style={{ background: '#00A896' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#009A89'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#00A896'; }}
+              className="px-10 py-4 rounded-2xl font-black text-base transition-all"
+              style={{ background: '#50F096', color: '#28234B' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#3cd87a'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#50F096'; }}
             >
               Quero fazer parte
             </button>
@@ -484,7 +485,7 @@ export default function Business() {
               onClick={() => setCompareOpen(v => !v)}
               className="flex items-center gap-2 text-sm font-medium transition-colors"
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.50)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#00A896'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#50F096'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.50)'; }}
             >
               {compareOpen ? '▲' : '▼'} Comparar todos os planos
@@ -571,12 +572,12 @@ export default function Business() {
             Comece grátis. Sem contrato. Sem cartão de crédito. Resultado de verdade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <button onClick={() => navigate('/cadastro?mode=business')} className="bg-tealBusiness text-navy px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform shadow-lg shadow-tealBusiness/20">
+            <button onClick={() => navigate('/cadastro?mode=business')} className="px-10 py-4 rounded-full font-extrabold text-lg hover:scale-105 transition-transform" style={{ background: '#50F096', color: '#28234B', boxShadow: 'inset 0px -10px 16px 0px rgba(10,166,137,1)' }}>
               Fazer parte
             </button>
           </div>
           <p className="text-white/40 text-sm mt-6 relative z-10">
-            Ou, se preferir, <a href="#" className="text-tealBusiness hover:underline">fale com a gente →</a>
+            Ou, se preferir, <a href="#" style={{ color: '#50F096' }} className="hover:underline">fale com a gente →</a>
           </p>
         </div>
         </Reveal>
