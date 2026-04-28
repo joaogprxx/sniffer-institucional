@@ -103,13 +103,8 @@ export default function Business() {
       {/* ═══════════════════ SEÇÃO 1 — HERO ═══════════════════ */}
       <section className="pt-28 pb-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.1] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
-            As grandes plataformas te ignoraram.<br />
-            <span style={{ color: '#00A896', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 0, flexWrap: 'wrap' }}>
-              A
-              <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '2.4em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginTop: '-0.7em', marginBottom: '-0.7em', marginLeft: '-0.18em', marginRight: '-0.18em' }} />
-              não.
-            </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-[5rem] font-bold leading-[1.05] mb-6 animate-[fadeUp_0.8s_0.2s_forwards] opacity-0" style={{ fontFamily: 'var(--font-jakarta)', color: '#f2f2f2', maxWidth: '16ch', margin: '0 auto 24px' }}>
+            A plataforma que dá a atenção que o seu negócio merece
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-[fadeUp_0.8s_0.4s_forwards] opacity-0">
@@ -154,7 +149,7 @@ export default function Business() {
                 <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Sobre a plataforma</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', maxWidth: '18ch', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.2em', lineHeight: 1.1 }}>
-                Quem é a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1em', display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: '2px' }} />
+                O que é a <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '1em', display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: '2px' }} />
               </h2>
             </div>
           </Reveal>
@@ -176,34 +171,15 @@ export default function Business() {
               </p>
             </Reveal>
 
-            {/* Right — Product features grid */}
+            {/* Right — Closing narrative */}
             <Reveal delay={200}>
               <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Para você, dono de negócio, a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver. É uma <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>plataforma completa de presença, atendimento e inteligência</strong> — tudo num lugar só.
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                {[
-                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
-                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
-                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
-                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
-                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
-                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
-                ].map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    style={{ padding: '20px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(10,166,137,0.40)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.09)'; }}
-                  >
-                    <span style={{ fontSize: '22px', display: 'block', marginBottom: '10px' }}>{item.icon}</span>
-                    <span style={{ fontSize: '14px', fontWeight: 800, color: '#FFFFFF', display: 'block', marginBottom: '6px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
-                    <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
-                  </Link>
-                ))}
-              </div>
-              <p style={{ margin: '28px 0 0', fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <p style={{ margin: '0 0 32px', fontSize: '40px', fontWeight: 500, color: '#50f096', lineHeight: 1.3, fontFamily: "'Ferom', Inter, sans-serif" }}>
+                Quando alguém coloca o seu negócio ali, essa recomendação não some em um vácuo digital.
+              </p>
+              <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>
                 A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.
               </p>
             </Reveal>
@@ -271,6 +247,48 @@ export default function Business() {
           </Reveal>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
+
+      {/* ═══════════════════ SEÇÃO — OS 7 XODÓS ═══════════════════ */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div style={{ marginBottom: '48px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+                <div style={{ width: '48px', height: '3px', background: '#00A896', borderRadius: '2px' }} />
+                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#00A896', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Produtos</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', color: '#f2f2f2' }}>OS 7 xodós</h2>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: '🔗', name: 'Conectador', desc: 'A preencher', href: '#' },
+              { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
+              { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
+              { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
+              { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
+              { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
+              { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
+            ].map(item => (
+              <Link
+                key={item.name}
+                to={item.href}
+                style={{ padding: '24px', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.09)'; }}
+              >
+                <span style={{ fontSize: '24px', display: 'block', marginBottom: '12px' }}>{item.icon}</span>
+                <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', marginBottom: '8px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
+                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
 
       {/* ═══════════════════ SEÇÃO 5 — PLANOS E PREÇOS (CARROSSEL) ═══════════════════ */}
       <section id="planos" className="py-20 sm:py-24 px-4 sm:px-6 overflow-hidden">
@@ -565,19 +583,39 @@ export default function Business() {
       </section>
 
       {/* ═══════════════════ FOOTER ═══════════════════ */}
-      <footer className="border-t border-white/10 py-8 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-white/40 text-sm">
-            <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '32px', width: 'auto' }} />
-            <span className="text-white/30">business</span>
-            <span className="ml-2">© 2026{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)', opacity: 0.4 }} />{' '}Business. Belo Horizonte, MG.</span>
+      <footer style={{ background: '#50f096', color: '#28234b', fontSize: '14px' }}>
+        <div className="w-[min(calc(100%-32px),1180px)] mx-auto" style={{ padding: '48px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+            <img src="/mascote-colorido.png" alt="Sniffer mascote" style={{ height: '72px', width: 'auto' }} />
+            <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '46px', width: 'auto' }} />
           </div>
-          <div className="flex items-center gap-6 text-sm text-white/50">
-            <a href="#" className="hover:text-tealBusiness transition-colors">Termos</a>
-            <a href="#" className="hover:text-tealBusiness transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-tealBusiness transition-colors">Contato</a>
-            <a href="/people" className="hover:text-tealBusiness transition-colors font-medium">← Voltar para sniffer.app</a>
+          <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(40,35,75,0.7)', textAlign: 'center' }}>
+            Comunidade – <span style={{ fontFamily: "'Buasley', cursive", fontSize: '18px', color: '#28234b' }}>experiência</span> – comodidade
+          </p>
+        </div>
+        <div className="w-[min(calc(100%-32px),1180px)] mx-auto" style={{ padding: '40px 0 36px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              { label: 'PRODUTO', links: ['Pessoas', 'Negócios', 'Comunidade', 'Early Adopters'] },
+              { label: 'EMPRESA', links: ['Quem Somos', 'Cadastro', 'Contato'] },
+              { label: 'LEGAL', links: ['Termos de Uso', 'Privacidade', 'Cookies'] },
+            ].map(col => (
+              <div key={col.label}>
+                <strong style={{ display: 'block', color: 'rgba(40,35,75,0.4)', fontSize: '11px', letterSpacing: '0.1em', marginBottom: '16px' }}>{col.label}</strong>
+                {col.links.map(l => (
+                  <a key={l} href="#" style={{ display: 'block', color: 'rgba(40,35,75,0.7)', textDecoration: 'none', marginBottom: '10px', fontSize: '14px' }}>{l}</a>
+                ))}
+              </div>
+            ))}
           </div>
+        </div>
+        <div className="w-[min(calc(100%-32px),1180px)] mx-auto" style={{ borderTop: '1px solid rgba(40,35,75,0.15)', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'rgba(40,35,75,0.6)' }}>
+            © 2026 <img src="/logo-sniffer-white.png" alt="Sniffer" style={{ height: '14px', width: 'auto', opacity: 0.4 }} /> · Todos os direitos reservados.
+          </span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', color: 'rgba(40,35,75,0.6)' }}>
+            Feito com <span style={{ color: '#28234b', margin: '0 2px' }}>♥</span> no Brasil
+          </span>
         </div>
       </footer>
     </motion.div>
