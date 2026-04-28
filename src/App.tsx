@@ -489,7 +489,7 @@ export default function App() {
               {/* Quote — large headline */}
               <div style={{ margin: '0 0 48px', paddingLeft: '24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px,3.6vw,52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#fff', maxWidth: '22ch', fontFamily: "'Ferom', sans-serif" }}>
                 "Seu <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400 }}>bairro</span> tem voz. Com a{' '}
-                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.2em', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }} />,{' '}
+                <img src="/logo-sniffer-marca-white.png" alt="Sniffer" style={{ height: '1.2em', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }} />,{' '}
                 tem <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400 }}>presença."</span>
               </div>
 
@@ -542,7 +542,7 @@ export default function App() {
       <footer style={{ background: navy, color: 'rgba(255,255,255,0.45)', fontSize: '14px' }}>
         <div className={shell} style={{ padding: '48px 0 36px' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8">
-            <div className="sm:col-span-2 md:col-span-5">
+            <div className="sm:col-span-2 md:col-span-5" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '12px' }}>
                 <img src="/mascote-white.png" alt="Sniffer mascote" style={{ height: '44px', width: 'auto' }} />
                 <img src="/logo-sniffer-marca-white.png" alt="Sniffer" style={{ height: '28px', width: 'auto' }} />
