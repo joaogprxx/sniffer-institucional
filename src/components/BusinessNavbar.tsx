@@ -70,7 +70,10 @@ export function BusinessNavbar() {
     >
       {/* ── Mobile header row ── */}
       <div className="lg:hidden flex items-center justify-between" style={{ padding: '0 20px', height: '96px' }}>
-        {/* Center — logo */}
+        {/* Left spacer — keeps logo centered and hamburger on the right */}
+        <div style={{ width: '36px', flexShrink: 0 }} />
+
+        {/* Center — logo (absolute) */}
         <a href="/business" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
           <img src="/MARCA_SNIFFER-teal-principal.png" alt="Sniffer" style={{ height: '64px', width: 'auto' }} />
         </a>
@@ -80,9 +83,9 @@ export function BusinessNavbar() {
           aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(v => !v)}
-          style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}
+          style={{ background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '8px', cursor: 'pointer', padding: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF', flexShrink: 0 }}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
