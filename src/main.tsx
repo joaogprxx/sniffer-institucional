@@ -29,7 +29,7 @@ function AnimatedRoutes() {
       <ScrollToTop />
       {/* Toggle lives here — outside AnimatePresence, always mounted, never destroyed.
           This is what makes the pill animation fluid across page transitions. */}
-      {location.pathname !== '/cadastro' && <Toggle />}
+      {location.pathname !== '/cadastro' && !location.pathname.startsWith('/people') && <Toggle />}
       <AnimatePresence mode="wait" initial={false}>
         {/* @ts-ignore */}
         <Routes location={location} key={location.pathname}>
