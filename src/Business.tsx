@@ -156,7 +156,7 @@ export default function Business() {
           </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Left — Main narrative */}
+            {/* Left — Full narrative */}
             <Reveal delay={100}>
               <blockquote style={{ margin: '0 0 32px', padding: '0 0 0 24px', borderLeft: '3px solid #50F096', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Ferom', Inter, sans-serif", maxWidth: '32ch' }}>
                 "Confiança se constrói no bairro, de<br /><span style={{ fontFamily: "'Buasley', cursive" }}>pessoa pra pessoa</span>, olho no olho."
@@ -164,25 +164,61 @@ export default function Business() {
               <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}é uma plataforma de descoberta hiperlocal construída sobre um princípio que o dono de negócio conhece melhor do que ninguém: confiança se constrói no bairro, de pessoa pra pessoa, olho no olho.
               </p>
-              <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Enquanto outras plataformas vendem visibilidade baseada em quem paga mais, a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}criou um ecossistema onde as pessoas recomendam de verdade — com nome, com rosto e com limite. Cada usuário tem apenas <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>7 Xodós</strong>: espaços no perfil onde ele declara publicamente em quem confia.
               </p>
-              <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <p style={{ margin: '0 0 32px', fontSize: '32px', fontWeight: 500, color: '#50f096', lineHeight: 1.3, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Quando alguém coloca o seu negócio ali, essa recomendação não some em um vácuo digital.
               </p>
-            </Reveal>
-
-            {/* Right — Closing narrative */}
-            <Reveal delay={200}>
-              <p style={{ margin: '0 0 32px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
+              <p style={{ margin: '0 0 24px', fontSize: '17px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.85, fontFamily: "'Ferom', Inter, sans-serif" }}>
                 Para você, dono de negócio, a{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}não é mais uma rede social pra você alimentar com conteúdo e torcer pra alguém ver. É uma <strong style={{ color: '#FFFFFF', fontWeight: 700 }}>plataforma completa de presença, atendimento e inteligência</strong> — tudo num lugar só.
-              </p>
-              <p style={{ margin: '0 0 32px', fontSize: '40px', fontWeight: 500, color: '#50f096', lineHeight: 1.3, fontFamily: "'Ferom', Inter, sans-serif" }}>
-                Quando alguém coloca o seu negócio ali, essa recomendação não some em um vácuo digital.
               </p>
               <p style={{ margin: 0, fontSize: '17px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontStyle: 'italic', fontFamily: "'Ferom', Inter, sans-serif" }}>
                 A{' '}<img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '1.05em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.12em', filter: 'brightness(0) invert(1)' }} />{' '}nasceu no Brasil, fala a língua do pequeno e médio negócio, e existe pra uma coisa só: transformar a confiança que você já construiu no seu bairro em presença digital, receita e crescimento real.
               </p>
+            </Reveal>
+
+            {/* Right — Blockquote 2 + OS 7 XODÓS */}
+            <Reveal delay={200}>
+              <blockquote style={{ margin: '0 0 40px', padding: '0 0 0 24px', borderLeft: '3px solid #50F096', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 400, lineHeight: 1.5, color: '#FFFFFF', fontFamily: "'Ferom', Inter, sans-serif", maxWidth: '32ch' }}>
+                Tudo o que você precisa para atrair{' '}<span style={{ fontFamily: "'Buasley', cursive", color: '#50F096' }}>novos clientes</span>.
+              </blockquote>
+
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ width: '48px', height: '3px', background: '#50F096', borderRadius: '2px' }} />
+                  <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#50F096', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Produtos</span>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', letterSpacing: '0.032em' }}>
+                  <span style={{ color: '#f2f2f2' }}>OS </span><span style={{ color: '#50F096' }}>7 xodós</span>
+                </h3>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                {[
+                  { icon: '🔗', name: 'Conectador', desc: 'A preencher', href: '#' },
+                  { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
+                  { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
+                  { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
+                  { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
+                  { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
+                  { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
+                ].map(item => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    style={{ padding: '16px 20px', borderRadius: '40px', background: 'rgba(242,242,242,0.25)', border: '1px solid transparent', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '16px', transition: 'background 200ms ease, border-color 200ms ease' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.35)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.25)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'; }}
+                  >
+                    <span style={{ fontSize: '20px', flexShrink: 0 }}>{item.icon}</span>
+                    <div>
+                      <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
+                      <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </Reveal>
           </div>
         </div>
@@ -246,46 +282,6 @@ export default function Business() {
             </div>
           </div>
           </Reveal>
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4"><hr className="border-white/10" /></div>
-
-      {/* ═══════════════════ SEÇÃO — OS 7 XODÓS ═══════════════════ */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <Reveal>
-            <div style={{ marginBottom: '48px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div style={{ width: '48px', height: '3px', background: '#50F096', borderRadius: '2px' }} />
-                <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '0.12em', color: '#50F096', fontFamily: "'Ferom', Inter, sans-serif", textTransform: 'uppercase' as const }}>Produtos</span>
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'var(--font-jakarta)', letterSpacing: '0.032em' }}><span style={{ color: '#f2f2f2' }}>OS </span><span style={{ color: '#50F096' }}>7 xodós</span></h2>
-            </div>
-          </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { icon: '🔗', name: 'Conectador', desc: 'A preencher', href: '#' },
-              { icon: '📍', name: 'Meu Território', desc: 'Seu perfil aparece na busca e no mapa pra quem está perto.', href: '/business/territorio' },
-              { icon: '💡', name: 'Spotlight', desc: 'Sua promoção na frente das pessoas certas, na hora certa.', href: '/business/spotlight' },
-              { icon: '📣', name: 'Uivo', desc: 'Canal de conversa direta com quem te procura.', href: '/business/uivo' },
-              { icon: '📊', name: 'Faro', desc: 'Inteligência real para você saber exatamente o que traz o cliente para a sua porta.', href: '/business/faro' },
-              { icon: '🐺', name: 'Matilha', desc: 'Espaço privado pra criar uma comunidade fiel.', href: '/business/matilha' },
-              { icon: '❤️', name: 'Xodó', desc: 'Recomendações genuínas que trabalham a seu favor.', href: '/business/xodos' },
-            ].map(item => (
-              <Link
-                key={item.name}
-                to={item.href}
-                style={{ padding: '24px', borderRadius: '40px', background: 'rgba(242,242,242,0.25)', border: '1px solid transparent', textDecoration: 'none', display: 'block', transition: 'background 200ms ease, border-color 200ms ease' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.35)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.25)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'; }}
-              >
-                <span style={{ fontSize: '24px', display: 'block', marginBottom: '12px' }}>{item.icon}</span>
-                <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', marginBottom: '8px', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
