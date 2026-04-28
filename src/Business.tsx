@@ -583,8 +583,8 @@ export default function Business() {
       <footer style={{ background: '#50f096', color: '#28234b', fontSize: '14px' }}>
         <div className="w-[min(calc(100%-32px),1180px)] mx-auto" style={{ padding: '48px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-            <img src="/mascote-colorido.png" alt="Sniffer mascote" style={{ height: '72px', width: 'auto' }} />
-            <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '46px', width: 'auto' }} />
+            <img src="/mascote-navbar.png" alt="Sniffer mascote" style={{ height: '72px', width: 'auto' }} />
+            <img src="/logo-sniffer-wordmark.png" alt="Sniffer" style={{ height: '46px', width: 'auto' }} />
           </div>
           <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.65, maxWidth: '30ch', color: 'rgba(40,35,75,0.7)', textAlign: 'center' }}>
             Comunidade – <span style={{ fontFamily: "'Buasley', cursive", fontSize: '18px', color: '#28234b' }}>experiência</span> – comodidade
