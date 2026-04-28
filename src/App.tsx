@@ -472,6 +472,8 @@ export default function App() {
 
         {/* ── De Vizinho para Vizinho ── */}
         <section style={{ padding: 'clamp(60px,8vw,100px) 0', background: navy, position: 'relative', overflow: 'hidden' }}>
+          {/* Radial glow */}
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 50%, rgba(80,240,150,0.08) 0%, transparent 60%)', pointerEvents: 'none' }} />
           <div className={shell} style={{ position: 'relative', zIndex: 1 }}>
             <motion.div
               initial={{ opacity: 0, y: 48 }}
@@ -479,38 +481,49 @@ export default function App() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
+              {/* Tag */}
               <div style={{ display: 'inline-flex', alignItems: 'center', padding: '6px 16px', borderRadius: '999px', background: green, marginBottom: '36px' }}>
-                <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em', color: navy }}>DE VIZINHO PARA VIZINHO</span>
+                <span style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em', color: navy, fontFamily: "'Ferom', sans-serif" }}>DE VIZINHO PARA VIZINHO</span>
               </div>
-              <blockquote style={{ margin: '0 0 48px', padding: '0 0 0 24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px,3.6vw,52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#fff', maxWidth: '22ch' }}>
+
+              {/* Quote — large headline */}
+              <div style={{ margin: '0 0 48px', paddingLeft: '24px', borderLeft: `3px solid ${green}`, fontSize: 'clamp(28px,3.6vw,52px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', color: '#fff', maxWidth: '22ch', fontFamily: "'Ferom', sans-serif" }}>
                 "Seu <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400 }}>bairro</span> tem voz. Com a{' '}
-                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.2em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />,{' '}
+                <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.2em', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }} />,{' '}
                 tem <span style={{ fontFamily: "'Buasley', cursive", fontWeight: 400 }}>presença."</span>
-              </blockquote>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '64ch', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
-                <p style={{ margin: 0 }}>
+              </div>
+
+              {/* Body paragraphs */}
+              <div style={{ maxWidth: '64ch' }}>
+                <p style={{ margin: '0 0 20px', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                   Você lembra quando conhecer um lugar bom era simples? Alguém de confiança te puxava pelo braço e dizia:{' '}
                   <em style={{ color: '#fff' }}>"Vem comigo, você precisa conhecer esse lugar."</em>{' '}
                   Não tinha feed, não tinha anúncio. Tinha gente olhando nos olhos e dividindo o que amava no bairro.
                 </p>
-                <p style={{ margin: 0 }}>
+                <p style={{ margin: '0 0 20px', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                   Esse saber não desapareceu. Ele só ficou sem caminho pra circular. Está no Seu Carlos que conhece cada esquina do Bixiga, na Dona Marta que sabe qual feira monta mais cedo, no amigo que sempre descobre o restaurante antes de todo mundo.
                 </p>
-                <p style={{ margin: 0, color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive" }}>
-                  A{' '}
-                  <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1.1em', width: 'auto', display: 'inline', verticalAlign: 'middle', marginBottom: '0.1em' }} />{' '}
-                  te mostra o caminho.
-                </p>
-                <p style={{ margin: 0 }}>
+
+                {/* Buasley highlight — isolated block to avoid flex wrapping artifacts */}
+                <div style={{ margin: '0 0 20px', display: 'block', overflow: 'hidden' }}>
+                  <span style={{ color: green, fontWeight: 400, fontSize: '22px', fontFamily: "'Buasley', cursive", display: 'block', lineHeight: 1.5 }}>
+                    A{' '}
+                    <img src="/MARCA%20SNIFFER%20-%20ROTA%20PULSANTE%20-%20RGB.png" alt="Sniffer" style={{ height: '1em', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }} />
+                    {' '}te mostra o caminho.
+                  </span>
+                </div>
+
+                <p style={{ margin: '0 0 20px', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                   A gente pega esse conhecimento que já existe — vivo, real, espalhado por milhares de pessoas — e dá mobilidade pra ele correr de vizinho pra vizinho, de bairro pra bairro.
                 </p>
-                <p style={{ margin: 0 }}>
+                <p style={{ margin: '0 0 20px', color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.8 }}>
                   Tecnologia aqui não substitui ninguém. Ela só garante que quando a Dona Marta indicar a melhor coxinha da rua dela, essa indicação chegue até você antes que o lugar feche.
                 </p>
-                <p style={{ margin: 0, fontWeight: 700, color: '#fff' }}>
+                <p style={{ margin: 0, fontWeight: 700, color: green, fontSize: '17px', lineHeight: 1.8 }}>
                   Seu bairro sempre teve voz. Agora ele tem presença.
                 </p>
               </div>
+
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
