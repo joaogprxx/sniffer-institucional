@@ -211,7 +211,7 @@ export default function Business() {
                     onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.35)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(80,240,150,0.40)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(242,242,242,0.25)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'transparent'; }}
                   >
-                    <img src={item.icon} alt={item.name} style={{ width: '48px', height: '48px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={item.icon} alt={item.name} style={{ height: '48px', width: 'auto', flexShrink: 0 }} />
                     <div>
                       <span style={{ fontSize: '14px', fontWeight: 900, color: '#50f096', display: 'block', fontFamily: "'Ferom', Inter, sans-serif" }}>{item.name}</span>
                       <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontFamily: "'Ferom', Inter, sans-serif" }}>{item.desc}</span>
